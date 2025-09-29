@@ -393,12 +393,19 @@
         }
 
         .leadership-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
+            justify-content: center;
+        }
+
+        .leader-card {
+            width: calc(33.333% - 1.35rem);
+            max-width: 320px;
+            min-width: 280px;
         }
 
         .leader-card {
@@ -488,12 +495,19 @@
         }
 
         .board-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
+            justify-content: center;
+        }
+
+        .board-member {
+            width: calc(33.333% - 1.35rem);
+            max-width: 320px;
+            min-width: 280px;
         }
 
         .board-member {
@@ -921,13 +935,23 @@
             }
 
             .leadership-grid {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-                gap: 1.5rem;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .leader-card {
+                width: 100%;
+                max-width: 280px;
             }
 
             .board-grid {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-                gap: 1.5rem;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .board-member {
+                width: 100%;
+                max-width: 280px;
             }
         }
 
@@ -962,13 +986,15 @@
                 font-size: 1.8rem;
             }
 
-            .leadership-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
+            .leadership-grid,
+            .board-grid {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .board-grid {
-                grid-template-columns: 1fr;
+            .leader-card,
+            .board-member {
+                width: 100%;
                 max-width: 400px;
             }
 
@@ -1001,13 +1027,16 @@
                 font-size: 1.6rem;
             }
 
+            .leadership-grid,
             .board-grid {
-                grid-template-columns: 1fr;
-                max-width: 300px;
+                flex-direction: column;
+                align-items: center;
             }
 
             .leader-card,
             .board-member {
+                width: 100%;
+                max-width: 300px;
                 padding: 1.5rem 1rem;
             }
         }
@@ -1358,6 +1387,7 @@
                             </a>
                         </div>
                     </div>
+                </div>
             </section>
         </div>
     </main>
