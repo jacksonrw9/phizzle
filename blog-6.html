@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Learn how to successfully integrate LIMS into your laboratory operations. Discover 7 best practices for implementation, from defining requirements to ensuring compliance and optimizing workflows.">
-    <title>Integrating LIMS into Your Operation?? - Phizzle</title>
+    <title>Integrating LIMS into Your Operation? - Phizzle</title>
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-41FB3KKW2T"></script>
@@ -371,6 +371,14 @@
             line-height: 1.3;
         }
 
+        .blog-content h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 1.5rem 0 0.75rem 0;
+            line-height: 1.3;
+        }
+
         .blog-content ul {
             margin: 1.5rem 0;
             padding-left: 2rem;
@@ -615,9 +623,120 @@
             color: #94a3b8;
         }
 
-        /* Mobile/Tablet Responsive Design */
-        @media (max-width: 1350px) {
-            /* Show hamburger menu, hide desktop nav */
+        /* Enhanced Navigation with Progressive Breakpoints */
+        
+        /* Container padding adjustment for smaller screens */
+        @media (max-width: 1600px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        /* Progressive scaling from large to medium screens */
+        @media (max-width: 1500px) and (min-width: 1351px) {
+            .nav-links {
+                gap: 2rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 1350px) and (min-width: 1301px) {
+            .nav-links {
+                gap: 1.8rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+                letter-spacing: 0.4px;
+            }
+
+            .request-demo {
+                padding: 0.45rem 0.9rem !important;
+                font-size: 0.75rem !important;
+            }
+        }
+
+        @media (max-width: 1300px) and (min-width: 1201px) {
+            .nav-links {
+                gap: 1.6rem;
+            }
+
+            .nav-links a {
+                font-size: 0.87rem;
+                letter-spacing: 0.35px;
+            }
+
+            .request-demo {
+                padding: 0.42rem 0.85rem !important;
+                font-size: 0.72rem !important;
+            }
+        }
+
+        @media (max-width: 1200px) and (min-width: 1101px) {
+            .nav-links {
+                gap: 1.4rem;
+            }
+
+            .nav-links a {
+                font-size: 0.84rem;
+                letter-spacing: 0.3px;
+            }
+
+            .request-demo {
+                padding: 0.4rem 0.8rem !important;
+                font-size: 0.7rem !important;
+            }
+
+            .logo {
+                font-size: 1.9rem;
+            }
+
+            .logo img {
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 1100px) and (min-width: 1026px) {
+            .nav-links {
+                gap: 1.2rem;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+                letter-spacing: 0.2px;
+                padding: 0.4rem 0;
+            }
+
+            .request-demo {
+                padding: 0.35rem 0.7rem !important;
+                font-size: 0.65rem !important;
+                letter-spacing: 0.2px !important;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .logo img {
+                height: 28px;
+            }
+
+            .dropdown {
+                min-width: 200px;
+                padding: 0.7rem 0;
+            }
+
+            .dropdown a {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Switch to mobile menu */
+        @media (max-width: 1025px) {
             .nav-links {
                 display: none;
             }
@@ -626,12 +745,14 @@
                 display: block;
             }
 
-            /* Smaller logo on tablet */
             .logo {
                 font-size: 1.6rem;
             }
 
-            /* Footer adjustments */
+            .logo img {
+                height: 24px;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem;
@@ -647,8 +768,11 @@
             }
         }
 
-        /* Mobile Responsive Design (768px and below) */
         @media (max-width: 768px) {
+            .logo {
+                font-size: 1.4rem;
+            }
+
             .nav-container {
                 padding: 0 1rem;
             }
@@ -677,11 +801,14 @@
                 font-size: 1.3rem;
             }
 
+            .blog-content h4 {
+                font-size: 1.1rem;
+            }
+
             .highlight-box {
                 padding: 1.5rem;
             }
 
-            /* Footer mobile */
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -697,7 +824,6 @@
                 gap: 1rem;
             }
 
-            /* Social links mobile sizing */
             .social-link {
                 width: 44px;
                 height: 44px;
@@ -705,7 +831,6 @@
             }
         }
 
-        /* Very small mobile (480px and below) */
         @media (max-width: 480px) {
             .blog-container {
                 padding: 1.5rem 1rem;
@@ -725,6 +850,10 @@
 
             .blog-content h3 {
                 font-size: 1.2rem;
+            }
+
+            .blog-content h4 {
+                font-size: 1.05rem;
             }
 
             .highlight-box {
@@ -977,7 +1106,7 @@
                         </a>
                         <a href="https://www.facebook.com/phizzleinc/" class="social-link facebook">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                             </svg>
                         </a>
                         <a href="https://www.youtube.com/@Phizzle" class="social-link youtube">
@@ -1061,7 +1190,6 @@
             const dropdown = document.getElementById(dropdownId);
             const arrow = event.target.querySelector('.dropdown-arrow');
             
-            // Close all other dropdowns
             const allDropdowns = document.querySelectorAll('.mobile-dropdown');
             const allArrows = document.querySelectorAll('.dropdown-arrow');
             
@@ -1077,30 +1205,25 @@
                 }
             });
             
-            // Toggle current dropdown
             dropdown.classList.toggle('active');
             arrow.classList.toggle('rotated');
         }
 
-        // Close mobile menu when pressing escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeMobileMenu();
             }
         });
 
-        // HubSpot Form Integration
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const email = e.target.querySelector('input[name="email"]').value;
             const submitBtn = e.target.querySelector('button[type="submit"]');
             
-            // Disable button during submission
             submitBtn.textContent = 'Subscribing...';
             submitBtn.disabled = true;
             
-            // Submit to HubSpot
             fetch('https://api.hsforms.com/submissions/v3/integration/submit/8070371/5efde115-8a41-4e38-8176-4b121279ff42', {
                 method: 'POST',
                 headers: {
