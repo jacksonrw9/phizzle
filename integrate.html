@@ -6,12 +6,10 @@
     <meta name="description" content="Phizzle's platform integrates with digital systems like LIMS, MES, and QMS to enable paperless scientific workflows while maintaining compliance with existing SOPs and regulations.">
     <title>Integrate - Phizzle</title>
 
-    <!-- Favicon links -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     <link rel="shortcut icon" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-41FB3KKW2T"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -20,9 +18,7 @@
         gtag('config', 'G-41FB3KKW2T');
     </script>
 
-    <!-- Start of HubSpot Embed Code -->
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/8070371.js"></script>
-    <!-- End of HubSpot Embed Code -->
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -319,6 +315,137 @@
 
         .dropdown-arrow.rotated {
             transform: rotate(180deg);
+        }
+
+        /* Enhanced Navigation with Progressive Breakpoints */
+        
+        /* Container padding adjustment for smaller screens */
+        @media (max-width: 1600px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        /* Progressive scaling from large to medium screens */
+        @media (max-width: 1500px) and (min-width: 1351px) {
+            .nav-links {
+                gap: 2rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 1350px) and (min-width: 1301px) {
+            .nav-links {
+                gap: 1.8rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+                letter-spacing: 0.4px;
+            }
+
+            .request-demo {
+                padding: 0.45rem 0.9rem !important;
+                font-size: 0.75rem !important;
+            }
+        }
+
+        @media (max-width: 1300px) and (min-width: 1201px) {
+            .nav-links {
+                gap: 1.6rem;
+            }
+
+            .nav-links a {
+                font-size: 0.87rem;
+                letter-spacing: 0.35px;
+            }
+
+            .request-demo {
+                padding: 0.42rem 0.85rem !important;
+                font-size: 0.72rem !important;
+            }
+        }
+
+        @media (max-width: 1200px) and (min-width: 1101px) {
+            .nav-links {
+                gap: 1.4rem;
+            }
+
+            .nav-links a {
+                font-size: 0.84rem;
+                letter-spacing: 0.3px;
+            }
+
+            .request-demo {
+                padding: 0.4rem 0.8rem !important;
+                font-size: 0.7rem !important;
+            }
+
+            .logo {
+                font-size: 1.9rem;
+            }
+
+            .logo img {
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 1100px) and (min-width: 1026px) {
+            .nav-links {
+                gap: 1.2rem;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+                letter-spacing: 0.2px;
+                padding: 0.4rem 0;
+            }
+
+            .request-demo {
+                padding: 0.35rem 0.7rem !important;
+                font-size: 0.65rem !important;
+                letter-spacing: 0.2px !important;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .logo img {
+                height: 28px;
+            }
+
+            .dropdown {
+                min-width: 200px;
+                padding: 0.7rem 0;
+            }
+
+            .dropdown a {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Switch to mobile menu */
+        @media (max-width: 1025px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            .logo img {
+                height: 24px;
+            }
         }
 
         /* Main Content */
@@ -862,21 +989,6 @@
 
         /* Mobile/Tablet Responsive Design */
         @media (max-width: 1350px) {
-            /* Show hamburger menu, hide desktop nav */
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            /* Smaller logo on tablet */
-            .logo img {
-                height: 28px;
-            }
-
-            /* Hero section adjustments */
             .hero-section {
                 grid-template-columns: 1fr;
                 gap: 3rem;
@@ -886,13 +998,11 @@
                 font-size: 2.2rem;
             }
 
-            /* Integration steps adjustments */
             .integration-steps {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            /* Feature rows adjustments */
             .feature-row {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -915,7 +1025,6 @@
                 height: 250px;
             }
 
-            /* Footer adjustments */
             .footer-content {
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem;
@@ -931,14 +1040,7 @@
             }
         }
 
-        /* Mobile Responsive Design (768px and below) */
         @media (max-width: 768px) {
-            /* Even smaller logo on mobile */
-            .logo img {
-                height: 24px;
-            }
-
-            /* Hero content centered on mobile */
             .hero-content {
                 text-align: center;
             }
@@ -955,7 +1057,6 @@
                 height: 200px;
             }
 
-            /* Integration section mobile */
             .integration-section h2 {
                 font-size: 1.8rem;
                 text-align: center;
@@ -967,7 +1068,6 @@
                 text-align: center;
             }
 
-            /* Connected plant section mobile */
             .connected-plant-section {
                 margin: 3rem -1rem;
                 padding: 3rem 0;
@@ -990,13 +1090,11 @@
                 height: 150px;
             }
 
-            /* Integration logos mobile */
             .integration-logos {
                 flex-direction: column;
                 gap: 2rem;
             }
 
-            /* Final CTA mobile */
             .final-cta h2 {
                 font-size: 1.7rem;
             }
@@ -1006,7 +1104,6 @@
                 font-size: 0.9rem;
             }
 
-            /* Footer mobile */
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -1022,7 +1119,6 @@
                 gap: 1rem;
             }
 
-            /* Social links mobile sizing */
             .social-link {
                 width: 44px;
                 height: 44px;
@@ -1030,7 +1126,6 @@
             }
         }
 
-        /* Very small mobile (480px and below) */
         @media (max-width: 480px) {
             .nav-container {
                 padding: 0 1rem;
@@ -1067,14 +1162,12 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757701267/__Phizzle-Logo-WHITE-01_5_hpfhss.svg" alt="Phizzle Logo" style="height: 32px; width: auto; display: block;">
             </a>
 
-            <!-- Desktop Navigation -->
             <ul class="nav-links">
                 <li>
                     <a href="platform-overview.html">Platform ▼</a>
@@ -1130,14 +1223,11 @@
                 <li><a href="request-demo.html" class="request-demo">Request a Demo</a></li>
             </ul>
 
-            <!-- Mobile Menu Toggle -->
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
         </div>
 
-        <!-- Mobile Menu Overlay -->
         <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
 
-        <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <div class="mobile-menu-header">
                 <button class="mobile-menu-close" onclick="closeMobileMenu()">×</button>
@@ -1219,10 +1309,8 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="main-content">
         <div class="content-container">
-            <!-- Hero Section -->
             <section class="hero-section">
                 <div class="hero-content">
                     <h1>Integrate with Digital Systems</h1>
@@ -1234,7 +1322,6 @@
                 </div>
             </section>
 
-            <!-- Integration Flow Section -->
             <section class="integration-section">
                 <h2>How Phizzle Integrates Data Sources with Digital Systems:</h2>
                 
@@ -1260,7 +1347,6 @@
                 </div>
             </section>
 
-            <!-- Connected Plant Features Section -->
             <section class="connected-plant-section">
                 <div class="connected-plant-container">
                     <div class="connected-plant-header">
@@ -1301,9 +1387,7 @@
                 </div>
             </section>
 
-            <!-- Supported Integrations Section -->
             <section class="integrations-section">
-                
                 <div class="final-cta">
                     <div class="final-cta-container">
                         <h2>Realize Fully Digitized Scientific Workflows</h2>
@@ -1316,7 +1400,6 @@
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-content">
@@ -1417,7 +1500,6 @@
             const dropdown = document.getElementById(dropdownId);
             const arrow = event.target.querySelector('.dropdown-arrow');
             
-            // Close all other dropdowns
             const allDropdowns = document.querySelectorAll('.mobile-dropdown');
             const allArrows = document.querySelectorAll('.dropdown-arrow');
             
@@ -1433,30 +1515,25 @@
                 }
             });
             
-            // Toggle current dropdown
             dropdown.classList.toggle('active');
             arrow.classList.toggle('rotated');
         }
 
-        // Close mobile menu when pressing escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeMobileMenu();
             }
         });
 
-        // HubSpot Form Integration
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const email = e.target.querySelector('input[name="email"]').value;
             const submitBtn = e.target.querySelector('button[type="submit"]');
             
-            // Disable button during submission
             submitBtn.textContent = 'Subscribing...';
             submitBtn.disabled = true;
             
-            // Submit to HubSpot
             fetch('https://api.hsforms.com/submissions/v3/integration/submit/8070371/5efde115-8a41-4e38-8176-4b121279ff42', {
                 method: 'POST',
                 headers: {
