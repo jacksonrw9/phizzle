@@ -355,6 +355,15 @@
             align-items: center;
         }
 
+        .hero-text-box {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 2.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: fit-content;
+        }
+
         .hero-content h1 {
             font-size: 3rem;
             font-weight: 700;
@@ -1062,6 +1071,11 @@
                 font-size: 1rem;
             }
 
+            .hero-text-box {
+                max-width: 100%;
+                padding: 2rem;
+            }
+
             .platform-bubble {
                 padding: 1.5rem;
                 margin: 0 1rem;
@@ -1170,6 +1184,10 @@
 
             .hero-content h1 {
                 font-size: 1.8rem;
+            }
+
+            .hero-text-box {
+                padding: 1.5rem;
             }
 
             .platform-title {
@@ -1351,8 +1369,10 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Welcome to the Intersection of <br>Science and IT</h1>
-                <p>Digitizing scientific workflows in regulated manufacturing environments to ensure data integrity, efficiency, and compliance with Connected Plant.</p>
+                <div class="hero-text-box">
+                    <h1>Welcome to the Intersection of <br>Science and IT</h1>
+                    <p>Digitizing scientific workflows in regulated manufacturing environments to ensure data integrity, efficiency, and compliance with Connected Plant.</p>
+                </div>
             </div>
             <div class="hero-visual">
                 <!-- Hero image space - would contain the manufacturing facility image -->
