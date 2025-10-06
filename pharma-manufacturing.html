@@ -511,7 +511,7 @@
 
         .benefit-image {
             width: 100%;
-            height: 300px;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -522,9 +522,9 @@
         }
 
         .benefit-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 50%;
+            height: auto;
+            object-fit: contain;
             border-radius: 16px;
             border: none;
             box-shadow: none;
@@ -553,15 +553,11 @@
             align-items: center;
         }
 
-        .benefit-pair.reverse {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .benefit-pair .benefit-content {
+        .benefit-pair .benefit-image {
             order: 1;
         }
 
-        .benefit-pair .benefit-image {
+        .benefit-pair .benefit-content {
             order: 2;
         }
 
@@ -1253,16 +1249,16 @@
                     </div>
                 </div>
                 
-                <div class="benefit-pair reverse">
+                <div class="benefit-pair">
+                    <div class="benefit-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081559/blog-3_hsj0b1.png" alt="Contamination Control and FDA Inspection"/>
+                    </div>
                     <div class="benefit-content">
                         <h3>Enhanced Contamination Control:</h3>
                         <p>Remote operation reduces human entry into controlled environments, minimizing contamination risk while maintaining continuous monitoring of critical parameters.</p>
                         
                         <h3>FDA Inspection Ready at All Times:</h3>
                         <p>Organized digital data with complete audit trails makes regulatory inspections smoother and faster, reducing facility downtime during FDA visits.</p>
-                    </div>
-                    <div class="benefit-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081559/blog-3_hsj0b1.png" alt="Contamination Control and FDA Inspection"/>
                     </div>
                 </div>
                 
