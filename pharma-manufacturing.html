@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -433,6 +434,7 @@
             grid-template-columns: 2fr 1fr;
             gap: 2rem;
             align-items: center;
+            min-height: 280px;
         }
 
         .feature-content h3 {
@@ -469,17 +471,26 @@
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            background: transparent;
+            border: none;
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #4a90b8;
             font-size: 2rem;
             margin: 0 auto;
+            padding: 0;
+        }
+
+        .feature-icon img {
+            width: 50%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0;
         }
 
         /* Benefits Section */
@@ -1199,7 +1210,7 @@
             <section class="hero-section">
                 <div class="hero-content">
                     <h1>Connected Plant for Pharma Manufacturing</h1>
-                    <p>Ensure data integrity and streamline GMP workflows by eliminating paper, multistep data collection/entry SOPs, and unnecessary manual touch points with Connected Plant — unlocking data silos, more informed decision making, and AI/ML adoption. Maintain effortless compliance with 21 CFR Part 11 with a built-in e-sign and review process and extensive audit logging from one UI.</p>
+                    <p>Ensure data integrity and support 21 CFR Part 11 compliance by systematically eliminating paper-based processes, reducing multi-step data collection procedures, and minimizing manual touch points to create a foundation for data-driven quality decisions and advanced analytics capabilities. Built-in electronic review and signature processes streamline GMP compliance and QA/QC workflows.</p>
                     <a href="request-demo.html" class="request-demo-btn">Request a Demo</a>
                 </div>
                 <div class="hero-image">
@@ -1221,6 +1232,9 @@
                                 <p>Our platform connects to multi-vendor air particle counters, microbial air samplers, pH meters, balances, zeta potential analyzers and other analytical scientific instruments in GMP/ISO environments and extract their data through each instrument's native communication protocols.</p>
                                 <a href="connect.html" class="learn-more-link">Learn More About Connecting Instruments</a>
                             </div>
+                            <div class="feature-icon" style="max-width: 400px;">
+                                <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/c_crop,w_1800,h_600/v1759861947/Your_paragraph_text_14_dnlgsq.png" alt="Workhorse Instruments" style="width: 100%;">
+                            </div>
                         </div>
                         
                         <div class="connection-feature">
@@ -1229,6 +1243,9 @@
                                 <p>Automate Standardization with Our Data Formatting Engine.</p>
                                 <a href="automate.html" class="learn-more-link">Learn More About Automating Data Formatting</a>
                             </div>
+                            <div class="feature-icon" style="max-width: 200px;">
+                                <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/c_crop,h_400/v1759862857/image_67_yuxg4j.png" alt="Data Formatting" style="width: 100%;">
+                            </div>
                         </div>
                         
                         <div class="connection-feature">
@@ -1236,6 +1253,9 @@
                                 <h3>Integrate with Existing Digital Systems, SOPs and Compliance Parameters:</h3>
                                 <p>Critical data securely synchronizes to LIMS, MES, or QMS without changing any existing SOPs. We build around the infrastructure that's already in place.</p>
                                 <a href="integrate.html" class="learn-more-link">Learn More About Integrating With Digital Systems</a>
+                            </div>
+                            <div class="feature-icon" style="max-width: 200px;">
+                                <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1759862863/image_66_cahikk.png" alt="Digital Systems Integration" style="width: 100%;">
                             </div>
                         </div>
                     </div>
