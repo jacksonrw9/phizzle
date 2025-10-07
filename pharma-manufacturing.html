@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -584,44 +583,61 @@
             order: 2;
         }
 
-        /* CTA Section */
-        .cta-section {
+        /* Case Study Section */
+        .case-study-section {
             background: #ffffff;
             padding: 3rem 0;
             margin: 5rem -2rem 0;
             text-align: center;
         }
 
-        .cta-container {
+        .case-study-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        .cta-section h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 1rem;
+        .case-study-bubble {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
         }
 
-        .cta-btn {
-            display: inline-block;
-            background: #d97706;
+        .case-study-bubble p {
+            font-size: 1.3rem;
+            color: #4a90b8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .case-study-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #4a90b8;
             color: white;
-            padding: 0.75rem 2rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
             transition: background 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
             min-height: 44px;
         }
 
-        .cta-btn:hover {
-            background: #b45309;
+        .case-study-btn:hover {
+            background: #3a7ba8;
+        }
+
+        .case-study-btn::before {
+            content: '▶';
+            font-size: 0.8rem;
         }
 
         /* Footer Section */
@@ -1033,6 +1049,15 @@
                 height: 44px;
                 font-size: 1.2rem;
             }
+
+            .case-study-bubble {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+
+            .case-study-bubble p {
+                font-size: 1.1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1046,6 +1071,14 @@
 
             .connection-header h2, .benefits-header h2 {
                 font-size: 1.6rem;
+            }
+
+            .case-study-bubble {
+                padding: 1.5rem;
+            }
+
+            .case-study-bubble p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -1309,11 +1342,13 @@
                 </div>
             </section>
 
-            <!-- CTA Section -->
-            <section class="cta-section">
-                <div class="cta-container">
-                    <h2>See How Connected Plant Makes GMP Workflows Paperless</h2>
-                    <a href="request-demo.html" class="cta-btn">Request a Demo</a>
+            <!-- Case Study Section -->
+            <section class="case-study-section">
+                <div class="case-study-container">
+                    <div class="case-study-bubble">
+                        <p>See how a Top-3 Pharma is saving $1.5M a year in labor costs and cut failure reports by 80%</p>
+                        <a href="apc-case-study.html" class="case-study-btn">View the Case Study</a>
+                    </div>
                 </div>
             </section>
         </div>
