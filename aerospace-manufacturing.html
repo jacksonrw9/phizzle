@@ -449,20 +449,23 @@
         }
 
         .learn-more-link {
-            color: #4a90b8;
+            display: inline-block;
+            background: #4a90b8;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
+            transition: background 0.3s ease;
             min-height: 44px;
-            display: inline-block;
-            padding: 0.25rem 0;
         }
 
         .learn-more-link:hover {
-            color: #3a7ba8;
+            background: #3a7ba8;
+            color: white;
         }
 
         .feature-icon {
@@ -496,12 +499,9 @@
             margin-bottom: 1rem;
         }
 
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin-bottom: 3rem;
+        .benefit-content {
+            border-left: 4px solid #4a90b8;
+            padding-left: 2rem;
         }
 
         .benefit-content h3 {
@@ -514,56 +514,67 @@
         .benefit-content p {
             color: #64748b;
             line-height: 1.6;
+            margin-bottom: 2rem;
         }
 
         .benefit-image {
-            width: 100%;
-            height: 300px;
+            width: 350px;
+            height: auto;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
+            justify-content: flex-start;
             color: #64748b;
             font-size: 1rem;
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
+            margin: 0;
         }
 
         .benefit-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 16px;
+            width: 350px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 20px;
             border: none;
             box-shadow: none;
         }
 
         .manufacturing-image {
-            background: #f8fafc;
-            color: #64748b;
+            color: #ffffff;
         }
 
         .ai-image {
-            background: #f8fafc;
-            color: #64748b;
+            color: #ffffff;
         }
 
         .compliance-image {
-            background: #f8fafc;
-            color: #64748b;
+            color: #ffffff;
         }
 
         .supply-chain-image {
-            background: #f8fafc;
-            color: #64748b;
+            color: #ffffff;
         }
 
-        /* Benefit Pair Layout */
         .benefit-pair {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin-bottom: 3rem;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+            margin-bottom: 3.75rem;
+            align-items: start;
+            padding-bottom: 2.25rem;
+        }
+
+        .benefit-pair:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .benefit-pair .benefit-image {
+            order: 1;
+        }
+
+        .benefit-pair .benefit-content {
+            order: 2;
         }
 
         /* CTA Section */
@@ -822,7 +833,7 @@
             color: #94a3b8;
         }
 
-        /* Enhanced Navigation with Progressive Breakpoints - FROM ABOUT US PAGE */
+        /* Enhanced Navigation with Progressive Breakpoints */
         
         /* Container padding adjustment for smaller screens */
         @media (max-width: 1600px) {
@@ -978,8 +989,8 @@
         }
 
         @media (max-width: 768px) {
-            .logo {
-                font-size: 1.4rem;
+            .nav-container {
+                padding: 0 1rem;
             }
 
             .footer-content {
@@ -1010,7 +1021,6 @@
                 font-size: 1.8rem;
             }
 
-            /* Social links mobile sizing */
             .social-link {
                 width: 44px;
                 height: 44px;
@@ -1018,12 +1028,7 @@
             }
         }
 
-        /* Very small mobile (480px and below) */
         @media (max-width: 480px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-
             .content-container {
                 padding: 0 1rem;
             }
@@ -1226,7 +1231,7 @@
                             <div class="feature-content">
                                 <h3>Eliminate Manual Data Formatting Processes:</h3>
                                 <p>Automate Standardization with Phizzle's Data Formatting Engine.</p>
-                                <a href="automate.html" class="learn-more-link">Learn More About Automating with Connected Plant</a>
+                                <a href="automate.html" class="learn-more-link">Learn More About Automating Data Formatting</a>
                             </div>
                         </div>
                         
@@ -1234,7 +1239,7 @@
                             <div class="feature-content">
                                 <h3>Integrate with Digital Systems and Existing SOPs:</h3>
                                 <p>Critical measurement data securely synchronizes to ERP, MES, or QMS without changing any existing SOPs — we build around the existing infrastructure.</p>
-                                <a href="integrate.html" class="learn-more-link">Learn More About Integrating With Connected Plant</a>
+                                <a href="integrate.html" class="learn-more-link">Learn More About Integrating With Digital Systems</a>
                             </div>
                         </div>
                     </div>
@@ -1248,42 +1253,42 @@
                 </div>
                 
                 <div class="benefit-pair">
+                    <div class="benefit-image manufacturing-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081555/aerospace-benefit1_ezlq4a.jpg" alt="Quality Control Interface"/>
+                    </div>
                     <div class="benefit-content">
                         <h3>Ensure Data Integrity with Superior Quality Control:</h3>
                         <p>Accelerate data flow from critical measurement instruments to digital systems and significantly improve data integrity by eliminating manual transcription errors and data entry mistakes in quality documentation.</p>
                     </div>
-                    <div class="benefit-image manufacturing-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081555/aerospace-benefit1_ezlq4a.jpg" alt="Quality Control Interface"/>
-                    </div>
                 </div>
                 
                 <div class="benefit-pair">
+                    <div class="benefit-image ai-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758631339/iStock-2161298305_qmuxwl.jpg" alt="AI Applications"/>
+                    </div>
                     <div class="benefit-content">
                         <h3>Build Analytics Foundation:</h3>
                         <p>Consistent, formatted measurement data creates the structured datasets required for statistical process control, trend analysis, and future implementation of predictive quality technologies as organizational data science capabilities mature.</p>
                     </div>
-                    <div class="benefit-image ai-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758631339/iStock-2161298305_qmuxwl.jpg" alt="AI Applications"/>
-                    </div>
                 </div>
                 
                 <div class="benefit-pair">
+                    <div class="benefit-image compliance-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081557/aerospace-AS9100-benefit3_x5nyoc.jpg" alt="NADCAP and AS9100 Compliance Interface"/>
+                    </div>
                     <div class="benefit-content">
                         <h3>Strengthen Compliance Documentation:</h3>
                         <p>Electronic review and signature workflows support AS9100 documented information requirements and NADCAP record-keeping standards, reducing audit preparation time and improving traceability.</p>
                     </div>
-                    <div class="benefit-image compliance-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081557/aerospace-AS9100-benefit3_x5nyoc.jpg" alt="NADCAP and AS9100 Compliance Interface"/>
-                    </div>
                 </div>
                 
                 <div class="benefit-pair">
+                    <div class="benefit-image supply-chain-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081553/aerospace-benefit4_ce4voj.jpg" alt="Supply Chain Visualization"/>
+                    </div>
                     <div class="benefit-content">
                         <h3>Enhance Manufacturing Traceability:</h3>
                         <p>Maintain comprehensive digital traceability of measurement and quality data within manufacturing operations, supporting aerospace requirements for component lifecycle documentation and audit trail integrity.</p>
-                    </div>
-                    <div class="benefit-image supply-chain-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081553/aerospace-benefit4_ce4voj.jpg" alt="Supply Chain Visualization"/>
                     </div>
                 </div>
             </section>
@@ -1399,7 +1404,6 @@
             const dropdown = document.getElementById(dropdownId);
             const arrow = event.target.querySelector('.dropdown-arrow');
             
-            // Close all other dropdowns
             const allDropdowns = document.querySelectorAll('.mobile-dropdown');
             const allArrows = document.querySelectorAll('.dropdown-arrow');
             
@@ -1415,30 +1419,25 @@
                 }
             });
             
-            // Toggle current dropdown
             dropdown.classList.toggle('active');
             arrow.classList.toggle('rotated');
         }
 
-        // Close mobile menu when pressing escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeMobileMenu();
             }
         });
 
-        // HubSpot Form Integration
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const email = e.target.querySelector('input[name="email"]').value;
             const submitBtn = e.target.querySelector('button[type="submit"]');
             
-            // Disable button during submission
             submitBtn.textContent = 'Subscribing...';
             submitBtn.disabled = true;
             
-            // Submit to HubSpot
             fetch('https://api.hsforms.com/submissions/v3/integration/submit/8070371/5efde115-8a41-4e38-8176-4b121279ff42', {
                 method: 'POST',
                 headers: {
