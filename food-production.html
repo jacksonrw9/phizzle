@@ -449,20 +449,23 @@
         }
 
         .learn-more-link {
-            color: #4a90b8;
+            display: inline-block;
+            background: #4a90b8;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
+            transition: background 0.3s ease;
             min-height: 44px;
-            display: inline-block;
-            padding: 0.25rem 0;
         }
 
         .learn-more-link:hover {
-            color: #3a7ba8;
+            background: #3a7ba8;
+            color: white;
         }
 
         .feature-icon {
@@ -496,12 +499,9 @@
             margin-bottom: 1rem;
         }
 
-        .benefit-pair {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin-bottom: 3rem;
+        .benefit-content {
+            border-left: 4px solid #4a90b8;
+            padding-left: 2rem;
         }
 
         .benefit-content h3 {
@@ -514,47 +514,67 @@
         .benefit-content p {
             color: #64748b;
             line-height: 1.6;
+            margin-bottom: 2rem;
         }
 
         .benefit-image {
-            width: 100%;
-            height: 300px;
+            width: 350px;
+            height: auto;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
+            justify-content: flex-start;
             color: #64748b;
             font-size: 1rem;
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
+            margin: 0;
         }
 
         .benefit-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 16px;
+            width: 350px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 20px;
             border: none;
             box-shadow: none;
         }
 
         .ai-image {
-            background: transparent;
-            color: #64748b;
+            color: #ffffff;
         }
 
         .compliance-image {
-            background: transparent;
-            color: #64748b;
+            color: #ffffff;
         }
 
         .monitoring-image {
-            background: transparent;
-            color: #64748b;
+            color: #ffffff;
         }
 
         .traceability-image {
-            background: transparent;
-            color: #64748b;
+            color: #ffffff;
+        }
+
+        .benefit-pair {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+            margin-bottom: 3.75rem;
+            align-items: start;
+            padding-bottom: 2.25rem;
+        }
+
+        .benefit-pair:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .benefit-pair .benefit-image {
+            order: 1;
+        }
+
+        .benefit-pair .benefit-content {
+            order: 2;
         }
 
         /* CTA Section */
@@ -969,8 +989,8 @@
         }
 
         @media (max-width: 768px) {
-            .logo img {
-                height: 28px;
+            .nav-container {
+                padding: 0 1rem;
             }
 
             .hero-content h1 {
@@ -1008,12 +1028,7 @@
             }
         }
 
-        /* Very small mobile (480px and below) */
         @media (max-width: 480px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-
             .content-container {
                 padding: 0 1rem;
             }
@@ -1208,7 +1223,7 @@
                             <div class="feature-content">
                                 <h3>Built For Critical Food Safety Instruments:</h3>
                                 <p>Our platform connects to multi-vendor temperature monitoring systems, pH meters, dissolved oxygen meters, conductivity meters, turbidity meters, moisture analyzers, water activity meters, and metal detection systems in food production environments and extracts data using each instrument's native communication protocols.</p>
-                                <a href="connect.html" class="learn-more-link">Learn More About Connecting Instruments to Our Platform</a>
+                                <a href="connect.html" class="learn-more-link">Learn More About Connecting Instruments</a>
                             </div>
                         </div>
                         
@@ -1216,7 +1231,7 @@
                             <div class="feature-content">
                                 <h3>Eliminate Manual Data Formatting Processes:</h3>
                                 <p>Automate Standardization with Our Data Formatting Engine.</p>
-                                <a href="automate.html" class="learn-more-link">Learn More About Automating with Connected Plant</a>
+                                <a href="automate.html" class="learn-more-link">Learn More About Automating Data Formatting</a>
                             </div>
                         </div>
                         
@@ -1224,7 +1239,7 @@
                             <div class="feature-content">
                                 <h3>Integrate with Existing Digital Systems, SOPs and Compliance Parameters:</h3>
                                 <p>Critical food safety data securely synchronizes to LIMS, ERP, or QMS without changing any existing SOPs. We build around the infrastructure that's already in place.</p>
-                                <a href="integrate.html" class="learn-more-link">Learn More About Integrating With Connected Plant</a>
+                                <a href="integrate.html" class="learn-more-link">Learn More About Integrating With Digital Systems</a>
                             </div>
                         </div>
                     </div>
@@ -1238,6 +1253,9 @@
                 </div>
                 
                 <div class="benefit-pair">
+                    <div class="benefit-image ai-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758631339/iStock-2161298305_qmuxwl.jpg" alt="Food Safety Analytics"/>
+                    </div>
                     <div class="benefit-content">
                         <h3>Ensure Data Integrity with Enhanced Food Safety:</h3>
                         <p>Accelerate data flow from critical monitoring instruments to digital systems and significantly improve data integrity by eliminating manual transcription errors and data entry mistakes in food safety documentation.</p>
@@ -1245,12 +1263,12 @@
                         <h3>Build Analytics Foundation:</h3>
                         <p>Consistent, formatted monitoring data enables statistical process control and trend analysis, while creating the data foundation needed for advanced analytics and machine learning applications as food safety technologies continue to evolve.</p>
                     </div>
-                    <div class="benefit-image ai-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758631339/iStock-2161298305_qmuxwl.jpg" alt="Food Safety Analytics"/>
-                    </div>
                 </div>
                 
                 <div class="benefit-pair">
+                    <div class="benefit-image compliance-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081560/connected-plant-sandbox2_epvsad.png" alt="HACCP Compliance Interface"/>
+                    </div>
                     <div class="benefit-content">
                         <h3>HACCP and FDA Compliance Support:</h3>
                         <p>Built-in electronic review and signature workflows help maintain documented evidence requirements for food safety regulations, streamlining audit preparation and providing complete digital audit trails.</p>
@@ -1258,18 +1276,15 @@
                         <h3>Real-Time Critical Control Point Monitoring:</h3>
                         <p>Enable continuous monitoring of CCPs with automated alerts when parameters drift outside acceptable ranges, facilitating rapid corrective action response and supporting food safety incident prevention.</p>
                     </div>
-                    <div class="benefit-image compliance-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081560/connected-plant-sandbox2_epvsad.png" alt="HACCP Compliance Interface"/>
-                    </div>
                 </div>
                 
                 <div class="benefit-pair">
+                    <div class="benefit-image traceability-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081555/food-production-benefit3_ks42kf.png" alt="Traceability Dashboard"/>
+                    </div>
                     <div class="benefit-content">
                         <h3>Enhanced Measurement Data Traceability:</h3>
                         <p>Maintain complete digital records of instrument measurements and monitoring data throughout production operations, supporting food safety investigations and regulatory compliance documentation.</p>
-                    </div>
-                    <div class="benefit-image traceability-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081555/food-production-benefit3_ks42kf.png" alt="Traceability Dashboard"/>
                     </div>
                 </div>
             </section>
