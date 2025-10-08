@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -434,6 +433,7 @@
             grid-template-columns: 2fr 1fr;
             gap: 2rem;
             align-items: center;
+            min-height: 280px;
         }
 
         .feature-content h3 {
@@ -470,17 +470,26 @@
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            background: transparent;
+            border: none;
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #4a90b8;
             font-size: 2rem;
             margin: 0 auto;
+            padding: 0;
+        }
+
+        .feature-icon img {
+            width: 50%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0;
         }
 
         /* Benefits Section */
@@ -1226,6 +1235,9 @@
                                 <p>Our platform connects to multi-vendor air particle counters, microbial air samplers, coordinate measuring machines (CMMs), surface roughness testers, hardness testers, torque analyzers, and other precision measurement instruments used in aerospace manufacturing environments and continously extracts data using each instrument's native communication protocols.</p>
                                 <a href="connect.html" class="learn-more-link">Learn More About Connecting Instruments</a>
                             </div>
+                            <div class="feature-icon" style="max-width: 400px;">
+                                <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/c_crop,w_1800,h_600/v1759861947/Your_paragraph_text_14_dnlgsq.png" alt="Workhorse Instruments" style="width: 100%;">
+                            </div>
                         </div>
                         
                         <div class="connection-feature">
@@ -1234,6 +1246,9 @@
                                 <p>Automate Standardization with Phizzle's Data Formatting Engine.</p>
                                 <a href="automate.html" class="learn-more-link">Learn More About Automating Data Formatting</a>
                             </div>
+                            <div class="feature-icon" style="max-width: 200px;">
+                                <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/c_crop,h_400/v1759862857/image_67_yuxg4j.png" alt="Data Formatting" style="width: 100%;">
+                            </div>
                         </div>
                         
                         <div class="connection-feature">
@@ -1241,6 +1256,9 @@
                                 <h3>Integrate with Digital Systems and Existing SOPs:</h3>
                                 <p>Critical measurement data securely synchronizes to ERP, MES, or QMS without changing any existing SOPs — we build around the existing infrastructure.</p>
                                 <a href="integrate.html" class="learn-more-link">Learn More About Integrating With Digital Systems</a>
+                            </div>
+                            <div class="feature-icon" style="max-width: 200px;">
+                                <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1759862863/image_66_cahikk.png" alt="Digital Systems Integration" style="width: 100%;">
                             </div>
                         </div>
                     </div>
