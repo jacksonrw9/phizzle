@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Phizzle's Connected Plant platform for food production ensures data integrity, streamlines HACCP/FDA workflows, and enables real-time critical control point monitoring with AI/ML insights.">
-    <title>Food Production - Phizzle</title>
+    <meta name="description" content="Streamline aerospace manufacturing with Connected Plant. Eliminate paper processes, ensure AS9100 and NADCAP compliance, and integrate precision instruments with ERP, MES, or QMS systems for complete traceability.">
+    <title>Aerospace Manufacturing - Phizzle</title>
 
     <!-- Favicon links -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     <link rel="shortcut icon" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
-    
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-41FB3KKW2T"></script>
     <script>
@@ -20,7 +20,7 @@
         gtag('config', 'G-41FB3KKW2T');
     </script>
 
-     <!-- Start of HubSpot Embed Code -->
+    <!-- Start of HubSpot Embed Code -->
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/8070371.js"></script>
     <!-- End of HubSpot Embed Code -->
     
@@ -433,6 +433,7 @@
             grid-template-columns: 2fr 1fr;
             gap: 2rem;
             align-items: center;
+            min-height: 280px;
         }
 
         .feature-content h3 {
@@ -548,19 +549,8 @@
             box-shadow: none;
         }
 
-        .benefit-image-placeholder {
-            width: 350px;
-            height: 250px;
-            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 2rem;
-            border: 2px dashed #94a3b8;
+        .manufacturing-image {
+            color: #ffffff;
         }
 
         .ai-image {
@@ -571,11 +561,7 @@
             color: #ffffff;
         }
 
-        .monitoring-image {
-            color: #ffffff;
-        }
-
-        .traceability-image {
+        .supply-chain-image {
             color: #ffffff;
         }
 
@@ -987,16 +973,6 @@
                 height: 24px;
             }
 
-            .hero-section, .benefit-pair {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .connection-feature {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
             .footer-content {
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem;
@@ -1010,11 +986,32 @@
                 grid-column: 1 / -1;
                 margin-top: 2rem;
             }
+
+            .hero-section, .benefit-pair {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .connection-feature {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
         }
 
         @media (max-width: 768px) {
             .nav-container {
                 padding: 0 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
             }
 
             .hero-content h1 {
@@ -1032,17 +1029,6 @@
 
             .connection-header h2, .benefits-header h2 {
                 font-size: 1.8rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
             }
 
             .social-link {
@@ -1226,12 +1212,12 @@
             <!-- Hero Section -->
             <section class="hero-section">
                 <div class="hero-content">
-                    <h1>Connected Plant for Food Production</h1>
-                    <p>Ensure data integrity and support HACCP/FDA compliance by systematically reducing paper-based processes, automating data collection/entry procedures, and minimizing manual touch points with our platform – unlocking data silos, enabling more informed decision making and creating the foundation for advanced analytics capabilities.</p>
+                    <h1>Connected Plant for Aerospace Manufacturing</h1>
+                    <p>Eliminate paper-based processes and minimize cleanroom entry requirements by connecting particle counters, environmental monitoring equipment, and precision instruments directly to existing MES, ERP, and QMS without disrupting validated systems. Ensure data integrity, maintain complete traceability for cleanroom conditions and measurement data, and support AS9100 compliance with built-in electronic review and signature workflows.</p>
                     <a href="request-demo.html" class="request-demo-btn">Request a Demo</a>
                 </div>
                 <div class="hero-image">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081548/connected-plant-computer_v4lsos.png" alt="Connected Plant Interface"/>
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081548/connected-plant-computer_v4lsos.png" alt="Aerospace Connected Plant Interface"/>
                 </div>
             </section>
 
@@ -1239,31 +1225,40 @@
             <section class="connection-section">
                 <div class="connection-container">
                     <div class="connection-header">
-                        <h2>Connect Critical Food Safety Instruments to Digital Systems</h2>
+                        <h2>Connect Critical Manufacturing Instruments to Digital Systems</h2>
                     </div>
                     
                     <div class="connection-features">
                         <div class="connection-feature">
                             <div class="feature-content">
-                                <h3>Built For Critical Food Safety Instruments:</h3>
-                                <p>Our platform connects to multi-vendor temperature monitoring systems, pH meters, dissolved oxygen meters, conductivity meters, turbidity meters, moisture analyzers, water activity meters, and metal detection systems in food production environments and extracts data using each instrument's native communication protocols.</p>
+                                <h3>Built For Essential Aerospace Instruments:</h3>
+                                <p>Our platform connects to multi-vendor air particle counters, microbial air samplers, coordinate measuring machines (CMMs), surface roughness testers, hardness testers, torque analyzers, and other precision measurement instruments used in aerospace manufacturing environments and continuously extracts data using each instrument's native communication protocols.</p>
                                 <a href="connect.html" class="learn-more-link">Learn More About Connecting Instruments</a>
+                            </div>
+                            <div class="feature-icon" style="max-width: 400px;">
+                                <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/c_crop,w_1800,h_700/v1759934901/Phizzle_Website_Designs_1_nxci62.png" alt="Workhorse Instruments" style="width: 100%;">
                             </div>
                         </div>
                         
                         <div class="connection-feature">
                             <div class="feature-content">
                                 <h3>Eliminate Manual Data Formatting Processes:</h3>
-                                <p>Automate Standardization with Our Data Formatting Engine.</p>
+                                <p>Automate Standardization with Phizzle's Data Formatting Engine.</p>
                                 <a href="automate.html" class="learn-more-link">Learn More About Automating Data Formatting</a>
+                            </div>
+                            <div class="feature-icon" style="max-width: 200px;">
+                                <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/c_crop,h_400/v1759862857/image_67_yuxg4j.png" alt="Data Formatting" style="width: 100%;">
                             </div>
                         </div>
                         
                         <div class="connection-feature">
                             <div class="feature-content">
-                                <h3>Integrate with Existing Digital Systems, SOPs and Compliance Parameters:</h3>
-                                <p>Critical food safety data securely synchronizes to LIMS, ERP, or QMS without changing any existing SOPs. We build around the infrastructure that's already in place.</p>
+                                <h3>Integrate with Digital Systems and Existing SOPs:</h3>
+                                <p>Synchronize precision measurement data directly to ERP, MES, or QMS without altering any existing SOPs. We build around the infrastructure that's already in place.</p>
                                 <a href="integrate.html" class="learn-more-link">Learn More About Integrating With Digital Systems</a>
+                            </div>
+                            <div class="feature-icon" style="max-width: 200px;">
+                                <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1759862863/image_66_cahikk.png" alt="Digital Systems Integration" style="width: 100%;">
                             </div>
                         </div>
                     </div>
@@ -1273,48 +1268,46 @@
             <!-- Benefits Section -->
             <section class="benefits-section">
                 <div class="benefits-header">
-                    <h2>Benefits of Connected Plant in Food Production:</h2>
+                    <h2>Benefits of Connected Plant in Aerospace Manufacturing:</h2>
                 </div>
                 
                 <div class="benefit-pair">
-                    <div class="benefit-image traceability-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081555/food-production-benefit3_ks42kf.png" alt="Data Integrity Dashboard"/>
+                    <div class="benefit-image manufacturing-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081555/aerospace-benefit1_ezlq4a.jpg" alt="Quality Control Interface"/>
                     </div>
                     <div class="benefit-content">
                         <h3>Improved Data Integrity:</h3>
-                        <p>Accelerate data flow from food safety monitoring instruments to existing LIMS, ERP, or QMS through direct integration and improve data integrity by eliminating manual transcription errors in critical control point documentation.</p>
+                        <p>Accelerate data flow from critical measurement instruments to Digital Systems and improve data integrity by eliminating manual transcription errors and data entry mistakes in quality documentation.</p>
                     </div>
                 </div>
                 
                 <div class="benefit-pair">
                     <div class="benefit-image ai-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758631339/iStock-2161298305_qmuxwl.jpg" alt="Food Safety Analytics"/>
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758631339/iStock-2161298305_qmuxwl.jpg" alt="AI Applications"/>
                     </div>
                     <div class="benefit-content">
-                        <h3>Enabled Analytics Foundation:</h3>
-                        <p>Consistent, formatted measurement data enables statistical process control, real-time trend analysis, and predictive quality capabilities. This creates the foundation for data-driven production decisions and continuous improvement initiatives.</p>
+                        <h3>Enable An Analytics Foundation:</h3>
+                        <p>Consistent, formatted measurement data enables statistical process control, real-time trend analysis, and predictive quality capabilities. This creates the foundation for data-driven manufacturing decisions and continuous improvement initiatives.</p>
                     </div>
                 </div>
                 
                 <div class="benefit-pair">
-                    <div class="benefit-image">
-                        <div class="benefit-image-placeholder">
-                            [Cost of Quality Image - Replace with your image URL]
-                        </div>
+                    <div class="benefit-image compliance-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081557/aerospace-AS9100-benefit3_x5nyoc.jpg" alt="NADCAP and AS9100 Compliance Interface"/>
                     </div>
                     <div class="benefit-content">
-                        <h3>Reduced Cost of Quality:</h3>
-                        <p>Prevent food safety incidents, minimize corrective action investigations, and reduce recall costs by eliminating manual transcription errors in critical control point monitoring.</p>
+                        <h3>Strengthened Compliance Documentation:</h3>
+                        <p>Electronic review and signature workflows support AS9100 documented information requirements and NADCAP record-keeping standards, reducing audit preparation time and improving traceability.</p>
                     </div>
                 </div>
-
+                
                 <div class="benefit-pair">
-                    <div class="benefit-image compliance-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081560/connected-plant-sandbox2_epvsad.png" alt="HACCP Compliance Interface"/>
+                    <div class="benefit-image supply-chain-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081553/aerospace-benefit4_ce4voj.jpg" alt="Supply Chain Visualization"/>
                     </div>
                     <div class="benefit-content">
-                        <h3>Streamlined Compliance:</h3>
-                        <p>Support HACCP and FDA compliance with built-in electronic review and signature workflows that maintain documented evidence requirements. Maintain continuous inspection-readiness with organized digital records and complete audit trails of measurement data, operator actions, and instrument status. This reduces preparation time, minimizes regulatory findings, and decreases facility downtime during inspections.</p>
+                        <h3>Enhanced Manufacturing Traceability:</h3>
+                        <p>Continuously monitor and capture measurement data, operator actions, and instrument status throughout manufacturing operations with comprehensive audit logs that ensure complete traceability, supporting aerospace component lifecycle requirements and maintaining audit-ready documentation.</p>
                     </div>
                 </div>
             </section>
@@ -1322,7 +1315,7 @@
             <!-- CTA Section -->
             <section class="cta-section">
                 <div class="cta-container">
-                    <h2>See How Connected Plant Digitizes Food Safety Data Collection</h2>
+                    <h2>See How Connected Plant Digitizes Aerospace Manufacturing Data</h2>
                     <a href="request-demo.html" class="cta-btn">Request a Demo</a>
                 </div>
             </section>
