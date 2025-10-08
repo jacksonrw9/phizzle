@@ -469,17 +469,26 @@
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            background: transparent;
+            border: none;
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #4a90b8;
             font-size: 2rem;
             margin: 0 auto;
+            padding: 0;
+        }
+
+        .feature-icon img {
+            width: 50%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0;
         }
 
         /* Benefits Section */
@@ -537,6 +546,21 @@
             border-radius: 20px;
             border: none;
             box-shadow: none;
+        }
+
+        .benefit-image-placeholder {
+            width: 350px;
+            height: 250px;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 2rem;
+            border: 2px dashed #94a3b8;
         }
 
         .ai-image {
@@ -1253,38 +1277,44 @@
                 </div>
                 
                 <div class="benefit-pair">
+                    <div class="benefit-image traceability-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081555/food-production-benefit3_ks42kf.png" alt="Data Integrity Dashboard"/>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Improved Data Integrity:</h3>
+                        <p>Accelerate data flow from food safety monitoring instruments to existing LIMS, ERP, or QMS through direct integration and improve data integrity by eliminating manual transcription errors in critical control point documentation.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-pair">
                     <div class="benefit-image ai-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758631339/iStock-2161298305_qmuxwl.jpg" alt="Food Safety Analytics"/>
                     </div>
                     <div class="benefit-content">
-                        <h3>Ensure Data Integrity with Enhanced Food Safety:</h3>
-                        <p>Accelerate data flow from critical monitoring instruments to digital systems and significantly improve data integrity by eliminating manual transcription errors and data entry mistakes in food safety documentation.</p>
-                        <br>
-                        <h3>Build Analytics Foundation:</h3>
-                        <p>Consistent, formatted monitoring data enables statistical process control and trend analysis, while creating the data foundation needed for advanced analytics and machine learning applications as food safety technologies continue to evolve.</p>
+                        <h3>Enabled Analytics Foundation:</h3>
+                        <p>Consistent, formatted measurement data enables statistical process control, real-time trend analysis, and predictive quality capabilities. This creates the foundation for data-driven production decisions and continuous improvement initiatives.</p>
                     </div>
                 </div>
                 
+                <div class="benefit-pair">
+                    <div class="benefit-image">
+                        <div class="benefit-image-placeholder">
+                            [Cost of Quality Image - Replace with your image URL]
+                        </div>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Reduced Cost of Quality:</h3>
+                        <p>Prevent food safety incidents, minimize corrective action investigations, and reduce recall costs by eliminating manual transcription errors in critical control point monitoring.</p>
+                    </div>
+                </div>
+
                 <div class="benefit-pair">
                     <div class="benefit-image compliance-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081560/connected-plant-sandbox2_epvsad.png" alt="HACCP Compliance Interface"/>
                     </div>
                     <div class="benefit-content">
-                        <h3>HACCP and FDA Compliance Support:</h3>
-                        <p>Built-in electronic review and signature workflows help maintain documented evidence requirements for food safety regulations, streamlining audit preparation and providing complete digital audit trails.</p>
-                        <br>
-                        <h3>Real-Time Critical Control Point Monitoring:</h3>
-                        <p>Enable continuous monitoring of CCPs with automated alerts when parameters drift outside acceptable ranges, facilitating rapid corrective action response and supporting food safety incident prevention.</p>
-                    </div>
-                </div>
-                
-                <div class="benefit-pair">
-                    <div class="benefit-image traceability-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081555/food-production-benefit3_ks42kf.png" alt="Traceability Dashboard"/>
-                    </div>
-                    <div class="benefit-content">
-                        <h3>Enhanced Measurement Data Traceability:</h3>
-                        <p>Maintain complete digital records of instrument measurements and monitoring data throughout production operations, supporting food safety investigations and regulatory compliance documentation.</p>
+                        <h3>Streamlined Compliance:</h3>
+                        <p>Support HACCP and FDA compliance with built-in electronic review and signature workflows that maintain documented evidence requirements. Maintain continuous inspection-readiness with organized digital records and complete audit trails of measurement data, operator actions, and instrument status. This reduces preparation time, minimizes regulatory findings, and decreases facility downtime during inspections.</p>
                     </div>
                 </div>
             </section>
