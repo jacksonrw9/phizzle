@@ -539,7 +539,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 3rem;
-            align-items: center;
+            align-items: stretch;
             margin-top: 3rem;
         }
 
@@ -550,14 +550,13 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid #e2e8f0;
-            height: 280px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
         }
 
         .integration-step h3 {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: #4a90b8;
             margin-bottom: 1rem;
@@ -988,7 +987,7 @@
         }
 
         /* Mobile/Tablet Responsive Design */
-        @media (max-width: 1350px) {
+        @media (max-width: 1025px) {
             .hero-section {
                 grid-template-columns: 1fr;
                 gap: 3rem;
@@ -998,9 +997,19 @@
                 font-size: 2.2rem;
             }
 
+            /* Workflow and capabilities adjustments */
             .integration-steps {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-visual {
+                height: 250px;
             }
 
             .feature-row {
@@ -1025,6 +1034,7 @@
                 height: 250px;
             }
 
+            /* Footer adjustments */
             .footer-content {
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem;
@@ -1040,7 +1050,14 @@
             }
         }
 
+        /* Mobile Responsive Design (768px and below) */
         @media (max-width: 768px) {
+            /* Even smaller logo on mobile */
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            /* Hero content centered on mobile */
             .hero-content {
                 text-align: center;
             }
@@ -1057,6 +1074,7 @@
                 height: 200px;
             }
 
+            /* How it works section mobile */
             .integration-section h2 {
                 font-size: 1.8rem;
                 text-align: center;
@@ -1064,10 +1082,10 @@
 
             .integration-step {
                 padding: 1.5rem;
-                height: auto;
                 text-align: center;
             }
 
+            /* Engine capabilities mobile */
             .connected-plant-section {
                 margin: 3rem -1rem;
                 padding: 3rem 0;
@@ -1095,6 +1113,7 @@
                 gap: 2rem;
             }
 
+            /* Demo section mobile */
             .final-cta h2 {
                 font-size: 1.7rem;
             }
@@ -1104,6 +1123,7 @@
                 font-size: 0.9rem;
             }
 
+            /* Footer mobile */
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -1119,6 +1139,7 @@
                 gap: 1rem;
             }
 
+            /* Social links mobile sizing */
             .social-link {
                 width: 44px;
                 height: 44px;
@@ -1126,6 +1147,7 @@
             }
         }
 
+        /* Very small mobile (480px and below) */
         @media (max-width: 480px) {
             .nav-container {
                 padding: 0 1rem;
