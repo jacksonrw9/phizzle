@@ -446,10 +446,13 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 280px;
         }
 
         .workflow-step h3 {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: #4a90b8;
             margin-bottom: 1rem;
@@ -513,6 +516,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             border: 1px solid #e2e8f0;
+            border-left: 4px solid #4a90b8;
         }
 
         .capability-item h3 {
@@ -525,6 +529,25 @@
         .capability-item p {
             color: #64748b;
             line-height: 1.6;
+        }
+
+        .integrate-btn {
+            display: inline-block;
+            background: #4a90b8;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background 0.3s ease;
+            min-height: 44px;
+        }
+
+        .integrate-btn:hover {
+            background: #3a7ba8;
         }
 
         /* Demo Section */
@@ -1310,8 +1333,8 @@
                         </div>
                     </div>
                     
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <a href="integrate.html" style="color: #4a90b8; text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.3s ease; min-height: 44px; display: inline-block; padding: 0.25rem 0;">LEARN ABOUT HOW WE INTEGRATE WITH DIGITAL SYSTEMS</a>
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <a href="integrate.html" class="integrate-btn">Learn About How We Integrate with Digital Systems</a>
                     </div>
                 </div>
             </section>
