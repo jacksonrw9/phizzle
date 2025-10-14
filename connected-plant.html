@@ -473,58 +473,16 @@
             margin-top: 0;
         }
 
-        .process-row {
-            margin-bottom: 3rem;
-        }
-
-        .process-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #ffffff;
-            background: #64748b;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
             margin-bottom: 2rem;
         }
 
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .process-step {
-            text-align: center;
-        }
-
-        .step-visual {
+        .process-grid img {
             width: 100%;
-            height: 120px;
-            background: #ffffff;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-            padding: 0.5rem;
-        }
-
-        .step-description {
-            font-size: 0.9rem;
-            color: #64748b;
-            line-height: 1.4;
-        }
-
-        .arrow {
-            font-size: 2rem;
-            color: #436c79;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: auto;
         }
 
         /* Benefits Section */
@@ -1012,14 +970,10 @@
                 font-size: 1.2rem;
             }
 
-            /* Process steps adjustments */
-            .process-steps {
+            /* Process grid adjustments */
+            .process-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
-            }
-
-            .arrow {
-                transform: rotate(90deg);
             }
 
             .hero-image {
@@ -1088,6 +1042,12 @@
             .pharma-header h2 {
                 font-size: 1.8rem;
                 text-align: center;
+            }
+
+            /* Process grid mobile */
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             /* Benefits section mobile */
@@ -1375,7 +1335,12 @@
                 </div>
                 
                 <div class="process-comparison">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1760460361/Connected_Plant_Web_Page_4_r3y6lg.svg" alt="Connected Plant Process Overview" style="width: 100%; height: auto;">
+                    <div class="process-grid">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1760460763/Connected_Plant_Web_Page_4_-cropped_ub8pr6.svg" alt="Connected Plant Process Step 1">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1760460757/Connected_Plant_Web_Page_5_-cropped_xvi8am.svg" alt="Connected Plant Process Step 2">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1760460753/Connected_Plant_Web_Page_6_-cropped_nbyrpt.svg" alt="Connected Plant Process Step 3">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1760460750/Connected_Plant_Web_Page_8_-cropped_wags4l.svg" alt="Connected Plant Process Step 4">
+                    </div>
                 </div>
             </section>
 
