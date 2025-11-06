@@ -24,6 +24,9 @@
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/8070371.js"></script>
     <!-- End of HubSpot Embed Code -->
     
+    <!-- Google reCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -457,9 +460,22 @@
             cursor: pointer;
         }
 
+        /* reCAPTCHA and Submit Button Container */
+        .form-submit-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .recaptcha-container {
+            flex: 0 0 auto;
+        }
+
         /* Submit Button */
         .submit-btn {
-            width: 100%;
+            flex: 1;
             background: #334155;
             color: white;
             padding: 1rem 2rem;
@@ -471,12 +487,24 @@
             letter-spacing: 0.5px;
             cursor: pointer;
             transition: background 0.3s ease;
-            margin-top: 1rem;
             min-height: 44px;
         }
 
-        .submit-btn:hover {
+        .submit-btn:hover:not(:disabled) {
             background: #1e293b;
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* reCAPTCHA Error Message */
+        .recaptcha-error {
+            color: #dc2626;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
         }
 
         /* Footer */
@@ -871,6 +899,23 @@
                 padding: 0 1rem;
             }
 
+            /* Stack reCAPTCHA and submit button on mobile */
+            .form-submit-section {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+            }
+
+            .recaptcha-container {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 0.5rem;
+            }
+
+            .submit-btn {
+                width: 100%;
+            }
+
             /* Footer mobile */
             .footer-content {
                 grid-template-columns: 1fr;
@@ -911,6 +956,13 @@
 
             .content-container {
                 padding: 0 1rem;
+            }
+
+            /* Scale down reCAPTCHA on very small screens */
+            .recaptcha-container {
+                transform: scale(0.9);
+                transform-origin: center;
+                margin: 0 -15px;
             }
         }
     </style>
@@ -1124,7 +1176,16 @@
                     <p>By clicking submit below, you consent to allow Phizzle to store and process the personal information submitted above to provide you the content requested.</p>
                 </div>
 
-                <button type="submit" class="submit-btn">Submit</button>
+                <!-- reCAPTCHA and Submit Button Section -->
+                <div class="form-submit-section">
+                    <!-- Google reCAPTCHA -->
+                    <div class="recaptcha-container">
+                        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
+                        <div class="recaptcha-error" id="recaptcha-error">Please complete the reCAPTCHA verification</div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
             </form>
         </div>
     </main>
@@ -1209,6 +1270,7 @@
     </footer>
 
     <script>
+        // Mobile menu functions
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             const overlay = document.getElementById('mobileMenuOverlay');
@@ -1253,8 +1315,21 @@
             }
         });
 
+        // Contact form submission with reCAPTCHA validation
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Get reCAPTCHA response
+            const recaptchaResponse = grecaptcha.getResponse();
+            const recaptchaError = document.getElementById('recaptcha-error');
+            
+            // Check if reCAPTCHA is completed
+            if (!recaptchaResponse) {
+                recaptchaError.style.display = 'block';
+                return;
+            }
+            
+            recaptchaError.style.display = 'none';
             
             const firstName = e.target.querySelector('input[name="firstName"]').value;
             const lastName = e.target.querySelector('input[name="lastName"]').value;
@@ -1267,6 +1342,10 @@
             
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
+            
+            // First, verify the reCAPTCHA on your server
+            // This is a placeholder - you'll need to implement server-side verification
+            // For now, we'll proceed with the form submission
             
             const fields = [
                 {
@@ -1292,6 +1371,10 @@
                 {
                     name: "lifecyclestage",
                     value: "lead"
+                },
+                {
+                    name: "g-recaptcha-response",
+                    value: recaptchaResponse
                 }
             ];
 
@@ -1326,6 +1409,7 @@
             .then(data => {
                 submitBtn.textContent = 'Thank You!';
                 e.target.reset();
+                grecaptcha.reset(); // Reset reCAPTCHA
                 setTimeout(() => {
                     submitBtn.textContent = 'Submit';
                     submitBtn.disabled = false;
@@ -1338,6 +1422,7 @@
             });
         });
 
+        // Newsletter form submission
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
