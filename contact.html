@@ -19,10 +19,6 @@
         gtag('js', new Date());
         gtag('config', 'G-41FB3KKW2T');
     </script>
-
-    <!-- Start of HubSpot Embed Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/8070371.js"></script>
-    <!-- End of HubSpot Embed Code -->
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -480,6 +476,23 @@
             background: #1e293b;
         }
 
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Success message */
+        .form-success {
+            background: #dcfce7;
+            border: 1px solid #16a34a;
+            color: #15803d;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+            display: none;
+        }
+
         /* Footer */
         .footer {
             background: #1e293b;
@@ -913,7 +926,6 @@
             .content-container {
                 padding: 0 1rem;
             }
-
         }
     </style>
 </head>
@@ -1074,22 +1086,35 @@
                 <h1>Contact Us</h1>
             </div>
 
-            <!-- Contact Form with HubSpot integration -->
-            <form class="contact-form" id="contact-form">
+            <!-- Success Message -->
+            <div id="formSuccess" class="form-success">
+                Thank you for contacting us! We'll get back to you soon.
+            </div>
+
+            <!-- Contact Form with Netlify Forms -->
+            <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" data-netlify-honeypot="bot-field" id="contact-form">
+                <!-- Honeypot fields for spam protection -->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                    <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
+                    <input type="email" name="email_confirm" tabindex="-1" autocomplete="off">
+                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                    <input type="text" name="address" tabindex="-1" autocomplete="off">
+                </div>
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="firstName">First name*</label>
-                        <input type="text" id="firstName" name="firstName" required>
+                        <input type="text" id="firstName" name="firstName" required minlength="2" pattern="[A-Za-z\s'-]{2,50}">
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last name*</label>
-                        <input type="text" id="lastName" name="lastName" required>
+                        <input type="text" id="lastName" name="lastName" required minlength="2" pattern="[A-Za-z\s'-]{2,50}">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="companyName">Company name*</label>
-                    <input type="text" id="companyName" name="companyName" required>
+                    <input type="text" id="companyName" name="companyName" required minlength="2">
                 </div>
 
                 <div class="form-row">
@@ -1099,13 +1124,13 @@
                     </div>
                     <div class="form-group">
                         <label for="phoneNumber">Phone number</label>
-                        <input type="tel" id="phoneNumber" name="phoneNumber">
+                        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[\d\s\-\+\(\)\.]{7,20}">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message"></textarea>
+                    <textarea id="message" name="message" maxlength="1000"></textarea>
                 </div>
 
                 <!-- Privacy Information -->
@@ -1126,12 +1151,10 @@
                     <p>By clicking submit below, you consent to allow Phizzle to store and process the personal information submitted above to provide you the content requested.</p>
                 </div>
 
-                <!-- reCAPTCHA and Submit Button Section -->
-                <!-- reCAPTCHA will be inserted here automatically by Netlify -->
+                <!-- Netlify reCAPTCHA -->
                 <div data-netlify-recaptcha="true"></div>
 
                 <button type="submit" class="submit-btn">Submit</button>
-                </div>
             </form>
         </div>
     </main>
@@ -1197,7 +1220,10 @@
                     <div class="email-signup">
                         <h5>Stay Updated</h5>
                         <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.75rem;">Join our newsletter to get the latest updates</p>
-                        <form class="email-form" id="newsletter-form">
+                        <form class="email-form" name="newsletter" method="POST" data-netlify="true" data-netlify-honeypot="bot-field-news">
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                <input type="text" name="bot-field-news" tabindex="-1" autocomplete="off">
+                            </div>
                             <input type="email" class="email-input" name="email" placeholder="Enter your email" required>
                             <button type="submit" class="email-submit">Subscribe</button>
                         </form>
@@ -1216,6 +1242,10 @@
     </footer>
 
     <script>
+        // Track form load time for bot detection
+        let formLoadTime = Date.now();
+        let formInteractionCount = 0;
+        
         // Mobile menu functions
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
@@ -1260,134 +1290,112 @@
                 closeMobileMenu();
             }
         });
-
-        // Contact form submission with Netlify
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const firstName = e.target.querySelector('input[name="firstName"]').value;
-            const lastName = e.target.querySelector('input[name="lastName"]').value;
-            const companyName = e.target.querySelector('input[name="companyName"]').value;
-            const email = e.target.querySelector('input[name="email"]').value;
-            const phoneNumber = e.target.querySelector('input[name="phoneNumber"]').value;
-            const message = e.target.querySelector('textarea[name="message"]').value;
-            const communications = e.target.querySelector('input[name="communications"]').checked;
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            
-            submitBtn.textContent = 'Submitting...';
-            submitBtn.disabled = true;
-            
-            // First, verify the reCAPTCHA on your server
-            // This is a placeholder - you'll need to implement server-side verification
-            // For now, we'll proceed with the form submission
-            
-            const fields = [
-                {
-                    name: "firstname",
-                    value: firstName
-                },
-                {
-                    name: "lastname", 
-                    value: lastName
-                },
-                {
-                    name: "email",
-                    value: email
-                },
-                {
-                    name: "company",
-                    value: companyName
-                },
-                {
-                    name: "hs_lead_status",
-                    value: "NEW"
-                },
-                {
-                    name: "lifecyclestage",
-                    value: "lead"
-                }
-            ];
-
-            if (phoneNumber) {
-                fields.push({
-                    name: "phone",
-                    value: phoneNumber
-                });
-            }
-
-            if (message) {
-                fields.push({
-                    name: "message",
-                    value: message
-                });
-            }
-            
-            fetch('https://api.hsforms.com/submissions/v3/integration/submit/8070371/5efde115-8a41-4e38-8176-4b121279ff42', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    fields: fields,
-                    context: {
-                        pageUri: window.location.href,
-                        pageName: "Contact Us"
-                    }
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                submitBtn.textContent = 'Thank You!';
-                e.target.reset();
-                setTimeout(() => {
-                    submitBtn.textContent = 'Submit';
-                    submitBtn.disabled = false;
-                }, 3000);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                submitBtn.textContent = 'Error - Try Again';
-                submitBtn.disabled = false;
+        
+        // Track form interactions
+        document.querySelectorAll('#contact-form input, #contact-form textarea').forEach(field => {
+            field.addEventListener('focus', () => {
+                formInteractionCount++;
             });
         });
 
-        // Newsletter form submission
-        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Enhanced form validation
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            const form = e.target;
             
-            const email = e.target.querySelector('input[name="email"]').value;
-            const submitBtn = e.target.querySelector('button[type="submit"]');
+            // Time-based validation
+            const submitTime = Date.now();
+            const timeDiff = (submitTime - formLoadTime) / 1000;
+            if (timeDiff < 3) {
+                e.preventDefault();
+                console.log('Form submitted too quickly');
+                return false;
+            }
             
-            submitBtn.textContent = 'Subscribing...';
-            submitBtn.disabled = true;
+            // Check for minimum interactions
+            if (formInteractionCount < 2) {
+                e.preventDefault();
+                console.log('Insufficient form interaction');
+                return false;
+            }
             
-            fetch('https://api.hsforms.com/submissions/v3/integration/submit/8070371/5efde115-8a41-4e38-8176-4b121279ff42', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    fields: [
-                        {
-                            name: "email",
-                            value: email
-                        }
-                    ]
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                submitBtn.textContent = 'Subscribed!';
-                e.target.reset();
-                setTimeout(() => {
-                    submitBtn.textContent = 'Subscribe';
-                    submitBtn.disabled = false;
-                }, 2000);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                submitBtn.textContent = 'Error - Try Again';
-                submitBtn.disabled = false;
+            // Get form values
+            const firstName = form.querySelector('input[name="firstName"]').value.trim();
+            const lastName = form.querySelector('input[name="lastName"]').value.trim();
+            const companyName = form.querySelector('input[name="companyName"]').value.trim();
+            const email = form.querySelector('input[name="email"]').value.trim();
+            const message = form.querySelector('textarea[name="message"]').value.trim();
+            
+            // Check for spam patterns
+            const spamPatterns = [
+                /\b(viagra|cialis|casino|lottery|winner|click here|limited time|act now)\b/i,
+                /[A-Z]{6,}/g,
+                /(.)\1{5,}/g,
+                /<[^>]*>/g,
+                /\d{10,}/g
+            ];
+            
+            const textFields = [firstName, lastName, companyName, message];
+            for (let field of textFields) {
+                for (let pattern of spamPatterns) {
+                    if (pattern.test(field)) {
+                        e.preventDefault();
+                        console.log('Spam pattern detected');
+                        return false;
+                    }
+                }
+            }
+            
+            // Check for URLs in name/company fields
+            if (/https?:\/\//i.test(firstName + lastName + companyName)) {
+                e.preventDefault();
+                console.log('URL in name fields');
+                return false;
+            }
+            
+            // Enhanced email validation
+            const emailDomain = email.split('@')[1];
+            const disposableEmails = [
+                'tempmail', 'throwaway', 'guerrillamail', '10minutemail',
+                'mailinator', 'trashmail', 'yopmail', 'getnada', 'fakeinbox'
+            ];
+            
+            if (disposableEmails.some(d => emailDomain.includes(d))) {
+                alert('Please use a valid business email address');
+                e.preventDefault();
+                return false;
+            }
+            
+            // Check for repeated characters in email
+            const emailLocal = email.split('@')[0];
+            if (/(.)\1{4,}/.test(emailLocal)) {
+                e.preventDefault();
+                console.log('Suspicious email pattern');
+                return false;
+            }
+            
+            // If all validations pass, form will submit to Netlify
+            console.log('Form validation passed');
+        });
+
+        // Monitor paste events for spam
+        document.querySelectorAll('input[type="text"], input[type="email"]').forEach(field => {
+            field.addEventListener('paste', function(e) {
+                const clipboardData = e.clipboardData || window.clipboardData;
+                const pastedData = clipboardData.getData('Text');
+                
+                // Block if pasting URLs in non-message fields
+                if (field.name !== 'message' && /https?:\/\//i.test(pastedData)) {
+                    e.preventDefault();
+                    console.log('URL paste blocked');
+                    return false;
+                }
+                
+                // Block if pasting excessive content
+                if (pastedData.length > 500 && field.type !== 'textarea') {
+                    e.preventDefault();
+                    console.log('Excessive paste blocked');
+                    return false;
+                }
             });
         });
     </script>
