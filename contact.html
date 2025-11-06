@@ -36,7 +36,10 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: #f8fafc;
+        }
+
+        textarea {
+            font-family: inherit;
         }
 
         /* Navigation */
@@ -324,237 +327,170 @@
 
         /* Main Content */
         .main-content {
-            padding: 4rem 0;
+            background: #ffffff;
+            padding: 6rem 0;
         }
 
-        .form-container {
+        .content-container {
             max-width: 800px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* Form Section */
-        .form-section {
-            background: #ffffff;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e2e8f0;
-        }
-
-        .form-header {
+        /* Contact Header */
+        .contact-header {
             text-align: center;
             margin-bottom: 3rem;
         }
 
-        .form-header h1 {
-            font-size: 2.5rem;
+        .contact-header h1 {
+            font-size: 2.8rem;
             font-weight: 600;
             color: #1f2937;
             margin-bottom: 1rem;
         }
 
-        /* Form Styles */
-        .demo-form {
-            display: grid;
-            gap: 1.5rem;
+        /* Contact Form */
+        .contact-form {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group {
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 1.5rem;
         }
 
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-
-        label {
+        .form-group label {
+            display: block;
             font-size: 0.9rem;
             font-weight: 500;
             color: #374151;
             margin-bottom: 0.5rem;
         }
 
-        .required {
-            color: #ef4444;
-        }
-
-        input, textarea, select {
-            padding: 0.875rem 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #374151;
             background: #ffffff;
+            transition: border-color 0.3s ease;
             min-height: 44px;
         }
 
-        input:focus, textarea:focus, select:focus {
+        .form-group input:focus,
+        .form-group textarea:focus {
             outline: none;
             border-color: #436c79;
             box-shadow: 0 0 0 3px rgba(74, 144, 184, 0.1);
         }
 
-        textarea {
+        .form-group textarea {
+            height: 120px;
             resize: vertical;
-            min-height: 120px;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-weight: 400;
-        }
-
-        /* Date input font styling to match page */
-        input[type="date"] {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-weight: 400;
-        }
-
-        input[type="date"]::-webkit-datetime-edit {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-weight: 400;
-            color: #9ca3af;
-        }
-
-        /* Style default date input placeholder text */
-        input[type="date"]::-webkit-datetime-edit-text {
-            color: #9ca3af;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        input[type="date"]::-webkit-datetime-edit-month-field {
-            color: #9ca3af;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        input[type="date"]::-webkit-datetime-edit-day-field {
-            color: #9ca3af;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        input[type="date"]::-webkit-datetime-edit-year-field {
-            color: #9ca3af;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        /* Show darker text when focused or has value */
-        input[type="date"]:focus::-webkit-datetime-edit-text,
-        input[type="date"]:valid::-webkit-datetime-edit-text {
-            color: #333;
-        }
-
-        input[type="date"]:focus::-webkit-datetime-edit-month-field,
-        input[type="date"]:valid::-webkit-datetime-edit-month-field {
-            color: #333;
-        }
-
-        input[type="date"]:focus::-webkit-datetime-edit-day-field,
-        input[type="date"]:valid::-webkit-datetime-edit-day-field {
-            color: #333;
-        }
-
-        input[type="date"]:focus::-webkit-datetime-edit-year-field,
-        input[type="date"]:valid::-webkit-datetime-edit-year-field {
-            color: #333;
         }
 
         /* Privacy Section */
         .privacy-section {
-            background: #e1ebee;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
             margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #436c79;
         }
 
-        .privacy-text {
+        .privacy-section p {
             font-size: 0.85rem;
             color: #64748b;
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
+        .privacy-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .privacy-section a {
+            color: #30444d;
+            text-decoration: none;
+        }
+
+        .privacy-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Checkboxes */
         .checkbox-group {
+            margin: 1.5rem 0;
+        }
+
+        .checkbox-item {
             display: flex;
             align-items: flex-start;
             gap: 0.5rem;
             margin-bottom: 1rem;
         }
 
-        input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            margin: 0;
-            margin-top: -0.8rem;
-            flex-shrink: 0;
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-top: 0.2rem;
+            min-height: auto;
         }
 
-        .checkbox-label {
-            font-size: 0.85rem;
-            color: #374151;
-            line-height: 1.4;
-        }
-
-        .privacy-link {
-            color: #436c79;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .privacy-link:hover {
-            text-decoration: underline;
-        }
-
-        .consent-text {
+        .checkbox-item label {
             font-size: 0.85rem;
             color: #64748b;
-            line-height: 1.6;
-            margin-top: 1rem;
+            line-height: 1.5;
+            margin-bottom: 0;
+            cursor: pointer;
         }
 
         /* Submit Button */
-        .submit-section {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
         .submit-btn {
             background: #1e293b;
-            color: #ffffff;
-            padding: 1rem 3rem;
+            color: white;
+            padding: 0.875rem 3rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.2px;
             cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
-            min-width: 200px;
-            min-height: 44px;
+            transition: all 0.3s ease;
+            margin: 2rem auto 0;
+            min-height: 48px;
+            display: block;
+            width: auto;
         }
 
-        .submit-btn:hover {
+        .submit-btn:hover:not(:disabled) {
             background: #0f172a;
-            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .submit-btn:active {
-            transform: translateY(0);
+        .submit-btn:active:not(:disabled) {
+            transform: translateY(1px);
         }
 
         .submit-btn:disabled {
-            opacity: 0.6;
+            opacity: 0.7;
             cursor: not-allowed;
-            transform: none;
         }
 
-        /* Footer Section */
+        /* Footer */
         .footer {
             background: #1e293b;
             color: #e2e8f0;
@@ -770,18 +706,6 @@
             color: #94a3b8;
         }
 
-        /* Success message styling */
-        .success-message {
-            background: #dcfce7;
-            border: 1px solid #16a34a;
-            color: #15803d;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            text-align: center;
-            display: none;
-        }
-
         /* Enhanced Navigation with Progressive Breakpoints */
         
         /* Container padding adjustment for smaller screens */
@@ -927,29 +851,35 @@
             }
         }
 
-        /* Mobile Responsive Design (768px and below) */
+        /* Mobile/Tablet Responsive Design */
         @media (max-width: 768px) {
-            /* Even smaller logo on mobile */
             .logo img {
                 height: 28px;
             }
 
-            /* Form content mobile adjustments */
-            .form-container {
+            .nav-container {
                 padding: 0 1rem;
             }
 
-            .form-section {
-                padding: 2rem 1.5rem;
-            }
-
-            .form-header h1 {
-                font-size: 2rem;
+            .contact-header h1 {
+                font-size: 2.2rem;
             }
 
             .form-row {
                 grid-template-columns: 1fr;
                 gap: 1rem;
+            }
+
+            .main-content {
+                padding: 4rem 0;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .content-container {
+                padding: 0 1rem;
             }
 
             /* Footer mobile */
@@ -978,21 +908,41 @@
 
         /* Very small mobile (480px and below) */
         @media (max-width: 480px) {
-            .nav-container {
+            .main-content {
+                padding: 3rem 0;
+            }
+
+            .contact-header h1 {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                padding: 1rem;
+            }
+
+            .content-container {
                 padding: 0 1rem;
             }
+        }
 
-            .form-container {
-                padding: 0 0.5rem;
-            }
+        /* Honeypot field - hidden from users */
+        .honey {
+            position: absolute;
+            left: -9999px;
+            height: 0;
+            width: 0;
+            overflow: hidden;
+        }
 
-            .form-section {
-                padding: 1.5rem 1rem;
-            }
+        .error-message {
+            color: #dc2626;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
 
-            .form-header h1 {
-                font-size: 1.8rem;
-            }
+        .error-message.show {
+            display: block;
         }
     </style>
 </head>
@@ -1147,83 +1097,81 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="form-container">
-            <div class="form-section">
-                <div class="form-header">
-                    <h1>Contact Us</h1>
-                </div>
-
-                <!-- Success message (hidden by default) -->
-                <div id="successMessage" class="success-message">
-                    Thank you for contacting us! We've received your message and will get back to you as soon as possible.
-                </div>
-
-                <!-- Updated form with HubSpot integration and spam protection -->
-                <form class="demo-form" id="demo-form">
-                    <!-- Honeypot fields for spam protection (hidden from users) -->
-                    <input type="text" name="website" style="position: absolute; left: -5000px;" tabindex="-1" autocomplete="off">
-                    <input type="text" name="address" style="position: absolute; left: -5000px;" tabindex="-1" autocomplete="off">
-                    <input type="text" name="fax" style="position: absolute; left: -5000px;" tabindex="-1" autocomplete="off">
-                    <input type="text" name="business" style="position: absolute; left: -5000px;" tabindex="-1" autocomplete="off">
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First name<span class="required">*</span></label>
-                            <input type="text" id="firstName" name="firstName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last name<span class="required">*</span></label>
-                            <input type="text" id="lastName" name="lastName" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="companyName">Company name<span class="required">*</span></label>
-                        <input type="text" id="companyName" name="companyName" required>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email<span class="required">*</span></label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message"></textarea>
-                    </div>
-
-                    <div class="privacy-section">
-                        <div class="privacy-text">
-                            Phizzle is committed to protecting and respecting your privacy, and we'll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick below to say how you would like us to contact you:
-                        </div>
-
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="marketingEmails" name="marketingEmails" value="yes">
-                            <label for="marketingEmails" class="checkbox-label">
-                                I agree to receive other communications from Phizzle.
-                            </label>
-                        </div>
-
-                        <div class="privacy-text">
-                            You can unsubscribe from these communications at any time. For more information on how to unsubscribe, our privacy practices, and how we are committed to protecting and respecting your privacy, please review our <a href="#" class="privacy-link">Privacy Policy</a>.
-                        </div>
-
-                        <div class="consent-text">
-                            By clicking submit below, you consent to allow Phizzle to store and process the personal information submitted above to provide you the content requested.
-                        </div>
-                    </div>
-
-                    <div class="submit-section">
-                        <button type="submit" class="submit-btn">Submit</button>
-                    </div>
-                </form>
+        <div class="content-container">
+            <!-- Contact Header -->
+            <div class="contact-header">
+                <h1>Contact Us</h1>
             </div>
+
+            <!-- Contact Form with HubSpot integration -->
+            <form class="contact-form" id="contact-form" novalidate>
+                <!-- Honeypot field - hidden from real users -->
+                <div class="honey" aria-hidden="true">
+                    <label for="website">Website</label>
+                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+                
+                <!-- Hidden timestamp field -->
+                <input type="hidden" name="timestamp" id="timestamp">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First name*</label>
+                        <input type="text" id="firstName" name="firstName" required pattern="[A-Za-z\s\-']+" title="Please enter a valid first name">
+                        <span class="error-message" id="firstName-error">Please enter your first name</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last name*</label>
+                        <input type="text" id="lastName" name="lastName" required pattern="[A-Za-z\s\-']+" title="Please enter a valid last name">
+                        <span class="error-message" id="lastName-error">Please enter your last name</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="companyName">Company name*</label>
+                    <input type="text" id="companyName" name="companyName" required minlength="2">
+                    <span class="error-message" id="companyName-error">Please enter your company name</span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                        <span class="error-message" id="email-error">Please enter a valid business email</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone number</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[\d\s\-\+\(\)]+">
+                        <span class="error-message" id="phoneNumber-error">Please enter a valid phone number</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+
+                <!-- Privacy Information -->
+                <div class="privacy-section">
+                    <p>Phizzle is committed to protecting and respecting your privacy, and we'll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick below to say how you would like us to contact you:</p>
+                </div>
+
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="communications" name="communications" value="yes">
+                        <label for="communications">I agree to receive email communications from Phizzle.</label>
+                    </div>
+                </div>
+
+                <div class="privacy-section">
+                    <p>You can unsubscribe from these communications at any time. For more information on how to unsubscribe, our privacy practices, and how we are committed to protecting and respecting your privacy, please review our <a href="#">Privacy Policy</a>.</p>
+                    
+                    <p>By clicking submit below, you consent to allow Phizzle to store and process the personal information submitted above to provide you the content requested.</p>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit</button>
+                <span class="error-message" id="form-error" style="margin-left: 1rem;">Please check the form for errors</span>
+            </form>
         </div>
     </main>
 
@@ -1288,7 +1236,12 @@
                     <div class="email-signup">
                         <h5>Stay Updated</h5>
                         <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.75rem;">Join our newsletter to get the latest updates</p>
-                        <form class="email-form" id="newsletter-form">
+                        <form class="email-form" id="newsletter-form" novalidate>
+                            <!-- Newsletter honeypot -->
+                            <div class="honey" aria-hidden="true">
+                                <label for="phone">Phone</label>
+                                <input type="text" id="phone" name="phone" tabindex="-1" autocomplete="off">
+                            </div>
                             <input type="email" class="email-input" name="email" placeholder="Enter your email" required>
                             <button type="submit" class="email-submit">Subscribe</button>
                         </form>
@@ -1326,7 +1279,6 @@
             const dropdown = document.getElementById(dropdownId);
             const arrow = event.target.querySelector('.dropdown-arrow');
             
-            // Close all other dropdowns
             const allDropdowns = document.querySelectorAll('.mobile-dropdown');
             const allArrows = document.querySelectorAll('.dropdown-arrow');
             
@@ -1342,209 +1294,154 @@
                 }
             });
             
-            // Toggle current dropdown
             dropdown.classList.toggle('active');
             arrow.classList.toggle('rotated');
         }
 
-        // Close mobile menu when pressing escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeMobileMenu();
             }
         });
 
-        // Track form load time and interactions for bot detection
-        let formLoadTime = Date.now();
-        let formInteractionCount = 0;
-        let mouseMovements = 0;
-        let keyPressCount = 0;
-
-        // Track mouse movements
-        document.addEventListener('mousemove', function() {
-            mouseMovements++;
-        }, { once: true });
-
-        // Track form field interactions
-        document.querySelectorAll('#demo-form input, #demo-form textarea').forEach(field => {
-            field.addEventListener('focus', () => {
-                formInteractionCount++;
-            });
-            
-            field.addEventListener('keypress', () => {
-                keyPressCount++;
-            });
+        // Anti-spam protection
+        const CONTACT_FORM_MIN_TIME = 3000; // Minimum 3 seconds for contact form
+        const NEWSLETTER_FORM_MIN_TIME = 1000; // Minimum 1 second for newsletter
+        const RATE_LIMIT_WINDOW = 60000; // 1 minute window
+        const MAX_SUBMISSIONS = 2; // Max 2 submissions per window
+        
+        // Set timestamps when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('timestamp').value = Date.now();
         });
-
-        // Enhanced HubSpot Form Submission with Spam Protection
-        document.getElementById('demo-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        
+        // Rate limiting helper
+        function checkRateLimit(storageKey) {
+            const submissions = JSON.parse(localStorage.getItem(storageKey) || '[]');
+            const now = Date.now();
             
-            // Check honeypot fields first
-            const honeypots = ['website', 'address', 'fax', 'business'];
-            for (let fieldName of honeypots) {
-                const field = e.target.querySelector(`input[name="${fieldName}"]`);
-                if (field && field.value !== '') {
-                    console.log('Honeypot triggered - bot detected');
-                    // Silently fail for bots
-                    setTimeout(() => {
-                        document.getElementById('successMessage').style.display = 'block';
-                        e.target.reset();
-                    }, 1500);
-                    return false;
-                }
-            }
+            // Filter out old submissions
+            const recentSubmissions = submissions.filter(time => now - time < RATE_LIMIT_WINDOW);
             
-            // Time-based validation
-            const submitTime = Date.now();
-            const timeDiff = (submitTime - formLoadTime) / 1000;
-            
-            if (timeDiff < 3) {
-                console.log('Form submitted too quickly - likely a bot');
+            if (recentSubmissions.length >= MAX_SUBMISSIONS) {
                 return false;
             }
             
-            // Check for human behavior
-            if (mouseMovements === 0 || formInteractionCount < 2) {
-                console.log('No human interaction detected - likely a bot');
-                return false;
+            recentSubmissions.push(now);
+            localStorage.setItem(storageKey, JSON.stringify(recentSubmissions));
+            return true;
+        }
+        
+        // Email validation
+        function isValidEmail(email) {
+            // Basic email pattern check
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) return false;
+            
+            // Check for common disposable email domains
+            const disposableDomains = ['tempmail.com', 'throwaway.email', '10minutemail.com', 'guerrillamail.com'];
+            const domain = email.split('@')[1];
+            if (disposableDomains.includes(domain)) return false;
+            
+            // Check for business email (not free providers)
+            const freeProviders = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com'];
+            // Optional: You can enable this check if you only want business emails
+            // if (freeProviders.includes(domain)) return false;
+            
+            return true;
+        }
+        
+        // Form validation
+        function validateForm(form, minTime = CONTACT_FORM_MIN_TIME) {
+            let isValid = true;
+            
+            // Check honeypot
+            const honeypot = form.querySelector('input[name="website"]');
+            if (honeypot && honeypot.value) {
+                return false; // Bot detected
             }
             
-            // Get and validate form values
-            const firstName = e.target.querySelector('input[name="firstName"]').value.trim();
-            const lastName = e.target.querySelector('input[name="lastName"]').value.trim();
-            const companyName = e.target.querySelector('input[name="companyName"]').value.trim();
-            const email = e.target.querySelector('input[name="email"]').value.trim();
-            const phone = e.target.querySelector('input[name="phone"]').value.trim();
-            const message = e.target.querySelector('textarea[name="message"]').value.trim();
-            const marketingEmails = e.target.querySelector('input[name="marketingEmails"]').checked;
-            const submitBtn = e.target.querySelector('button[type="submit"]');
+            // Check submission time
+            const timestamp = parseInt(form.querySelector('input[name="timestamp"]').value);
+            if (Date.now() - timestamp < minTime) {
+                return false; // Form submitted too quickly
+            }
             
             // Validate required fields
-            if (!firstName || !lastName || !companyName || !email) {
-                alert('Please fill in all required fields.');
-                return false;
+            const firstName = form.querySelector('input[name="firstName"]');
+            const lastName = form.querySelector('input[name="lastName"]');
+            const companyName = form.querySelector('input[name="companyName"]');
+            const email = form.querySelector('input[name="email"]');
+            const phoneNumber = form.querySelector('input[name="phoneNumber"]');
+            
+            // Clear previous errors
+            form.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
+            
+            // First name validation
+            if (!firstName.value.trim() || !/^[A-Za-z\s\-']+$/.test(firstName.value)) {
+                document.getElementById('firstName-error').classList.add('show');
+                isValid = false;
             }
             
-            // Enhanced spam pattern detection
-            const spamPatterns = [
-                /\b(viagra|cialis|casino|lottery|winner|congratulations|click here|act now|limited time|free money|guaranteed|risk free|earn money|work from home)\b/i,
-                /[A-Z]{6,}/g, // Excessive capitals
-                /(.)\1{5,}/g, // Repeated characters
-                /<[^>]*>/g, // HTML tags
-                /\bhttps?:\/\/\S+/gi, // URLs
-                /\d{10,}/g, // Long number sequences
-                /\$\d+/g, // Money amounts (often in spam)
-                /[^\x00-\x7F]{3,}/g // Multiple non-ASCII characters
-            ];
-            
-            // Check text fields for spam patterns
-            const nameFields = [firstName, lastName, companyName];
-            for (let field of nameFields) {
-                for (let pattern of spamPatterns) {
-                    if (pattern.test(field)) {
-                        console.log('Spam pattern detected');
-                        return false;
-                    }
-                }
-                
-                // Names/company shouldn't have numbers or excessive special chars
-                if (/[0-9!@#$%^&*()_+=\[\]{};':"\\|,.<>?\/]{2,}/.test(field)) {
-                    console.log('Invalid characters in name/company fields');
-                    return false;
-                }
-                
-                // Check for gibberish (random consonants)
-                if (/[bcdfghjklmnpqrstvwxyz]{5,}/i.test(field)) {
-                    console.log('Gibberish detected');
-                    return false;
-                }
+            // Last name validation
+            if (!lastName.value.trim() || !/^[A-Za-z\s\-']+$/.test(lastName.value)) {
+                document.getElementById('lastName-error').classList.add('show');
+                isValid = false;
             }
             
-            // Check message field separately (allow URLs but check other patterns)
-            if (message) {
-                const messagePatterns = spamPatterns.slice(0, -1); // Remove URL check
-                for (let pattern of messagePatterns) {
-                    if (pattern.test(message)) {
-                        console.log('Spam pattern in message');
-                        return false;
-                    }
-                }
-                
-                // Check for excessive URLs in message
-                const urlCount = (message.match(/https?:\/\//gi) || []).length;
-                if (urlCount > 3) {
-                    console.log('Too many URLs in message');
-                    return false;
-                }
+            // Company name validation
+            if (!companyName.value.trim() || companyName.value.length < 2) {
+                document.getElementById('companyName-error').classList.add('show');
+                isValid = false;
             }
             
-            // Enhanced email validation
-            const emailPattern = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]{0,63}@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$/;
-            if (!emailPattern.test(email)) {
-                alert('Please enter a valid email address');
-                return false;
+            // Email validation
+            if (!isValidEmail(email.value)) {
+                document.getElementById('email-error').textContent = 'Please enter a valid email address';
+                document.getElementById('email-error').classList.add('show');
+                isValid = false;
             }
             
-            // Extensive disposable email domain list
-            const disposableEmailDomains = [
-                'tempmail', 'throwaway', 'guerrillamail', '10minutemail', 
-                'mailinator', 'trashmail', 'yopmail', 'getnada', 'temp-mail',
-                'fakeinbox', 'sharklasers', 'spam4', 'mailnesia', 'emailondeck',
-                'throwawaymail', 'maildrop', 'mailcatch', 'mailnull', 'dispostable',
-                'jetable', 'kasmail', 'teleworm', 'spamgourmet', 'spamex',
-                'tyldd', 'slippery', 'spamdecoy', 'spamfree24', 'spamhereplease',
-                'spamthis', 'spamtroll', 'dodgeit', 'e4ward', 'emailias',
-                'emailwarden', 'enterto', 'mytrashmail', 'mt2009', 'mailexpire',
-                'mailforspam', 'mailmoat', 'mailscrap', 'mailzi', 'no-spam'
-            ];
-            
-            const emailDomain = email.split('@')[1].toLowerCase();
-            if (disposableEmailDomains.some(spam => emailDomain.includes(spam))) {
-                alert('Please use a valid business email address');
-                return false;
+            // Phone validation (optional field)
+            if (phoneNumber.value && !/^[\d\s\-\+\(\)]+$/.test(phoneNumber.value)) {
+                document.getElementById('phoneNumber-error').classList.add('show');
+                isValid = false;
             }
             
-            // Check email local part
-            const emailLocal = email.split('@')[0];
-            if (/(.)\1{3,}/.test(emailLocal) || // Repeated chars
-                /^[0-9]+$/.test(emailLocal) || // Only numbers
-                emailLocal.length < 2 || // Too short
-                /test|demo|fake|dummy|sample/i.test(emailLocal)) { // Test emails
-                console.log('Suspicious email pattern');
-                return false;
+            if (!isValid) {
+                document.getElementById('form-error').classList.add('show');
             }
             
-            // Phone validation if provided
-            if (phone) {
-                const cleanPhone = phone.replace(/[\s\-\(\)\.]/g, '');
-                if (/^(\d)\1+$/.test(cleanPhone) || // All same digit
-                    !/^\+?\d{7,15}$/.test(cleanPhone) || // Invalid format
-                    /^(123456|111111|000000|12345678)/.test(cleanPhone)) { // Common fake numbers
-                    console.log('Invalid phone number');
-                    return false;
-                }
+            return isValid;
+        }
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            if (!validateForm(e.target)) {
+                return;
             }
             
-            // Field length validation
-            if (firstName.length < 2 || firstName.length > 50 ||
-                lastName.length < 2 || lastName.length > 50 ||
-                companyName.length < 2 || companyName.length > 100) {
-                alert('Please ensure all fields contain valid information');
-                return false;
+            // Check rate limit
+            if (!checkRateLimit('contact_form_submissions')) {
+                alert('Too many submissions. Please wait a moment before trying again.');
+                return;
             }
             
-            // Message length check
-            if (message && (message.length < 10 || message.length > 1000)) {
-                alert('Please keep your message between 10 and 1000 characters');
-                return false;
-            }
+            const firstName = e.target.querySelector('input[name="firstName"]').value;
+            const lastName = e.target.querySelector('input[name="lastName"]').value;
+            const companyName = e.target.querySelector('input[name="companyName"]').value;
+            const email = e.target.querySelector('input[name="email"]').value;
+            const phoneNumber = e.target.querySelector('input[name="phoneNumber"]').value;
+            const message = e.target.querySelector('textarea[name="message"]').value;
+            const communications = e.target.querySelector('input[name="communications"]').checked;
+            const submitBtn = e.target.querySelector('button[type="submit"]');
             
-            // All validations passed - submit to HubSpot
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
             
-            // Prepare fields for HubSpot
             const fields = [
                 {
                     name: "firstname",
@@ -1555,12 +1452,12 @@
                     value: lastName
                 },
                 {
-                    name: "company",
-                    value: companyName
-                },
-                {
                     name: "email",
                     value: email
+                },
+                {
+                    name: "company",
+                    value: companyName
                 },
                 {
                     name: "hs_lead_status",
@@ -1571,15 +1468,14 @@
                     value: "lead"
                 }
             ];
-            
-            // Add optional fields
-            if (phone) {
+
+            if (phoneNumber) {
                 fields.push({
                     name: "phone",
-                    value: phone
+                    value: phoneNumber
                 });
             }
-            
+
             if (message) {
                 fields.push({
                     name: "message",
@@ -1587,14 +1483,6 @@
                 });
             }
             
-            if (marketingEmails) {
-                fields.push({
-                    name: "marketing_opt_in",
-                    value: "true"
-                });
-            }
-            
-            // Submit to HubSpot
             fetch('https://api.hsforms.com/submissions/v3/integration/submit/8070371/5efde115-8a41-4e38-8176-4b121279ff42', {
                 method: 'POST',
                 headers: {
@@ -1608,78 +1496,52 @@
                     }
                 })
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
+            .then(response => response.json())
             .then(data => {
-                // Show success message
-                document.getElementById('successMessage').style.display = 'block';
                 submitBtn.textContent = 'Thank You!';
                 e.target.reset();
-                
-                // Scroll to success message
-                document.getElementById('successMessage').scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-                
+                // Reset timestamp for next submission
+                document.getElementById('timestamp').value = Date.now();
                 setTimeout(() => {
                     submitBtn.textContent = 'Submit';
                     submitBtn.disabled = false;
-                    document.getElementById('successMessage').style.display = 'none';
-                }, 5000);
+                }, 3000);
             })
             .catch(error => {
                 console.error('Error:', error);
                 submitBtn.textContent = 'Error - Try Again';
                 submitBtn.disabled = false;
-                alert('There was an error submitting the form. Please try again or contact us directly.');
             });
         });
 
-        // Monitor paste events
-        document.querySelectorAll('input[type="text"], input[type="email"], textarea').forEach(field => {
-            field.addEventListener('paste', function(e) {
-                setTimeout(() => {
-                    const pastedText = this.value;
-                    
-                    // Check for spam in pasted content
-                    const urlMatches = pastedText.match(/https?:\/\//gi);
-                    if (urlMatches && urlMatches.length > 2 && this.name !== 'message') {
-                        this.value = '';
-                        console.log('Multiple URLs pasted - blocked');
-                    }
-                    
-                    // Block excessive pasting
-                    if (this.type !== 'textarea' && pastedText.length > 200) {
-                        this.value = '';
-                        console.log('Excessive content pasted - blocked');
-                    }
-                    
-                    // Check for HTML/script tags
-                    if (/<[^>]*>/.test(pastedText)) {
-                        this.value = this.value.replace(/<[^>]*>/g, '');
-                        console.log('HTML removed from paste');
-                    }
-                }, 100);
-            });
-        });
-
-        // HubSpot Form Integration for Newsletter Form  
+        // Newsletter form submission
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Check honeypot
+            const honeypot = e.target.querySelector('input[name="phone"]');
+            if (honeypot && honeypot.value) {
+                return; // Bot detected
+            }
+            
+            // Check rate limit
+            if (!checkRateLimit('newsletter_form_submissions')) {
+                alert('Too many submissions. Please wait a moment before trying again.');
+                return;
+            }
             
             const email = e.target.querySelector('input[name="email"]').value;
             const submitBtn = e.target.querySelector('button[type="submit"]');
             
-            // Disable button during submission
+            // Validate email
+            if (!isValidEmail(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
             submitBtn.textContent = 'Subscribing...';
             submitBtn.disabled = true;
             
-            // Submit to HubSpot
             fetch('https://api.hsforms.com/submissions/v3/integration/submit/8070371/5efde115-8a41-4e38-8176-4b121279ff42', {
                 method: 'POST',
                 headers: {
@@ -1691,11 +1553,7 @@
                             name: "email",
                             value: email
                         }
-                    ],
-                    context: {
-                        pageUri: window.location.href,
-                        pageName: "Newsletter Signup"
-                    }
+                    ]
                 })
             })
             .then(response => response.json())
