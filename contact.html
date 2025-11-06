@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Request a personalized demo of Phizzle's Connected Plant™ platform. Schedule a consultation to see how we can digitize your scientific workflows and eliminate paper processes in manufacturing.">
-    <title>Request a Demo - Phizzle</title>
+    <meta name="description" content="Get in touch with Phizzle to learn how our Connected Plant™ platform can transform your manufacturing operations. Contact our team for demos, partnerships, and support.">
+    <title>Contact Us - Phizzle</title>
 
     <!-- Favicon links -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
@@ -1150,12 +1150,12 @@
         <div class="form-container">
             <div class="form-section">
                 <div class="form-header">
-                    <h1>Request a Demo</h1>
+                    <h1>Contact Us</h1>
                 </div>
 
                 <!-- Success message (hidden by default) -->
                 <div id="successMessage" class="success-message">
-                    Thank you for your interest! Your demo request has been submitted successfully. We will contact you soon to schedule your personalized demo.
+                    Thank you for contacting us! We've received your message and will get back to you as soon as possible.
                 </div>
 
                 <!-- Updated form with HubSpot integration and spam protection -->
@@ -1191,11 +1191,6 @@
                             <label for="phone">Phone number</label>
                             <input type="tel" id="phone" name="phone">
                         </div>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="seminarDate">Demo Request Date</label>
-                        <input type="date" id="seminarDate" name="seminarDate">
                     </div>
 
                     <div class="form-group full-width">
@@ -1421,7 +1416,6 @@
             const companyName = e.target.querySelector('input[name="companyName"]').value.trim();
             const email = e.target.querySelector('input[name="email"]').value.trim();
             const phone = e.target.querySelector('input[name="phone"]').value.trim();
-            const seminarDate = e.target.querySelector('input[name="seminarDate"]').value;
             const message = e.target.querySelector('textarea[name="message"]').value.trim();
             const marketingEmails = e.target.querySelector('input[name="marketingEmails"]').checked;
             const submitBtn = e.target.querySelector('button[type="submit"]');
@@ -1586,13 +1580,6 @@
                 });
             }
             
-            if (seminarDate) {
-                fields.push({
-                    name: "demo_request_date",
-                    value: seminarDate
-                });
-            }
-            
             if (message) {
                 fields.push({
                     name: "message",
@@ -1617,7 +1604,7 @@
                     fields: fields,
                     context: {
                         pageUri: window.location.href,
-                        pageName: "Demo Request - Request a Demo Page"
+                        pageName: "Contact Us"
                     }
                 })
             })
