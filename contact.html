@@ -1127,18 +1127,15 @@
                     <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
                 </div>
                 
-                <!-- Hidden timestamp field -->
-                <input type="hidden" name="timestamp" id="timestamp">
-                
                 <div class="form-row">
                     <div class="form-group">
                         <label for="firstName">First name*</label>
-                        <input type="text" id="firstName" name="firstName" required pattern="[A-Za-z\s\-']+" title="Please enter a valid first name">
+                        <input type="text" id="firstName" name="firstName" required>
                         <span class="error-message" id="firstName-error">Please enter your first name</span>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last name*</label>
-                        <input type="text" id="lastName" name="lastName" required pattern="[A-Za-z\s\-']+" title="Please enter a valid last name">
+                        <input type="text" id="lastName" name="lastName" required>
                         <span class="error-message" id="lastName-error">Please enter your last name</span>
                     </div>
                 </div>
@@ -1345,16 +1342,13 @@
                 recaptchaDiv.setAttribute('data-callback', 'onRecaptchaSuccess');
                 recaptchaDiv.setAttribute('data-expired-callback', 'onRecaptchaExpired');
             }
-
-            // Set timestamp when page loads
-            document.getElementById('timestamp').value = Date.now();
         };
 
-        // Anti-spam protection
-        const CONTACT_FORM_MIN_TIME = 3000; // Minimum 3 seconds for contact form
-        const NEWSLETTER_FORM_MIN_TIME = 1000; // Minimum 1 second for newsletter
+        // Anti-spam protection - RELAXED SETTINGS
+        const CONTACT_FORM_MIN_TIME = 1000; // Reduced from 3 seconds to 1 second
+        const NEWSLETTER_FORM_MIN_TIME = 500; // Reduced from 1 second to 0.5 seconds
         const RATE_LIMIT_WINDOW = 60000; // 1 minute window
-        const MAX_SUBMISSIONS = 2; // Max 2 submissions per window
+        const MAX_SUBMISSIONS = 5; // Increased from 2 to 5 submissions per window
         
         // Rate limiting helper
         function checkRateLimit(storageKey) {
@@ -1379,21 +1373,19 @@
             const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             if (!emailPattern.test(email)) return false;
             
-            // Check for common disposable email domains
+            // Check for common disposable email domains (OPTIONAL - you can comment this out)
             const disposableDomains = ['tempmail.com', 'throwaway.email', '10minutemail.com', 'guerrillamail.com'];
             const domain = email.split('@')[1];
             if (disposableDomains.includes(domain)) return false;
             
-            // Check for business email (not free providers)
-            const freeProviders = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com'];
-            // Optional: You can enable this check if you only want business emails
-            // if (freeProviders.includes(domain)) return false;
+            // REMOVED: Check for business email restriction
+            // Now accepts all valid email addresses including gmail, yahoo, etc.
             
             return true;
         }
         
         // Form validation
-        function validateForm(form, minTime = CONTACT_FORM_MIN_TIME) {
+        function validateForm(form) {
             let isValid = true;
             
             // Check honeypot
@@ -1402,11 +1394,7 @@
                 return false; // Bot detected
             }
             
-            // Check submission time
-            const timestamp = parseInt(form.querySelector('input[name="timestamp"]').value);
-            if (Date.now() - timestamp < minTime) {
-                return false; // Form submitted too quickly
-            }
+            // REMOVED: Time check - form can be submitted immediately
             
             // Validate required fields
             const firstName = form.querySelector('input[name="firstName"]');
@@ -1418,14 +1406,14 @@
             // Clear previous errors
             form.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
             
-            // First name validation
-            if (!firstName.value.trim() || !/^[A-Za-z\s\-']+$/.test(firstName.value)) {
+            // First name validation (more flexible)
+            if (!firstName.value.trim()) {
                 document.getElementById('firstName-error').classList.add('show');
                 isValid = false;
             }
             
-            // Last name validation
-            if (!lastName.value.trim() || !/^[A-Za-z\s\-']+$/.test(lastName.value)) {
+            // Last name validation (more flexible)
+            if (!lastName.value.trim()) {
                 document.getElementById('lastName-error').classList.add('show');
                 isValid = false;
             }
@@ -1551,8 +1539,6 @@
                 // Reset reCAPTCHA
                 grecaptcha.reset();
                 submitBtn.disabled = true;
-                // Reset timestamp for next submission
-                document.getElementById('timestamp').value = Date.now();
                 setTimeout(() => {
                     submitBtn.textContent = 'Submit';
                 }, 3000);
