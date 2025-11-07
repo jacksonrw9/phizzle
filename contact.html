@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -931,18 +932,13 @@
             }
         }
 
-        /* Enhanced honeypot field - hidden from users */
+        /* Honeypot field - hidden from users */
         .honey {
-            position: absolute !important;
-            left: -9999px !important;
-            width: 1px !important;
-            height: 1px !important;
-            overflow: hidden !important;
-            clip: rect(0, 0, 0, 0) !important;
-            white-space: nowrap !important;
-            border: 0 !important;
-            padding: 0 !important;
-            margin: 0 !important;
+            position: absolute;
+            left: -9999px;
+            height: 0;
+            width: 0;
+            overflow: hidden;
         }
 
         .error-message {
@@ -1116,25 +1112,14 @@
 
             <!-- Contact Form with HubSpot integration -->
             <form class="contact-form" id="contact-form" novalidate>
-                <!-- Multiple honeypot fields - hidden from real users -->
+                <!-- Honeypot field - hidden from real users -->
                 <div class="honey" aria-hidden="true">
                     <label for="website">Website</label>
                     <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
                 </div>
                 
-                <div class="honey" aria-hidden="true">
-                    <label for="url">URL</label>
-                    <input type="text" id="url" name="url" tabindex="-1" autocomplete="off">
-                </div>
-
-                <div class="honey" aria-hidden="true">
-                    <label for="comment">Comment</label>
-                    <input type="text" id="comment" name="comment" tabindex="-1" autocomplete="off">
-                </div>
-                
                 <!-- Hidden timestamp field -->
                 <input type="hidden" name="timestamp" id="timestamp">
-                <input type="hidden" name="formId" value="contact-form-v2">
                 
                 <div class="form-row">
                     <div class="form-group">
@@ -1326,59 +1311,18 @@
             }
         });
 
-        // Enhanced Anti-spam protection
+        // Anti-spam protection
         const CONTACT_FORM_MIN_TIME = 3000; // Minimum 3 seconds for contact form
         const NEWSLETTER_FORM_MIN_TIME = 1000; // Minimum 1 second for newsletter
         const RATE_LIMIT_WINDOW = 60000; // 1 minute window
         const MAX_SUBMISSIONS = 2; // Max 2 submissions per window
-        const HUMAN_TYPING_MIN_SPEED = 50; // Minimum milliseconds between keystrokes
-
-        // Track user interaction
-        let userInteractionData = {
-            mouseMovements: 0,
-            keystrokes: 0,
-            lastKeystroke: 0,
-            suspiciousTyping: false,
-            formFocusTime: 0
-        };
-
+        
         // Set timestamps when page loads
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('timestamp').value = Date.now();
-            
-            // Track mouse movements
-            let mouseTimer;
-            document.addEventListener('mousemove', function() {
-                clearTimeout(mouseTimer);
-                mouseTimer = setTimeout(() => {
-                    userInteractionData.mouseMovements++;
-                }, 100);
-            });
-            
-            // Track form interactions
-            const formInputs = document.querySelectorAll('#contact-form input, #contact-form textarea');
-            formInputs.forEach(input => {
-                input.addEventListener('focus', function() {
-                    if (!userInteractionData.formFocusTime) {
-                        userInteractionData.formFocusTime = Date.now();
-                    }
-                });
-                
-                input.addEventListener('keydown', function() {
-                    const now = Date.now();
-                    if (userInteractionData.lastKeystroke) {
-                        const timeDiff = now - userInteractionData.lastKeystroke;
-                        if (timeDiff < HUMAN_TYPING_MIN_SPEED) {
-                            userInteractionData.suspiciousTyping = true;
-                        }
-                    }
-                    userInteractionData.lastKeystroke = now;
-                    userInteractionData.keystrokes++;
-                });
-            });
         });
         
-        // Enhanced rate limiting helper
+        // Rate limiting helper
         function checkRateLimit(storageKey) {
             const submissions = JSON.parse(localStorage.getItem(storageKey) || '[]');
             const now = Date.now();
@@ -1395,63 +1339,39 @@
             return true;
         }
         
-        // Enhanced email validation
+        // Email validation
         function isValidEmail(email) {
             // Basic email pattern check
             const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             if (!emailPattern.test(email)) return false;
             
             // Check for common disposable email domains
-            const disposableDomains = [
-                'tempmail.com', 'throwaway.email', '10minutemail.com', 'guerrillamail.com',
-                'mailinator.com', 'maildrop.cc', 'trashmail.com', 'temporarymail.com',
-                'fakeinbox.com', 'yopmail.com', 'mintemail.com', 'tempmail.net'
-            ];
-            const domain = email.split('@')[1].toLowerCase();
+            const disposableDomains = ['tempmail.com', 'throwaway.email', '10minutemail.com', 'guerrillamail.com'];
+            const domain = email.split('@')[1];
             if (disposableDomains.includes(domain)) return false;
             
-            // Check for suspicious patterns
-            const suspiciousPatterns = /^(test|asdf|qwerty|123|admin|user\d+)@/i;
-            if (suspiciousPatterns.test(email)) return false;
+            // Check for business email (not free providers)
+            const freeProviders = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com'];
+            // Optional: You can enable this check if you only want business emails
+            // if (freeProviders.includes(domain)) return false;
             
             return true;
         }
         
-        // Enhanced form validation
+        // Form validation
         function validateForm(form, minTime = CONTACT_FORM_MIN_TIME) {
             let isValid = true;
             
-            // Check multiple honeypots
-            const honeypots = ['website', 'url', 'comment'];
-            for (let honeypotName of honeypots) {
-                const honeypot = form.querySelector(`input[name="${honeypotName}"]`);
-                if (honeypot && honeypot.value) {
-                    console.log('Bot detected via honeypot');
-                    return false; // Bot detected
-                }
+            // Check honeypot
+            const honeypot = form.querySelector('input[name="website"]');
+            if (honeypot && honeypot.value) {
+                return false; // Bot detected
             }
             
             // Check submission time
             const timestamp = parseInt(form.querySelector('input[name="timestamp"]').value);
             if (Date.now() - timestamp < minTime) {
-                console.log('Form submitted too quickly');
                 return false; // Form submitted too quickly
-            }
-            
-            // Check user interaction data
-            if (userInteractionData.mouseMovements < 3) {
-                console.log('No mouse movement detected');
-                return false; // No mouse movement - likely a bot
-            }
-            
-            if (userInteractionData.keystrokes < 10) {
-                console.log('Too few keystrokes');
-                return false; // Too few keystrokes - likely copy-pasted
-            }
-            
-            if (userInteractionData.suspiciousTyping) {
-                console.log('Suspicious typing pattern detected');
-                return false; // Inhuman typing speed
             }
             
             // Validate required fields
@@ -1464,61 +1384,35 @@
             // Clear previous errors
             form.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
             
-            // First name validation - enhanced
-            if (!firstName.value.trim() || 
-                !/^[A-Za-z\s\-']+$/.test(firstName.value) || 
-                firstName.value.length < 2 ||
-                firstName.value.toLowerCase() === lastName.value.toLowerCase()) {
-                document.getElementById('firstName-error').textContent = 'Please enter a valid first name';
+            // First name validation
+            if (!firstName.value.trim() || !/^[A-Za-z\s\-']+$/.test(firstName.value)) {
                 document.getElementById('firstName-error').classList.add('show');
                 isValid = false;
             }
             
-            // Check for common spam patterns in names
-            const spamNamePatterns = /^(test|asdf|qwerty|admin|user|name|first|last)/i;
-            if (spamNamePatterns.test(firstName.value) || spamNamePatterns.test(lastName.value)) {
-                document.getElementById('firstName-error').textContent = 'Please enter your real name';
-                document.getElementById('firstName-error').classList.add('show');
-                isValid = false;
-            }
-            
-            // Last name validation - enhanced
-            if (!lastName.value.trim() || 
-                !/^[A-Za-z\s\-']+$/.test(lastName.value) || 
-                lastName.value.length < 2) {
-                document.getElementById('lastName-error').textContent = 'Please enter a valid last name';
+            // Last name validation
+            if (!lastName.value.trim() || !/^[A-Za-z\s\-']+$/.test(lastName.value)) {
                 document.getElementById('lastName-error').classList.add('show');
                 isValid = false;
             }
             
-            // Company name validation - enhanced
-            if (!companyName.value.trim() || 
-                companyName.value.length < 2 ||
-                /^(test|company|asdf|qwerty|none|na|n\/a)/i.test(companyName.value)) {
-                document.getElementById('companyName-error').textContent = 'Please enter a valid company name';
+            // Company name validation
+            if (!companyName.value.trim() || companyName.value.length < 2) {
                 document.getElementById('companyName-error').classList.add('show');
                 isValid = false;
             }
             
             // Email validation
             if (!isValidEmail(email.value)) {
-                document.getElementById('email-error').textContent = 'Please enter a valid business email address';
+                document.getElementById('email-error').textContent = 'Please enter a valid email address';
                 document.getElementById('email-error').classList.add('show');
                 isValid = false;
             }
             
             // Phone validation (optional field)
-            if (phoneNumber && phoneNumber.value) {
-                // Remove common formatting characters
-                const cleanPhone = phoneNumber.value.replace(/[\s\-\(\)\.]/g, '');
-                
-                // Check for valid phone number length and pattern
-                if (!/^\+?\d{10,15}$/.test(cleanPhone) || 
-                    /^(0{10}|1{10}|123456|111111|000000)/.test(cleanPhone)) {
-                    document.getElementById('phoneNumber-error').textContent = 'Please enter a valid phone number';
-                    document.getElementById('phoneNumber-error').classList.add('show');
-                    isValid = false;
-                }
+            if (phoneNumber.value && !/^[\d\s\-\+\(\)]+$/.test(phoneNumber.value)) {
+                document.getElementById('phoneNumber-error').classList.add('show');
+                isValid = false;
             }
             
             if (!isValid) {
@@ -1613,15 +1507,8 @@
             .then(data => {
                 submitBtn.textContent = 'Thank You!';
                 e.target.reset();
-                // Reset timestamp and user interaction data for next submission
+                // Reset timestamp for next submission
                 document.getElementById('timestamp').value = Date.now();
-                userInteractionData = {
-                    mouseMovements: 0,
-                    keystrokes: 0,
-                    lastKeystroke: 0,
-                    suspiciousTyping: false,
-                    formFocusTime: 0
-                };
                 setTimeout(() => {
                     submitBtn.textContent = 'Submit';
                     submitBtn.disabled = false;
