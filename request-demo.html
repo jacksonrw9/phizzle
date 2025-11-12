@@ -24,6 +24,9 @@
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/8070371.js"></script>
     <!-- End of HubSpot Embed Code -->
     
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -517,6 +520,13 @@
             margin-top: 1rem;
         }
 
+        /* reCAPTCHA styling */
+        .recaptcha-container {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
         /* Submit Button */
         .submit-section {
             text-align: center;
@@ -546,6 +556,24 @@
 
         .submit-btn:active {
             transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Success message styling */
+        .success-message {
+            background: #dcfce7;
+            border: 1px solid #16a34a;
+            color: #15803d;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+            display: none;
         }
 
         /* Footer Section */
@@ -762,18 +790,6 @@
 
         .footer-bottom-links a:hover {
             color: #94a3b8;
-        }
-
-        /* Success message styling */
-        .success-message {
-            background: #dcfce7;
-            border: 1px solid #16a34a;
-            color: #15803d;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            text-align: center;
-            display: none;
         }
 
         /* Enhanced Navigation with Progressive Breakpoints */
@@ -1213,11 +1229,13 @@
                         </div>
                     </div>
 
-                    <!-- reCAPTCHA will be inserted here automatically by Netlify -->
-                    <div data-netlify-recaptcha="true"></div>
+                    <!-- reCAPTCHA -->
+                    <div class="recaptcha-container">
+                        <div class="g-recaptcha" data-sitekey="6Lcm0gUsAAAAAAB7hOCZbFfs4KNpaYvfBucqvxBs"></div>
+                    </div>
 
                     <div class="submit-section">
-                        <button type="submit" class="submit-btn">Submit</button>
+                        <button type="submit" class="submit-btn" id="submitBtn" disabled>Submit</button>
                     </div>
                 </form>
             </div>
@@ -1304,6 +1322,21 @@
     </footer>
 
     <script>
+        // reCAPTCHA callback function
+        function onRecaptchaSuccess() {
+            document.getElementById('submitBtn').disabled = false;
+        }
+
+        // reCAPTCHA expired callback
+        function onRecaptchaExpired() {
+            document.getElementById('submitBtn').disabled = true;
+        }
+
+        // reCAPTCHA error callback
+        function onRecaptchaError() {
+            document.getElementById('submitBtn').disabled = true;
+        }
+
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             const overlay = document.getElementById('mobileMenuOverlay');
@@ -1354,6 +1387,13 @@
         // HubSpot Form Integration for Demo Form
         document.getElementById('demo-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Verify reCAPTCHA
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse) {
+                alert('Please complete the reCAPTCHA verification.');
+                return;
+            }
             
             // Collect all form field values
             const firstName = e.target.querySelector('input[name="firstName"]').value.trim();
@@ -1454,6 +1494,10 @@
                 submitBtn.textContent = 'Thank You!';
                 e.target.reset();
                 
+                // Reset reCAPTCHA
+                grecaptcha.reset();
+                submitBtn.disabled = true;
+                
                 // Scroll to success message
                 document.getElementById('successMessage').scrollIntoView({ 
                     behavior: 'smooth',
@@ -1462,7 +1506,6 @@
                 
                 setTimeout(() => {
                     submitBtn.textContent = 'Submit';
-                    submitBtn.disabled = false;
                 }, 3000);
             })
             .catch(error => {
@@ -1517,6 +1560,16 @@
                 submitBtn.disabled = false;
             });
         });
+
+        // Update reCAPTCHA div to include callback functions
+        window.onload = function() {
+            const recaptchaDiv = document.querySelector('.g-recaptcha');
+            if (recaptchaDiv) {
+                recaptchaDiv.setAttribute('data-callback', 'onRecaptchaSuccess');
+                recaptchaDiv.setAttribute('data-expired-callback', 'onRecaptchaExpired');
+                recaptchaDiv.setAttribute('data-error-callback', 'onRecaptchaError');
+            }
+        };
     </script>
 </body>
 </html>
