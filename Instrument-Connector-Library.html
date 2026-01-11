@@ -365,8 +365,9 @@
         .search-bar {
             display: flex;
             align-items: center;
-            max-width: 450px;
+            max-width: 500px;
             width: 100%;
+            gap: 0.5rem;
         }
         
         .search-input {
@@ -392,6 +393,28 @@
             color: #9ca3af;
         }
         
+        .search-button {
+            background: #da5e26;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .search-button:hover {
+            background: #b45309;
+        }
+        
         .filters-container {
             display: flex;
             gap: 1rem;
@@ -404,29 +427,108 @@
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
+            position: relative;
         }
         
-        .filter-select {
-            font-family: 'Inter', sans-serif;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            background: white;
-            color: var(--text-primary);
-            font-size: 0.9rem;
+        /* Custom Dropdown Styles */
+        .custom-dropdown {
+            position: relative;
             min-width: 180px;
+        }
+        
+        .dropdown-button {
+            font-family: 'Inter', sans-serif;
+            background: white;
+            color: #4b5563;
+            border: 1px solid #d1d5db;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
             cursor: pointer;
-            transition: border-color 0.2s ease;
+            transition: all 0.2s ease;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            box-shadow: var(--shadow-light);
+            height: 48px;
         }
         
-        .filter-select:focus {
-            outline: none;
-            border-color: var(--accent-orange);
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        .dropdown-button .arrow {
+            margin-left: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: transform 0.2s ease;
         }
         
-        .filter-select:hover {
-            border-color: var(--secondary-blue);
+        .custom-dropdown:hover .dropdown-button {
+            background: white;
+            color: #4b5563;
+            border-color: #da5e26;
+            border-width: 2px;
+        }
+        
+        .custom-dropdown:hover .dropdown-button .arrow {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all 0.2s ease;
+            z-index: 1000;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 1rem 0;
+        }
+        
+        .custom-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-left-color 0.2s ease;
+            color: #374151;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f3f4f6;
+            border-left: 3px solid transparent;
+        }
+        
+        .dropdown-item:first-child {
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        
+        .dropdown-item:last-child {
+            border-bottom: none;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        
+        .dropdown-item:hover {
+            background: #f3f4f6;
+            border-left-color: #436c79;
+        }
+        
+        .dropdown-item.selected {
+            background: #e0f2fe;
+            color: #0369a1;
+            border-left-color: #0369a1;
         }
         
         .clear-filters-btn {
@@ -439,9 +541,12 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
-            height: auto;
+            height: 48px;
             font-family: 'Inter', sans-serif;
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .clear-filters-btn:hover {
@@ -1129,7 +1234,7 @@
                 align-items: stretch;
             }
             
-            .filter-select {
+            .custom-dropdown {
                 min-width: auto;
             }
 
@@ -1425,42 +1530,61 @@
             <section class="filters-section">
                 <div class="filters-container">
                     <div class="search-bar">
-                        <input type="text" id="search-input" class="search-input" placeholder="Search By Model or Manufacturer">
+                        <input type="text" id="search-input" class="search-input" placeholder="Search by Instrument or Manufacturer">
+                        <button type="button" class="search-button">Search</button>
                     </div>
                     <div class="filter-group">
-                        <select id="manufacturer-filter" class="filter-select">
-                            <option value="">Filter by Manufacturer</option>
-                            <option value="Aerotrak">Aerotrak</option>
-                            <option value="Beckman Coulter">Beckman Coulter</option>
-                            <option value="Climet">Climet</option>
-                            <option value="Gates Scientific">Gates Scientific</option>
-                            <option value="Lasair">Lasair</option>
-                            <option value="Lighthouse">Lighthouse</option>
-                            <option value="Malvern">Malvern</option>
-                            <option value="Mettler Toledo">Mettler Toledo</option>
-                            <option value="Sartorius">Sartorius</option>
-                        </select>
+                        <div class="custom-dropdown" id="connector-dropdown">
+                            <button class="dropdown-button" type="button">
+                                <span class="selected-text">Filter by Connector Type</span>
+                                <span class="arrow">▼</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-item" data-value="">All Connector Types</div>
+                                <div class="dropdown-item" data-value="Connector Plus">Connector Plus</div>
+                                <div class="dropdown-item" data-value="Data Connector">Data Connector</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="filter-group">
-                        <select id="instrument-filter" class="filter-select">
-                            <option value="">Filter by Instrument Type</option>
-                            <option value="Air Particle Counters">Air Particle Counters</option>
-                            <option value="Balances">Balances</option>
-                            <option value="Hot Plate Stirrers">Hot Plate Stirrers</option>
-                            <option value="Melting Point Systems">Melting Point Systems</option>
-                            <option value="Microbial Air Samplers">Microbial Air Samplers</option>
-                            <option value="pH Meters">pH Meters</option>
-                            <option value="Refractometers">Refractometers</option>
-                            <option value="Spectrophotometers">Spectrophotometers</option>
-                            <option value="Zeta Potential Analyzers">Zeta Potential Analyzers</option>
-                        </select>
+                        <div class="custom-dropdown" id="manufacturer-dropdown">
+                            <button class="dropdown-button" type="button">
+                                <span class="selected-text">Filter by Manufacturer</span>
+                                <span class="arrow">▼</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-item" data-value="">All Manufacturers</div>
+                                <div class="dropdown-item" data-value="Aerotrak">Aerotrak</div>
+                                <div class="dropdown-item" data-value="Beckman Coulter">Beckman Coulter</div>
+                                <div class="dropdown-item" data-value="Climet">Climet</div>
+                                <div class="dropdown-item" data-value="Gates Scientific">Gates Scientific</div>
+                                <div class="dropdown-item" data-value="Lasair">Lasair</div>
+                                <div class="dropdown-item" data-value="Lighthouse">Lighthouse</div>
+                                <div class="dropdown-item" data-value="Malvern">Malvern</div>
+                                <div class="dropdown-item" data-value="Mettler Toledo">Mettler Toledo</div>
+                                <div class="dropdown-item" data-value="Sartorius">Sartorius</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="filter-group">
-                        <select id="connector-filter" class="filter-select">
-                            <option value="">Filter by Connector Type</option>
-                            <option value="Connector Plus">Connector Plus</option>
-                            <option value="Data Connector">Data Connector</option>
-                        </select>
+                        <div class="custom-dropdown" id="instrument-dropdown">
+                            <button class="dropdown-button" type="button">
+                                <span class="selected-text">Filter by Instrument Type</span>
+                                <span class="arrow">▼</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-item" data-value="">All Instrument Types</div>
+                                <div class="dropdown-item" data-value="Air Particle Counters">Air Particle Counters</div>
+                                <div class="dropdown-item" data-value="Balances">Balances</div>
+                                <div class="dropdown-item" data-value="Hot Plate Stirrers">Hot Plate Stirrers</div>
+                                <div class="dropdown-item" data-value="Melting Point Systems">Melting Point Systems</div>
+                                <div class="dropdown-item" data-value="Microbial Air Samplers">Microbial Air Samplers</div>
+                                <div class="dropdown-item" data-value="pH Meters">pH Meters</div>
+                                <div class="dropdown-item" data-value="Refractometers">Refractometers</div>
+                                <div class="dropdown-item" data-value="Spectrophotometers">Spectrophotometers</div>
+                                <div class="dropdown-item" data-value="Zeta Potential Analyzers">Zeta Potential Analyzers</div>
+                            </div>
+                        </div>
                     </div>
                     <button id="clear-filters" class="clear-filters-btn">Clear All Filters</button>
                 </div>
@@ -2205,20 +2329,94 @@
             });
         });
 
-        // Catalog Filter Functions
+        // Custom Dropdown Functions
         document.addEventListener('DOMContentLoaded', function() {
-            const manufacturerFilter = document.getElementById('manufacturer-filter');
-            const instrumentFilter = document.getElementById('instrument-filter');
-            const connectorFilter = document.getElementById('connector-filter');
             const searchInput = document.getElementById('search-input');
+            const searchButton = document.querySelector('.search-button');
             const clearFiltersBtn = document.getElementById('clear-filters');
             const allInstrumentCards = document.querySelectorAll('.instrument-card');
             const allSections = document.querySelectorAll('.section');
 
+            // Filter state
+            let selectedFilters = {
+                manufacturer: '',
+                instrument: '',
+                connector: ''
+            };
+
+            // Custom dropdown click handlers
+            function setupCustomDropdowns() {
+                // Setup connector dropdown
+                const connectorDropdown = document.getElementById('connector-dropdown');
+                const connectorItems = connectorDropdown.querySelectorAll('.dropdown-item');
+                const connectorButton = connectorDropdown.querySelector('.dropdown-button .selected-text');
+
+                connectorItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const value = this.getAttribute('data-value');
+                        const text = this.textContent;
+                        
+                        // Update button text
+                        connectorButton.textContent = text;
+                        
+                        // Update selected state
+                        connectorItems.forEach(i => i.classList.remove('selected'));
+                        this.classList.add('selected');
+                        
+                        // Update filter
+                        selectedFilters.connector = value;
+                        filterProducts();
+                    });
+                });
+
+                // Setup manufacturer dropdown
+                const manufacturerDropdown = document.getElementById('manufacturer-dropdown');
+                const manufacturerItems = manufacturerDropdown.querySelectorAll('.dropdown-item');
+                const manufacturerButton = manufacturerDropdown.querySelector('.dropdown-button .selected-text');
+
+                manufacturerItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const value = this.getAttribute('data-value');
+                        const text = this.textContent;
+                        
+                        // Update button text
+                        manufacturerButton.textContent = text;
+                        
+                        // Update selected state
+                        manufacturerItems.forEach(i => i.classList.remove('selected'));
+                        this.classList.add('selected');
+                        
+                        // Update filter
+                        selectedFilters.manufacturer = value;
+                        filterProducts();
+                    });
+                });
+
+                // Setup instrument dropdown
+                const instrumentDropdown = document.getElementById('instrument-dropdown');
+                const instrumentItems = instrumentDropdown.querySelectorAll('.dropdown-item');
+                const instrumentButton = instrumentDropdown.querySelector('.dropdown-button .selected-text');
+
+                instrumentItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const value = this.getAttribute('data-value');
+                        const text = this.textContent;
+                        
+                        // Update button text
+                        instrumentButton.textContent = text;
+                        
+                        // Update selected state
+                        instrumentItems.forEach(i => i.classList.remove('selected'));
+                        this.classList.add('selected');
+                        
+                        // Update filter
+                        selectedFilters.instrument = value;
+                        filterProducts();
+                    });
+                });
+            }
+
             function filterProducts() {
-                const selectedManufacturer = manufacturerFilter.value;
-                const selectedInstrument = instrumentFilter.value;
-                const selectedConnector = connectorFilter.value;
                 const searchTerm = searchInput.value.toLowerCase().trim();
 
                 allSections.forEach(section => {
@@ -2231,9 +2429,9 @@
                     const cardConnector = card.getAttribute('data-connector');
                     const productName = card.querySelector('.instrument-name').textContent.toLowerCase();
                     
-                    const manufacturerMatch = !selectedManufacturer || cardManufacturer === selectedManufacturer;
-                    const instrumentMatch = !selectedInstrument || cardInstrument === selectedInstrument;
-                    const connectorMatch = !selectedConnector || cardConnector === selectedConnector;
+                    const manufacturerMatch = !selectedFilters.manufacturer || cardManufacturer === selectedFilters.manufacturer;
+                    const instrumentMatch = !selectedFilters.instrument || cardInstrument === selectedFilters.instrument;
+                    const connectorMatch = !selectedFilters.connector || cardConnector === selectedFilters.connector;
                     
                     // Search functionality - check if search term matches manufacturer or product name
                     const searchMatch = !searchTerm || 
@@ -2261,11 +2459,31 @@
             }
 
             function clearFilters() {
-                manufacturerFilter.value = '';
-                instrumentFilter.value = '';
-                connectorFilter.value = '';
+                // Reset filter state
+                selectedFilters = {
+                    manufacturer: '',
+                    instrument: '',
+                    connector: ''
+                };
+                
+                // Reset search input
                 searchInput.value = '';
                 
+                // Reset dropdown buttons and selections
+                const connectorButton = document.querySelector('#connector-dropdown .selected-text');
+                const manufacturerButton = document.querySelector('#manufacturer-dropdown .selected-text');
+                const instrumentButton = document.querySelector('#instrument-dropdown .selected-text');
+                
+                connectorButton.textContent = 'Filter by Connector Type';
+                manufacturerButton.textContent = 'Filter by Manufacturer';
+                instrumentButton.textContent = 'Filter by Instrument Type';
+                
+                // Remove selected states
+                document.querySelectorAll('.dropdown-item.selected').forEach(item => {
+                    item.classList.remove('selected');
+                });
+                
+                // Show all cards and sections
                 allInstrumentCards.forEach(card => {
                     card.style.display = 'block';
                 });
@@ -2275,11 +2493,12 @@
                 });
             }
 
+            // Initialize dropdowns
+            setupCustomDropdowns();
+
             // Event listeners
-            manufacturerFilter.addEventListener('change', filterProducts);
-            instrumentFilter.addEventListener('change', filterProducts);
-            connectorFilter.addEventListener('change', filterProducts);
-            searchInput.addEventListener('input', filterProducts); // Real-time search as user types
+            searchInput.addEventListener('input', filterProducts);
+            searchButton.addEventListener('click', filterProducts);
             clearFiltersBtn.addEventListener('click', clearFilters);
 
             // Allow Enter key to trigger search
