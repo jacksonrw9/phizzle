@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Partner with Phizzle to deliver enterprise-ready laboratory automation solutions. Streamline compliant, error-free data workflows for regulated manufacturing.">
-    <title>Partners & Customers - Phizzle</title>
+    <meta name="description" content="Request a custom instrument connector from Phizzle. Let us know which instruments you need to connect to your LIMS, MES, or QMS.">
+    <title>Instrument Request - Phizzle</title>
 
     <!-- Favicon links -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     <link rel="shortcut icon" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
-    
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-41FB3KKW2T"></script>
     <script>
@@ -34,200 +34,128 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: #333;
             line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #e1ebee 0%, #d5e2e6 25%, #c9d9de 50%, #bdd1d7 75%, #b1c9d0 100%);
-            padding: 60px 0 15px 0;
-            text-align: left;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-start;
-            min-height: 150px;
-        }
-
-        .hero .container {
-            width: 100%;
-            text-align: left;
-        }
-
-        .hero h1 {
-            font-size: 2.4em;
-            font-weight: 700;
-            color: #353535;
-            margin-bottom: 20px;
-            text-align: left;
-            width: 100%;
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 30px 0;
-        }
-
-        .section:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-
-        .section-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .section-content.reverse {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .section-content.reverse .text-content {
-            order: 2;
-        }
-
-        .section-content.reverse .image-content {
-            order: 1;
-        }
-
-        .text-content h3 {
-            font-size: 0.9em;
-            text-transform: uppercase;
-            color: #436C79;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        /* Shared heading class for consistent sizing */
-        .section-heading {
-            font-size: 1.53em;
-            color: #436c79;
-            margin-bottom: 15px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .text-content h4 {
-            font-size: 1.53em;
-            color: #436c79;
-            margin-bottom: 15px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .text-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .text-content ul li {
-            padding-left: 25px;
-            margin-bottom: 15px;
+        /* Navigation */
+        nav {
+            background: #30444D;
+            padding: 1rem 0;
             position: relative;
-            color: #353535;
-            line-height: 1.7;
+            z-index: 100;
         }
 
-        .text-content ul li:before {
-            content: "•";
-            color: #436C79;
-            font-weight: bold;
-            font-size: 1.2em;
-            position: absolute;
-            left: 0;
-        }
-
-        .image-content {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .image-content img {
-            width: 600px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-        }
-
-        /* Partners Section */
-        .partners-section {
-            background-color: #ffffff;
-            padding: 30px 0 60px 0;
-        }
-
-        .partners-section h2 {
-            text-align: left;
-            font-size: 2.2em;
-            color: #353535;
-            margin-bottom: 50px;
-            font-weight: 700;
-            border-bottom: 4px solid #353535;
-            padding-bottom: 15px;
-            display: block;
-            width: 100%;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 40px;
-            align-items: center;
-            justify-items: center;
-            max-width: 1000px;
+        .nav-container {
+            max-width: 1400px;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
         }
 
-        .partner-logo {
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
             display: flex;
             align-items: center;
-            justify-content: center;
-            height: 80px;
-            width: 100%;
-            padding: 20px;
-            transition: transform 0.3s ease;
+            gap: 0.5rem;
         }
 
-        .partner-logo:hover {
-            transform: scale(1.05);
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
         }
 
-        .partner-logo img {
-            max-height: 72px;
-            max-width: 100%;
-            object-fit: contain;
-            filter: none;
-            transition: filter 0.3s ease;
+        .nav-links > li {
+            position: relative;
         }
 
-        .partner-logo:hover img {
-            filter: none;
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            padding: 0.5rem 0;
         }
 
-        /* Specific size adjustments for certain partner logos */
-        .partner-logo img[src*="vendor-logo_nqhj8r.png"] {
-            transform: scale(1.3);
+        .nav-links > li > a:hover {
+            color: #94a3b8;
         }
 
-        .partner-logo img[src*="image_80_o9aupz.png"] {
-            transform: scale(1.3);
+        /* Dropdown Styles */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            min-width: 250px;
+            padding: 1rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            border: 1px solid #e2e8f0;
         }
 
-        /* Mobile Menu Styles */
+        .nav-links > li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown li {
+            list-style: none;
+        }
+
+        .dropdown a {
+            color: #374151;
+            padding: 0.75rem 1.5rem;
+            text-transform: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 0;
+            transition: background-color 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown a:hover {
+            background-color: #f8fafc;
+            color: #436c79;
+            border-left-color: #436c79;
+        }
+
+        .request-demo {
+            background: #da5e26 !important;
+            color: white !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 6px !important;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600 !important;
+            font-size: 0.8rem !important;
+        }
+
+        .request-demo:hover {
+            background: #b45309 !important;
+            color: white !important;
+        }
+
+        /* Mobile Menu */
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -394,291 +322,423 @@
             transform: rotate(180deg);
         }
 
-        /* Switch to mobile menu */
-        @media (max-width: 1025px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .logo {
-                font-size: 1.6rem;
-            }
-
-            .logo img {
-                height: 24px;
-            }
-
-            .section-content,
-            .section-content.reverse {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .section-content.reverse .text-content,
-            .section-content.reverse .image-content {
-                order: initial;
-            }
-
-            /* Reorder content on tablet/mobile - text first, image second */
-            .section-content .text-content {
-                order: 1;
-            }
-
-            .section-content .image-content {
-                order: 2;
-            }
-
-            .hero h1 {
-                font-size: 2em;
-            }
-
-            .text-content h4 {
-                font-size: 1.5em;
-            }
-
-            .partners-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(3, 1fr);
-                gap: 30px;
-            }
-        }
-
-        /* Mobile Responsive Design (768px and below) */
-        @media (max-width: 768px) {
-            .logo img {
-                height: 28px;
-            }
-
-            .hero {
-                padding: 2rem 0;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-                text-align: left;
-            }
-
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            .section {
-                padding: 50px 0;
-            }
-
-            .text-content {
-                text-align: center;
-            }
-
-            .text-content h3 {
-                font-size: 0.8em;
-                text-align: center;
-            }
-
-            .text-content h4 {
-                text-align: center;
-                font-size: 1.5em;
-            }
-
-            .text-content ul {
-                text-align: left;
-                font-size: 0.95em;
-            }
-            
-            .text-content ul li {
-                margin-bottom: 12px;
-            }
-
-            .image-content img {
-                max-width: 90%;
-                margin: 0 auto;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            }
-
-            .partners-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(6, 1fr);
-                gap: 20px;
-            }
-
-            .partner-logo {
-                height: 72px;
-            }
-
-            .partner-logo img {
-                max-height: 48px;
-            }
-        }
-
-        /* Very small mobile (480px and below) */
-        @media (max-width: 480px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-
-            .hero {
-                padding: 1.5rem 0;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-
-            .section {
-                padding: 40px 0;
-            }
-
-            .text-content h3 {
-                font-size: 0.75em;
-            }
-
-            .text-content h4 {
-                font-size: 1.3em;
-            }
-
-            .text-content ul {
-                font-size: 0.9em;
-            }
-
-            .image-content img {
-                max-width: 100%;
-            }
-        }
-
-        /* Navigation */
-        nav {
-            background: #30444D;
-            padding: 1rem 0;
-            position: relative;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1400px;
+        /* Page Content */
+        .page-container {
+            max-width: 800px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
+            padding: 3rem 2rem;
         }
 
-        .logo {
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-header h1 {
             font-size: 2rem;
             font-weight: 700;
-            color: #ffffff;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            color: #1e3a5f;
+            margin-bottom: 0.75rem;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-            align-items: center;
+        .page-header p {
+            color: #64748b;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .nav-links > li {
-            position: relative;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: block;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links > li > a:hover {
-            color: #94a3b8;
-        }
-
-        /* Dropdown Styles */
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
+        /* Form Styles */
+        .form-container {
             background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            min-width: 250px;
-            padding: 1rem 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             border: 1px solid #e2e8f0;
         }
 
-        .nav-links > li:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
+        .form-section {
+            margin-bottom: 2rem;
         }
 
-        .dropdown li {
+        .form-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #436c79;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-label .required {
+            color: #dc2626;
+            margin-left: 2px;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            color: #374151;
+            background: #ffffff;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #436c79;
+            box-shadow: 0 0 0 3px rgba(67, 108, 121, 0.1);
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1.25rem;
+            padding-right: 2.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: #436c79;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin-top: 1rem;
+        }
+
+        .form-submit:hover {
+            background: #30444d;
+            transform: translateY(-1px);
+        }
+
+        .form-submit:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-note {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .success-icon svg {
+            width: 32px;
+            height: 32px;
+            color: white;
+        }
+
+        .success-message h2 {
+            font-size: 1.5rem;
+            color: #1e3a5f;
+            margin-bottom: 0.75rem;
+        }
+
+        .success-message p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #436c79;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #30444d;
+        }
+
+        /* Footer Section */
+        .footer {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-brand p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            max-width: 300px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section ul {
             list-style: none;
         }
 
-        .dropdown a {
-            color: #374151;
-            padding: 0.75rem 1.5rem;
-            text-transform: none;
-            font-weight: 400;
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
             font-size: 0.9rem;
-            letter-spacing: 0;
-            transition: background-color 0.2s ease;
-            border-left: 3px solid transparent;
+            min-height: 44px;
+            display: inline-block;
+            padding: 0.25rem 0;
         }
 
-        .dropdown a:hover {
-            background-color: #f8fafc;
-            color: #436c79;
-            border-left-color: #436c79;
+        .footer-section ul li a:hover {
+            color: #ffffff;
         }
 
-        .request-demo {
-            background: #da5e26 !important;
-            color: white !important;
-            padding: 0.5rem 1rem !important;
-            border-radius: 6px !important;
-            transition: background 0.3s ease;
+        .email-signup {
+            margin-top: 0;
+        }
+
+        .email-signup h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            font-weight: 600 !important;
-            font-size: 0.8rem !important;
         }
 
-        .request-demo:hover {
-            background: #b45309 !important;
-            color: white !important;
+        .email-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            flex-direction: column;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            background: #334155;
+            color: #ffffff;
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease;
+            margin-bottom: 0.5rem;
+            min-height: 44px;
+        }
+
+        .email-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: #436c79;
+        }
+
+        .email-submit {
+            width: 100%;
+            padding: 0.75rem 1.25rem;
+            background: #436c79;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 0.9rem;
+            min-height: 44px;
+        }
+
+        .email-submit:hover {
+            background: #30444d;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.4rem;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .social-link.linkedin:hover {
+            background: #0077b5;
+            border-color: #0077b5;
+        }
+
+        .social-link.facebook:hover {
+            background: #1877f2;
+            border-color: #1877f2;
+        }
+
+        .social-link.youtube:hover {
+            background: #ff0000;
+            border-color: #ff0000;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-bottom-links a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            min-height: 44px;
+            display: inline-block;
+            padding: 0.25rem 0;
+        }
+
+        .footer-bottom-links a:hover {
+            color: #94a3b8;
         }
 
         /* Enhanced Navigation with Progressive Breakpoints */
         
-        /* Container padding adjustment for smaller screens */
         @media (max-width: 1600px) {
             .nav-container {
                 padding: 0 1.5rem;
             }
         }
 
-        /* Progressive scaling from large to medium screens */
         @media (max-width: 1500px) and (min-width: 1351px) {
             .nav-links {
                 gap: 2rem;
@@ -781,219 +841,24 @@
             }
         }
 
+        /* Switch to mobile menu */
         @media (max-width: 1025px) {
+            .nav-links {
+                display: none;
+            }
+
             .mobile-menu-toggle {
                 display: block;
             }
 
-            .nav-links {
-                display: none;
+            .logo {
+                font-size: 1.6rem;
             }
-        }
 
-        @media (max-width: 768px) {
-            .mobile-menu {
-                width: 80vw;
-                right: -80vw;
+            .logo img {
+                height: 24px;
             }
-        }
 
-        /* Footer */
-        .footer {
-            background: #1e293b;
-            color: #e2e8f0;
-            padding: 4rem 0 2rem;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        .footer-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 1.5fr repeat(3, 1fr) 1.5fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        .footer-brand p {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            margin: 1rem 0;
-            line-height: 1.7;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            background: transparent;
-            border: 2px solid #64748b;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #94a3b8;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.4rem;
-        }
-
-        .social-link:hover {
-            transform: translateY(-2px);
-        }
-
-        .social-link.linkedin {
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        .social-link.linkedin:hover {
-            background: #0077b5;
-            color: #ffffff;
-        }
-
-        .social-link.facebook {
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        .social-link.facebook:hover {
-            background: #1877f2;
-            color: #ffffff;
-        }
-
-        .social-link.youtube {
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        .social-link.youtube:hover {
-            background: #ff0000;
-            color: #ffffff;
-        }
-
-        .footer h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .footer h5 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .footer-section {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-section a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .email-form {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
-            flex-direction: column;
-        }
-
-        .email-input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #475569;
-            border-radius: 6px;
-            background: #334155;
-            color: #ffffff;
-            font-size: 0.9rem;
-            transition: border-color 0.3s ease;
-            margin-bottom: 0.5rem;
-            min-height: 44px;
-        }
-
-        .email-input::placeholder {
-            color: #94a3b8;
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: #436c79;
-        }
-
-        .email-submit {
-            width: 100%;
-            padding: 0.75rem 1.25rem;
-            background: #436c79;
-            color: #ffffff;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            font-size: 0.9rem;
-            min-height: 44px;
-        }
-
-        .email-submit:hover {
-            background: #30444d;
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.85rem;
-            color: #94a3b8;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        .footer-bottom-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-bottom-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-bottom-links a:hover {
-            color: white;
-        }
-
-        @media (max-width: 1025px) {
             .footer-content {
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem;
@@ -1007,67 +872,77 @@
                 grid-column: 1 / -1;
                 margin-top: 2rem;
             }
-            
-            .footer {
-                padding: 3rem 0 2rem;
-            }
         }
 
+        /* Mobile Responsive Design (768px and below) */
         @media (max-width: 768px) {
+            .logo img {
+                height: 28px;
+            }
+
+            .page-container {
+                padding: 2rem 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .form-container {
+                padding: 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
+
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
                 gap: 1rem;
             }
-            
+
             .footer-bottom-links {
                 gap: 1rem;
-                justify-content: center;
             }
-            
+
             .social-link {
                 width: 44px;
                 height: 44px;
                 font-size: 1.2rem;
             }
-            
-            .footer {
-                padding: 2.5rem 0 1.5rem;
-            }
-            
-            .footer-container {
-                padding: 0 1.5rem;
-            }
         }
 
-        /* White Paper CTA Button */
-        .white-paper-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #da5e26;
-            color: white;
-            padding: 14px 32px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            margin-top: 15px;
-        }
+        /* Very small mobile (480px and below) */
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
 
-        .white-paper-button:hover {
-            background: #b45309;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            .page-header h1 {
+                font-size: 1.4rem;
+            }
+
+            .page-header p {
+                font-size: 0.9rem;
+            }
+
+            .form-container {
+                padding: 1.25rem;
+            }
+
+            .form-section-title {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -1216,70 +1091,138 @@
                     </ul>
                 </li>
             </ul>
-            <div style="margin-top: 2rem; padding: 0 2rem; text-align: center;">
+            <div style="padding: 1rem 2rem; border-top: 1px solid #d1d5db;">
                 <a href="request-demo.html" class="mobile-request-demo">Request a Demo</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Streamlining Compliant, Error-Free Data Workflows</h1>
+    <!-- Page Content -->
+    <div class="page-container">
+        <div class="page-header">
+            <h1>Instrument Connector Request</h1>
+            <p>Don't see your instrument in our library? Let us know what you need and we'll work on adding it.</p>
         </div>
-    </section>
 
-    <!-- Main Content Section -->
-    <section class="section" style="padding-top: 40px;">
-        <div class="container">
-            <div class="section-content">
-                <div class="image-content">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062681/image_tmpqi5.jpg" alt="Laboratory Environment" style="transform: none; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);">
-                    <div style="text-align: center; margin-top: 15px;">
-                        <a href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768063427/Whitepaper_Connected-Plant_napcgt.pdf" target="_blank" class="white-paper-button">Read the Full Partner White Paper</a>
+        <div class="form-container">
+            <form id="instrument-request-form">
+                <!-- Instrument Information -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Instrument Information</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="manufacturer">
+                            Instrument Manufacturer(s) <span class="required">*</span>
+                        </label>
+                        <input type="text" id="manufacturer" name="manufacturer" class="form-input" placeholder="e.g., Mettler Toledo, Sartorius, Agilent" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="model">
+                            Instrument Model(s) <span class="required">*</span>
+                        </label>
+                        <input type="text" id="model" name="model" class="form-input" placeholder="e.g., XPR226, Cubis II, 1260 Infinity" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="units">
+                            How Many Units? <span class="required">*</span>
+                        </label>
+                        <select id="units" name="units" class="form-select" required>
+                            <option value="" disabled selected>Select number of units</option>
+                            <option value="1">1 unit</option>
+                            <option value="2-5">2-5 units</option>
+                            <option value="6-10">6-10 units</option>
+                            <option value="11-25">11-25 units</option>
+                            <option value="26-50">26-50 units</option>
+                            <option value="50+">50+ units</option>
+                        </select>
                     </div>
                 </div>
-                <div class="text-content">
-                    <h4 class="section-heading">Empowering the Industry 4.0 Vision One Connector At A Time</h4>
-                    <p style="color: #353535; line-height: 1.7; margin-bottom: 25px; font-size: 0.95em;">
-                        Phizzle enables regulated manufacturers to modernize data workflows with solutions that fit into their existing infrastructure. From streamlined data flow to fully automated and integrated processes with remote operation capabilities, we allow facilities to realize their specific digitization vision.
-                    </p>
-                    
-                    <h4 class="section-heading" style="margin-bottom: 20px; margin-top: 30px;">Benefits of a Partnership with Phizzle</h4>
-                    <p style="color: #353535; line-height: 1.7; margin-bottom: 25px; font-size: 0.95em;">
-                        A partnership with Phizzle enables automation providers and device manufacturers with an enterprise-ready solution that provides connectivity out of the box. While competitors leave customers to manage complex integrations independently, the Phizzle integrated solution delivers Day 1 productivity, lower total cost of ownership, and instruments whose lifecycle depends on functionality rather than connectivity limitations. For decision makers, this means an elimination of the hidden IT burden that typically accompanies laboratory automation expansion.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Partners and Customers Section -->
-    <section class="partners-section">
-        <div class="container">
-            <h2>Partners and Customers</h2>
-            <div class="partners-grid">
-                <div class="partner-logo">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062710/vendor-logo_nqhj8r.png" alt="Miltenyi Biotec">
+                <!-- Use Case -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Use Case</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="application">
+                            Primary Use Case / Application <span class="required">*</span>
+                        </label>
+                        <textarea id="application" name="application" class="form-textarea" placeholder="Describe how you plan to use this instrument with Connected Plant™ (e.g., environmental monitoring, quality control, batch release testing)" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="timeline">
+                            Timeline <span class="required">*</span>
+                        </label>
+                        <select id="timeline" name="timeline" class="form-select" required>
+                            <option value="" disabled selected>Select your timeline</option>
+                            <option value="urgent">Urgent - Need this ASAP</option>
+                            <option value="planning">Planning - Within the next 3-6 months</option>
+                            <option value="exploring">Just Exploring - No immediate timeline</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="partner-logo">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062706/Cisco_logo_blue_2016.svg_a7q8d7.png" alt="Cisco">
+
+                <!-- Contact Information -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Contact Information</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="firstName">
+                                First Name <span class="required">*</span>
+                            </label>
+                            <input type="text" id="firstName" name="firstName" class="form-input" placeholder="First name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="lastName">
+                                Last Name <span class="required">*</span>
+                            </label>
+                            <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Last name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">
+                            Work Email <span class="required">*</span>
+                        </label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="you@company.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="company">
+                            Company <span class="required">*</span>
+                        </label>
+                        <input type="text" id="company" name="company" class="form-input" placeholder="Your company name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="phone">
+                            Phone Number
+                        </label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 123-4567">
+                    </div>
                 </div>
-                <div class="partner-logo">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062700/kl_1_lvmmcr.png" alt="Merck">
+
+                <button type="submit" class="form-submit">Submit Request</button>
+                
+            </form>
+
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
                 </div>
-                <div class="partner-logo">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062704/image_77_ydv8xp.png" alt="SHI">
-                </div>
-                <div class="partner-logo">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062690/image_80_o9aupz.png" alt="Cleanetics">
-                </div>
-                <div class="partner-logo">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062692/image_78_upmcar.png" alt="Climet">
-                </div>
+                <h2>Request Submitted!</h2>
+                <p>Thank you for your instrument connector request. Our team will review it and get back to you within 2 business days.</p>
+                <a href="instrument-connectors.html" class="back-btn">Back to Instrument Connectors</a>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1362,6 +1305,7 @@
     </footer>
 
     <script>
+        // Mobile Menu Functions
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             const overlay = document.getElementById('mobileMenuOverlay');
@@ -1397,7 +1341,7 @@
             });
             
             dropdown.classList.toggle('active');
-            arrow.classList.toggle('rotated');
+            if (arrow) arrow.classList.toggle('rotated');
         }
 
         document.addEventListener('keydown', function(event) {
@@ -1406,6 +1350,37 @@
             }
         });
 
+        // Instrument Request Form Submission
+        document.getElementById('instrument-request-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.form-submit');
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+
+            // Collect form data
+            const formData = {
+                manufacturer: document.getElementById('manufacturer').value,
+                model: document.getElementById('model').value,
+                units: document.getElementById('units').value,
+                application: document.getElementById('application').value,
+                timeline: document.getElementById('timeline').value,
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                phone: document.getElementById('phone').value
+            };
+
+            // Simulate form submission (replace with actual HubSpot or other integration)
+            setTimeout(() => {
+                // Hide form and show success message
+                document.getElementById('instrument-request-form').style.display = 'none';
+                document.getElementById('successMessage').classList.add('show');
+            }, 1500);
+        });
+
+        // Newsletter Form
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             

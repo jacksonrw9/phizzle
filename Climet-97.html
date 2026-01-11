@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Partner with Phizzle to deliver enterprise-ready laboratory automation solutions. Streamline compliant, error-free data workflows for regulated manufacturing.">
-    <title>Partners & Customers - Phizzle</title>
-
+    <meta name="description" content="Climet 97 Connector Plus - Advanced Laboratory Integration">
+    <title>Climet 97 Connector Plus - Advanced Laboratory Integration</title>
+    
     <!-- Favicon links -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
@@ -19,12 +19,14 @@
         gtag('js', new Date());
         gtag('config', 'G-41FB3KKW2T');
     </script>
-
     <!-- Start of HubSpot Embed Code -->
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/8070371.js"></script>
     <!-- End of HubSpot Embed Code -->
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -34,200 +36,128 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: #333;
             line-height: 1.6;
+            color: #333;
+            background: #fff;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #e1ebee 0%, #d5e2e6 25%, #c9d9de 50%, #bdd1d7 75%, #b1c9d0 100%);
-            padding: 60px 0 15px 0;
-            text-align: left;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-start;
-            min-height: 150px;
-        }
-
-        .hero .container {
-            width: 100%;
-            text-align: left;
-        }
-
-        .hero h1 {
-            font-size: 2.4em;
-            font-weight: 700;
-            color: #353535;
-            margin-bottom: 20px;
-            text-align: left;
-            width: 100%;
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 30px 0;
-        }
-
-        .section:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-
-        .section-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .section-content.reverse {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .section-content.reverse .text-content {
-            order: 2;
-        }
-
-        .section-content.reverse .image-content {
-            order: 1;
-        }
-
-        .text-content h3 {
-            font-size: 0.9em;
-            text-transform: uppercase;
-            color: #436C79;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        /* Shared heading class for consistent sizing */
-        .section-heading {
-            font-size: 1.53em;
-            color: #436c79;
-            margin-bottom: 15px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .text-content h4 {
-            font-size: 1.53em;
-            color: #436c79;
-            margin-bottom: 15px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .text-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .text-content ul li {
-            padding-left: 25px;
-            margin-bottom: 15px;
+        /* Navigation Styles from Index Page */
+        nav {
+            background: #30444D;
+            padding: 1rem 0;
             position: relative;
-            color: #353535;
-            line-height: 1.7;
+            z-index: 100;
         }
 
-        .text-content ul li:before {
-            content: "•";
-            color: #436C79;
-            font-weight: bold;
-            font-size: 1.2em;
-            position: absolute;
-            left: 0;
-        }
-
-        .image-content {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .image-content img {
-            width: 600px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-        }
-
-        /* Partners Section */
-        .partners-section {
-            background-color: #ffffff;
-            padding: 30px 0 60px 0;
-        }
-
-        .partners-section h2 {
-            text-align: left;
-            font-size: 2.2em;
-            color: #353535;
-            margin-bottom: 50px;
-            font-weight: 700;
-            border-bottom: 4px solid #353535;
-            padding-bottom: 15px;
-            display: block;
-            width: 100%;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 40px;
-            align-items: center;
-            justify-items: center;
-            max-width: 1000px;
+        .nav-container {
+            max-width: 1400px;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
         }
 
-        .partner-logo {
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
             display: flex;
             align-items: center;
-            justify-content: center;
-            height: 80px;
-            width: 100%;
-            padding: 20px;
-            transition: transform 0.3s ease;
+            gap: 0.5rem;
         }
 
-        .partner-logo:hover {
-            transform: scale(1.05);
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
         }
 
-        .partner-logo img {
-            max-height: 72px;
-            max-width: 100%;
-            object-fit: contain;
-            filter: none;
-            transition: filter 0.3s ease;
+        .nav-links > li {
+            position: relative;
         }
 
-        .partner-logo:hover img {
-            filter: none;
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            padding: 0.5rem 0;
         }
 
-        /* Specific size adjustments for certain partner logos */
-        .partner-logo img[src*="vendor-logo_nqhj8r.png"] {
-            transform: scale(1.3);
+        .nav-links > li > a:hover {
+            color: #94a3b8;
         }
 
-        .partner-logo img[src*="image_80_o9aupz.png"] {
-            transform: scale(1.3);
+        /* Dropdown Styles */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            min-width: 250px;
+            padding: 1rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            border: 1px solid #e2e8f0;
         }
 
-        /* Mobile Menu Styles */
+        .nav-links > li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown li {
+            list-style: none;
+        }
+
+        .dropdown a {
+            color: #374151;
+            padding: 0.75rem 1.5rem;
+            text-transform: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 0;
+            transition: background-color 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown a:hover {
+            background-color: #f8fafc;
+            color: #436c79;
+            border-left-color: #436c79;
+        }
+
+        .request-demo {
+            background: #da5e26 !important;
+            color: white !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 6px !important;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600 !important;
+            font-size: 0.8rem !important;
+        }
+
+        .request-demo:hover {
+            background: #b45309 !important;
+            color: white !important;
+        }
+
+        /* Mobile Menu */
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -394,281 +324,6 @@
             transform: rotate(180deg);
         }
 
-        /* Switch to mobile menu */
-        @media (max-width: 1025px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .logo {
-                font-size: 1.6rem;
-            }
-
-            .logo img {
-                height: 24px;
-            }
-
-            .section-content,
-            .section-content.reverse {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .section-content.reverse .text-content,
-            .section-content.reverse .image-content {
-                order: initial;
-            }
-
-            /* Reorder content on tablet/mobile - text first, image second */
-            .section-content .text-content {
-                order: 1;
-            }
-
-            .section-content .image-content {
-                order: 2;
-            }
-
-            .hero h1 {
-                font-size: 2em;
-            }
-
-            .text-content h4 {
-                font-size: 1.5em;
-            }
-
-            .partners-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(3, 1fr);
-                gap: 30px;
-            }
-        }
-
-        /* Mobile Responsive Design (768px and below) */
-        @media (max-width: 768px) {
-            .logo img {
-                height: 28px;
-            }
-
-            .hero {
-                padding: 2rem 0;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-                text-align: left;
-            }
-
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            .section {
-                padding: 50px 0;
-            }
-
-            .text-content {
-                text-align: center;
-            }
-
-            .text-content h3 {
-                font-size: 0.8em;
-                text-align: center;
-            }
-
-            .text-content h4 {
-                text-align: center;
-                font-size: 1.5em;
-            }
-
-            .text-content ul {
-                text-align: left;
-                font-size: 0.95em;
-            }
-            
-            .text-content ul li {
-                margin-bottom: 12px;
-            }
-
-            .image-content img {
-                max-width: 90%;
-                margin: 0 auto;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            }
-
-            .partners-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(6, 1fr);
-                gap: 20px;
-            }
-
-            .partner-logo {
-                height: 72px;
-            }
-
-            .partner-logo img {
-                max-height: 48px;
-            }
-        }
-
-        /* Very small mobile (480px and below) */
-        @media (max-width: 480px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-
-            .hero {
-                padding: 1.5rem 0;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-
-            .section {
-                padding: 40px 0;
-            }
-
-            .text-content h3 {
-                font-size: 0.75em;
-            }
-
-            .text-content h4 {
-                font-size: 1.3em;
-            }
-
-            .text-content ul {
-                font-size: 0.9em;
-            }
-
-            .image-content img {
-                max-width: 100%;
-            }
-        }
-
-        /* Navigation */
-        nav {
-            background: #30444D;
-            padding: 1rem 0;
-            position: relative;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .nav-links > li {
-            position: relative;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: block;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links > li > a:hover {
-            color: #94a3b8;
-        }
-
-        /* Dropdown Styles */
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            min-width: 250px;
-            padding: 1rem 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-            border: 1px solid #e2e8f0;
-        }
-
-        .nav-links > li:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .dropdown li {
-            list-style: none;
-        }
-
-        .dropdown a {
-            color: #374151;
-            padding: 0.75rem 1.5rem;
-            text-transform: none;
-            font-weight: 400;
-            font-size: 0.9rem;
-            letter-spacing: 0;
-            transition: background-color 0.2s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .dropdown a:hover {
-            background-color: #f8fafc;
-            color: #436c79;
-            border-left-color: #436c79;
-        }
-
-        .request-demo {
-            background: #da5e26 !important;
-            color: white !important;
-            padding: 0.5rem 1rem !important;
-            border-radius: 6px !important;
-            transition: background 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600 !important;
-            font-size: 0.8rem !important;
-        }
-
-        .request-demo:hover {
-            background: #b45309 !important;
-            color: white !important;
-        }
-
         /* Enhanced Navigation with Progressive Breakpoints */
         
         /* Container padding adjustment for smaller screens */
@@ -781,51 +436,502 @@
             }
         }
 
+        /* Switch to mobile menu */
         @media (max-width: 1025px) {
+            .nav-links {
+                display: none;
+            }
+
             .mobile-menu-toggle {
                 display: block;
             }
 
-            .nav-links {
-                display: none;
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            .logo img {
+                height: 24px;
             }
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Hero Section - WHITE */
+        .hero-section {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 120px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-right: 100px;
+        }
+
+        .hero-text h1 {
+            font-size: 2em;
+            font-weight: 700;
+            color: #353535;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1em;
+            color: #353535;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 97%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* Capabilities Section - GREY */
+        .capabilities-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #436C79;
+            margin-bottom: 50px;
+        }
+
+        .capabilities-list {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: left;
+        }
+
+        .capabilities-list ul {
+            list-style: none;
+        }
+
+        .capabilities-list li {
+            margin-bottom: 30px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95em;
+            color: #353535;
+            line-height: 1.7;
+        }
+
+        .capabilities-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #436C79;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .capability-title {
+            font-weight: 700;
+            color: #353535;
+        }
+
+        .capability-desc {
+            color: #353535;
+            margin-left: 0;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background: #da5e26;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            min-height: 44px;
+        }
+
+        .cta-button:hover {
+            background: #b45309;
+            transform: translateY(-1px);
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-section.grey {
+            background: #f8f9fa;
+        }
+
+        .content-section.white {
+            background: #fff;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .content-text h2 {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #353535;
+            margin-bottom: 24px;
+        }
+
+        .content-text p {
+            color: #353535;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        .content-text ul, .content-text ol {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .content-text li {
+            color: #353535;
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        .content-text ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #436C79;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .content-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Compliance Section */
+        .compliance-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .compliance-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .compliance-content h2 {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #436C79;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .compliance-content p {
+            color: #353535;
+            line-height: 1.7;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        .compliance-content ul {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 40px;
+        }
+
+        /* FAQ Section - GREY */
+        .faq-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 0;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 20px 0;
+            text-align: left;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #436C79;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '⌄';
+            font-size: 1rem;
+            color: #666;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer.show {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        .faq-answer p {
+            color: #353535;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        /* Demo Section */
+        .demo-section {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .demo-content {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 60px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .demo-text h2 {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #436C79;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .demo-text p {
+            color: #353535;
+            margin-bottom: 32px;
+            font-size: 0.95em;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        .demo-image {
+            width: 300px;
+        }
+
+        .demo-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .mobile-menu {
-                width: 80vw;
-                right: -80vw;
+            .hero-content,
+            .content-grid,
+            .demo-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            .content-text h2 {
+                font-size: 1.5em;
+                text-align: center;
+            }
+
+            .demo-text h2 {
+                font-size: 1.8em;
+                text-align: center;
+            }
+
+            .container {
+                padding: 0 20px;
             }
         }
 
-        /* Footer */
+        /* Footer Section */
         .footer {
             background: #1e293b;
             color: #e2e8f0;
             padding: 4rem 0 2rem;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         .footer-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: 1.5fr repeat(3, 1fr) 1.5fr;
-            gap: 2rem;
+            grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+            gap: 3rem;
             margin-bottom: 3rem;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
         }
 
         .footer-brand p {
-            font-size: 0.9rem;
             color: #94a3b8;
-            margin: 1rem 0;
-            line-height: 1.7;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            max-width: 300px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            min-height: 44px;
+            display: inline-block;
+            padding: 0.25rem 0;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffffff;
+        }
+
+        .email-signup {
+            margin-top: 0;
+        }
+
+        .email-signup h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            flex-direction: column;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            background: #334155;
+            color: #ffffff;
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease;
+            margin-bottom: 0.5rem;
+            min-height: 44px;
+        }
+
+        .email-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: #436c79;
+        }
+
+        .email-submit {
+            width: 100%;
+            padding: 0.75rem 1.25rem;
+            background: #436c79;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 0.9rem;
+            min-height: 44px;
+        }
+
+        .email-submit:hover {
+            background: #30444d;
         }
 
         .social-links {
@@ -883,116 +989,41 @@
             color: #ffffff;
         }
 
-        .footer h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .footer h5 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .footer-section {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-section a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .email-form {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
-            flex-direction: column;
-        }
-
-        .email-input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #475569;
-            border-radius: 6px;
-            background: #334155;
-            color: #ffffff;
-            font-size: 0.9rem;
-            transition: border-color 0.3s ease;
-            margin-bottom: 0.5rem;
-            min-height: 44px;
-        }
-
-        .email-input::placeholder {
-            color: #94a3b8;
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: #436c79;
-        }
-
-        .email-submit {
-            width: 100%;
-            padding: 0.75rem 1.25rem;
-            background: #436c79;
-            color: #ffffff;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            font-size: 0.9rem;
-            min-height: 44px;
-        }
-
-        .email-submit:hover {
-            background: #30444d;
-        }
-
         .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.85rem;
-            color: #94a3b8;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: #64748b;
+            font-size: 0.9rem;
         }
 
         .footer-bottom-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .footer-bottom-links a {
-            color: #94a3b8;
+            color: #64748b;
             text-decoration: none;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
+            min-height: 44px;
+            display: inline-block;
+            padding: 0.25rem 0;
         }
 
         .footer-bottom-links a:hover {
-            color: white;
+            color: #94a3b8;
         }
 
+        /* Footer Responsive Design */
         @media (max-width: 1025px) {
             .footer-content {
                 grid-template-columns: 1fr 1fr;
@@ -1007,10 +1038,6 @@
                 grid-column: 1 / -1;
                 margin-top: 2rem;
             }
-            
-            .footer {
-                padding: 3rem 0 2rem;
-            }
         }
 
         @media (max-width: 768px) {
@@ -1018,56 +1045,22 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
+
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
                 gap: 1rem;
             }
-            
+
             .footer-bottom-links {
                 gap: 1rem;
-                justify-content: center;
             }
-            
+
             .social-link {
                 width: 44px;
                 height: 44px;
                 font-size: 1.2rem;
             }
-            
-            .footer {
-                padding: 2.5rem 0 1.5rem;
-            }
-            
-            .footer-container {
-                padding: 0 1.5rem;
-            }
-        }
-
-        /* White Paper CTA Button */
-        .white-paper-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #da5e26;
-            color: white;
-            padding: 14px 32px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            margin-top: 15px;
-        }
-
-        .white-paper-button:hover {
-            background: #b45309;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
         }
     </style>
 </head>
@@ -1216,66 +1209,128 @@
                     </ul>
                 </li>
             </ul>
-            <div style="margin-top: 2rem; padding: 0 2rem; text-align: center;">
+            <div style="padding: 1rem 2rem; border-top: 1px solid #d1d5db;">
                 <a href="request-demo.html" class="mobile-request-demo">Request a Demo</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero-section">
         <div class="container">
-            <h1>Streamlining Compliant, Error-Free Data Workflows</h1>
-        </div>
-    </section>
-
-    <!-- Main Content Section -->
-    <section class="section" style="padding-top: 40px;">
-        <div class="container">
-            <div class="section-content">
-                <div class="image-content">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062681/image_tmpqi5.jpg" alt="Laboratory Environment" style="transform: none; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);">
-                    <div style="text-align: center; margin-top: 15px;">
-                        <a href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768063427/Whitepaper_Connected-Plant_napcgt.pdf" target="_blank" class="white-paper-button">Read the Full Partner White Paper</a>
-                    </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Climet 97 Connector Plus</h1>
+                    <p>Enable hands-free dataflow from the Climet 97 to your existing LIMS, ELN, MES, or QMS. Eliminate manual data collection errors and streamline chain of custody with second by second HeartBeat audit logging.</p>
                 </div>
-                <div class="text-content">
-                    <h4 class="section-heading">Empowering the Industry 4.0 Vision One Connector At A Time</h4>
-                    <p style="color: #353535; line-height: 1.7; margin-bottom: 25px; font-size: 0.95em;">
-                        Phizzle enables regulated manufacturers to modernize data workflows with solutions that fit into their existing infrastructure. From streamlined data flow to fully automated and integrated processes with remote operation capabilities, we allow facilities to realize their specific digitization vision.
-                    </p>
-                    
-                    <h4 class="section-heading" style="margin-bottom: 20px; margin-top: 30px;">Benefits of a Partnership with Phizzle</h4>
-                    <p style="color: #353535; line-height: 1.7; margin-bottom: 25px; font-size: 0.95em;">
-                        A partnership with Phizzle enables automation providers and device manufacturers with an enterprise-ready solution that provides connectivity out of the box. While competitors leave customers to manage complex integrations independently, the Phizzle integrated solution delivers Day 1 productivity, lower total cost of ownership, and instruments whose lifecycle depends on functionality rather than connectivity limitations. For decision makers, this means an elimination of the hidden IT burden that typically accompanies laboratory automation expansion.
-                    </p>
+                <div class="hero-image">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765928923/CI-97-microbial-air-sampler_1_1_xjbga7.gif" alt="Climet 97" style="max-width: 196px; height: auto;">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Partners and Customers Section -->
-    <section class="partners-section">
+    <!-- Capabilities Section -->
+    <section class="capabilities-section" id="capabilities">
         <div class="container">
-            <h2>Partners and Customers</h2>
-            <div class="partners-grid">
-                <div class="partner-logo">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062710/vendor-logo_nqhj8r.png" alt="Miltenyi Biotec">
+            <h2 class="section-title">Climet 97 Connector Plus Capabilities</h2>
+            <div class="capabilities-list">
+                <ul>
+                    <li>
+                        <span class="capability-title">Ensure Data Integrity</span> <span class="capability-desc">by automating secure data collection and eliminate inefficiency and potential for human error from collection workflows</span>
+                    </li>
+                    <li>
+                        <span class="capability-title">Automate Data Synchronization</span> <span class="capability-desc">securely with backend systems (LIMS, ELN, QMS, or MES) without exposing your instruments to direct network threats</span>
+                    </li>
+                    <li>
+                        <span class="capability-title">Protect Against Data Loss</span> <span class="capability-desc">during network failures and power outages</span>
+                    </li>
+                    <li>
+                        <span class="capability-title">Ensure Chain of Custody and Compliance</span> <span class="capability-desc">with automated second by second HeatBeat audit logging</span>
+                    </li>
+                </ul>
+            </div>
+            <a href="request-demo.html" class="cta-button">Request a Demo</a>
+        </div>
+    </section>
+
+    <!-- Extend the Lifespan Section -->
+    <section class="content-section white">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.2em; font-weight: 700; color: #436C79; margin-bottom: 0;">Extend the Lifespan of Legacy Instruments</h2>
+            <h3 style="text-align: center; font-size: 1.8em; color: #353535; margin-bottom: 50px; margin-top: 5px; font-weight: 700;">Building Towards Industry 4.0 Standards</h3>
+            <div class="content-grid">
+                <div class="content-text">
+                    <p>Rather than replacing your legacy instruments because of networking limitations or inadequate integration with modern digital systems, Phizzle's Climet 97 Connector Plus allows regulated manufacturers to modernize data collection practices with older existing instruments. This solution can either be the solution to analog data practices, or it can be the first step towards realizing Industry 4.0 Standards with the Phizzle Connector Plus.</p>
                 </div>
-                <div class="partner-logo">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062706/Cisco_logo_blue_2016.svg_a7q8d7.png" alt="Cisco">
+                <div class="content-image">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766533211/Pharma-plant-scaled_1_obzzgj.jpg" alt="Pharmaceutical Manufacturing Plant">
                 </div>
-                <div class="partner-logo">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062700/kl_1_lvmmcr.png" alt="Merck">
+            </div>
+        </div>
+    </section>
+
+    <!-- Streamline Compliance Section -->
+    <section class="compliance-section">
+        <div class="container">
+            <div class="compliance-content">
+                <h2>Streamline Compliance and Chain of Custody</h2>
+                <p>Maintain comprehensive operational oversight and traceability by automatically capturing detailed instrument status updates, operator actions, and system events including:</p>
+                <ul>
+                    <li>Instrument offline updates, sample in-progress status and run start and stop times</li>
+                    <li>Which operator started a sample, reviewed the results and synchronized data to the LIMS, ELN, MES, or QMS</li>
+                    <li>When data was pushed to your backend systems or scheduled samples were pulled to be run on our UI</li>
+                    <li>Plus enable real-time review workflows with 21 CFR Part 11 Compliant electronic signatures</li>
+                    <li>Query and download results + audit trails to CSV, Excel, JSON, or PDF</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <div class="demo-content">
+                <div class="demo-image" style="width: 300px;">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767728491/1764166341490_2_kow14m.png" alt="Climet 97" style="max-width: 220px; border-radius: 12px;">
                 </div>
-                <div class="partner-logo">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062704/image_77_ydv8xp.png" alt="SHI">
+                <div class="demo-text">
+                    <h2 style="white-space: nowrap;">See our Climet 97 Connector Plus Live</h2>
+                    <p>Have a member of our engineering team walk you through a live demonstration and ask any technical questions you have.</p>
+                    <a href="request-demo.html" class="cta-button">Request a Demo</a>
                 </div>
-                <div class="partner-logo">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062690/image_80_o9aupz.png" alt="Cleanetics">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do you onboard a Climet 97?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Follow our simple 5 step onboarding process by scanning a QR code. Our engineering team handles all of the technical details, so it doesn't consume your IT resources to set up Climet instruments.</p>
+                    </div>
                 </div>
-                <div class="partner-logo">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062692/image_78_upmcar.png" alt="Climet">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What happens when there is a firmware update on the Climet 97?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Firmware updates are managed automatically through our secure cloud platform. Our engineering will check new release notes to see if functionality will be affected in any way. In the instance that it does affect the connector, we will make the necessary updates so functionality is not impacted once the firmware version is in production.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Where do you initiate samples using this connector?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Samples can be initiated remotely through our web-based UI. This is also where sample results and audit logs are stored, and can be queried and downloaded as a CSV, Excel, JSON, or PDF.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1362,6 +1417,28 @@
     </footer>
 
     <script>
+        // FAQ Functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const isOpen = answer.classList.contains('show');
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('show');
+                });
+                document.querySelectorAll('.faq-question').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Toggle current answer
+                if (!isOpen) {
+                    answer.classList.add('show');
+                    button.classList.add('active');
+                }
+            });
+        });
+
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             const overlay = document.getElementById('mobileMenuOverlay');
@@ -1397,7 +1474,7 @@
             });
             
             dropdown.classList.toggle('active');
-            arrow.classList.toggle('rotated');
+            if (arrow) arrow.classList.toggle('rotated');
         }
 
         document.addEventListener('keydown', function(event) {
@@ -1406,6 +1483,7 @@
             }
         });
 
+        // Newsletter form functionality
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
