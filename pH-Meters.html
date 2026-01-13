@@ -1592,11 +1592,7 @@
                             selectedFilters.forEach(filter => {
                                 const filterValue = filter.getAttribute('data-filter');
                                 // Manufacturer filters
-                                if ((filterValue === 'mettler-toledo' && instrumentName.includes('mettler')) ||
-                                    (filterValue === 'hach' && instrumentName.includes('hach')) ||
-                                    (filterValue === 'thermo-fisher' && instrumentName.includes('thermo')) ||
-                                    (filterValue === 'endress-hauser' && instrumentName.includes('endress')) ||
-                                    (filterValue === 'hamilton' && instrumentName.includes('hamilton'))) {
+                                if ((filterValue === 'mettler-toledo' && instrumentName.includes('mettler')) || {
                                     showCard = true;
                                 }
                                 // Connector type filters
