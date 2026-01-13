@@ -43,7 +43,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
             color: var(--text-color);
             line-height: 1.6;
@@ -972,12 +972,6 @@
         }
 
         /* Nav Responsive */
-        @media (max-width: 1600px) {
-            .nav-container {
-                padding: 0 1.5rem;
-            }
-        }
-        
         @media (max-width: 1500px) and (min-width: 1351px) {
             .nav-links { gap: 2rem; }
             .nav-links a { font-size: 0.9rem; }
@@ -1309,7 +1303,7 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="Instrument-Connector-Library.html" class="back-link">
+                <a href="Instrument_Connector_Library.html" class="back-link">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M19 12H5M12 19l-7-7 7-7"/>
                     </svg>
@@ -1356,7 +1350,7 @@
     <main class="main-content">
         <div class="container">
             <div class="instruments-grid" id="instrumentsGrid">
-                <div class="instrument-card" onclick="window.location.href='Seven-Excellence.html'" style="cursor: pointer;">
+                <div class="instrument-card" onclick="window.location.href='seven-excellence.html'" style="cursor: pointer;">
                     <div class="instrument-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767208232/mettler-toledo_seven_excellence_n_2_c7wxmg.png" alt="Mettler Toledo Seven Excellence">
                     </div>
@@ -1368,7 +1362,7 @@
             <div class="cta-section">
                 <div class="cta-content">
                     <h3 class="cta-title">Not Seeing One of Your pH Meters?</h3>
-                    <p class="cta-text">Have a specific pH meter you'd like to see supported? Let us know, we'll investigate the feasibility and provide a timeline.</p>
+                    <p class="cta-text">Have a specific pH meter you'd like to see supported? Let us know and we'll prioritize it for our development team.</p>
                     <a href="instrument-request.html" class="cta-button">Instrument Request</a>
                 </div>
             </div>
@@ -1592,7 +1586,11 @@
                             selectedFilters.forEach(filter => {
                                 const filterValue = filter.getAttribute('data-filter');
                                 // Manufacturer filters
-                                if ((filterValue === 'mettler-toledo' && instrumentName.includes('mettler')) || {
+                                if ((filterValue === 'mettler-toledo' && instrumentName.includes('mettler')) ||
+                                    (filterValue === 'hach' && instrumentName.includes('hach')) ||
+                                    (filterValue === 'thermo-fisher' && instrumentName.includes('thermo')) ||
+                                    (filterValue === 'endress-hauser' && instrumentName.includes('endress')) ||
+                                    (filterValue === 'hamilton' && instrumentName.includes('hamilton'))) {
                                     showCard = true;
                                 }
                                 // Connector type filters
