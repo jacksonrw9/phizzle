@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -493,10 +494,75 @@
             background: #16a34a;
         }
 
+        /* Partner Carousel Section */
+        .partner-carousel-section {
+            background: #f8fafc;
+            padding: 3rem 0 0 0;
+            overflow: hidden;
+        }
+
+        .partner-carousel-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .partner-header {
+            margin-bottom: 2rem;
+        }
+
+        .partner-header h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #436c79;
+            margin-bottom: 0;
+        }
+
+        .partner-carousel-wrapper {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+        }
+
+        .partner-carousel-track {
+            display: inline-flex;
+            animation: scroll 40s linear infinite;
+        }
+
+        .partner-logo-item {
+            flex: 0 0 auto;
+            height: 96px;
+            width: 240px;
+            margin: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+        }
+
+        .partner-logo-item img {
+            max-height: 72px;
+            max-width: 192px;
+            object-fit: contain;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
         /* Benefits Section */
         .benefits-section {
             background: #f8fafc;
-            padding: 5rem 0;
+            padding: 5rem 0 5rem 0;
         }
 
         .benefits-container {
@@ -509,7 +575,18 @@
             margin-bottom: 4rem;
         }
 
+        .partners-header {
+            margin-bottom: 4rem;
+        }
+
         .benefits-header h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #436c79;
+            margin-bottom: 1rem;
+        }
+
+        .partners-header h2 {
             font-size: 2.5rem;
             font-weight: 600;
             color: #436c79;
@@ -1042,6 +1119,11 @@
                 grid-column: 1 / -1;
                 margin-top: 2rem;
             }
+
+            .partner-logo-item {
+                width: 180px;
+                margin: 0 1rem;
+            }
         }
 
         /* Mobile Responsive Design (768px and below) */
@@ -1157,6 +1239,17 @@
                 height: 44px;
                 font-size: 1.2rem;
             }
+
+            .partner-logo-item {
+                width: 144px;
+                height: 72px;
+                margin: 0 0.5rem;
+            }
+
+            .partner-logo-item img {
+                max-height: 48px;
+                max-width: 120px;
+            }
         }
 
         /* Very small mobile (480px and below) */
@@ -1199,6 +1292,16 @@
 
             .partners-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .partner-logo-item {
+                width: 120px;
+                height: 60px;
+            }
+
+            .partner-logo-item img {
+                max-height: 36px;
+                max-width: 96px;
             }
         }
     </style>
@@ -1452,6 +1555,68 @@
                 </div>
             </div>
             
+            <!-- Partner Carousel Section -->
+            <section class="partner-carousel-section">
+                <div style="max-width: 1400px; margin: 0 auto;">
+                    <div class="partners-header" style="margin-left: 0;">
+                        <h2 style="font-size: 2.5rem;">Partners</h2>
+                    </div>
+                </div>
+            </section>
+            <div class="partner-carousel-wrapper" style="background: #f8fafc; overflow: hidden; white-space: nowrap; position: relative; width: 100vw; margin-left: calc(-50vw + 50%);">
+                <div class="partner-carousel-track">
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256017/image_81_unji0b.png" alt="Partner Logo">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256003/image_82_ya955m.png" alt="Partner Logo">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062710/vendor-logo_nqhj8r.png" alt="Partner Logo">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062706/Cisco_logo_blue_2016.svg_a7q8d7.png" alt="Partner Logo">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062704/image_77_ydv8xp.png" alt="Partner Logo">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062700/kl_1_lvmmcr.png" alt="Partner Logo">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062692/image_78_upmcar.png" alt="Partner Logo">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062690/image_80_o9aupz.png" alt="Partner Logo">
+                        </div>
+                        <!-- Duplicate items for seamless loop -->
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256017/image_81_unji0b.png" alt="Partner Logo">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256003/image_82_ya955m.png" alt="Partner Logo">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062710/vendor-logo_nqhj8r.png" alt="Partner Logo">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062706/Cisco_logo_blue_2016.svg_a7q8d7.png" alt="Partner Logo">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062704/image_77_ydv8xp.png" alt="Partner Logo">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062700/kl_1_lvmmcr.png" alt="Partner Logo">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062692/image_78_upmcar.png" alt="Partner Logo">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062690/image_80_o9aupz.png" alt="Partner Logo">
+                        </div>
+                    </div>
+                </div>
+
             <!-- Case Study Section -->
             <div style="width: 100%; background: #f8fafc; margin: 0; padding: 6rem 0 1rem 0; text-align: center;">
                 <div style="max-width: 1200px; margin: 0 auto; background: #ffffff; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;">
