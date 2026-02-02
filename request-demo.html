@@ -33,9 +33,6 @@
     window._hsq.push(['disableFormAutoCollect']);
     </script>
     
-    <!-- Google reCAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -1246,13 +1243,8 @@
                         </div>
                     </div>
 
-                    <!-- reCAPTCHA -->
-                    <div class="recaptcha-container">
-                        <div class="g-recaptcha" data-sitekey="6Lcm0gUsAAAAAAB7hOCZbFfs4KNpaYvfBucqvxBs"></div>
-                    </div>
-
                     <div class="submit-section">
-                        <button type="submit" class="submit-btn" id="submitBtn" disabled>Submit</button>
+                        <button type="submit" class="submit-btn" id="submitBtn">Submit</button>
                     </div>
                 </form>
             </div>
@@ -1345,21 +1337,6 @@
     </footer>
 
     <script>
-        // reCAPTCHA callback function
-        function onRecaptchaSuccess() {
-            document.getElementById('submitBtn').disabled = false;
-        }
-
-        // reCAPTCHA expired callback
-        function onRecaptchaExpired() {
-            document.getElementById('submitBtn').disabled = true;
-        }
-
-        // reCAPTCHA error callback
-        function onRecaptchaError() {
-            document.getElementById('submitBtn').disabled = true;
-        }
-
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             const overlay = document.getElementById('mobileMenuOverlay');
