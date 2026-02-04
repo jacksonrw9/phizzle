@@ -1237,7 +1237,7 @@
 
         // Load reCAPTCHA
         const script = document.createElement('script');
-        script.src = 'https://www.google.com/recaptcha/api.js?render=6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf';
+        script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf';
         document.head.appendChild(script);
         
         // HubSpot Form Integration for Newsletter Form  
@@ -1252,8 +1252,8 @@
             submitBtn.disabled = true;
             
             // Get reCAPTCHA token
-            grecaptcha.ready(function() {
-                grecaptcha.execute('6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf', {action: 'submit'}).then(function(token) {
+            grecaptcha.enterprise.ready(function() {
+                grecaptcha.enterprise.execute('6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf', {action: 'submit'}).then(function(token) {
                     
                     // Submit to Netlify function
                     fetch('/.netlify/functions/submit-form', {
