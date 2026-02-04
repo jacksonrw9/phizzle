@@ -8,18 +8,31 @@ export async function handler(event) {
 
     console.log('Received form data:', formData);
 
-    // Verify reCAPTCHA
-    const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`
-    });
+    // Verify reCAPTCHA Enterprise
+    const recaptchaResponse = await fetch(
+      `https://recaptchaenterprise.googleapis.com/v1/projects/${process.env.GOOGLE_CLOUD_PROJECT_ID}/assessments?key=${process.env.GOOGLE_CLOUD_API_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event: {
+            token: recaptchaToken,
+            siteKey: '6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf',
+            expectedAction: 'submit'
+          }
+        })
+      }
+    );
 
     const recaptchaData = await recaptchaResponse.json();
-    console.log('reCAPTCHA result:', recaptchaData);
+    console.log('reCAPTCHA Enterprise result:', recaptchaData);
+
+    // Enterprise returns score in a different structure than standard v3
+    const score = recaptchaData.riskAnalysis?.score || 0;
+    const valid = recaptchaData.tokenProperties?.valid || false;
 
     // Check if reCAPTCHA validation passed
-    if (!recaptchaData.success || recaptchaData.score < 0.5) {
+    if (!valid || score < 0.5) {
       console.error('reCAPTCHA failed:', recaptchaData);
       return {
         statusCode: 400,
