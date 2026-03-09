@@ -167,21 +167,69 @@ export async function handler(event) {
       };
     }
 
-    // Submit to HubSpot
-    const formId = formData.formId || process.env.HUBSPOT_FORM_ID;
-    const hubspotUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${process.env.HUBSPOT_PORTAL_ID}/${formId}`;
-    console.log('Submitting to HubSpot:', hubspotUrl);
-    console.log('Form data being sent:', JSON.stringify(formData));
-    
-    const hubspotResponse = await fetch(hubspotUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
+    // Convert fields array to properties object for Private App API
+    const properties = {};
+    formData.fields.forEach(f => {
+      properties[f.name] = f.value;
     });
-    
+
+    const email = properties.email;
+
+    // Check if contact already exists
+    const searchResponse = await fetch(
+      'https://api.hubapi.com/crm/v3/objects/contacts/search',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.HUBSPOT_PRIVATE_APP_TOKEN}`
+        },
+        body: JSON.stringify({
+          filterGroups: [{
+            filters: [{ propertyName: 'email', operator: 'EQ', value: email }]
+          }]
+        })
+      }
+    );
+
+    const searchData = await searchResponse.json();
+    console.log('HubSpot search result:', searchData);
+
+    let hubspotResponse;
+    if (searchData.total > 0) {
+      // Update existing contact
+      const contactId = searchData.results[0].id;
+      console.log('Updating existing contact:', contactId);
+      hubspotResponse = await fetch(
+        `https://api.hubapi.com/crm/v3/objects/contacts/${contactId}`,
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.HUBSPOT_PRIVATE_APP_TOKEN}`
+          },
+          body: JSON.stringify({ properties })
+        }
+      );
+    } else {
+      // Create new contact
+      console.log('Creating new contact');
+      hubspotResponse = await fetch(
+        'https://api.hubapi.com/crm/v3/objects/contacts',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.HUBSPOT_PRIVATE_APP_TOKEN}`
+          },
+          body: JSON.stringify({ properties })
+        }
+      );
+    }
+
     const hubspotData = await hubspotResponse.json();
     console.log('HubSpot response:', hubspotData);
-    
+
     if (!hubspotResponse.ok) {
       console.error('HubSpot error:', hubspotData);
       return {
@@ -189,10 +237,10 @@ export async function handler(event) {
         body: JSON.stringify({ error: 'HubSpot submission failed', details: hubspotData })
       };
     }
-    
+
     return {
       statusCode: 200,
-      body: JSON.stringify(hubspotData)
+      body: JSON.stringify({ success: true })
     };
   } catch (error) {
     console.error('Function error:', error);
