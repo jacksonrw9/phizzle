@@ -1424,7 +1424,7 @@
                                 context: {
                                     pageUri: window.location.href,
                                     pageName: document.title
-                                    hutk: document.cookie.match(/hubspotutk=([^;]+)/)?.[1] || undefined
+                                    hutk: (document.cookie.match(/hubspotutk=([^;]+)/) || [])[1]
                                 }
                             }
                         })
