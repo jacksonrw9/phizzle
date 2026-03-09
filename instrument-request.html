@@ -1401,9 +1401,13 @@
                 { name: "company", value: company },
                 { name: "hs_lead_status", value: "NEW" },
                 { name: "lifecyclestage", value: "lead" },
-                { name: "message", value: `Manufacturer: ${manufacturer}\nModel: ${model}\nUnits: ${units}\nTimeline: ${timeline}\nApplication: ${application}` }
+                { name: "instrument_manufacturer", value: manufacturer },
+                { name: "instrument_model", value: model },
+                { name: "how_many_units", value: units },
+                { name: "primary_use_case", value: application },
+                { name: "timeline", value: timeline }
             ];
-
+            
             if (phone) fields.push({ name: "phone", value: phone });
 
             grecaptcha.enterprise.ready(function() {
