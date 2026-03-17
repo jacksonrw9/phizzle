@@ -649,35 +649,12 @@
             transform: translateY(-2px);
         }
 
-        .social-link.linkedin {
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        .social-link.linkedin:hover {
-            background: #0077b5;
-            color: #ffffff;
-        }
-
-        .social-link.facebook {
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        .social-link.facebook:hover {
-            background: #1877f2;
-            color: #ffffff;
-        }
-
-        .social-link.youtube {
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        .social-link.youtube:hover {
-            background: #ff0000;
-            color: #ffffff;
-        }
+        .social-link.linkedin { border-color: #ffffff; color: #ffffff; }
+        .social-link.linkedin:hover { background: #0077b5; color: #ffffff; }
+        .social-link.facebook { border-color: #ffffff; color: #ffffff; }
+        .social-link.facebook:hover { background: #1877f2; color: #ffffff; }
+        .social-link.youtube { border-color: #ffffff; color: #ffffff; }
+        .social-link.youtube:hover { background: #ff0000; color: #ffffff; }
 
         .footer-bottom {
             border-top: 1px solid #334155;
@@ -714,259 +691,83 @@
         }
 
         /* Enhanced Navigation with Progressive Breakpoints */
-        
-        /* Container padding adjustment for smaller screens */
         @media (max-width: 1600px) {
-            .nav-container {
-                padding: 0 1.5rem;
-            }
+            .nav-container { padding: 0 1.5rem; }
         }
 
-        /* Progressive scaling from large to medium screens */
         @media (max-width: 1500px) and (min-width: 1351px) {
-            .nav-links {
-                gap: 2rem;
-            }
-
-            .nav-links a {
-                font-size: 0.9rem;
-            }
+            .nav-links { gap: 2rem; }
+            .nav-links a { font-size: 0.9rem; }
         }
 
         @media (max-width: 1350px) and (min-width: 1301px) {
-            .nav-links {
-                gap: 1.8rem;
-            }
-
-            .nav-links a {
-                font-size: 0.9rem;
-                letter-spacing: 0.4px;
-            }
-
-            .request-demo {
-                padding: 0.45rem 0.9rem !important;
-                font-size: 0.75rem !important;
-            }
+            .nav-links { gap: 1.8rem; }
+            .nav-links a { font-size: 0.9rem; letter-spacing: 0.4px; }
+            .request-demo { padding: 0.45rem 0.9rem !important; font-size: 0.75rem !important; }
         }
 
         @media (max-width: 1300px) and (min-width: 1201px) {
-            .nav-links {
-                gap: 1.6rem;
-            }
-
-            .nav-links a {
-                font-size: 0.87rem;
-                letter-spacing: 0.35px;
-            }
-
-            .request-demo {
-                padding: 0.42rem 0.85rem !important;
-                font-size: 0.72rem !important;
-            }
+            .nav-links { gap: 1.6rem; }
+            .nav-links a { font-size: 0.87rem; letter-spacing: 0.35px; }
+            .request-demo { padding: 0.42rem 0.85rem !important; font-size: 0.72rem !important; }
         }
 
         @media (max-width: 1200px) and (min-width: 1101px) {
-            .nav-links {
-                gap: 1.4rem;
-            }
-
-            .nav-links a {
-                font-size: 0.84rem;
-                letter-spacing: 0.3px;
-            }
-
-            .request-demo {
-                padding: 0.4rem 0.8rem !important;
-                font-size: 0.7rem !important;
-            }
-
-            .logo {
-                font-size: 1.9rem;
-            }
-
-            .logo img {
-                height: 30px;
-            }
+            .nav-links { gap: 1.4rem; }
+            .nav-links a { font-size: 0.84rem; letter-spacing: 0.3px; }
+            .request-demo { padding: 0.4rem 0.8rem !important; font-size: 0.7rem !important; }
+            .logo { font-size: 1.9rem; }
+            .logo img { height: 30px; }
         }
 
         @media (max-width: 1100px) and (min-width: 1026px) {
-            .nav-links {
-                gap: 1.2rem;
-            }
-
-            .nav-links a {
-                font-size: 0.8rem;
-                letter-spacing: 0.2px;
-                padding: 0.4rem 0;
-            }
-
-            .request-demo {
-                padding: 0.35rem 0.7rem !important;
-                font-size: 0.65rem !important;
-                letter-spacing: 0.2px !important;
-            }
-
-            .logo {
-                font-size: 1.8rem;
-            }
-
-            .logo img {
-                height: 28px;
-            }
-
-            .dropdown {
-                min-width: 200px;
-                padding: 0.7rem 0;
-            }
-
-            .dropdown a {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-            }
+            .nav-links { gap: 1.2rem; }
+            .nav-links a { font-size: 0.8rem; letter-spacing: 0.2px; padding: 0.4rem 0; }
+            .request-demo { padding: 0.35rem 0.7rem !important; font-size: 0.65rem !important; letter-spacing: 0.2px !important; }
+            .logo { font-size: 1.8rem; }
+            .logo img { height: 28px; }
+            .dropdown { min-width: 200px; padding: 0.7rem 0; }
+            .dropdown a { padding: 0.5rem 1rem; font-size: 0.8rem; }
         }
 
-        /* Switch to mobile menu */
         @media (max-width: 1025px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .logo {
-                font-size: 1.6rem;
-            }
-
-            .logo img {
-                height: 24px;
-            }
-
-            /* Blog adjustments on tablet */
-            .featured-post {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .blog-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            /* Footer adjustments */
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-            }
-
-            .footer-brand {
-                grid-column: 1 / -1;
-            }
-
-            .email-signup {
-                grid-column: 1 / -1;
-                margin-top: 2rem;
-            }
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: block; }
+            .logo { font-size: 1.6rem; }
+            .logo img { height: 24px; }
+            .featured-post { grid-template-columns: 1fr; gap: 2rem; }
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-content { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .footer-brand { grid-column: 1 / -1; }
+            .email-signup { grid-column: 1 / -1; margin-top: 2rem; }
         }
 
-        /* Mobile Responsive Design (768px and below) */
         @media (max-width: 768px) {
-            .logo {
-                font-size: 1.4rem;
-            }
-
-            /* Blog content mobile adjustments */
-            .blog-header {
-                text-align: center;
-                margin-bottom: 2rem;
-            }
-
-            .blog-header h1 {
-                font-size: 2rem;
-            }
-
-            .featured-post {
-                padding: 1.5rem;
-                margin-bottom: 3rem;
-                text-align: center;
-            }
-
-            .featured-content h2 {
-                font-size: 1.5rem;
-            }
-
-            .blog-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .blog-section h2 {
-                font-size: 1.6rem;
-                text-align: center;
-            }
-
-            /* Footer mobile */
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .footer-bottom-links {
-                gap: 1rem;
-            }
-
-            /* Social links mobile sizing */
-            .social-link {
-                width: 44px;
-                height: 44px;
-                font-size: 1.2rem;
-            }
+            .logo { font-size: 1.4rem; }
+            .blog-header { text-align: center; margin-bottom: 2rem; }
+            .blog-header h1 { font-size: 2rem; }
+            .featured-post { padding: 1.5rem; margin-bottom: 3rem; text-align: center; }
+            .featured-content h2 { font-size: 1.5rem; }
+            .blog-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .blog-section h2 { font-size: 1.6rem; text-align: center; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 1rem; }
+            .footer-bottom-links { gap: 1rem; }
+            .social-link { width: 44px; height: 44px; font-size: 1.2rem; }
         }
 
-        /* Very small mobile (480px and below) */
         @media (max-width: 480px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-
-            .content-container {
-                padding: 0 1rem;
-            }
-
-            .blog-header h1 {
-                font-size: 1.8rem;
-            }
-
-            .featured-content h2 {
-                font-size: 1.3rem;
-            }
-
-            .blog-section h2 {
-                font-size: 1.4rem;
-            }
-
-            .featured-post {
-                padding: 1rem;
-            }
-
-            .blog-card-content {
-                padding: 1rem;
-            }
-
-            .blog-card-content h3 {
-                font-size: 1rem;
-            }
+            .nav-container { padding: 0 1rem; }
+            .content-container { padding: 0 1rem; }
+            .blog-header h1 { font-size: 1.8rem; }
+            .featured-content h2 { font-size: 1.3rem; }
+            .blog-section h2 { font-size: 1.4rem; }
+            .featured-post { padding: 1rem; }
+            .blog-card-content { padding: 1rem; }
+            .blog-card-content h3 { font-size: 1rem; }
         }
 
-        .grecaptcha-badge {
-            visibility: hidden;
-        }
+        .grecaptcha-badge { visibility: hidden; }
     </style>
 </head>
 <body>
@@ -1047,8 +848,7 @@
             <ul class="mobile-nav-links">
                 <li>
                     <a href="#" onclick="toggleMobileDropdown(event, 'platform-dropdown')">
-                        Platform 
-                        <span class="dropdown-arrow">▼</span>
+                        Platform <span class="dropdown-arrow">▼</span>
                     </a>
                     <ul class="mobile-dropdown" id="platform-dropdown">
                         <li><a href="platform-overview.html">Platform Overview</a></li>
@@ -1059,8 +859,7 @@
                 </li>
                 <li>
                     <a href="#" onclick="toggleMobileDropdown(event, 'solutions-dropdown')">
-                        Solutions 
-                        <span class="dropdown-arrow">▼</span>
+                        Solutions <span class="dropdown-arrow">▼</span>
                     </a>
                     <ul class="mobile-dropdown" id="solutions-dropdown">
                         <li><a href="connected-plant.html">Connected Plant™</a></li>
@@ -1070,8 +869,7 @@
                 </li>
                 <li>
                     <a href="#" onclick="toggleMobileDropdown(event, 'applications-dropdown')">
-                        Applications 
-                        <span class="dropdown-arrow">▼</span>
+                        Applications <span class="dropdown-arrow">▼</span>
                     </a>
                     <ul class="mobile-dropdown" id="applications-dropdown">
                         <li><a href="pharma-manufacturing.html">Pharma Manufacturing</a></li>
@@ -1081,8 +879,7 @@
                 </li>
                 <li>
                     <a href="#" onclick="toggleMobileDropdown(event, 'resources-dropdown')">
-                        Resources 
-                        <span class="dropdown-arrow">▼</span>
+                        Resources <span class="dropdown-arrow">▼</span>
                     </a>
                     <ul class="mobile-dropdown" id="resources-dropdown">
                         <li><a href="blog.html">Blog</a></li>
@@ -1094,8 +891,7 @@
                 </li>
                 <li>
                     <a href="#" onclick="toggleMobileDropdown(event, 'partners-dropdown')">
-                        Partners 
-                        <span class="dropdown-arrow">▼</span>
+                        Partners <span class="dropdown-arrow">▼</span>
                     </a>
                     <ul class="mobile-dropdown" id="partners-dropdown">
                         <li><a href="partners.html">Partners</a></li>
@@ -1103,8 +899,7 @@
                 </li>
                 <li>
                     <a href="#" onclick="toggleMobileDropdown(event, 'company-dropdown')">
-                        Company 
-                        <span class="dropdown-arrow">▼</span>
+                        Company <span class="dropdown-arrow">▼</span>
                     </a>
                     <ul class="mobile-dropdown" id="company-dropdown">
                         <li><a href="about-us.html">About Us</a></li>
@@ -1131,13 +926,13 @@
             <!-- Featured Post -->
             <section class="featured-post">
                 <div class="featured-image">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081547/videos-feature_yjz496.png" border="0">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1773758859/istockphoto-1132211698-612x612_pl8bqw.jpg" alt="Manual transcription data integrity risk in regulated pharmaceutical manufacturing">
                 </div>
                 <div class="featured-content">
                     <div class="post-label">Latest</div>
-                    <h2>How the Edge Puck™ Solves Multi-Vendor Instrument Connectivity in GMP Environments</h2>
-                    <p>With the amount of data captured throughout GMP environments in 2025, automating manual touch points is a necessity to avoid data silos.</p>
-                    <a href="blog-7.html" class="read-post-btn">Read Post</a>
+                    <h2>Why Manual Transcription Is Your Biggest Data Integrity Risk in Regulated Manufacturing</h2>
+                    <p>When instrument data travels through a person before it reaches your LIMS, the audit trail is already compromised.</p>
+                    <a href="blog-why-manual-transcription-is-your-biggest-data-integrity-risk-in-regulated-manufacturing.html" class="read-post-btn">Read Post</a>
                 </div>
             </section>
 
@@ -1146,6 +941,15 @@
                 <h2>Explore All</h2>
                 
                 <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081547/videos-feature_yjz496.png" alt="Edge Puck GMP Instrument Connectivity">
+                        </div>
+                        <div class="blog-card-content">
+                            <h3><a href="blog-7.html">How the Edge Puck™ Solves Multi-Vendor Instrument Connectivity in GMP Environments</a></h3>
+                        </div>
+                    </div>
+
                     <div class="blog-card">
                         <div class="blog-card-image">
                             <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081558/blog-1_oq7j0z.png" alt="AI Brain Integration">
@@ -1313,15 +1117,10 @@
             const allArrows = document.querySelectorAll('.dropdown-arrow');
             
             allDropdowns.forEach(dd => {
-                if (dd.id !== dropdownId) {
-                    dd.classList.remove('active');
-                }
+                if (dd.id !== dropdownId) dd.classList.remove('active');
             });
-            
             allArrows.forEach(arr => {
-                if (arr !== arrow) {
-                    arr.classList.remove('rotated');
-                }
+                if (arr !== arrow) arr.classList.remove('rotated');
             });
             
             dropdown.classList.toggle('active');
@@ -1329,9 +1128,7 @@
         }
 
         document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeMobileMenu();
-            }
+            if (event.key === 'Escape') closeMobileMenu();
         });
 
         // Load reCAPTCHA
@@ -1350,11 +1147,8 @@
             submitBtn.textContent = 'Subscribing...';
             submitBtn.disabled = true;
             
-            // Get reCAPTCHA token
             grecaptcha.enterprise.ready(function() {
                 grecaptcha.enterprise.execute('6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf', {action: 'submit'}).then(function(token) {
-                    
-                    // Submit to Netlify function
                     fetch('/.netlify/functions/submit-form', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
