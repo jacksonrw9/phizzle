@@ -6,12 +6,10 @@
     <meta name="description" content="Stay updated with the latest Phizzle news and announcements including product launches, partnerships, market studies, and innovations in regulated manufacturing technology.">
     <title>News - Phizzle</title>
 
-    <!-- Favicon links -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     <link rel="shortcut icon" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
-    
-    <!-- Google tag (gtag.js) -->
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-41FB3KKW2T"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -20,19 +18,14 @@
         gtag('config', 'G-41FB3KKW2T');
     </script>
 
-    <!-- Start of HubSpot Embed Code -->
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/8070371.js"></script>
-    <!-- End of HubSpot Embed Code -->
 
-    <!-- Configure HubSpot to ignore our custom forms -->
     <script>
     window._hsq = window._hsq || [];
     window._hsq.push(['setPath', window.location.pathname]);
-
-    // Tell HubSpot to NOT track form submissions
     window._hsq.push(['disableFormAutoCollect']);
     </script>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -101,7 +94,6 @@
             color: #94a3b8;
         }
 
-        /* Dropdown Styles */
         .dropdown {
             position: absolute;
             top: 100%;
@@ -439,7 +431,7 @@
 
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             margin-bottom: 3rem;
         }
@@ -468,6 +460,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .news-card-content {
@@ -498,7 +491,7 @@
             line-height: 1.5;
         }
 
-        /* Footer Section */
+        /* Footer */
         .footer {
             background: #1e293b;
             color: #e2e8f0;
@@ -565,9 +558,7 @@
             color: #ffffff;
         }
 
-        .email-signup {
-            margin-top: 0;
-        }
+        .email-signup { margin-top: 0; }
 
         .email-signup h5 {
             font-size: 1.1rem;
@@ -598,9 +589,7 @@
             min-height: 44px;
         }
 
-        .email-input::placeholder {
-            color: #94a3b8;
-        }
+        .email-input::placeholder { color: #94a3b8; }
 
         .email-input:focus {
             outline: none;
@@ -621,9 +610,7 @@
             min-height: 44px;
         }
 
-        .email-submit:hover {
-            background: #30444d;
-        }
+        .email-submit:hover { background: #30444d; }
 
         .social-links {
             display: flex;
@@ -646,39 +633,13 @@
             font-size: 1.4rem;
         }
 
-        .social-link:hover {
-            transform: translateY(-2px);
-        }
-
-        .social-link.linkedin {
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        .social-link.linkedin:hover {
-            background: #0077b5;
-            color: #ffffff;
-        }
-
-        .social-link.facebook {
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        .social-link.facebook:hover {
-            background: #1877f2;
-            color: #ffffff;
-        }
-
-        .social-link.youtube {
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        .social-link.youtube:hover {
-            background: #ff0000;
-            color: #ffffff;
-        }
+        .social-link:hover { transform: translateY(-2px); }
+        .social-link.linkedin { border-color: #ffffff; color: #ffffff; }
+        .social-link.linkedin:hover { background: #0077b5; color: #ffffff; }
+        .social-link.facebook { border-color: #ffffff; color: #ffffff; }
+        .social-link.facebook:hover { background: #1877f2; color: #ffffff; }
+        .social-link.youtube { border-color: #ffffff; color: #ffffff; }
+        .social-link.youtube:hover { background: #ff0000; color: #ffffff; }
 
         .footer-bottom {
             border-top: 1px solid #334155;
@@ -690,15 +651,9 @@
             gap: 1rem;
         }
 
-        .footer-bottom p {
-            color: #64748b;
-            font-size: 0.9rem;
-        }
+        .footer-bottom p { color: #64748b; font-size: 0.9rem; }
 
-        .footer-bottom-links {
-            display: flex;
-            gap: 2rem;
-        }
+        .footer-bottom-links { display: flex; gap: 2rem; }
 
         .footer-bottom-links a {
             color: #64748b;
@@ -710,247 +665,89 @@
             padding: 0.25rem 0;
         }
 
-        .footer-bottom-links a:hover {
-            color: #94a3b8;
-        }
+        .footer-bottom-links a:hover { color: #94a3b8; }
 
-        /* Enhanced Navigation with Progressive Breakpoints */
-        
-        /* Container padding adjustment for smaller screens */
-        @media (max-width: 1600px) {
-            .nav-container {
-                padding: 0 1.5rem;
-            }
-        }
+        /* Progressive Breakpoints */
+        @media (max-width: 1600px) { .nav-container { padding: 0 1.5rem; } }
 
-        /* Progressive scaling from large to medium screens */
         @media (max-width: 1500px) and (min-width: 1351px) {
-            .nav-links {
-                gap: 2rem;
-            }
-
-            .nav-links a {
-                font-size: 0.9rem;
-            }
+            .nav-links { gap: 2rem; }
+            .nav-links a { font-size: 0.9rem; }
         }
 
         @media (max-width: 1350px) and (min-width: 1301px) {
-            .nav-links {
-                gap: 1.8rem;
-            }
-
-            .nav-links a {
-                font-size: 0.9rem;
-                letter-spacing: 0.4px;
-            }
-
-            .request-demo {
-                padding: 0.45rem 0.9rem !important;
-                font-size: 0.75rem !important;
-            }
+            .nav-links { gap: 1.8rem; }
+            .nav-links a { font-size: 0.9rem; letter-spacing: 0.4px; }
+            .request-demo { padding: 0.45rem 0.9rem !important; font-size: 0.75rem !important; }
         }
 
         @media (max-width: 1300px) and (min-width: 1201px) {
-            .nav-links {
-                gap: 1.6rem;
-            }
-
-            .nav-links a {
-                font-size: 0.87rem;
-                letter-spacing: 0.35px;
-            }
-
-            .request-demo {
-                padding: 0.42rem 0.85rem !important;
-                font-size: 0.72rem !important;
-            }
+            .nav-links { gap: 1.6rem; }
+            .nav-links a { font-size: 0.87rem; letter-spacing: 0.35px; }
+            .request-demo { padding: 0.42rem 0.85rem !important; font-size: 0.72rem !important; }
         }
 
         @media (max-width: 1200px) and (min-width: 1101px) {
-            .nav-links {
-                gap: 1.4rem;
-            }
-
-            .nav-links a {
-                font-size: 0.84rem;
-                letter-spacing: 0.3px;
-            }
-
-            .request-demo {
-                padding: 0.4rem 0.8rem !important;
-                font-size: 0.7rem !important;
-            }
-
-            .logo {
-                font-size: 1.9rem;
-            }
-
-            .logo img {
-                height: 30px;
-            }
+            .nav-links { gap: 1.4rem; }
+            .nav-links a { font-size: 0.84rem; letter-spacing: 0.3px; }
+            .request-demo { padding: 0.4rem 0.8rem !important; font-size: 0.7rem !important; }
+            .logo { font-size: 1.9rem; }
+            .logo img { height: 30px; }
         }
 
         @media (max-width: 1100px) and (min-width: 1026px) {
-            .nav-links {
-                gap: 1.2rem;
-            }
-
-            .nav-links a {
-                font-size: 0.8rem;
-                letter-spacing: 0.2px;
-                padding: 0.4rem 0;
-            }
-
-            .request-demo {
-                padding: 0.35rem 0.7rem !important;
-                font-size: 0.65rem !important;
-                letter-spacing: 0.2px !important;
-            }
-
-            .logo {
-                font-size: 1.8rem;
-            }
-
-            .logo img {
-                height: 28px;
-            }
-
-            .dropdown {
-                min-width: 200px;
-                padding: 0.7rem 0;
-            }
-
-            .dropdown a {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-            }
+            .nav-links { gap: 1.2rem; }
+            .nav-links a { font-size: 0.8rem; letter-spacing: 0.2px; padding: 0.4rem 0; }
+            .request-demo { padding: 0.35rem 0.7rem !important; font-size: 0.65rem !important; letter-spacing: 0.2px !important; }
+            .logo { font-size: 1.8rem; }
+            .logo img { height: 28px; }
+            .dropdown { min-width: 200px; padding: 0.7rem 0; }
+            .dropdown a { padding: 0.5rem 1rem; font-size: 0.8rem; }
         }
 
-        /* Switch to mobile menu */
         @media (max-width: 1025px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .logo {
-                font-size: 1.6rem;
-            }
-
-            .logo img {
-                height: 24px;
-            }
-
-            .featured-news {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .news-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-            }
-
-            .footer-brand {
-                grid-column: 1 / -1;
-            }
-
-            .email-signup {
-                grid-column: 1 / -1;
-                margin-top: 2rem;
-            }
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: block; }
+            .logo { font-size: 1.6rem; }
+            .logo img { height: 24px; }
+            .featured-news { grid-template-columns: 1fr; gap: 2rem; }
+            .news-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-content { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .footer-brand { grid-column: 1 / -1; }
+            .email-signup { grid-column: 1 / -1; margin-top: 2rem; }
         }
 
         @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-
-            .content-container {
-                padding: 0 1rem;
-            }
-
-            .main-content {
-                padding: 2rem 0;
-            }
-
-            .news-header h1 {
-                font-size: 2rem;
-            }
-
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-content h2 {
-                font-size: 1.5rem;
-            }
-
-            .featured-image {
-                height: 250px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .footer-bottom-links {
-                gap: 1rem;
-            }
-
-            .social-link {
-                width: 44px;
-                height: 44px;
-                font-size: 1.2rem;
-            }
+            .nav-container { padding: 0 1rem; }
+            .content-container { padding: 0 1rem; }
+            .main-content { padding: 2rem 0; }
+            .news-header h1 { font-size: 2rem; }
+            .news-grid { grid-template-columns: 1fr; }
+            .featured-content h2 { font-size: 1.5rem; }
+            .featured-image { height: 250px; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 1rem; }
+            .footer-bottom-links { gap: 1rem; }
+            .social-link { width: 44px; height: 44px; font-size: 1.2rem; }
         }
 
         @media (max-width: 480px) {
-            .news-header h1 {
-                font-size: 1.8rem;
-            }
-
-            .featured-content h2 {
-                font-size: 1.3rem;
-            }
-
-            .featured-news {
-                padding: 1.5rem;
-            }
-
-            .news-card-content {
-                padding: 1rem;
-            }
+            .news-header h1 { font-size: 1.8rem; }
+            .featured-content h2 { font-size: 1.3rem; }
+            .featured-news { padding: 1.5rem; }
+            .news-card-content { padding: 1rem; }
         }
 
-        .grecaptcha-badge {
-            visibility: hidden;
-        }
+        .grecaptcha-badge { visibility: hidden; }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757701267/__Phizzle-Logo-WHITE-01_5_hpfhss.svg" alt="Phizzle Logo" style="height: 32px; width: auto; display: block;">
             </a>
 
-            <!-- Desktop Navigation -->
             <ul class="nav-links">
                 <li>
                     <a href="platform-overview.html">Platform ▼</a>
@@ -1005,14 +802,11 @@
                 <li><a href="request-demo.html" class="request-demo">Request a Demo</a></li>
             </ul>
 
-            <!-- Mobile Menu Toggle -->
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
         </div>
 
-        <!-- Mobile Menu Overlay -->
         <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
 
-        <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <div class="mobile-menu-header">
                 <button class="mobile-menu-close" onclick="closeMobileMenu()">×</button>
@@ -1020,8 +814,7 @@
             <ul class="mobile-nav-links">
                 <li>
                     <a href="#" onclick="toggleMobileDropdown(event, 'platform-dropdown')">
-                        Platform 
-                        <span class="dropdown-arrow">▼</span>
+                        Platform <span class="dropdown-arrow">▼</span>
                     </a>
                     <ul class="mobile-dropdown" id="platform-dropdown">
                         <li><a href="platform-overview.html">Platform Overview</a></li>
@@ -1032,8 +825,7 @@
                 </li>
                 <li>
                     <a href="#" onclick="toggleMobileDropdown(event, 'solutions-dropdown')">
-                        Solutions 
-                        <span class="dropdown-arrow">▼</span>
+                        Solutions <span class="dropdown-arrow">▼</span>
                     </a>
                     <ul class="mobile-dropdown" id="solutions-dropdown">
                         <li><a href="connected-plant.html">Connected Plant™</a></li>
@@ -1043,8 +835,7 @@
                 </li>
                 <li>
                     <a href="#" onclick="toggleMobileDropdown(event, 'applications-dropdown')">
-                        Applications 
-                        <span class="dropdown-arrow">▼</span>
+                        Applications <span class="dropdown-arrow">▼</span>
                     </a>
                     <ul class="mobile-dropdown" id="applications-dropdown">
                         <li><a href="pharma-manufacturing.html">Pharma Manufacturing</a></li>
@@ -1054,8 +845,7 @@
                 </li>
                 <li>
                     <a href="#" onclick="toggleMobileDropdown(event, 'resources-dropdown')">
-                        Resources 
-                        <span class="dropdown-arrow">▼</span>
+                        Resources <span class="dropdown-arrow">▼</span>
                     </a>
                     <ul class="mobile-dropdown" id="resources-dropdown">
                         <li><a href="blog.html">Blog</a></li>
@@ -1067,8 +857,7 @@
                 </li>
                 <li>
                     <a href="#" onclick="toggleMobileDropdown(event, 'partners-dropdown')">
-                        Partners 
-                        <span class="dropdown-arrow">▼</span>
+                        Partners <span class="dropdown-arrow">▼</span>
                     </a>
                     <ul class="mobile-dropdown" id="partners-dropdown">
                         <li><a href="partners.html">Partners</a></li>
@@ -1076,8 +865,7 @@
                 </li>
                 <li>
                     <a href="#" onclick="toggleMobileDropdown(event, 'company-dropdown')">
-                        Company 
-                        <span class="dropdown-arrow">▼</span>
+                        Company <span class="dropdown-arrow">▼</span>
                     </a>
                     <ul class="mobile-dropdown" id="company-dropdown">
                         <li><a href="about-us.html">About Us</a></li>
@@ -1093,64 +881,75 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="main-content">
         <div class="content-container">
-            <!-- News Header -->
+
             <div class="news-header">
                 <h1>News</h1>
             </div>
 
-            <!-- Featured News -->
+            <!-- Featured: IBTimes article (newest) -->
             <section class="featured-news">
                 <div class="featured-image">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081562/webinar-feature_wrk0sz.png" alt="Phizzle Edge Puck™ - Technical First for IoT">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767207999/Pharma-plant-scaled_2_ijxi0k.jpg" alt="Pharmaceutical manufacturing facility">
                 </div>
                 <div class="featured-content">
                     <div class="post-label">Latest</div>
-                    <h2>Phizzle to Launch Technical First for IoT Edge</h2>
-                    <p>San Francisco, CA - June 5, 2025 - Phizzle, Inc., will launch on June 10th a technical first for the IoT Edge: the industry's only purpose-built computer inside a gateway that is malware-hardened to format and normalize data from any device or machine in edge use cases, including pharma manufacturing, building automation and AI systems, among others.</p>
-                    <a href="news-4.html" class="read-post-btn">Read Post</a>
+                    <h2>Phizzle: Reframing Pharma Manufacturing Through Digitized Workflows to Strengthen Data Integrity and Operational Efficiency</h2>
+                    <p>Phizzle CEO Ben Davis discusses how digitizing manual workflows and standardizing data capture across multi-vendor instruments is reshaping pharmaceutical manufacturing, reducing compliance risk and operational fragmentation at scale.</p>
+                    <a href="phizzle-reframing-pharma-manufacturing.html" class="read-post-btn">Read Post</a>
                 </div>
             </section>
 
-            <!-- News Grid -->
+            <!-- News Grid: all 4 previous articles -->
             <section class="news-section">
                 <h2>Explore All</h2>
-                
+
                 <div class="news-grid">
+
+                    <!-- Edge Puck IoT launch (previously featured) -->
                     <div class="news-card">
                         <div class="news-card-image">
-                            <a href="news-3.html"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081552/news-1_x4n8zc.png" alt="Climet Strategic Partnership">
+                            <a href="news-4.html"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081562/webinar-feature_wrk0sz.png" alt="Phizzle Edge Puck™ - Technical First for IoT"></a>
+                        </div>
+                        <div class="news-card-content">
+                            <h3><a href="news-4.html">Phizzle to Launch Technical First for IoT Edge</a></h3>
+                        </div>
+                    </div>
+
+                    <div class="news-card">
+                        <div class="news-card-image">
+                            <a href="news-3.html"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081552/news-1_x4n8zc.png" alt="Climet Strategic Partnership"></a>
                         </div>
                         <div class="news-card-content">
                             <h3><a href="news-3.html">Industry Leader Climet Partners with Phizzle: First Joint TCO/ROI Value Proposition in Pharma Manufacturing</a></h3>
                         </div>
                     </div>
-                    
+
                     <div class="news-card">
                         <div class="news-card-image">
-                            <a href="news-2.html"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081550/news-2_g1dt93.png" alt="Manufacturing costs and drug pricing">
+                            <a href="news-2.html"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081550/news-2_g1dt93.png" alt="Manufacturing costs and drug pricing"></a>
                         </div>
                         <div class="news-card-content">
                             <h3><a href="news-2.html">Lowering Manufacturing Costs is the Fastest Way to Lower Drug Prices; Phizzle CEO Releases Market Study Results</a></h3>
                         </div>
                     </div>
-                    
+
                     <div class="news-card">
                         <div class="news-card-image">
-                            <a href="news-1.html"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081550/news-3_dccor3.png" alt="Data Transformation Engine">
+                            <a href="news-1.html"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081550/news-3_dccor3.png" alt="Data Transformation Engine"></a>
                         </div>
                         <div class="news-card-content">
                             <h3><a href="news-1.html">Phizzle Introduces First Data Transformation Engine for Pharma/GMP Use; Making it possible to standardize data into any LIMS from multivendor instruments</a></h3>
                         </div>
                     </div>
+
                 </div>
             </section>
+
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-content">
@@ -1177,7 +976,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Solutions</h4>
                     <ul>
@@ -1186,7 +985,7 @@
                         <li><a href="instrument-connectors.html">Instrument Connectors</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Resources</h4>
                     <ul>
@@ -1197,7 +996,7 @@
                         <li><a href="connected-plant-sandbox.html">Connected Plant™ Sandbox</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Company</h4>
                     <ul>
@@ -1207,7 +1006,7 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <div class="email-signup">
                         <h5>Stay Updated</h5>
@@ -1217,14 +1016,14 @@
                             <button type="submit" class="email-submit">Subscribe</button>
                         </form>
                         <p style="font-size: 0.75rem; color: #64748b; margin-top: 0.5rem; line-height: 1.4;">
-                            This site is protected by reCAPTCHA and the Google 
-                            <a href="https://policies.google.com/privacy" style="color: #94a3b8; text-decoration: underline;">Privacy Policy</a> and 
+                            This site is protected by reCAPTCHA and the Google
+                            <a href="https://policies.google.com/privacy" style="color: #94a3b8; text-decoration: underline;">Privacy Policy</a> and
                             <a href="https://policies.google.com/terms" style="color: #94a3b8; text-decoration: underline;">Terms of Service</a> apply.
                         </p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2026 Phizzle. All rights reserved.</p>
                 <div class="footer-bottom-links">
@@ -1254,53 +1053,43 @@
             event.preventDefault();
             const dropdown = document.getElementById(dropdownId);
             const arrow = event.target.querySelector('.dropdown-arrow');
-            
+
             const allDropdowns = document.querySelectorAll('.mobile-dropdown');
             const allArrows = document.querySelectorAll('.dropdown-arrow');
-            
+
             allDropdowns.forEach(dd => {
-                if (dd.id !== dropdownId) {
-                    dd.classList.remove('active');
-                }
+                if (dd.id !== dropdownId) dd.classList.remove('active');
             });
-            
+
             allArrows.forEach(arr => {
-                if (arr !== arrow) {
-                    arr.classList.remove('rotated');
-                }
+                if (arr !== arrow) arr.classList.remove('rotated');
             });
-            
+
             dropdown.classList.toggle('active');
             arrow.classList.toggle('rotated');
         }
 
         document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeMobileMenu();
-            }
+            if (event.key === 'Escape') closeMobileMenu();
         });
 
         // Load reCAPTCHA
         const script = document.createElement('script');
         script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf';
         document.head.appendChild(script);
-        
-        // HubSpot Form Integration for Newsletter Form  
+
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
+
             const email = e.target.querySelector('input[name="email"]').value;
             const submitBtn = e.target.querySelector('button[type="submit"]');
-            
+
             submitBtn.textContent = 'Subscribing...';
             submitBtn.disabled = true;
-            
-            // Get reCAPTCHA token
+
             grecaptcha.enterprise.ready(function() {
                 grecaptcha.enterprise.execute('6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf', {action: 'submit'}).then(function(token) {
-                    
-                    // Submit to Netlify function
                     fetch('/.netlify/functions/submit-form', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
