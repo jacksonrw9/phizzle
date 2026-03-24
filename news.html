@@ -491,6 +491,82 @@
             line-height: 1.5;
         }
 
+        /* Selected Coverage */
+        .coverage-section {
+            margin-bottom: 4rem;
+        }
+
+        .coverage-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 2rem;
+        }
+
+        .coverage-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .coverage-item {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s ease;
+        }
+
+        .coverage-item:first-child {
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .coverage-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .coverage-date {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .coverage-publication {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #436c79;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .coverage-title {
+            font-size: 1rem;
+            color: #374151;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .coverage-title a {
+            color: #374151;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .coverage-title a:hover {
+            color: #436c79;
+        }
+
+        @media (max-width: 600px) {
+            .coverage-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+
         /* Footer */
         .footer {
             background: #1e293b;
@@ -1023,6 +1099,134 @@
                         <div class="news-card-content">
                             <h3><a href="news-14.html">Tech Leaders Collaborate with University of Miami Institute for Data Science and Computing to Develop Air Monitoring Solution for Campus Buildings</a></h3>
                         </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Selected Coverage -->
+            <section class="coverage-section">
+                <h2>Select Coverage</h2>
+                <div class="coverage-list">
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">Dec 22, 2021</span>
+                            <span class="coverage-publication">Enterprise Viewpoint</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://enterpriseviewpoint.com/how-digitization-and-automation-is-meeting-the-pharmaceutical-industrys-need-for-greater-manufacturing-capacity-2/" target="_blank" rel="noopener">How Digitization and Automation is Meeting the Pharmaceutical Industry's Need for Greater Manufacturing Capacity</a></div>
+                    </div>
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">Sep 23, 2021</span>
+                            <span class="coverage-publication">Facility Executive</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://facilityexecutive.com/2021/09/collaboration-to-measure-air-quality/" target="_blank" rel="noopener">Collaboration To Measure Air Quality</a></div>
+                    </div>
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">Sep 21, 2021</span>
+                            <span class="coverage-publication">IDSC News</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://idsc.miami.edu/air-monitoring/" target="_blank" rel="noopener">Air Monitoring Collaboration for Wellness in Campus Buildings</a></div>
+                    </div>
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">Jul 23, 2021</span>
+                            <span class="coverage-publication">Cleanroom Technology</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://cleanroomtechnology.com/news/article_page/Phizzle_and_GlassHouse_collaborate_on_automated_cleanroom_monitoring/178082" target="_blank" rel="noopener">Phizzle and GlassHouse collaborate on automated cleanroom monitoring</a></div>
+                    </div>
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">May 13, 2021</span>
+                            <span class="coverage-publication">EDGEIR.com</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://www.edgeir.com/how-phizzle-is-helping-pharma-companies-wrangle-data-from-edge-devices-and-a-big-roi-20210513" target="_blank" rel="noopener">How Phizzle is helping pharma companies wrangle data from edge devices—and a big ROI</a></div>
+                    </div>
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">Feb 23, 2021</span>
+                            <span class="coverage-publication">Forbes</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://www.forbes.com/sites/johncumbers/2021/02/23/pharmaceutical-manufacturing-just-got-an-automation-boost-from-iot/?sh=2a64ccb26d07" target="_blank" rel="noopener">Pharmaceutical Manufacturing Just Got An Automation Boost From IoT</a></div>
+                    </div>
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">Feb 18, 2021</span>
+                            <span class="coverage-publication">Globe Newswire</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://www.globenewswire.com/news-release/2021/02/18/2178143/0/en/Phizzle-Launches-EDGMaker-Digital-Air-Series-to-Remotely-Operate-Multi-vendor-Particle-Counters.html" target="_blank" rel="noopener">Phizzle Launches EDGMaker Digital Air Series to Remotely Operate Multi-vendor Particle Counters</a></div>
+                    </div>
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">Nov 09, 2020</span>
+                            <span class="coverage-publication">Message Media</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://messagemedia.com/us/press/messagemedia-partners-with-phizzle/" target="_blank" rel="noopener">MessageMedia partners with Phizzle to provide messaging platform</a></div>
+                    </div>
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">Nov 05, 2020</span>
+                            <span class="coverage-publication">YouTube</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://www.youtube.com/watch?v=fFUR-XH3ERM" target="_blank" rel="noopener">Phizzle CEO, Ben Davis interviewed by his alma mater, Walsh University</a></div>
+                    </div>
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">Aug 06, 2020</span>
+                            <span class="coverage-publication">Business Wire</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://www.businesswire.com/news/home/20200806005627/en/IoT-Community-%E2%80%93-Internet-Things-Community-Announces" target="_blank" rel="noopener">The IoT Community – Internet of Things Community Announces Phizzle Has Joined Its Elite IoT Ecosystem as a Gold Level Corporate Member</a></div>
+                    </div>
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">Jun 15, 2020</span>
+                            <span class="coverage-publication">CRN</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://www.crn.com/slide-shows/internet-of-things/the-10-hottest-iot-startups-of-2020-so-far-/8" target="_blank" rel="noopener">The 10 Hottest IoT Startups Of 2020 (So Far)</a></div>
+                    </div>
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">Jun 11, 2020</span>
+                            <span class="coverage-publication">Phizzle</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://www.phizzle.com/the-information-article-w-ben" target="_blank" rel="noopener">As Silicon Valley Turns Attention to Race, Black Entrepreneurs Detail Prejudice.</a></div>
+                    </div>
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">May 26, 2020</span>
+                            <span class="coverage-publication">Epic Events</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://www.youtube.com/watch?v=YnvbHHzG-Zs" target="_blank" rel="noopener">Fireside Chat with Phizzle's CIO and Head of Engineering Vijji Suryadevara</a></div>
+                    </div>
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">May 20, 2020</span>
+                            <span class="coverage-publication">Globe Newswire</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://www.globenewswire.com/news-release/2020/05/20/2036441/0/en/Phizzle-Announces-5X-Performance-Breakthrough-in-Edge-Device-Computation-Fortune-100-Customer-Win.html" target="_blank" rel="noopener">Phizzle Announces 5X+ Performance Breakthrough in Edge Device Computation, Fortune 100 Customer Win</a></div>
+                    </div>
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">May 20, 2020</span>
+                            <span class="coverage-publication">YouTube</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://www.youtube.com/watch?v=_4DdIhcsWVs" target="_blank" rel="noopener">Ben Davis, Phizzle CEO: The EDGMaker Software Stack Launch</a></div>
                     </div>
 
                 </div>
