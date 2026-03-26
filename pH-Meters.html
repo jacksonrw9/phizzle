@@ -1355,6 +1355,7 @@
                             </button>
                             <div class="dropdown-content" id="manufacturerDropdown">
                                 <div class="filter-option" data-filter="mettler-toledo">Mettler Toledo</div>
+                                <div class="filter-option" data-filter="thermo-scientific">Thermo Scientific</div>
                             </div>
                         </div>
                         
@@ -1374,6 +1375,13 @@
                     </div>
                     <div class="instrument-name">Mettler Toledo Seven Excellence</div>
                     <div class="connector-type">Connector Plus</div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Thermo-Orion.html'" style="cursor: pointer;">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1774560835/orion_pstar2150_pc215_meter-wstand_front_l_fqyw4g.png" alt="Thermo Scientific Orion PSTAR2155">
+                    </div>
+                    <div class="instrument-name">Thermo Scientific Orion PSTAR2155</div>
+                    <div class="connector-type">Data Connector</div>
                 </div>
             </div>
 
@@ -1607,7 +1615,7 @@
                         
                         selectedFilters.forEach(filter => {
                             const filterValue = filter.getAttribute('data-filter');
-                            if (filterValue === 'mettler-toledo') {
+                            if (filterValue === 'mettler-toledo' || filterValue === 'thermo-scientific') {
                                 selectedManufacturers.push(filterValue);
                             } else if (filterValue === 'data-connector' || filterValue === 'connector-plus') {
                                 selectedConnectorTypes.push(filterValue);
@@ -1623,6 +1631,7 @@
                             let matchManufacturer = selectedManufacturers.length === 0 || 
                                 selectedManufacturers.some(mfr => {
                                     if (mfr === 'mettler-toledo') return instrumentName.includes('mettler');
+                                    if (mfr === 'thermo-scientific') return instrumentName.includes('thermo');
                                     return false;
                                 });
                             
