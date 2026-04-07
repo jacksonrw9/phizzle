@@ -343,7 +343,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757437615/iStock-2150276025_wwqrbl.jpg');
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775508426/iStock-1346675526_kfjubl.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -393,7 +393,7 @@
         /* Platform Section */
         .platform-section {
             background: #ffffff;
-            padding: 5rem 0;
+            padding: 2.5rem 0;
         }
 
         .platform-container {
@@ -753,7 +753,7 @@
         }
 
         .product-showcase-container {
-            max-width: 1400px;
+            max-width: 100%;
             margin: 0 auto;
             padding: 0 4rem;
             display: grid;
@@ -762,18 +762,18 @@
 
         .product-showcase-item {
             display: grid;
-            grid-template-columns: 500px 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
             justify-content: center;
             margin: 0 auto;
-            max-width: 1100px;
+            max-width: 100%;
         }
 
         .product-showcase-item.reverse {
-            grid-template-columns: 1fr 500px;
+            grid-template-columns: 1fr 1fr;
             margin: 0 auto;
-            max-width: 1100px;
+            max-width: 100%;
         }
 
         .product-showcase-item.reverse .product-image-wrap {
@@ -786,7 +786,7 @@
 
         .product-image-wrap img {
             width: 100%;
-            height: 340px;
+            height: 420px;
             object-fit: cover;
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.1);
@@ -796,11 +796,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 520px;
+            max-width: 100%;
         }
 
         .product-text-wrap h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: #436c79;
             margin-bottom: 1.75rem;
@@ -842,7 +842,7 @@
         }
 
         .product-bullet-list li .bullet-text {
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             color: #374151;
             line-height: 1.6;
         }
@@ -1507,6 +1507,61 @@
         .grecaptcha-badge {
             visibility: hidden;
         }
+
+        /* Carousel logos subtle lift on hover */
+        .partner-logo-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .partner-logo-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Slide from left/right variants */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-left.visible,
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right { transition-delay: 0.2s; }
+
+        /* Resources grid responsive */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 1025px) {
+            .resources-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .resources-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .reveal-left, .reveal-right { transition: none; opacity: 1; transform: none; }
+        }
     </style>
 </head>
 <body>
@@ -1674,7 +1729,7 @@
             <div class="hero-content">
                 <div class="hero-text-box">
                     <h1>At the Intersection <br/>of Science and IT</h1>
-                    <p>Digitizing scientific workflows in regulated manufacturing environments to ensure data integrity, efficiency, and compliance with Connected Plant™.</p>
+                    <p>Digitizing scientific workflows in regulated manufacturing environments to support data integrity, efficiency, and compliance with Connected Plant™.</p>
                 </div>
             </div>
             <div class="hero-visual">
@@ -1683,10 +1738,35 @@
         </div>
     </section>
 
+    <!-- Partner Carousel -->
+    <div style="background: #f8fafc; padding: 3.5rem 0; overflow: hidden; white-space: nowrap; position: relative; width: 100%;">
+        <div class="partner-carousel-track">
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256017/image_81_unji0b.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256003/image_82_ya955m.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062710/vendor-logo_nqhj8r.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062706/Cisco_logo_blue_2016.svg_a7q8d7.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062704/image_77_ydv8xp.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062700/kl_1_lvmmcr.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062692/image_78_upmcar.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062690/image_80_o9aupz.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768423417/logo_nzc7we.png" alt="Partner Logo"></div>
+            <!-- Duplicates for seamless loop -->
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256017/image_81_unji0b.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256003/image_82_ya955m.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062710/vendor-logo_nqhj8r.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062706/Cisco_logo_blue_2016.svg_a7q8d7.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062704/image_77_ydv8xp.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062700/kl_1_lvmmcr.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062692/image_78_upmcar.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062690/image_80_o9aupz.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768423417/logo_nzc7we.png" alt="Partner Logo"></div>
+        </div>
+    </div>
+
     <!-- Platform Section -->
     <section class="platform-section">
         <div class="platform-container">
-            <div class="platform-bubble">
+            <div class="platform-bubble reveal">
                 <h2 class="platform-title">Digitize Scientific Workflows in 3 Steps:</h2>
                 
                 <div class="platform-content">
@@ -1725,15 +1805,17 @@
     </section>
 
     <!-- Product Showcase Section: Edge Puck, Connected Plant, Instrument Connectors -->
-    <section class="product-showcase-section">
-        <div class="product-showcase-container">
+    <section class="product-showcase-section" style="background: #ffffff; padding: 0;">
+        <div class="product-showcase-container" style="gap: 0; padding: 0;">
+            <h2 style="font-size: 2.5rem; font-weight: 600; color: #436c79; padding: 2.5rem 4rem 1rem 4rem;">Explore Our Solutions</h2>
 
             <!-- Phizzle Edge Puck -->
-            <div class="product-showcase-item">
-                <div class="product-image-wrap">
+            <div style="background: #e0eaed; padding: 5rem 4rem;">
+            <div class="product-showcase-item" style="margin: 0 auto; max-width: 1400px;">
+                <div class="product-image-wrap reveal-left">
                     <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Phizzle Edge Puck">
                 </div>
-                <div class="product-text-wrap">
+                <div class="product-text-wrap reveal-right">
                     <h2>Phizzle Edge Puck</h2>
                     <ul class="product-bullet-list">
                         <li>
@@ -1752,15 +1834,17 @@
                     <a href="edge-puck.html" class="product-learn-btn">Learn More</a>
                 </div>
             </div>
+            </div>
 
             <!-- Connected Plant Platform -->
-            <div class="product-showcase-item">
-                <div class="product-text-wrap">
+            <div style="background: #ffffff; padding: 5rem 4rem;">
+            <div class="product-showcase-item" style="margin: 0 auto; max-width: 1400px;">
+                <div class="product-text-wrap reveal-left">
                     <h2>Connected Plant Platform</h2>
                     <ul class="product-bullet-list">
                         <li>
                             <span class="bullet-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                            <span class="bullet-text"><strong>Synchronize Data Directly with Backend Systems:</strong> Automatically push instrument data to your existing LIMS, MES, or QMS</span>
+                            <span class="bullet-text"><strong>Synchronize Data Directly with Backend Systems:</strong> Automatically push instrument data to your existing LMS, MES, or QMS</span>
                         </li>
                         <li>
                             <span class="bullet-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -1773,18 +1857,20 @@
                     </ul>
                     <a href="connected-plant.html" class="product-learn-btn">Learn More</a>
                 </div>
-                <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081548/connected-plant-computer_v4lsos.png" alt="Connected Plant Platform" style="width: 500px; height: 340px; object-fit: contain;">
+                <img class="reveal-right" src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081548/connected-plant-computer_v4lsos.png" alt="Connected Plant Platform" style="width: 100%; height: 420px; object-fit: contain;">
+            </div>
             </div>
 
             <!-- Instrument Connectors -->
-            <div class="product-showcase-item">
-                <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1774458333/image_83_ofkibj.png" alt="Instrument Connectors" style="width: 500px; height: 340px; object-fit: contain;">
-                <div class="product-text-wrap">
+            <div style="background: #e0eaed; padding: 5rem 4rem;">
+            <div class="product-showcase-item" style="margin: 0 auto; max-width: 1400px;">
+                <img class="reveal-left" src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1774458333/image_83_ofkibj.png" alt="Instrument Connectors" style="width: 100%; height: 420px; object-fit: contain;">
+                <div class="product-text-wrap reveal-right">
                     <h2>Instrument Connectors</h2>
                     <ul class="product-bullet-list">
                         <li>
                             <span class="bullet-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                            <span class="bullet-text"><strong>Standardize Multi-Vendor Outputs:</strong> Our connectors standardize the communication idiosyncrasies among vendors, so your IT team isn't burdened with maintaining one-off integrations</span>
+                            <span class="bullet-text"><strong>Standardize Multi-Vendor Outputs:</strong> Our connectors standardize the communication idiosyncrasies between vendors, so your IT team isn't burdened maintaining one-off integrations</span>
                         </li>
                         <li>
                             <span class="bullet-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -1797,6 +1883,7 @@
                     </ul>
                     <a href="instrument-connectors.html" class="product-learn-btn">Learn More</a>
                 </div>
+            </div>
             </div>
 
         </div>
@@ -1843,78 +1930,10 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Partner Carousel Section -->
-            <section class="partner-carousel-section">
-                <div style="max-width: 1400px; margin: 0 auto;">
-                    <div class="partners-header" style="margin-left: 0;">
-                        <h2 style="font-size: 2.5rem;"></h2>
-                    </div>
-                </div>
-            </section>
-            <div class="partner-carousel-wrapper" style="background: #f8fafc; overflow: hidden; white-space: nowrap; position: relative; width: 100vw; margin-left: calc(-50vw + 50%);">
-                <div class="partner-carousel-track">
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256017/image_81_unji0b.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256003/image_82_ya955m.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062710/vendor-logo_nqhj8r.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062706/Cisco_logo_blue_2016.svg_a7q8d7.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062704/image_77_ydv8xp.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062700/kl_1_lvmmcr.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062692/image_78_upmcar.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062690/image_80_o9aupz.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768423417/logo_nzc7we.png" alt="Partner Logo">
-                        </div>
-                        <!-- Duplicate items for seamless loop -->
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256017/image_81_unji0b.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256003/image_82_ya955m.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062710/vendor-logo_nqhj8r.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062706/Cisco_logo_blue_2016.svg_a7q8d7.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062704/image_77_ydv8xp.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062700/kl_1_lvmmcr.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062692/image_78_upmcar.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062690/image_80_o9aupz.png" alt="Partner Logo">
-                        </div>
-                        <div class="partner-logo-item">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768423417/logo_nzc7we.png" alt="Partner Logo">
-                        </div>
-                    </div>
-                </div>
 
             <!-- Case Study Section -->
             <div style="width: 100%; background: #f8fafc; margin: 0; padding: 6rem 0 1rem 0; text-align: center;">
-                <div style="max-width: 1200px; margin: 0 auto; background: #ffffff; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;">
+                <div class="reveal" style="max-width: 1200px; margin: 0 auto; background: #ffffff; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;">
                     <p style="font-size: 1.3rem; color: #436c79; line-height: 1.6; margin-bottom: 2rem;">
                         See how a Top-3 Pharma is saving $1.5M a year in labor costs and cut failure reports by 80%
                     </p>
@@ -1926,49 +1945,61 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <!-- Latest Blog Posts Section -->
     <section style="background: #ffffff; padding: 5rem 0 2rem 0;">
         <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
-            <h2 style="font-size: 2.5rem; font-weight: 600; color: #436c79; margin-bottom: 2.5rem;">Latest Blog Posts</h2>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+            <h2 style="font-size: 2.5rem; font-weight: 600; color: #436c79; margin-bottom: 2.5rem;">Explore Resources</h2>
+            <div class="resources-grid">
 
-                <a href="blog-8.html" style="text-decoration: none; display: flex; flex-direction: column; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
+                <!-- Blog -->
+                <a href="https://phizzle.com/blog-7" style="text-decoration: none; display: flex; flex-direction: column; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
                     <div style="width: 100%; height: 200px; overflow: hidden;">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1774380640/iStock-899692870_d7xczx.jpg" alt="The Hidden Cost of Disconnected Instruments" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1757081559/blog-feature_kcps7f.png" alt="Blog" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div style="padding: 1.5rem; flex: 1;">
-                        <h3 style="font-size: 1.05rem; font-weight: 600; color: #1f2937; line-height: 1.4;">The Hidden Cost of Disconnected Instruments in Pharma Manufacturing</h3>
-                    </div>
-                </a>
-
-                <a href="blog-why-manual-transcription-is-your-biggest-data-integrity-risk-in-regulated-manufacturing.html" style="text-decoration: none; display: flex; flex-direction: column; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
-                    <div style="width: 100%; height: 200px; overflow: hidden;">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1773854153/iStock-1283845706_lrpx9q.jpg" alt="Manual transcription data integrity risk" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div style="padding: 1.5rem; flex: 1;">
-                        <h3 style="font-size: 1.05rem; font-weight: 600; color: #1f2937; line-height: 1.4;">Why Manual Transcription Is Your Biggest Data Integrity Risk in Regulated Manufacturing</h3>
-                    </div>
-                </a>
-
-                <a href="blog-7.html" style="text-decoration: none; display: flex; flex-direction: column; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
-                    <div style="width: 100%; height: 200px; overflow: hidden;">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081547/videos-feature_yjz496.png" alt="Edge Puck GMP Instrument Connectivity" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div style="padding: 1.5rem; flex: 1;">
+                        <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #436c79; margin-bottom: 0.5rem;">Blog</p>
                         <h3 style="font-size: 1.05rem; font-weight: 600; color: #1f2937; line-height: 1.4;">How the Edge Puck™ Solves Multi-Vendor Instrument Connectivity in GMP Environments</h3>
+                    </div>
+                </a>
+
+                <!-- Video -->
+                <a href="https://phizzle.com/video-4" style="text-decoration: none; display: flex; flex-direction: column; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
+                    <div style="width: 100%; height: 200px; overflow: hidden; position: relative;">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1764595515/image_73_u9s8fj.png" alt="Video" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+                            <div style="width: 52px; height: 52px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#436c79"><polygon points="5,3 19,12 5,21"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding: 1.5rem; flex: 1;">
+                        <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #436c79; margin-bottom: 0.5rem;">Video</p>
+                        <h3 style="font-size: 1.05rem; font-weight: 600; color: #1f2937; line-height: 1.4;">Taking an Air Particle Counter Sample Remotely on a Climet 1070</h3>
+                    </div>
+                </a>
+
+                <!-- News -->
+                <a href="https://phizzle.com/news-5" style="text-decoration: none; display: flex; flex-direction: column; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
+                    <div style="width: 100%; height: 200px; overflow: hidden;">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767207999/Pharma-plant-scaled_2_ijxi0k.jpg" alt="News" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 1.5rem; flex: 1;">
+                        <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #436c79; margin-bottom: 0.5rem;">News</p>
+                        <h3 style="font-size: 1.05rem; font-weight: 600; color: #1f2937; line-height: 1.4;">Reframing Pharma Manufacturing Through Digitized Workflows to Strengthen Data Integrity and Operational Efficiency</h3>
                     </div>
                 </a>
 
             </div>
             <div style="text-align: center; margin-top: 2.5rem;">
-                <a href="blog.html" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #436c79; color: white; padding: 0.75rem 1.75rem; border-radius: 6px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; min-height: 44px; transition: background 0.3s ease;" onmouseover="this.style.background='#30444d'" onmouseout="this.style.background='#436c79'">View All Posts</a>
+                <a href="blog.html" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #436c79; color: white; padding: 0.75rem 1.75rem; border-radius: 6px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; min-height: 44px; transition: background 0.3s ease;" onmouseover="this.style.background='#30444d'" onmouseout="this.style.background='#436c79'">View All Resources</a>
             </div>
         </div>
     </section>
 
     <!-- Request a Demo Section -->
-    <section style="background: #f8fafc; padding: 2rem 0 5rem 0;">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: center; align-items: center;">
+    <section style="background: #e0eaed; padding: 4rem 0; display: flex; align-items: center; justify-content: center; min-height: 400px;">
+        <div style="width: 100%; max-width: 1400px; padding: 0 2rem; display: flex; justify-content: center; align-items: center;">
             <div style="background: #ffffff; padding: 3rem; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); border: 1px solid #e2e8f0; max-width: 1200px; width: 100%;">
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
                     <div>
@@ -2171,6 +2202,17 @@
                 });
             });
         });
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealEls.forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>
