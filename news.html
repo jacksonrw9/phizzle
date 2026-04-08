@@ -364,12 +364,32 @@
             height: 350px;
             border-radius: 12px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
         }
 
         .featured-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .featured-image.logo-display {
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .featured-image.logo-display img {
+            width: auto;
+            height: auto;
+            max-height: 50px;
+            object-fit: contain;
+        }
+
+        .featured-image.logo-display img.labware-logo {
+            max-height: 48px;
         }
 
         .featured-content .post-label {
@@ -461,6 +481,26 @@
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        .news-card-image.logo-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: #ffffff;
+        }
+
+        .news-card-image.logo-display img {
+            width: auto;
+            height: auto;
+            max-height: 50px;
+            object-fit: contain;
+        }
+
+        .news-card-image.logo-display img.labware-logo {
+            max-height: 70px;
         }
 
         .news-card-content {
@@ -964,26 +1004,37 @@
                 <h1>News</h1>
             </div>
 
-            <!-- Featured: IBTimes article (newest) -->
+            <!-- Featured: LabWare-Phizzle Partnership (newest) -->
             <section class="featured-news">
-                <div class="featured-image">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767207999/Pharma-plant-scaled_2_ijxi0k.jpg" alt="Pharmaceutical manufacturing facility">
+                <div class="featured-image logo-display">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775663750/LABWARE_logo_blueGradient_2020_72dpi_v7odtb.png" alt="LabWare Logo" class="labware-logo">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775663892/__Phizzle-Logo-MAIN_dark-green-dots-01_2_vskfdy.png" alt="Phizzle Logo">
                 </div>
                 <div class="featured-content">
                     <div class="post-label">Latest</div>
-                    <h2>Phizzle: Reframing Pharma Manufacturing Through Digitized Workflows to Strengthen Data Integrity and Operational Efficiency</h2>
-                    <p>Phizzle CEO Ben Davis discusses how digitizing manual workflows and standardizing data capture across multi-vendor instruments is reshaping pharmaceutical manufacturing, reducing compliance risk and operational fragmentation at scale.</p>
-                    <a href="news-5.html" class="read-post-btn">Read Post</a>
+                    <h2>LabWare and Phizzle Partner to Simplify Instrument Integration for Regulated Laboratories</h2>
+                    <p>New integration approach simplifies multi-vendor instrument connectivity and strengthens data integrity in regulated environments. The partnership combines LabWare's laboratory informatics platform with Phizzle's Edge Puck, a cleanroom-ready gateway designed for regulated manufacturing and laboratory environments.</p>
+                    <a href="news-labware-phizzle.html" class="read-post-btn">Read Post</a>
                 </div>
             </section>
 
-            <!-- News Grid: all 4 previous articles -->
+            <!-- News Grid: all previous articles -->
             <section class="news-section">
                 <h2>Explore All</h2>
 
                 <div class="news-grid">
 
-                    <!-- Edge Puck IoT launch (previously featured) -->
+                    <!-- Previous featured: IBTimes article -->
+                    <div class="news-card">
+                        <div class="news-card-image">
+                            <a href="news-5.html"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767207999/Pharma-plant-scaled_2_ijxi0k.jpg" alt="Pharmaceutical manufacturing facility"></a>
+                        </div>
+                        <div class="news-card-content">
+                            <h3><a href="news-5.html">Phizzle: Reframing Pharma Manufacturing Through Digitized Workflows to Strengthen Data Integrity and Operational Efficiency</a></h3>
+                        </div>
+                    </div>
+
+                    <!-- Edge Puck IoT launch -->
                     <div class="news-card">
                         <div class="news-card-image">
                             <a href="news-4.html"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081562/webinar-feature_wrk0sz.png" alt="Phizzle Edge Puck™ - Technical First for IoT"></a>
@@ -1108,6 +1159,14 @@
             <section class="coverage-section">
                 <h2>Select Coverage</h2>
                 <div class="coverage-list">
+
+                    <div class="coverage-item">
+                        <div class="coverage-meta">
+                            <span class="coverage-date">Apr 8, 2026</span>
+                            <span class="coverage-publication">PRNewswire</span>
+                        </div>
+                        <div class="coverage-title"><a href="https://www.prnewswire.com/news-releases/labware-and-phizzle-partnership-to-eliminate-manual-instrument-data-transfer-in-pharmaceutical-cleanroom-labs-302736536.html" target="_blank" rel="noopener">LabWare and Phizzle Partnership to Eliminate Manual Instrument Data Transfer in Pharmaceutical Cleanroom Labs</a></div>
+                    </div>
 
                     <div class="coverage-item">
                         <div class="coverage-meta">
@@ -1359,7 +1418,7 @@
             });
 
             dropdown.classList.toggle('active');
-            arrow.classList.toggle('rotated');
+            if (arrow) arrow.classList.toggle('rotated');
         }
 
         document.addEventListener('keydown', function(event) {
