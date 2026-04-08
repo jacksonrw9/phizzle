@@ -1508,6 +1508,33 @@
             visibility: hidden;
         }
 
+        /* Announcement bar carousel */
+        .announcement-bar {
+            background: #436c79;
+            padding: 1rem 2rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .announcement-track {
+            display: flex;
+            transition: transform 0.6s ease;
+        }
+
+        .announcement-slide {
+            min-width: 100%;
+            text-align: center;
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+
+        .announcement-slide a {
+            color: #ffffff;
+            font-weight: 700;
+            text-decoration: underline;
+            white-space: nowrap;
+        }
+
         /* Carousel logos subtle lift on hover */
         .partner-logo-item {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1565,12 +1592,18 @@
     </style>
 </head>
 <body>
-    <!-- Announcement Bar -->
-    <div style="background: #436c79; padding: 1rem 2rem; text-align: center;">
-        <p style="color: #ffffff; font-size: 0.9rem; margin: 0;">
-            <strong>Introducing the Data Connector:</strong> Eliminate Manual Capture and Support Compliance at Scale.&nbsp;&nbsp;
-            <a href="instrument-connectors.html" style="color: #ffffff; font-weight: 700; text-decoration: underline; white-space: nowrap;">Learn More</a>
-        </p>
+    <!-- Announcement Bar Carousel -->
+    <div class="announcement-bar" id="announcementBar">
+        <div class="announcement-track" id="announcementTrack">
+            <div class="announcement-slide">
+                LabWare and Phizzle Partner to Eliminate Manual Instrument Data Transfer in Pharmaceutical Cleanroom Labs.&nbsp;&nbsp;
+                <a href="news-labware-phizzle.html">Learn More</a>
+            </div>
+            <div class="announcement-slide">
+                <strong>Introducing the Data Connector:</strong> Eliminate Manual Capture and Support Compliance at Scale.&nbsp;&nbsp;
+                <a href="instrument-connectors.html">Learn More</a>
+            </div>
+        </div>
     </div>
 
     <!-- Navigation -->
@@ -1742,7 +1775,7 @@
     <div style="background: #f8fafc; padding: 3.5rem 0; overflow: hidden; white-space: nowrap; position: relative; width: 100%;">
         <div class="partner-carousel-track">
             <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256017/image_81_unji0b.png" alt="Partner Logo"></div>
-            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256003/image_82_ya955m.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1774627890/LabWare_logo_2020_Logo_hf3mkr.jpg" alt="LabWare Logo"></div>
             <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062710/vendor-logo_nqhj8r.png" alt="Partner Logo"></div>
             <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062706/Cisco_logo_blue_2016.svg_a7q8d7.png" alt="Partner Logo"></div>
             <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062704/image_77_ydv8xp.png" alt="Partner Logo"></div>
@@ -1752,7 +1785,7 @@
             <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768423417/logo_nzc7we.png" alt="Partner Logo"></div>
             <!-- Duplicates for seamless loop -->
             <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256017/image_81_unji0b.png" alt="Partner Logo"></div>
-            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768256003/image_82_ya955m.png" alt="Partner Logo"></div>
+            <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1774627890/LabWare_logo_2020_Logo_hf3mkr.jpg" alt="LabWare Logo"></div>
             <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062710/vendor-logo_nqhj8r.png" alt="Partner Logo"></div>
             <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062706/Cisco_logo_blue_2016.svg_a7q8d7.png" alt="Partner Logo"></div>
             <div class="partner-logo-item"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1768062704/image_77_ydv8xp.png" alt="Partner Logo"></div>
@@ -2202,8 +2235,32 @@
                 });
             });
         });
+        // Announcement bar carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.announcement-slide');
+        const track = document.getElementById('announcementTrack');
+
+        function goToSlide(index) {
+            currentSlide = index;
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        setInterval(() => {
+            goToSlide((currentSlide + 1) % slides.length);
+        }, 5000);
+
         // Scroll reveal
         const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealEls.forEach(el => revealObserver.observe(el));
+</body>        const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
