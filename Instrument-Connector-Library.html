@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instrument Connectors - Phizzle Labs</title>
-
+    <title>Scientific Equipment Catalog</title>
+    
     <!-- Favicon links -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     <link rel="shortcut icon" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     
-    <!-- Google tag (gtag.js) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+         <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-41FB3KKW2T"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -18,13 +20,20 @@
         gtag('js', new Date());
         gtag('config', 'G-41FB3KKW2T');
     </script>
+
     <!-- Start of HubSpot Embed Code -->
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/8070371.js"></script>
     <!-- End of HubSpot Embed Code -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Configure HubSpot to ignore our custom forms -->
+    <script>
+    window._hsq = window._hsq || [];
+    window._hsq.push(['setPath', window.location.pathname]);
+
+    // Tell HubSpot to NOT track form submissions
+    window._hsq.push(['disableFormAutoCollect']);
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -34,9 +43,9 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
             line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
         }
 
         /* Navigation */
@@ -322,392 +331,552 @@
             transform: rotate(180deg);
         }
 
-        /* Navigation Responsive */
-        @media (max-width: 1500px) and (min-width: 1351px) {
-            .nav-links { gap: 2rem; }
-            .nav-links a { font-size: 0.9rem; }
+        /* Catalog Styles */
+        :root {
+            --primary-blue: #1e3a5f;
+            --secondary-blue: #2c5f87;
+            --accent-orange: #e67e22;
+            --light-gray: #f8fafc;
+            --border-color: #e2e8f0;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --shadow-light: 0 2px 4px rgba(0,0,0,0.04);
+            --shadow-medium: 0 4px 12px rgba(0,0,0,0.08);
+            --gradient-bg: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
         }
 
-        @media (max-width: 1350px) and (min-width: 1301px) {
-            .nav-links { gap: 1.8rem; }
-            .nav-links a { font-size: 0.9rem; letter-spacing: 0.4px; }
-            .request-demo { padding: 0.45rem 0.9rem !important; font-size: 0.75rem !important; }
-        }
-
-        @media (max-width: 1300px) and (min-width: 1201px) {
-            .nav-links { gap: 1.6rem; }
-            .nav-links a { font-size: 0.87rem; letter-spacing: 0.35px; }
-            .request-demo { padding: 0.42rem 0.85rem !important; font-size: 0.72rem !important; }
-        }
-
-        @media (max-width: 1200px) and (min-width: 1101px) {
-            .nav-links { gap: 1.4rem; }
-            .nav-links a { font-size: 0.84rem; letter-spacing: 0.3px; }
-            .request-demo { padding: 0.4rem 0.8rem !important; font-size: 0.7rem !important; }
-            .logo { font-size: 1.9rem; }
-            .logo img { height: 30px; }
-        }
-
-        @media (max-width: 1100px) and (min-width: 1026px) {
-            .nav-links { gap: 1.2rem; }
-            .nav-links a { font-size: 0.8rem; letter-spacing: 0.2px; padding: 0.4rem 0; }
-            .request-demo { padding: 0.35rem 0.7rem !important; font-size: 0.65rem !important; letter-spacing: 0.2px !important; }
-            .logo { font-size: 1.8rem; }
-            .logo img { height: 28px; }
-            .dropdown { min-width: 200px; padding: 0.7rem 0; }
-            .dropdown a { padding: 0.5rem 1rem; font-size: 0.8rem; }
-        }
-
-        @media (max-width: 1025px) {
-            .nav-links { display: none; }
-            .mobile-menu-toggle { display: block; }
-            .logo { font-size: 1.6rem; }
-            .logo img { height: 24px; }
-        }
-
-        @media (max-width: 768px) {
-            .logo img { height: 28px; }
-            .mobile-menu { width: 80vw; right: -80vw; }
-        }
-
-        /* Page Content Styles */
         .container {
-            display: flex;
-            flex-direction: row;
-            min-height: calc(100vh - 64px);
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 2rem;
         }
-
-        .sidebar {
-            width: 250px;
-            min-width: 250px;
-            max-width: 350px;
-            flex: 1;
-            background-color: #ffffff;
-            border-right: 1px solid #e0e0e0;
-            padding: 20px;
-        }
-
-        .sidebar h3 {
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-bottom: 15px;
-            margin-left: -20px;
-            padding-left: 16px;
-            color: #333;
-            border-left: 4px solid #da5e26;
-        }
-
-        .instrument-list {
-            list-style: none;
-        }
-
-        .instrument-list li {
-            padding: 8px 0;
-            font-size: 1.15em;
-            color: #666;
-            cursor: pointer;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .instrument-list li a {
-            color: #666;
-            text-decoration: none;
-        }
-
-        .instrument-list li a:hover {
-            color: #007bff;
-        }
-
-        .instrument-list li:hover {
-            color: #007bff;
-        }
-
-        .library-link a {
-            color: #436C79 !important;
-            font-weight: bold;
-            text-decoration: underline;
-        }
-
-        .library-link a:hover {
-            color: #2c4a56 !important;
-            text-decoration: underline;
-        }
-
-        .library-link {
-            color: #436C79 !important;
-            font-weight: bold;
-            text-decoration: underline;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #e0e0e0;
-            cursor: pointer;
-        }
-
-        .library-link:hover {
-            color: #2c4a56 !important;
-            text-decoration: underline;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 50px 40px;
-        }
-
-        .header {
-            margin-bottom: 50px;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            justify-content: center;
+        
+        .top-section-wrapper {
+            background: white;
             width: 100%;
-            max-width: 850px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0;
+            padding: 0;
         }
-
-        .header-content {
-            flex: 0 1 500px;
+        
+        .header {
+            text-align: left;
+            padding: 1rem 0;
+            background: white;
         }
-
-        .header-image {
-            width: 325px;
-            height: 234px;
-            background-color: #f0f0f0;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: #999;
-            border: 1px solid #e0e0e0;
-        }
-
+        
         .header h1 {
-            font-size: 2.3em;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #436c79;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
         }
-
+        
         .header p {
-            font-size: 1.15em;
-            line-height: 1.6;
-            color: #666;
-            margin-bottom: 10px;
+            color: #000000;
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
         }
-
-        .header-content a {
-            color: #436C79;
-            text-decoration: underline;
-            font-weight: bold;
+        
+        /* Filter Styles */
+        .filters-section {
+            padding: 0.25rem 0 2rem 0;
         }
-
-        .header-content a:hover {
-            color: #2c4a56;
-        }
-
-        .section {
-            margin-bottom: 60px;
-            max-width: 850px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section h2 {
-            font-size: 2.07em;
-            font-weight: bold;
-            margin-top: 70px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .section-intro {
-            font-size: 1.1em;
-            line-height: 1.7;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        .connector-type {
-            margin-bottom: 45px;
-        }
-
-        .connector-type h3 {
-            font-size: 1.4em;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .colored-text {
-            color: #436C79;
-        }
-
-        .connector-type p {
-            font-size: 1.1em;
-            line-height: 1.7;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .connector-type ul {
-            list-style: none;
-            padding-left: 15px;
-        }
-
-        .connector-type ul li {
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 5px;
-            position: relative;
-        }
-
-        .connector-type ul li:before {
-            content: "•";
-            position: absolute;
-            left: -15px;
-            color: #666;
-        }
-
-        .edge-puck-section {
-            background-color: #ffffff;
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-            margin-top: 80px;
-            margin-bottom: 50px;
-            max-width: 850px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .edge-puck-section h2 {
-            font-size: 1.4em;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .edge-puck-content {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .edge-puck-text {
-            flex: 1;
-        }
-
-        .edge-puck-text p {
-            font-size: 1.1em;
-            line-height: 1.7;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .edge-puck-image {
-            width: 324px;
-            height: 216px;
-            background-color: #f0f0f0;
-            border-radius: 4px;
+        
+        .search-bar {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.05em;
-            color: #999;
+            max-width: 500px;
+            width: 100%;
+            gap: 0.5rem;
         }
-
-        .edge-puck-bullets {
-            list-style: none;
-            padding-left: 15px;
-        }
-
-        .edge-puck-bullets li {
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 8px;
-            position: relative;
-            line-height: 1.4;
-        }
-
-        .edge-puck-bullets li:before {
-            content: "•";
-            position: absolute;
-            left: -15px;
-            color: #666;
-        }
-
-        .bottom-section {
-            display: flex;
-            flex-direction: column;
-            max-width: 850px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 50px 0;
-        }
-
-        .bottom-title {
-            font-size: 1.4em;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #333;
-            text-align: center;
-        }
-
-        .bottom-row {
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        .bottom-content {
+        
+        .search-input {
+            font-family: 'Inter', sans-serif;
             flex: 1;
-        }
-
-        .bottom-section p {
-            font-size: 1.1em;
-            line-height: 1.7;
-            color: #666;
-            margin-bottom: 25px;
-        }
-
-        .bottom-image {
-            width: 390px;
-            height: 260px;
-            background-color: #f0f0f0;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: #999;
-            border: 1px solid #e0e0e0;
-            flex-shrink: 0;
+            background: white;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            outline: none;
+            box-shadow: var(--shadow-light);
+            transition: border-color 0.2s ease;
         }
-
-        .demo-button {
-            background-color: #ff6b35;
+        
+        .search-input:focus {
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+        
+        .search-input::placeholder {
+            color: #9ca3af;
+        }
+        
+        .search-button {
+            background: #da5e26;
             color: white;
             border: none;
-            padding: 10px 25px;
-            border-radius: 4px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
             cursor: pointer;
+            transition: background-color 0.2s ease;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .search-button:hover {
+            background: #b45309;
+        }
+        
+        .filters-container {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            position: relative;
+        }
+        
+        /* Custom Dropdown Styles */
+        .custom-dropdown {
+            position: relative;
+            min-width: 180px;
+        }
+        
+        .dropdown-button {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: white;
+            color: #4b5563;
+            border: 1px solid #d1d5db;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
             width: 100%;
-            max-width: 200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            box-shadow: var(--shadow-light);
+            height: 48px;
+        }
+        
+        .dropdown-button .arrow {
+            margin-left: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: transform 0.2s ease;
+        }
+        
+        .custom-dropdown:hover .dropdown-button {
+            background: white;
+            color: #4b5563;
+            border-color: #da5e26;
+            border-width: 2px;
+        }
+        
+        .custom-dropdown:hover .dropdown-button .arrow {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all 0.2s ease;
+            z-index: 1000;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .custom-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-left-color 0.2s ease;
+            color: #374151;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f3f4f6;
+            border-left: 3px solid transparent;
+        }
+        
+        .dropdown-item:first-child {
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        
+        .dropdown-item:last-child {
+            border-bottom: none;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        
+        .dropdown-item:hover {
+            background: #f3f4f6;
+            border-left-color: #436c79;
+        }
+        
+        .dropdown-item.selected {
+            background: #e0f2fe;
+            color: #0369a1;
+            border-left-color: #0369a1;
+        }
+        
+        .clear-filters-btn {
+            background: #436c79;
+            color: white;
+            border: 1px solid #436c79;
+            padding: 0.75rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            height: 48px;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .clear-filters-btn:hover {
+            background: #30444d;
+            border-color: #30444d;
+            transform: translateY(-1px);
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section:has(.instrument-card:hover) {
+            z-index: 1010;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent-orange);
+        }
+        
+        /* Instruments Grid - matching air particle counters page exactly */
+        .instruments-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .instruments-grid.single-item {
+            grid-template-columns: repeat(4, 1fr);
+            justify-items: stretch;
+        }
+        
+        .instrument-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px 15px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            width: 100%;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .instrument-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--hover-shadow);
+            z-index: 1000;
+        }
+        
+        /* Popup Styles */
+        .instrument-popup {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f0f4f8;
+            border: 1px solid #d1d9e0;
+            border-radius: 16px;
+            padding: 1.5rem;
+            width: 320px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1001;
+            margin-top: 0.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+        
+        .instrument-popup::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid #f0f4f8;
+        }
+        
+        .instrument-popup::after {
+            content: '';
+            position: absolute;
+            top: -9px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+            border-bottom: 9px solid #d1d9e0;
+        }
+        
+        .instrument-card:hover .instrument-popup {
+            opacity: 1;
+            visibility: visible;
+            z-index: 1001;
+        }
+        
+        .popup-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .popup-capabilities {
+            margin-bottom: 1.5rem;
+        }
+        
+        .popup-capabilities h4 {
+            display: none;
+        }
+        
+        .popup-capabilities ul {
+            list-style: disc;
+            padding-left: 1.2rem;
+            margin: 0;
+        }
+        
+        .popup-capabilities li {
+            font-size: 0.85rem;
+            color: #4a5568;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            text-align: left;
+        }
+        
+        .popup-learn-more {
+            display: block;
+            background: #436c79;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin: 0 auto;
+            text-decoration: none;
+            text-align: center;
+            font-family: inherit;
+        }
+        
+        .popup-learn-more:hover {
+            background: #30444d;
+            color: white;
+        }
+        
+        .instrument-image {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .instrument-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 0.5rem;
+            transition: var(--transition);
         }
 
-        .demo-button:hover {
-            background-color: #e55a2e;
+        .instrument-card:hover .instrument-image img {
+            transform: scale(1.05);
         }
-
-        @media (max-width: 600px) {
-            .container { flex-direction: column; }
-            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #e0e0e0; }
+        
+        .instrument-image::before {
+            content: '🔬';
+            font-size: 2rem;
+            opacity: 0.3;
+            position: absolute;
+            z-index: -1;
+        }
+        
+        .instrument-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #436c79;
+            text-align: center;
+            line-height: 1.4;
+            min-height: 3.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .connector-type {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #436c79;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            border: none;
+            text-align: center;
+        }
+        
+        .cta-section {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(230, 126, 34, 0.02) 50%, transparent 100%);
+            pointer-events: none;
+        }
+        
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .cta-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #da5e26;
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover {
+            background: #b45309;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(218, 94, 38, 0.3);
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         /* Footer Section */
@@ -926,7 +1095,136 @@
             color: #94a3b8;
         }
 
+        /* Enhanced Navigation with Progressive Breakpoints */
+        
+        /* Container padding adjustment for smaller screens */
+        @media (max-width: 1600px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        /* Progressive scaling from large to medium screens */
+        @media (max-width: 1500px) and (min-width: 1351px) {
+            .nav-links {
+                gap: 2rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 1350px) and (min-width: 1301px) {
+            .nav-links {
+                gap: 1.8rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+                letter-spacing: 0.4px;
+            }
+
+            .request-demo {
+                padding: 0.45rem 0.9rem !important;
+                font-size: 0.75rem !important;
+            }
+        }
+
+        @media (max-width: 1300px) and (min-width: 1201px) {
+            .nav-links {
+                gap: 1.6rem;
+            }
+
+            .nav-links a {
+                font-size: 0.87rem;
+                letter-spacing: 0.35px;
+            }
+
+            .request-demo {
+                padding: 0.42rem 0.85rem !important;
+                font-size: 0.72rem !important;
+            }
+        }
+
+        @media (max-width: 1200px) and (min-width: 1101px) {
+            .nav-links {
+                gap: 1.4rem;
+            }
+
+            .nav-links a {
+                font-size: 0.84rem;
+                letter-spacing: 0.3px;
+            }
+
+            .request-demo {
+                padding: 0.4rem 0.8rem !important;
+                font-size: 0.7rem !important;
+            }
+
+            .logo {
+                font-size: 1.9rem;
+            }
+
+            .logo img {
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 1100px) and (min-width: 1026px) {
+            .nav-links {
+                gap: 1.2rem;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+                letter-spacing: 0.2px;
+                padding: 0.4rem 0;
+            }
+
+            .request-demo {
+                padding: 0.35rem 0.7rem !important;
+                font-size: 0.65rem !important;
+                letter-spacing: 0.2px !important;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .logo img {
+                height: 28px;
+            }
+
+            .dropdown {
+                min-width: 200px;
+                padding: 0.7rem 0;
+            }
+
+            .dropdown a {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Switch to mobile menu */
         @media (max-width: 1025px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            .logo img {
+                height: 24px;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem;
@@ -942,7 +1240,75 @@
             }
         }
 
+        /* Mobile Responsive Design (768px and below) */
         @media (max-width: 768px) {
+            .logo img {
+                height: 28px;
+            }
+
+            .search-input {
+                font-size: 0.9rem;
+                padding: 0.7rem 0.8rem;
+            }
+            
+            .filters-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .custom-dropdown {
+                min-width: auto;
+            }
+
+            .instruments-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .instrument-card {
+                padding: 20px 15px;
+                min-height: 120px;
+            }
+            
+            .instrument-image {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+                font-weight: 600;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .cta-section {
+                padding: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-bottom-links {
+                gap: 1rem;
+            }
+
+            .social-link {
+                width: 44px;
+                height: 44px;
+                font-size: 1.2rem;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -965,18 +1331,70 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .header { flex-direction: column; }
-            .header-content { flex: 1 1 auto; max-width: 100%; }
-            .header-image { width: 100%; }
-            .bottom-row { flex-direction: column; }
-            .bottom-content { flex: 1 1 auto; max-width: 100%; }
-            .bottom-image { width: 100%; }
-            .edge-puck-content { flex-direction: column; }
-            .edge-puck-image { width: 100%; }
+        /* Very small mobile (480px and below) */
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+                font-weight: 600;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .cta-title {
+                font-size: 1.2rem;
+            }
+
+            .cta-description {
+                font-size: 0.9rem;
+            }
+
+            .instruments-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .instrument-card {
+                min-height: 100px;
+            }
+        }
+        
+        /* Subtle animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+
+        .grecaptcha-badge {
+            visibility: hidden;
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -1128,170 +1546,1785 @@
         </div>
     </nav>
 
-    <!-- Page Content -->
-    <div class="container">
-        <div class="sidebar">
-            <h3>Explore Connectors<br>by Instrument Type</h3>
-            <ul class="instrument-list">
-                <li><a href="airparticlecounters.html">Air Particle Counters</a></li>
-                <li><a href="balances.html">Balances</a></li>
-                <li>Cell Counters</li>
-                <li>Cell Viability Analyzers</li>
-                <li>Chemistry Analyzers</li>
-                <li><a href="contact-angle-goniometers.html">Contact Angle Goniometers</a></li>
-                <li>Coulometers</li>
-                <li><a href="diffusion-furnaces.html">Diffusion Furnaces</a></li>
-                <li>Digital PCR</li>
-                <li>Filter Integrity Testers</li>
-                <li>Flow Cytometers</li>
-                <li>Hot-plate Stirrers</li>
-                <li>Ion/Liquid/Gas Chromatography</li>
-                <li><a href="laser-lithography-systems.html">Laser Lithography Systems</a></li>
-                <li>Liquid Particle Counters</li>
-                <li><a href="mask-aligners.html">Mask Aligners</a></li>
-                <li>Mass Spectrometry</li>
-                <li>Melting Point Analyzers</li>
-                <li>Microbial Air Samplers</li>
-                <li><a href="microscopes.html">Microscopes</a></li>
-                <li>Near Infrared Spectrometry</li>
-                <li><a href="optical-profilometers.html">Optical Profilometers</a></li>
-                <li>Osmometers</li>
-                <li>pH Meters</li>
-                <li><a href="plasma-etching-systems.html">Plasma Etching Systems</a></li>
-                <li><a href="raman-spectrometers.html">Raman Spectrometers</a></li>
-                <li><a href="rapid-thermal-processors.html">Rapid Thermal Processors</a></li>
-                <li>Refractometers</li>
-                <li><a href="saxs-waxs-systems.html">SAXS/WAXS Systems</a></li>
-                <li><a href="semiconductor-parameter-analyzers.html">Semiconductor Parameter Analyzers</a></li>
-                <li><a href="sheet-resistance-measurement-systems.html">Sheet Resistance Measurement Systems</a></li>
-                <li><a href="slide-scanners.html">Slide Scanners</a></li>
-                <li><a href="source-measure-units.html">Source Measure Units</a></li>
-                <li><a href="spectrometers.html">Spectrometers</a></li>
-                <li>Spectrophotometers</li>
-                <li><a href="stylus-profilometers.html">Stylus Profilometers</a></li>
-                <li>Thermal Cyclers</li>
-                <li>Titrators</li>
-                <li><a href="vacuum-deposition-systems.html">Vacuum Deposition Systems</a></li>
-                <li><a href="x-ray-diffractometers.html">X-Ray Diffractometers</a></li>
-                <li>Zeta Potential Analyzers</li>
-                <li class="library-link"><a href="Instrument-Connector-Library.html">View Our Complete Instrument Connector Library</a></li>
-            </ul>
-        </div>
-
-        <div class="main-content">
-            <div class="header">
-                <div class="header-content">
-                    <h1>Instrument Connectors</h1>
-                    <p>Phizzle's instrument connectors support secure and compliant data capture from <a href="Instrument-Connector-Library.html">over 119 different devices spanning across 29 different instrument types</a>: including balances, flow cytometers, air particle counters, and many more instrument types that you can see by scrolling down the left side of this page. We even support instruments that don't have a screen.</p>
-                </div>
-                <div class="header-image">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1759259150/iStock-1087219020_zayw82.jpg" alt="Hero Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Different Connectors for Different Use Cases:</h2>
-                <p class="section-intro">Modernize your regulated data workflows with solutions that fit with your existing infrastructure: From validated data extraction to fully automated, integrated processes. We offer different connectors to realize your specific digitization vision.</p>
-                
-                <div class="connector-type">
-                    <h3>Data Connector: <span class="colored-text">Eliminate Manual Data Capture</span></h3>
-                    <p>Securely capture data files from multi-vendor instruments without configuring each device to the network or burdening IT with updates and maintenance. Our data connectors collect files directly from instruments and securely upload the results to your backend servers. By simply connecting an instrument to our Edge Puck, you can:</p>
-                    <ul>
-                        <li>Eliminate inefficient and error-prone manual data handling workflows</li>
-                        <li>Collect validated results without exposing your instruments to direct network threats</li>
-                        <li>Ensure chain of custody and compliance with automated audit logging for each result</li>
-                    </ul>
-                </div>
-
-                <div class="connector-type">
-                    <h3>Connector Plus: <span class="colored-text">Unlock Industry 4.0 Standards</span></h3>
-                    <p>Unlike basic industry connectors, these connectors act as comprehensive device agents that handle everything behind the scenes: automatically communicating in the native protocols of each instrument, handling all of the idiosyncrasies between each device, and continuously tracking device updates with second-by-second HeartBeat monitoring. Connecting your instrument to a Connector Plus allows you to:</p>
-                    <ul>
-                        <li>Automate error-free data capture, format standardization from multi-vendor instruments, and secure synchronization with existing backend systems (LIMS, ELN, QMS, etc.)</li>
-                        <li>Initiate samples from your laptop and eliminate glove-related and front-panel mistakes</li>
-                        <li>Enable review by exception workflows by notifying operators/reviewers the moment a sample is out of specification</li>
-                        <li>Collect detailed audit logs that include instrument activity, operator interactions, and system events to uphold chain of custody</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="edge-puck-section">
-                <h2>Phizzle Edge Puck: <span class="colored-text">The Shared Technical Foundation</span></h2>
-                <div class="edge-puck-content">
-                    <div class="edge-puck-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/c_crop,w_1492,h_924,x_120,y_220/v1757081556/edgepuck-hero_t4aaxo.jpg" alt="Edge Puck Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+    <!-- Catalog Content -->
+    <div class="top-section-wrapper">
+        <div class="container">
+            <header class="header">
+                <h1>Instrument Connectors</h1>
+                <p>Explore our Growing Library of Instrument Connectors</p>
+            </header>
+            
+            <section class="filters-section">
+                <div class="filters-container">
+                    <div class="search-bar">
+                        <input type="text" id="search-input" class="search-input" placeholder="Search by Model or Manufacturer">
+                        <button type="button" class="search-button">Search</button>
                     </div>
-                    <div class="edge-puck-text">
-                        <p>The Edge Puck™ is a self-contained gateway with an integrated computer that hosts our instrument connectors directly on-device: Purpose-built for regulated manufacturing, cleanroom facilities, and laboratory environments, it is cleanable, portable, and fully compliant with cleanroom standards. This enables your team to:</p>
+                    <div class="filter-group">
+                        <div class="custom-dropdown" id="connector-dropdown">
+                            <button class="dropdown-button" type="button">
+                                <span class="selected-text">Filter by Connector Type</span>
+                                <span class="arrow">▼</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-item" data-value="">All Connector Types</div>
+                                <div class="dropdown-item" data-value="Connector Plus">Connector Plus</div>
+                                <div class="dropdown-item" data-value="Data Connector">Data Connector</div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="filter-group">
+                        <div class="custom-dropdown" id="manufacturer-dropdown">
+                            <button class="dropdown-button" type="button">
+                                <span class="selected-text">Filter by Manufacturer</span>
+                                <span class="arrow">▼</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-item" data-value="">All Manufacturers</div>
+                                <div class="dropdown-item" data-value="Aerotrak">Aerotrak</div>
+                                <div class="dropdown-item" data-value="Agilent">Agilent</div>
+                                <div class="dropdown-item" data-value="AIT">AIT</div>
+                                <div class="dropdown-item" data-value="Annealsys">Annealsys</div>
+                                <div class="dropdown-item" data-value="Beckman Coulter">Beckman Coulter</div>
+                                <div class="dropdown-item" data-value="Bruker">Bruker</div>
+                                <div class="dropdown-item" data-value="ChemoMetec">ChemoMetec</div>
+                                <div class="dropdown-item" data-value="Climet">Climet</div>
+                                <div class="dropdown-item" data-value="Denton">Denton</div>
+                                <div class="dropdown-item" data-value="ECM">ECM</div>
+                                <div class="dropdown-item" data-value="EVG">EVG</div>
+                                <div class="dropdown-item" data-value="Gates Scientific">Gates Scientific</div>
+                                <div class="dropdown-item" data-value="Heidelberg">Heidelberg</div>
+                                <div class="dropdown-item" data-value="Keithley">Keithley</div>
+                                <div class="dropdown-item" data-value="Kruss">Kruss</div>
+                                <div class="dropdown-item" data-value="Lasair">Lasair</div>
+                                <div class="dropdown-item" data-value="Leica">Leica</div>
+                                <div class="dropdown-item" data-value="Lighthouse">Lighthouse</div>
+                                <div class="dropdown-item" data-value="Malvern">Malvern</div>
+                                <div class="dropdown-item" data-value="Mettler Toledo">Mettler Toledo</div>
+                                <div class="dropdown-item" data-value="Nikon">Nikon</div>
+                                <div class="dropdown-item" data-value="Olympus">Olympus</div>
+                                <div class="dropdown-item" data-value="Oxford">Oxford</div>
+                                <div class="dropdown-item" data-value="Sartorius">Sartorius</div>
+                                <div class="dropdown-item" data-value="Thermo Scientific">Thermo Scientific</div>
+                                <div class="dropdown-item" data-value="Tystar">Tystar</div>
+                                <div class="dropdown-item" data-value="Xenocs">Xenocs</div>
+                                <div class="dropdown-item" data-value="YSI">YSI</div>
+                                <div class="dropdown-item" data-value="Zeiss">Zeiss</div>
+                                <div class="dropdown-item" data-value="Zygo">Zygo</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <div class="custom-dropdown" id="instrument-dropdown">
+                            <button class="dropdown-button" type="button">
+                                <span class="selected-text">Filter by Instrument Type</span>
+                                <span class="arrow">▼</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-item" data-value="">All Instrument Types</div>
+                                <div class="dropdown-item" data-value="Air Particle Counters">Air Particle Counters</div>
+                                <div class="dropdown-item" data-value="Balances">Balances</div>
+                                <div class="dropdown-item" data-value="Cell Counters">Cell Counters</div>
+                                <div class="dropdown-item" data-value="Chemistry Analyzers">Chemistry Analyzers</div>
+                                <div class="dropdown-item" data-value="Contact Angle Goniometers">Contact Angle Goniometers</div>
+                                <div class="dropdown-item" data-value="Diffusion Furnaces">Diffusion Furnaces</div>
+                                <div class="dropdown-item" data-value="Hot Plate Stirrers">Hot Plate Stirrers</div>
+                                <div class="dropdown-item" data-value="Laser Lithography Systems">Laser Lithography Systems</div>
+                                <div class="dropdown-item" data-value="Mask Aligners">Mask Aligners</div>
+                                <div class="dropdown-item" data-value="Melting Point Systems">Melting Point Systems</div>
+                                <div class="dropdown-item" data-value="Microbial Air Samplers">Microbial Air Samplers</div>
+                                <div class="dropdown-item" data-value="Microscopes">Microscopes</div>
+                                <div class="dropdown-item" data-value="Optical Profilometers">Optical Profilometers</div>
+                                <div class="dropdown-item" data-value="pH Meters">pH Meters</div>
+                                <div class="dropdown-item" data-value="Plasma Etching Systems">Plasma Etching Systems</div>
+                                <div class="dropdown-item" data-value="Raman Spectrometers">Raman Spectrometers</div>
+                                <div class="dropdown-item" data-value="Rapid Thermal Processors">Rapid Thermal Processors</div>
+                                <div class="dropdown-item" data-value="Refractometers">Refractometers</div>
+                                <div class="dropdown-item" data-value="SAXS/WAXS Systems">SAXS/WAXS Systems</div>
+                                <div class="dropdown-item" data-value="Semiconductor Parameter Analyzers">Semiconductor Parameter Analyzers</div>
+                                <div class="dropdown-item" data-value="Sheet Resistance Measurement Systems">Sheet Resistance Measurement Systems</div>
+                                <div class="dropdown-item" data-value="Slide Scanners">Slide Scanners</div>
+                                <div class="dropdown-item" data-value="Source Measure Units">Source Measure Units</div>
+                                <div class="dropdown-item" data-value="Spectrometers">Spectrometers</div>
+                                <div class="dropdown-item" data-value="Spectrophotometers">Spectrophotometers</div>
+                                <div class="dropdown-item" data-value="Stylus Profilometers">Stylus Profilometers</div>
+                                <div class="dropdown-item" data-value="Vacuum Deposition Systems">Vacuum Deposition Systems</div>
+                                <div class="dropdown-item" data-value="X-Ray Diffractometers">X-Ray Diffractometers</div>
+                                <div class="dropdown-item" data-value="Zeta Potential Analyzers">Zeta Potential Analyzers</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="clear-filters" class="clear-filters-btn">Clear All Filters</button>
                 </div>
-                <ul class="edge-puck-bullets">
-                    <li>Maintain continuous data capture even during network failures and power outages with battery-powered operation and private network architecture</li>
-                    <li>Extend the lifespan of legacy instruments and avoid unnecessary hardware replacements</li>
-                    <li>Secure vulnerable analytical instruments by converting exposed protocols like Modbus into encrypted MQTT communications, eliminating direct network access threats</li>
-                </ul>
-            </div>
-
-            <div class="bottom-section">
-                <h3 class="bottom-title">Want More to Learn More About Our Solutions?</h3>
-                <div class="bottom-row">
-                    <div class="bottom-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757288728/iStock-1219894389_1_gsxyor.png" alt="CTA Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                    </div>
-                    <div class="bottom-content">
-                        <p>Click the button below and schedule a demo. A member of our engineering team will give you a short demo of our instrument connectors and answer any of your technical questions.</p>
-                        <button class="demo-button">Request a Demo</button>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
     </div>
+    
+    <div class="container">
+        
+        <section class="section">
+            <h2 class="section-title">Air Particle Counters</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Aerotrak-9310.html'" style="cursor: pointer;" data-manufacturer="Aerotrak" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976020/9310-02_01_2_bm6koj.png" alt="Aerotrak 9310">
+                    </div>
+                    <div class="instrument-name">
+                        Aerotrak 9310
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Aerotrak 9310 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Aerotrak-9310.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Climet-3100.html'" style="cursor: pointer;" data-manufacturer="Climet" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976018/3100EthernetOPT_small-2_3_hwcf9m.png" alt="Climet 3100">
+                    </div>
+                    <div class="instrument-name">
+                        Climet 3100
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Climet 3100 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Climet-3100.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Climet-50.html'" style="cursor: pointer;" data-manufacturer="Climet" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/CI-154_left_small-2_2_ovhoda.png" alt="Climet X50 Series">
+                    </div>
+                    <div class="instrument-name">
+                        Climet X50 Series
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Climet X50 Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Climet-50.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Climet-70.html'" style="cursor: pointer;" data-manufacturer="Climet" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976021/CI-770-Cut-Out_SM_3_j2eccr.png" alt="Climet X70 Series">
+                    </div>
+                    <div class="instrument-name">
+                        Climet X70 Series
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Climet X70 Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Climet-70.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Lasair-iii.html'" style="cursor: pointer;" data-manufacturer="Lasair" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435975/Lasair-III-wifi-Front_1_hjm82e.png" alt="Lasair III">
+                    </div>
+                    <div class="instrument-name">
+                        Lasair III
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Lasair III Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Lasair-iii.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Lasair-Pro.html'" style="cursor: pointer;" data-manufacturer="Lasair" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435976/lasair-pro-pic-1_1_rx1s50.png" alt="Lasair Pro">
+                    </div>
+                    <div class="instrument-name">
+                        Lasair Pro
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Lasair Pro Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Lasair-Pro.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="instrument-card" onclick="window.location.href='Lighthouse-ApexP.html'" style="cursor: pointer;" data-manufacturer="Lighthouse" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1769099599/b_Apex-P3_1_kzha6i.png" alt="Lighthouse ApexP">
+                    </div>
+                    <div class="instrument-name">
+                        Lighthouse ApexP
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Lighthouse ApexP Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Lighthouse-ApexP.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="instrument-card" onclick="window.location.href='Lighthouse-ApexZ.html'" style="cursor: pointer;" data-manufacturer="Lighthouse" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435976/p-230712-01005_1_sgra2m.png" alt="Lighthouse ApexZ">
+                    </div>
+                    <div class="instrument-name">
+                        Lighthouse ApexZ
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Lighthouse ApexZ Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Lighthouse-ApexZ.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Lighthouse-Solair.html'" style="cursor: pointer;" data-manufacturer="Lighthouse" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435980/solair-lighthouse_ushc6o.png" alt="Lighthouse Solair">
+                    </div>
+                    <div class="instrument-name">
+                        Lighthouse Solair
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Lighthouse Solair Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Lighthouse-Solair.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='MetOne-3415.html'" style="cursor: pointer;" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435976/Met-One-3400_viflm2.png" alt="Met One 3415">
+                    </div>
+                    <div class="instrument-name">
+                        Met One 3415
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Met One 3415 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="MetOne-3415.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='MetOne-Plus.html'" style="cursor: pointer;" data-manufacturer="Beckman Coulter" data-instrument="Air Particle Counters" data-connector="Connector Plus">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766435976/particle-counting-air-met-one-3400-plus-instrument-screen-600_550x310_ekptr6.png" alt="Met One Plus">
+                    </div>
+                    <div class="instrument-name">
+                        Met One Plus
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Met One Plus Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Initiate remote samples from your laptop or tablet and reduce cleanroom entries for routine sampling</li>
+                                    <li>Ensure data integrity by automating data collection, format standardization, and synchronization with your existing LIMS, MES, or QMS</li>
+                                    <li>Enable continuous monitoring and review by exception workflows by flagging out-of-spec readings in real-time and notifying operators for immediate corrective action</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="MetOne-Plus.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="section">
+            <h2 class="section-title">Balances</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Mettler-Toledo-205.html'" style="cursor: pointer;" data-manufacturer="Mettler Toledo" data-instrument="Balances" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/30355411_2_urbuti.png" alt="Mettler Toledo MX205DU">
+                    </div>
+                    <div class="instrument-name">
+                        Mettler Toledo MX205DU
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Mettler Toledo MX205DU Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Mettler Toledo MX205DU to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Mettler-Toledo-205.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Mettler-Toledo-4002.html'" style="cursor: pointer;" data-manufacturer="Mettler Toledo" data-instrument="Balances" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976029/mettler-toledo-mr4002a-precision-balance-4200-g-x-0.01-g-internal-calibration-ntep__75427_2_n9rwut.png" alt="Mettler Toledo MX4002">
+                    </div>
+                    <div class="instrument-name">
+                        Mettler Toledo MX4002
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Mettler Toledo MX4002 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Mettler Toledo MX4002 to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Mettler-Toledo-4002.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Sartorius-Cubis-ii.html'" style="cursor: pointer;" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766534889/sartorius-mce2202s-2s00-0-cubis-ii-precision-balance-2200-g-x-10-mg-no-draft-shield-100-to-240-vac-50-60-hz-3974242_1_gw7xpm.png" alt="Sartorius Cubis II">
+                    </div>
+                    <div class="instrument-name">
+                        Sartorius Cubis II
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Sartorius Cubis II Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Sartorius Cubis II to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Sartorius-Cubis-ii.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Sartorius-Entris-ii.html'" style="cursor: pointer;" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/BCE223-1S-2T_2_rqheoi.png" alt="Sartorius Entris II">
+                    </div>
+                    <div class="instrument-name">
+                        Sartorius Entris II
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Sartorius Entris II Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Sartorius Entris II to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Sartorius-Entris-ii.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Sartorius-Quintix.html'" style="cursor: pointer;" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766534882/download_2_1_hbdtuv.png" alt="Sartorius Quintix">
+                    </div>
+                    <div class="instrument-name">
+                        Sartorius Quintix
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Sartorius Quintix Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Sartorius Quintix to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Sartorius-Quintix.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Sartorius-Secura.html'" style="cursor: pointer;" data-manufacturer="Sartorius" data-instrument="Balances" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976023/download_5_gunngw.png" alt="Sartorius Secura">
+                    </div>
+                    <div class="instrument-name">
+                        Sartorius Secura
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Sartorius Secura Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Sartorius Secura to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Sartorius-Secura.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
 
-    <script>
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const overlay = document.getElementById('mobileMenuOverlay');
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
+        <section class="section">
+            <h2 class="section-title">Cell Counters</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Chemometec-NC200.html'" style="cursor: pointer;" data-manufacturer="ChemoMetec" data-instrument="Cell Counters" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1774564452/nucleocounter-nc-200-right-600x500_acyh08.png" alt="ChemoMetec NucleoCounter NC-200">
+                    </div>
+                    <div class="instrument-name">
+                        ChemoMetec NucleoCounter® NC-200™
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">ChemoMetec NucleoCounter® NC-200™ Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your ChemoMetec NucleoCounter® NC-200™ to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Chemometec-NC200.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
 
-        function closeMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const overlay = document.getElementById('mobileMenuOverlay');
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-        }
+        <section class="section">
+            <h2 class="section-title">Chemistry Analyzers</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='YSI-Biochemistry-Analyzer.html'" style="cursor: pointer;" data-manufacturer="YSI" data-instrument="Chemistry Analyzers" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1769101028/Biochemistry-Analyzer-Facing-Front_1_q0vx8t.png" alt="YSI Biochemistry Analyzer">
+                    </div>
+                    <div class="instrument-name">
+                        YSI Biochemistry Analyzer
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">YSI Biochemistry Analyzer Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your YSI Biochemistry Analyzer to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="YSI-Biochemistry-Analyzer.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+                <section class="section">
+            <h2 class="section-title">Contact Angle Goniometers</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Kruss-DSA100-Series.html'" style="cursor: pointer;" data-manufacturer="Kruss" data-instrument="Contact Angle Goniometers" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541925/Kruss_DSA100_Series_wkibgd.png" alt="Kruss DSA100 Series">
+                    </div>
+                    <div class="instrument-name">
+                        Kruss DSA100 Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Kruss DSA100 Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Kruss DSA100 Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Kruss-DSA100-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
 
-        function toggleMobileDropdown(event, dropdownId) {
-            event.preventDefault();
-            const dropdown = document.getElementById(dropdownId);
-            const arrow = event.target.querySelector('.dropdown-arrow');
-            
-            const allDropdowns = document.querySelectorAll('.mobile-dropdown');
-            const allArrows = document.querySelectorAll('.dropdown-arrow');
-            
-            allDropdowns.forEach(dd => {
-                if (dd.id !== dropdownId) {
-                    dd.classList.remove('active');
-                }
-            });
-            
-            allArrows.forEach(arr => {
-                if (arr !== arrow) {
-                    arr.classList.remove('rotated');
-                }
-            });
-            
-            dropdown.classList.toggle('active');
-            if (arrow) arrow.classList.toggle('rotated');
-        }
+        <section class="section">
+            <h2 class="section-title">Diffusion Furnaces</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Tystar-Mini-Tytan-Series.html'" style="cursor: pointer;" data-manufacturer="Tystar" data-instrument="Diffusion Furnaces" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541927/Tystar_Mini_Tytan_Series_y7dyht.png" alt="Tystar Mini Tytan Series">
+                    </div>
+                    <div class="instrument-name">
+                        Tystar Mini Tytan Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Tystar Mini Tytan Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Tystar Mini Tytan Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Tystar-Mini-Tytan-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
 
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeMobileMenu();
-            }
-        });
-    </script>
+        
+        <section class="section">
+            <h2 class="section-title">Hot Plate Stirrers</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Gate-Scientific-HPS.html'" style="cursor: pointer;" data-manufacturer="Gates Scientific" data-instrument="Hot Plate Stirrers" data-connector="Connector Plus">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976032/rs_w_600_h_600_1_smdsmk.png" alt="Gates Scientific Hot Plate Stirrer">
+                    </div>
+                    <div class="instrument-name">
+                        Gates Scientific Hot Plate Stirrer
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Gates Scientific Hot Plate Stirrer Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Automate handsfree pH and temperature data collection</li>
+                                    <li>Synchronize data securely with your existing LIMS, MES, ELN, or QMS</li>
+                                    <li>Maintain detailed audit logs of instrument data, operator usage, and system events</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Gate-Scientific-HPS.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Laser Lithography Systems</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Heidelberg-DWL-66+.html'" style="cursor: pointer;" data-manufacturer="Heidelberg" data-instrument="Laser Lithography Systems" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541925/Heidelberg_DWL_66_inespm.png" alt="Heidelberg DWL 66+">
+                    </div>
+                    <div class="instrument-name">
+                        Heidelberg DWL 66+
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Heidelberg DWL 66+ Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Heidelberg DWL 66+ to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Heidelberg-DWL-66+.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Mask Aligners</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='EVG-6200-Series.html'" style="cursor: pointer;" data-manufacturer="EVG" data-instrument="Mask Aligners" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541925/EVG_6200_Series_iu1gte.png" alt="EVG 6200 Series">
+                    </div>
+                    <div class="instrument-name">
+                        EVG 6200 Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">EVG 6200 Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your EVG 6200 Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="EVG-6200-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="section">
+            <h2 class="section-title">Melting Point Systems</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Mettler-Toledo-MP-Series.html'" style="cursor: pointer;" data-manufacturer="Mettler Toledo" data-instrument="Melting Point Systems" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767893251/EquipmentThumbImage_7441_16536502344775870_qjdsaq.png" alt="Mettler Toledo MP Series">
+                    </div>
+                    <div class="instrument-name">
+                        Mettler Toledo MP Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Mettler Toledo MP Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Mettler Toledo MP to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Mettler-Toledo-MP-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="section">
+            <h2 class="section-title">Microbial Air Samplers</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Climet-97.html'" style="cursor: pointer;" data-manufacturer="Climet" data-instrument="Microbial Air Samplers" data-connector="Connector Plus">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765928923/CI-97-microbial-air-sampler_1_1_xjbga7.gif" alt="Climet 97">
+                    </div>
+                    <div class="instrument-name">
+                        Climet 97
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Climet 97 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Initiate remote microbial samples from your laptop or tablet and reduce cleanroom entries</li>
+                                    <li>Automate synchronization with your existing LIMS or ELN systems</li>
+                                    <li>Maintain detailed audit logs of instrument data, operator usage, and system events</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Climet-97.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Microscopes</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Agilent-5500-SPM.html'" style="cursor: pointer;" data-manufacturer="Agilent" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541924/Agilent_5500_SPM_kvbgzu.png" alt="Agilent 5500 SPM">
+                    </div>
+                    <div class="instrument-name">
+                        Agilent 5500 SPM
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Agilent 5500 SPM Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Agilent 5500 SPM to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Agilent-5500-SPM.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Zeiss-LSM-Series.html'" style="cursor: pointer;" data-manufacturer="Zeiss" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541929/Zeiss_LSM_Series_msnqe8.png" alt="Zeiss LSM Series">
+                    </div>
+                    <div class="instrument-name">
+                        Zeiss LSM Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Zeiss LSM Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Zeiss LSM Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Zeiss-LSM-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Olympus-BX-Series.html'" style="cursor: pointer;" data-manufacturer="Olympus" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541926/Olympus_BX_Series_x2ezhc.png" alt="Olympus BX Series">
+                    </div>
+                    <div class="instrument-name">
+                        Olympus BX Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Olympus BX Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Olympus BX Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Olympus-BX-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Olympus-CKX53.html'" style="cursor: pointer;" data-manufacturer="Olympus" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541926/Olympus_CKX53_vbyeml.png" alt="Olympus CKX53">
+                    </div>
+                    <div class="instrument-name">
+                        Olympus CKX53
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Olympus CKX53 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Olympus CKX53 to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Olympus-CKX53.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Olympus-IX53.html'" style="cursor: pointer;" data-manufacturer="Olympus" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541926/Olympus_IX53_zqhlov.png" alt="Olympus IX53">
+                    </div>
+                    <div class="instrument-name">
+                        Olympus IX53
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Olympus IX53 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Olympus IX53 to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Olympus-IX53.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Olympus-DSX-Series.html'" style="cursor: pointer;" data-manufacturer="Olympus" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778543756/Olympus_DSX_Series_ujlprh.png" alt="Olympus DSX Series">
+                    </div>
+                    <div class="instrument-name">
+                        Olympus DSX Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Olympus DSX Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Olympus DSX Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Olympus-DSX-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Nikon-SMZ-Series.html'" style="cursor: pointer;" data-manufacturer="Nikon" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778543778/Nikon_SMZ_Series_rkltzo.png" alt="Nikon SMZ Series">
+                    </div>
+                    <div class="instrument-name">
+                        Nikon SMZ Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Nikon SMZ Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Nikon SMZ Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Nikon-SMZ-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Leica-DM-Series.html'" style="cursor: pointer;" data-manufacturer="Leica" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541926/Leica_DMI_Series_cvxuck.png" alt="Leica DM Series">
+                    </div>
+                    <div class="instrument-name">
+                        Leica DM Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Leica DM Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Leica DM Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Leica-DM-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Leica-DMI-Series.html'" style="cursor: pointer;" data-manufacturer="Leica" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541926/Leica_DMI_Series_cvxuck.png" alt="Leica DMI Series">
+                    </div>
+                    <div class="instrument-name">
+                        Leica DMI Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Leica DMI Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Leica DMI Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Leica-DMI-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Nikon-Eclipse-L-Series.html'" style="cursor: pointer;" data-manufacturer="Nikon" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541926/Nikon_Eclipse_L_Series_fo7ym8.png" alt="Nikon Eclipse L Series">
+                    </div>
+                    <div class="instrument-name">
+                        Nikon Eclipse L Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Nikon Eclipse L Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Nikon Eclipse L Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Nikon-Eclipse-L-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Nikon-LV-Series.html'" style="cursor: pointer;" data-manufacturer="Nikon" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541926/Nikon_LV_Series_jora0s.png" alt="Nikon LV Series">
+                    </div>
+                    <div class="instrument-name">
+                        Nikon LV Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Nikon LV Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Nikon LV Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Nikon-LV-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Thermo-Titan-Themis.html'" style="cursor: pointer;" data-manufacturer="Thermo Scientific" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541927/Thermo_Titan_Themis_gehqhp.png" alt="Thermo Titan Themis">
+                    </div>
+                    <div class="instrument-name">
+                        Thermo Titan Themis
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Thermo Titan Themis Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Thermo Titan Themis to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Thermo-Titan-Themis.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Thermo-Talos-Arctica.html'" style="cursor: pointer;" data-manufacturer="Thermo Scientific" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541927/Thermo_Talos_Arctica_vejjbz.png" alt="Thermo Talos Arctica">
+                    </div>
+                    <div class="instrument-name">
+                        Thermo Talos Arctica
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Thermo Talos Arctica Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Thermo Talos Arctica to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Thermo-Talos-Arctica.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Thermo-Talos-F200i.html'" style="cursor: pointer;" data-manufacturer="Thermo Scientific" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541927/Thermo_Talos_F200i_grmpbm.png" alt="Thermo Talos F200i">
+                    </div>
+                    <div class="instrument-name">
+                        Thermo Talos F200i
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Thermo Talos F200i Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Thermo Talos F200i to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Thermo-Talos-F200i.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Thermo-Glacios-Series.html'" style="cursor: pointer;" data-manufacturer="Thermo Scientific" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541926/Thermo_Glacios_Series_zhaxwy.png" alt="Thermo Glacios Series">
+                    </div>
+                    <div class="instrument-name">
+                        Thermo Glacios Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Thermo Glacios Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Thermo Glacios Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Thermo-Glacios-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Thermo-Spectra-300.html'" style="cursor: pointer;" data-manufacturer="Thermo Scientific" data-instrument="Microscopes" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541927/Thermo_Spectra_300_st8feq.png" alt="Thermo Spectra 300">
+                    </div>
+                    <div class="instrument-name">
+                        Thermo Spectra 300
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Thermo Spectra 300 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Thermo Spectra 300 to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Thermo-Spectra-300.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Optical Profilometers</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Zygo-NewView-7300.html'" style="cursor: pointer;" data-manufacturer="Zygo" data-instrument="Optical Profilometers" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541929/Zygo_NewView_7300_xso31y.png" alt="Zygo NewView 7300">
+                    </div>
+                    <div class="instrument-name">
+                        Zygo NewView 7300
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Zygo NewView 7300 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Zygo NewView 7300 to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Zygo-NewView-7300.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="section">
+            <h2 class="section-title">pH Meters</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Seven-Excellence.html'" style="cursor: pointer;" data-manufacturer="Mettler Toledo" data-instrument="pH Meters" data-connector="Connector Plus">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767208232/mettler-toledo_seven_excellence_n_2_c7wxmg.png" alt="Mettler Toledo Seven Excellence">
+                    </div>
+                    <div class="instrument-name">
+                        Seven Excellence
+                        <div class="connector-type">Connector Plus</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Seven Excellence Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Initiate samples from a laptop, tablet, or handheld device and avoid screen based errors</li>
+                                    <li>Automate data collection, format standardization, and synchronization with your existing LIMS or MES</li>
+                                    <li>Enable 21 CFR Part 11 Compliant electronic review and sign workflows, and more…</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Seven-Excellence.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Thermo-Orion.html'" style="cursor: pointer;" data-manufacturer="Thermo Scientific" data-instrument="pH Meters" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1774560835/orion_pstar2150_pc215_meter-wstand_front_l_fqyw4g.png" alt="Thermo Scientific Orion PSTAR2155">
+                    </div>
+                    <div class="instrument-name">
+                        Thermo Scientific Orion PSTAR2155
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Thermo Scientific Orion PSTAR2155 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Initiate samples from a laptop, tablet, or handheld device and avoid screen based errors</li>
+                                    <li>Automate data collection, format standardization, and synchronization with your existing LIMS or MES</li>
+                                    <li>Enable 21 CFR Part 11 Compliant electronic review and sign workflows, and more…</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Thermo-Orion.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Plasma Etching Systems</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Oxford-Plasmalab-Series.html'" style="cursor: pointer;" data-manufacturer="Oxford" data-instrument="Plasma Etching Systems" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541926/Oxford_Plasmalab_Series_kigbbw.png" alt="Oxford Plasmalab Series">
+                    </div>
+                    <div class="instrument-name">
+                        Oxford Plasmalab Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Oxford Plasmalab Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Oxford Plasmalab Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Oxford-Plasmalab-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Raman Spectrometers</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Oxford-Alpha-300-Series.html'" style="cursor: pointer;" data-manufacturer="Oxford" data-instrument="Raman Spectrometers" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541927/Oxford_Alpha_300_Series_oyqkhu.png" alt="Oxford Alpha 300 Series">
+                    </div>
+                    <div class="instrument-name">
+                        Oxford Alpha 300 Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Oxford Alpha 300 Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Oxford Alpha 300 Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Oxford-Alpha-300-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Rapid Thermal Processors</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='ECM-JetFirst-Series.html'" style="cursor: pointer;" data-manufacturer="ECM" data-instrument="Rapid Thermal Processors" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541924/ECM_JetFirst_Series_ytmgmc.png" alt="ECM JetFirst Series">
+                    </div>
+                    <div class="instrument-name">
+                        ECM JetFirst Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">ECM JetFirst Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your ECM JetFirst Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="ECM-JetFirst-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Annealsys-AS-One-Series.html'" style="cursor: pointer;" data-manufacturer="Annealsys" data-instrument="Rapid Thermal Processors" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541925/Annealsys_AS-One_Series_vvrxym.png" alt="Annealsys AS-One Series">
+                    </div>
+                    <div class="instrument-name">
+                        Annealsys AS-One Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Annealsys AS-One Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Annealsys AS-One Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Annealsys-AS-One-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Annealsys-AS-Master.html'" style="cursor: pointer;" data-manufacturer="Annealsys" data-instrument="Rapid Thermal Processors" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541924/Annealsys_AS-Master_pn4wyx.png" alt="Annealsys AS-Master">
+                    </div>
+                    <div class="instrument-name">
+                        Annealsys AS-Master
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Annealsys AS-Master Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Annealsys AS-Master to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Annealsys-AS-Master.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="section">
+            <h2 class="section-title">Refractometers</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Mettler-Toledo-RM-Series.html'" style="cursor: pointer;" data-manufacturer="Mettler Toledo" data-instrument="Refractometers" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767901056/mettler_r4_front_l_1_jjpy5y.png" alt="Mettler Toledo RM Series">
+                    </div>
+                    <div class="instrument-name">
+                        Mettler Toledo RM Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Mettler Toledo RM Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Mettler Toledo RM to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Mettler-Toledo-RM-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">SAXS/WAXS Systems</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Xenocs-Xeuss-Series.html'" style="cursor: pointer;" data-manufacturer="Xenocs" data-instrument="SAXS/WAXS Systems" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541929/Xenocs_Xeuss_Series_jrh1uf.png" alt="Xenocs Xeuss Series">
+                    </div>
+                    <div class="instrument-name">
+                        Xenocs Xeuss Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Xenocs Xeuss Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Xenocs Xeuss Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Xenocs-Xeuss-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Xenocs-inXider.html'" style="cursor: pointer;" data-manufacturer="Xenocs" data-instrument="SAXS/WAXS Systems" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541927/Xenocs_inXider_u1zgs9.png" alt="Xenocs inXider">
+                    </div>
+                    <div class="instrument-name">
+                        Xenocs inXider
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Xenocs inXider Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Xenocs inXider to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Xenocs-inXider.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Xenocs-BioXolver.html'" style="cursor: pointer;" data-manufacturer="Xenocs" data-instrument="SAXS/WAXS Systems" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541930/Xenocs_BioXolver_bc32o9.png" alt="Xenocs BioXolver">
+                    </div>
+                    <div class="instrument-name">
+                        Xenocs BioXolver
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Xenocs BioXolver Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Xenocs BioXolver to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Xenocs-BioXolver.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Semiconductor Parameter Analyzers</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Keithley-4200-SCS.html'" style="cursor: pointer;" data-manufacturer="Keithley" data-instrument="Semiconductor Parameter Analyzers" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541925/Keithley_4200-SCS_seojil.png" alt="Keithley 4200-SCS">
+                    </div>
+                    <div class="instrument-name">
+                        Keithley 4200-SCS
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Keithley 4200-SCS Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Keithley 4200-SCS to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Keithley-4200-SCS.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Sheet Resistance Measurement Systems</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='AIT-CMT-SR-Series.html'" style="cursor: pointer;" data-manufacturer="AIT" data-instrument="Sheet Resistance Measurement Systems" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541924/AIT_CMT_SR_Series_frzh1u.png" alt="AIT CMT SR Series">
+                    </div>
+                    <div class="instrument-name">
+                        AIT CMT SR Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">AIT CMT SR Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your AIT CMT SR Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="AIT-CMT-SR-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Slide Scanners</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Zeiss-Axioscan-7.html'" style="cursor: pointer;" data-manufacturer="Zeiss" data-instrument="Slide Scanners" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541928/Zeiss_Axioscan_7_rorsz5.png" alt="Zeiss Axioscan 7">
+                    </div>
+                    <div class="instrument-name">
+                        Zeiss Axioscan 7
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Zeiss Axioscan 7 Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Zeiss Axioscan 7 to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Zeiss-Axioscan-7.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Source Measure Units</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Keithley-2400-Series-SourceMeter.html'" style="cursor: pointer;" data-manufacturer="Keithley" data-instrument="Source Measure Units" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778543738/Keithley_2400_Series_SourceMeter_vpbjuw.png" alt="Keithley 2400 Series SourceMeter">
+                    </div>
+                    <div class="instrument-name">
+                        Keithley 2400 Series SourceMeter
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Keithley 2400 Series SourceMeter Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Keithley 2400 Series SourceMeter to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Keithley-2400-Series-SourceMeter.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Spectrometers</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Bruker-Ultrashield-Series.html'" style="cursor: pointer;" data-manufacturer="Bruker" data-instrument="Spectrometers" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541925/Bruker_Ultrashield_Series_olht66.png" alt="Bruker Ultrashield Series">
+                    </div>
+                    <div class="instrument-name">
+                        Bruker Ultrashield Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Bruker Ultrashield Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Bruker Ultrashield Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Bruker-Ultrashield-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Bruker-Ascend-Series.html'" style="cursor: pointer;" data-manufacturer="Bruker" data-instrument="Spectrometers" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541926/Bruker_Ascend_800_opytlb.png" alt="Bruker Ascend Series">
+                    </div>
+                    <div class="instrument-name">
+                        Bruker Ascend Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Bruker Ascend Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Bruker Ascend Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Bruker-Ascend-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="section">
+            <h2 class="section-title">Spectrophotometers</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Mettler-Toledo-UV-Vis.html'" style="cursor: pointer;" data-manufacturer="Mettler Toledo" data-instrument="Spectrophotometers" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1767812032/30254728_1_u9ox2y.png" alt="Mettler Toledo UV Vis Excellence">
+                    </div>
+                    <div class="instrument-name">
+                        Mettler Toledo UV Vis Excellence
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Mettler Toledo UV Vis Excellence Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Mettler Toledo UV Vis Excellence to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Mettler-Toledo-UV-Vis.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Stylus Profilometers</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Bruker-DektakXT.html'" style="cursor: pointer;" data-manufacturer="Bruker" data-instrument="Stylus Profilometers" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541925/Bruker_DektakXT_tcgxrh.png" alt="Bruker DektakXT">
+                    </div>
+                    <div class="instrument-name">
+                        Bruker DektakXT
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Bruker DektakXT Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Bruker DektakXT to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Bruker-DektakXT.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">Vacuum Deposition Systems</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Denton-Vacuum-Explorer.html'" style="cursor: pointer;" data-manufacturer="Denton" data-instrument="Vacuum Deposition Systems" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541925/Denton_Vacuum_Explorer_w5lezj.png" alt="Denton Vacuum Explorer">
+                    </div>
+                    <div class="instrument-name">
+                        Denton Vacuum Explorer
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Denton Vacuum Explorer Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Denton Vacuum Explorer to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Denton-Vacuum-Explorer.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">X-Ray Diffractometers</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Bruker-D8-Series.html'" style="cursor: pointer;" data-manufacturer="Bruker" data-instrument="X-Ray Diffractometers" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541925/Bruker_D8_Series.061_itxqz9.png" alt="Bruker D8 Series">
+                    </div>
+                    <div class="instrument-name">
+                        Bruker D8 Series
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Bruker D8 Series Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Bruker D8 Series to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Bruker-D8-Series.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="instrument-card" onclick="window.location.href='Bruker-D2-Phaser-2nd-Gen.html'" style="cursor: pointer;" data-manufacturer="Bruker" data-instrument="X-Ray Diffractometers" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541924/Bruker_D2_Phaser_2nd_Gen_tabdol.png" alt="Bruker D2 Phaser 2nd Gen">
+                    </div>
+                    <div class="instrument-name">
+                        Bruker D2 Phaser 2nd Gen
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Bruker D2 Phaser 2nd Gen Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Bruker D2 Phaser 2nd Gen to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain comprehensive audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Bruker-D2-Phaser-2nd-Gen.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="section">
+            <h2 class="section-title">Zeta Potential Analyzers</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card" onclick="window.location.href='Malvern-Zeta-Sizer.html'" style="cursor: pointer;" data-manufacturer="Malvern" data-instrument="Zeta Potential Analyzers" data-connector="Data Connector">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/636216769964211710NV_Original_file_1_1_y79gfp.png" alt="Malvern Nano ZS">
+                    </div>
+                    <div class="instrument-name">
+                        Malvern Nano ZS
+                        <div class="connector-type">Data Connector</div>
+                    </div>
+                    <div class="instrument-popup">
+                        <div>
+                            <h3 class="popup-title">Malvern Nano ZS Connector Capabilities</h3>
+                            <div class="popup-capabilities">
+                                <ul>
+                                    <li>Capture and transfer results directly from your Malvern Nano ZS to your existing file server</li>
+                                    <li>Eliminate error prone manual data collection workflows</li>
+                                    <li>Maintain complete audit trails for quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="Malvern-Zeta-Sizer.html" class="popup-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+                <section class="cta-section">
+            <h2 class="cta-title">Not Seeing One of Your Instruments?</h2>
+            <p class="cta-description">
+                Let us know which instrument(s) you're interested in connecting by clicking the instrument request button below.
+            </p>
+            <a href="instrument-request.html" class="cta-button">Instrument Request</a>
+        </section>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -1300,7 +3333,7 @@
                     <h3>
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757701267/__Phizzle-Logo-WHITE-01_5_hpfhss.svg" alt="Phizzle Logo" style="height: 28px; width: auto;">
                     </h3>
-                    <p>Welcome to the Intersection of <br>Science and IT</p>
+                    <p>At the Intersection of <br>Science and IT</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/company/phizzle/posts/?feedView=all" class="social-link linkedin">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -1354,16 +3387,21 @@
                     <div class="email-signup">
                         <h5>Stay Updated</h5>
                         <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.75rem;">Join our newsletter to get the latest updates</p>
-                        <form class="email-form" id="newsletter-form">
+                        <form class="email-form" id="newsletter-form" data-hsforms-ignore="true" data-hs-cf-bound="true">
                             <input type="email" class="email-input" name="email" placeholder="Enter your email" required>
                             <button type="submit" class="email-submit">Subscribe</button>
                         </form>
+                        <p style="font-size: 0.75rem; color: #64748b; margin-top: 0.5rem; line-height: 1.4;">
+                            This site is protected by reCAPTCHA and the Google 
+                            <a href="https://policies.google.com/privacy" style="color: #94a3b8; text-decoration: underline;">Privacy Policy</a> and 
+                            <a href="https://policies.google.com/terms" style="color: #94a3b8; text-decoration: underline;">Terms of Service</a> apply.
+                        </p>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Phizzle. All rights reserved.</p>
+                <p>&copy; 2026 Phizzle. All rights reserved.</p>
                 <div class="footer-bottom-links">
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms-of-use.html">Terms of Use</a>
@@ -1373,6 +3411,7 @@
     </footer>
 
     <script>
+        // Mobile Menu Functions
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             const overlay = document.getElementById('mobileMenuOverlay');
@@ -1417,8 +3456,15 @@
             }
         });
 
+        // Load reCAPTCHA
+        const script = document.createElement('script');
+        script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf';
+        document.head.appendChild(script);
+        
+        // HubSpot Form Integration for Newsletter Form  
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             
             const email = e.target.querySelector('input[name="email"]').value;
             const submitBtn = e.target.querySelector('button[type="submit"]');
@@ -1426,33 +3472,220 @@
             submitBtn.textContent = 'Subscribing...';
             submitBtn.disabled = true;
             
-            fetch('https://api.hsforms.com/submissions/v3/integration/submit/8070371/5efde115-8a41-4e38-8176-4b121279ff42', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    fields: [
-                        {
-                            name: "email",
-                            value: email
-                        }
-                    ]
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                submitBtn.textContent = 'Subscribed!';
-                e.target.reset();
-                setTimeout(() => {
-                    submitBtn.textContent = 'Subscribe';
-                    submitBtn.disabled = false;
-                }, 2000);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                submitBtn.textContent = 'Error - Try Again';
-                submitBtn.disabled = false;
+            // Get reCAPTCHA token
+            grecaptcha.enterprise.ready(function() {
+                grecaptcha.enterprise.execute('6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf', {action: 'submit'}).then(function(token) {
+                    
+                    // Submit to Netlify function
+                    fetch('/.netlify/functions/submit-form', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            recaptchaToken: token,
+                            formData: {
+                                fields: [{ name: "email", value: email }],
+                                context: {
+                                    pageUri: window.location.href,
+                                    pageName: document.title
+                                }
+                            }
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        submitBtn.textContent = 'Subscribed!';
+                        e.target.reset();
+                        setTimeout(() => {
+                            submitBtn.textContent = 'Subscribe';
+                            submitBtn.disabled = false;
+                        }, 2000);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        submitBtn.textContent = 'Error - Try Again';
+                        submitBtn.disabled = false;
+                    });
+                });
+            });
+        });
+
+        // Custom Dropdown Functions
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.querySelector('.search-button');
+            const clearFiltersBtn = document.getElementById('clear-filters');
+            const allInstrumentCards = document.querySelectorAll('.instrument-card');
+            const allSections = document.querySelectorAll('.section');
+
+            // Filter state
+            let selectedFilters = {
+                manufacturer: '',
+                instrument: '',
+                connector: ''
+            };
+
+            // Custom dropdown click handlers
+            function setupCustomDropdowns() {
+                // Setup connector dropdown
+                const connectorDropdown = document.getElementById('connector-dropdown');
+                const connectorItems = connectorDropdown.querySelectorAll('.dropdown-item');
+                const connectorButton = connectorDropdown.querySelector('.dropdown-button .selected-text');
+
+                connectorItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const value = this.getAttribute('data-value');
+                        const text = this.textContent;
+                        
+                        // Update button text
+                        connectorButton.textContent = text;
+                        
+                        // Update selected state
+                        connectorItems.forEach(i => i.classList.remove('selected'));
+                        this.classList.add('selected');
+                        
+                        // Update filter
+                        selectedFilters.connector = value;
+                        filterProducts();
+                    });
+                });
+
+                // Setup manufacturer dropdown
+                const manufacturerDropdown = document.getElementById('manufacturer-dropdown');
+                const manufacturerItems = manufacturerDropdown.querySelectorAll('.dropdown-item');
+                const manufacturerButton = manufacturerDropdown.querySelector('.dropdown-button .selected-text');
+
+                manufacturerItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const value = this.getAttribute('data-value');
+                        const text = this.textContent;
+                        
+                        // Update button text
+                        manufacturerButton.textContent = text;
+                        
+                        // Update selected state
+                        manufacturerItems.forEach(i => i.classList.remove('selected'));
+                        this.classList.add('selected');
+                        
+                        // Update filter
+                        selectedFilters.manufacturer = value;
+                        filterProducts();
+                    });
+                });
+
+                // Setup instrument dropdown
+                const instrumentDropdown = document.getElementById('instrument-dropdown');
+                const instrumentItems = instrumentDropdown.querySelectorAll('.dropdown-item');
+                const instrumentButton = instrumentDropdown.querySelector('.dropdown-button .selected-text');
+
+                instrumentItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const value = this.getAttribute('data-value');
+                        const text = this.textContent;
+                        
+                        // Update button text
+                        instrumentButton.textContent = text;
+                        
+                        // Update selected state
+                        instrumentItems.forEach(i => i.classList.remove('selected'));
+                        this.classList.add('selected');
+                        
+                        // Update filter
+                        selectedFilters.instrument = value;
+                        filterProducts();
+                    });
+                });
+            }
+
+            function filterProducts() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+
+                allSections.forEach(section => {
+                    section.style.display = 'block';
+                });
+
+                allInstrumentCards.forEach(card => {
+                    const cardManufacturer = card.getAttribute('data-manufacturer');
+                    const cardInstrument = card.getAttribute('data-instrument');
+                    const cardConnector = card.getAttribute('data-connector');
+                    const productName = card.querySelector('.instrument-name').textContent.toLowerCase();
+                    
+                    const manufacturerMatch = !selectedFilters.manufacturer || cardManufacturer === selectedFilters.manufacturer;
+                    const instrumentMatch = !selectedFilters.instrument || cardInstrument === selectedFilters.instrument;
+                    const connectorMatch = !selectedFilters.connector || cardConnector === selectedFilters.connector;
+                    
+                    // Search functionality - check if search term matches manufacturer or product name
+                    const searchMatch = !searchTerm || 
+                        cardManufacturer.toLowerCase().includes(searchTerm) ||
+                        productName.includes(searchTerm) ||
+                        cardInstrument.toLowerCase().includes(searchTerm);
+                    
+                    if (manufacturerMatch && instrumentMatch && connectorMatch && searchMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                allSections.forEach(section => {
+                    const sectionCards = section.querySelectorAll('.instrument-card');
+                    const visibleCards = Array.from(sectionCards).filter(card => 
+                        card.style.display !== 'none'
+                    );
+                    
+                    if (visibleCards.length === 0) {
+                        section.style.display = 'none';
+                    }
+                });
+            }
+
+            function clearFilters() {
+                // Reset filter state
+                selectedFilters = {
+                    manufacturer: '',
+                    instrument: '',
+                    connector: ''
+                };
+                
+                // Reset search input
+                searchInput.value = '';
+                
+                // Reset dropdown buttons and selections
+                const connectorButton = document.querySelector('#connector-dropdown .selected-text');
+                const manufacturerButton = document.querySelector('#manufacturer-dropdown .selected-text');
+                const instrumentButton = document.querySelector('#instrument-dropdown .selected-text');
+                
+                connectorButton.textContent = 'Filter by Connector Type';
+                manufacturerButton.textContent = 'Filter by Manufacturer';
+                instrumentButton.textContent = 'Filter by Instrument Type';
+                
+                // Remove selected states
+                document.querySelectorAll('.dropdown-item.selected').forEach(item => {
+                    item.classList.remove('selected');
+                });
+                
+                // Show all cards and sections
+                allInstrumentCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                
+                allSections.forEach(section => {
+                    section.style.display = 'block';
+                });
+            }
+
+            // Initialize dropdowns
+            setupCustomDropdowns();
+
+            // Event listeners
+            searchInput.addEventListener('input', filterProducts);
+            searchButton.addEventListener('click', filterProducts);
+            clearFiltersBtn.addEventListener('click', clearFilters);
+
+            // Allow Enter key to trigger search
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    filterProducts();
+                }
             });
         });
     </script>
