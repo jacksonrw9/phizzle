@@ -490,7 +490,7 @@ function handleSubmit() {
         { name: 'poc_instrument_2',   value: i2 },
         { name: 'poc_site_name_2',    value: document.querySelector('[name=site_name_2]').value },
         { name: 'poc_site_details_2', value: document.querySelector('[name=site_details_2]').value },
-        { name: 'poc_timezone_2',     value: document.querySelector('[name=timezone_2]').value },
+        { name: 'poc_timezone_2',     value: document.querySelector('[name=timezone_2]').value }
     ];
 
     fetch('https://api.hsforms.com/submissions/v3/integration/submit/8070371/2a2d2a22-8bac-44f1-9bb5-7e05e4cd0e92', {
@@ -500,8 +500,7 @@ function handleSubmit() {
             fields: fields,
             context: {
                 pageUri: window.location.href,
-                pageName: document.title,
-                hutk: (document.cookie.match(/hubspotutk=([^;]+)/) || [])[1]
+                pageName: document.title
             }
         })
     })
@@ -517,6 +516,7 @@ function handleSubmit() {
         btn.disabled = false;
     });
 }
+
 
 function toggleSection(n) {
     if (n === 2 && document.getElementById('section2-wrap').classList.contains('section-locked')) return;
