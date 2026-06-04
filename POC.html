@@ -502,7 +502,11 @@ function handleSubmit() {
                     recaptchaToken: token,
                     formData: {
                         fields: fields,
-                        context: { pageUri: window.location.href, pageName: document.title }
+                        context: {
+                            pageUri: window.location.href,
+                            pageName: document.title,
+                            hutk: (document.cookie.match(/hubspotutk=([^;]+)/) || [])[1]
+                        }
                     }
                 })
             })
