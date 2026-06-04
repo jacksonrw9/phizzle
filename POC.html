@@ -493,36 +493,28 @@ function handleSubmit() {
         { name: 'poc_timezone_2',     value: document.querySelector('[name=timezone_2]').value },
     ];
 
-    grecaptcha.enterprise.ready(function() {
-        grecaptcha.enterprise.execute('6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf', { action: 'submit' }).then(function(token) {
-            fetch('/.netlify/functions/submit-form', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    recaptchaToken: token,
-                    formData: {
-                        formId: '2a2d2a22-8bac-44f1-9bb5-7e05e4cd0e92',
-                        fields: fields,
-                        context: {
-                            pageUri: window.location.href,
-                            pageName: document.title,
-                            hutk: (document.cookie.match(/hubspotutk=([^;]+)/) || [])[1]
-                        }
-                    }
-                })
-            })
-            .then(response => response.json())
-            .then(() => {
-                document.getElementById('success-msg').classList.add('show');
-                btn.textContent = 'Submitted ✓';
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-            })
-            .catch(error => {
-                console.error('Submission error:', error);
-                btn.textContent = 'Error - Try Again';
-                btn.disabled = false;
-            });
-        });
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/8070371/2a2d2a22-8bac-44f1-9bb5-7e05e4cd0e92', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            fields: fields,
+            context: {
+                pageUri: window.location.href,
+                pageName: document.title,
+                hutk: (document.cookie.match(/hubspotutk=([^;]+)/) || [])[1]
+            }
+        })
+    })
+    .then(response => response.json())
+    .then(() => {
+        document.getElementById('success-msg').classList.add('show');
+        btn.textContent = 'Submitted ✓';
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    })
+    .catch(error => {
+        console.error('Submission error:', error);
+        btn.textContent = 'Error - Try Again';
+        btn.disabled = false;
     });
 }
 
