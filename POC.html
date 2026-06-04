@@ -40,6 +40,10 @@
         .lock-card .sub { font-size: 0.85rem; color: #94a3b8; margin-bottom: 1.75rem; line-height: 1.5; }
         .lock-card input[type="password"] { width: 100%; padding: 11px 14px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 0.95rem; font-family: inherit; color: #1f2937; background: #fafafa; margin-bottom: 0.85rem; outline: none; transition: border-color 0.2s; }
         .lock-card input[type="password"]:focus { border-color: #436c79; background: #fff; }
+        .pw-wrap { position: relative; }
+        .pw-wrap input[type="password"], .pw-wrap input[type="text"] { padding-right: 44px; }
+        .pw-toggle { position: absolute; top: 50%; right: 8px; transform: translateY(-50%); margin-top: -7px; background: none; border: none; padding: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 6px; }
+        .pw-toggle:hover { background: #f1f5f9; }
         .lock-card input[type="password"].shake { animation: shake 0.4s ease; border-color: #dc2626; }
         @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
         .lock-btn { width: 100%; padding: 11px; background: #30444D; color: #fff; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.2s; }
@@ -141,7 +145,19 @@
         </div>
         <h2>Restricted Access</h2>
         <p class="sub">This page is for Phizzle POC participants only. Enter the password from the email that brought you here.</p>
-        <input type="password" id="pw-input" placeholder="Enter password" onkeydown="if(event.key==='Enter') tryUnlock()" autocomplete="off" />
+        <div class="pw-wrap">
+            <input type="password" id="pw-input" placeholder="Enter password" onkeydown="if(event.key==='Enter') tryUnlock()" autocomplete="off" />
+            <button type="button" class="pw-toggle" id="pw-toggle" onclick="togglePw()" aria-label="Show password">
+                <svg class="pw-eye" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg class="pw-eye-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+            </button>
+        </div>
         <button class="lock-btn" onclick="tryUnlock()">Unlock Page</button>
         <div class="lock-error" id="lock-error"></div>
     </div>
@@ -360,6 +376,24 @@ const PAGE_PASSWORD = "phizzle2026";
 if (sessionStorage.getItem("poc_unlocked") === "true") {
     document.getElementById("lock-screen").classList.add("gone");
     document.getElementById("page-content").classList.add("visible");
+}
+function togglePw() {
+    const input = document.getElementById("pw-input");
+    const eye = document.querySelector(".pw-eye");
+    const eyeOff = document.querySelector(".pw-eye-off");
+    const toggle = document.getElementById("pw-toggle");
+    if (input.type === "password") {
+        input.type = "text";
+        eye.style.display = "none";
+        eyeOff.style.display = "block";
+        toggle.setAttribute("aria-label", "Hide password");
+    } else {
+        input.type = "password";
+        eye.style.display = "block";
+        eyeOff.style.display = "none";
+        toggle.setAttribute("aria-label", "Show password");
+    }
+    input.focus();
 }
 function tryUnlock() {
     const input = document.getElementById("pw-input");
