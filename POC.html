@@ -511,8 +511,12 @@ function handleSubmit() {
                     }
                 })
             })
-            .then(response => response.json())
-            .then(data => {
+            .then(response => response.json().then(data => ({ ok: response.ok, status: response.status, data })))
+            .then(result => {
+                if (!result.ok) {
+                    console.error('HubSpot rejected submission:', result.status, result.data);
+                    throw new Error('Submission rejected');
+                }
                 document.getElementById('success-msg').classList.add('show');
                 btn.textContent = 'Submitted ✓';
                 window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
