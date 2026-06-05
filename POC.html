@@ -162,7 +162,7 @@
 <div id="page-content">
     <div class="page-header">
         <div class="page-header-inner">
-        <h1>POC in a Box Input Form</h1>
+        <h1>Demo in Box POC Input Form</h1>
         <p class="subtext">
             The Phizzle team is super excited to be preparing your demo in a box. We will provide <strong>2 Edge Puck Data Connectors</strong> and a <strong>Phizzle-configured laptop</strong> with all necessary software and backend services pre-installed.<br><br>
             Each Edge Puck can be paired with only one laboratory instrument. To ensure the devices are properly configured and the demo experience is optimized, we would like to gather a few details in advance.<br><br>
@@ -269,11 +269,17 @@
                         <option value="">&#8212; Select a category &#8212;</option>
                     </select>
                 </div>
-                <div class="field-group">
+                <div class="field-group" id="inst1-wrap">
                     <label>Select Instrument <span class="required">*</span></label>
                     <select id="inst1" disabled>
                         <option value="">&#8212; Select a category first &#8212;</option>
                     </select>
+                </div>
+                <div class="field-group" id="other1-wrap" style="display:none;">
+                    <label>Instrument Manufacturer <span class="required">*</span></label>
+                    <input type="text" name="other_manufacturer_1" placeholder="e.g., Mettler Toledo" />
+                    <label style="margin-top:1rem;">Instrument Model <span class="required">*</span></label>
+                    <input type="text" name="other_model_1" placeholder="e.g., XPR226" />
                 </div>
                 <div class="field-group">
                     <label>Site Name <span class="required">*</span></label>
@@ -317,11 +323,17 @@
                         <option value="">&#8212; Select a category &#8212;</option>
                     </select>
                 </div>
-                <div class="field-group">
+                <div class="field-group" id="inst2-wrap">
                     <label>Select Instrument <span class="required">*</span></label>
                     <select id="inst2" disabled>
                         <option value="">&#8212; Select a category first &#8212;</option>
                     </select>
+                </div>
+                <div class="field-group" id="other2-wrap" style="display:none;">
+                    <label>Instrument Manufacturer <span class="required">*</span></label>
+                    <input type="text" name="other_manufacturer_2" placeholder="e.g., Mettler Toledo" />
+                    <label style="margin-top:1rem;">Instrument Model <span class="required">*</span></label>
+                    <input type="text" name="other_model_2" placeholder="e.g., XPR226" />
                 </div>
                 <div class="field-group">
                     <label>Site Name <span class="required">*</span></label>
@@ -451,6 +463,9 @@ const instruments = {
 const categories = Object.keys(instruments).sort();
 [1,2].forEach(n => {
     const el = document.getElementById('cat'+n);
+    const other = document.createElement('option');
+    other.value = '__OTHER__'; other.textContent = 'Other \u2014 Instrument Not in List';
+    el.appendChild(other);
     categories.forEach(cat => {
         const o = document.createElement('option');
         o.value = cat; o.textContent = cat;
@@ -461,6 +476,16 @@ const categories = Object.keys(instruments).sort();
 function filterInstruments(n) {
     const cat = document.getElementById('cat'+n).value;
     const instEl = document.getElementById('inst'+n);
+    const instWrap = document.getElementById('inst'+n+'-wrap');
+    const otherWrap = document.getElementById('other'+n+'-wrap');
+    if (cat === '__OTHER__') {
+        otherWrap.style.display = 'block';
+        instWrap.style.display = 'none';
+        instEl.disabled = true;
+        return;
+    }
+    otherWrap.style.display = 'none';
+    instWrap.style.display = 'block';
     if (!cat) {
         instEl.innerHTML = '<option value="">&#8212; Select a category first &#8212;</option>';
         instEl.disabled = true; return;
@@ -484,10 +509,21 @@ function populateSelect(n, list) {
 
 
 
+function getInstrument(n) {
+    const cat = document.getElementById('cat'+n).value;
+    if (cat === '__OTHER__') {
+        const man = document.querySelector('[name=other_manufacturer_'+n+']').value.trim();
+        const mod = document.querySelector('[name=other_model_'+n+']').value.trim();
+        if (!man || !mod) return '';
+        return man + ' ' + mod;
+    }
+    return document.getElementById('inst'+n).value;
+}
+
 function handleSubmit() {
-    const i1 = document.getElementById('inst1').value;
-    const i2 = document.getElementById('inst2').value;
-    if (!i1 || !i2) { alert('Please select an instrument for both Edge Pucks before submitting.'); return; }
+    const i1 = getInstrument(1);
+    const i2 = getInstrument(2);
+    if (!i1 || !i2) { alert('Please select an instrument for both Edge Pucks before submitting. If you chose "Other", enter both the manufacturer and model.'); return; }
 
     const btn = document.querySelector('.submit-btn');
     btn.textContent = 'Submitting...';
