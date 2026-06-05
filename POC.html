@@ -271,6 +271,7 @@
                 </div>
                 <div class="field-group" id="inst1-wrap">
                     <label>Select Instrument <span class="required">*</span></label>
+                    <input type="text" id="search1" class="inst-search" placeholder="Search instruments..." oninput="searchInstruments(1)" style="margin-bottom:0.5rem;display:none;" />
                     <select id="inst1" disabled>
                         <option value="">&#8212; Select a category first &#8212;</option>
                     </select>
@@ -325,6 +326,7 @@
                 </div>
                 <div class="field-group" id="inst2-wrap">
                     <label>Select Instrument <span class="required">*</span></label>
+                    <input type="text" id="search2" class="inst-search" placeholder="Search instruments..." oninput="searchInstruments(2)" style="margin-bottom:0.5rem;display:none;" />
                     <select id="inst2" disabled>
                         <option value="">&#8212; Select a category first &#8212;</option>
                     </select>
@@ -473,11 +475,13 @@ const categories = Object.keys(instruments).sort();
     });
 });
 
+const currentList = {};
 function filterInstruments(n) {
     const cat = document.getElementById('cat'+n).value;
     const instEl = document.getElementById('inst'+n);
     const instWrap = document.getElementById('inst'+n+'-wrap');
     const otherWrap = document.getElementById('other'+n+'-wrap');
+    const searchEl = document.getElementById('search'+n);
     if (cat === '__OTHER__') {
         otherWrap.style.display = 'block';
         instWrap.style.display = 'none';
@@ -488,10 +492,23 @@ function filterInstruments(n) {
     instWrap.style.display = 'block';
     if (!cat) {
         instEl.innerHTML = '<option value="">&#8212; Select a category first &#8212;</option>';
-        instEl.disabled = true; return;
+        instEl.disabled = true;
+        searchEl.style.display = 'none';
+        searchEl.value = '';
+        return;
     }
-    populateSelect(n, instruments[cat]);
+    currentList[n] = instruments[cat];
+    searchEl.style.display = 'block';
+    searchEl.value = '';
+    populateSelect(n, currentList[n]);
     instEl.disabled = false;
+}
+
+function searchInstruments(n) {
+    const q = document.getElementById('search'+n).value.trim().toLowerCase();
+    const list = currentList[n] || [];
+    const filtered = q ? list.filter(item => item.name.toLowerCase().includes(q)) : list;
+    populateSelect(n, filtered);
 }
 
 function populateSelect(n, list) {
