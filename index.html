@@ -1504,6 +1504,68 @@
             }
         }
 
+        /* Hero Carousel */
+        .hero-carousel {
+            position: relative;
+            min-height: 75vh;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1.2s ease;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .hero-carousel .hero-container {
+            position: relative;
+            z-index: 2;
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Hero carousel dot indicators */
+        .hero-dots {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 3;
+        }
+
+        .hero-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+
+        .hero-dot.active {
+            background: #ffffff;
+        }
+
         .grecaptcha-badge {
             visibility: hidden;
         }
@@ -1595,7 +1657,7 @@
     <!-- Announcement Bar -->
     <div style="background: linear-gradient(to left, #c8efe6, #AEE6D9, #8dd4c7); padding: 1rem 2rem; text-align: center;">
         <p style="color: #333333; font-size: 0.9rem; margin: 0; font-weight: 600;">
-            LabWare and Phizzle Partner to Eliminate Manual Instrument Data Transfer in Regulated Lab and Production Environments.&nbsp;&nbsp;
+            LabWare and Phizzle Partner to Eliminate Manual Instrument Data Transfer in Pharmaceutical Cleanroom Labs.&nbsp;&nbsp;
             <a href="news-labware-phizzle.html" style="color: #333333; font-weight: 800; text-decoration: underline; white-space: nowrap;">Learn More</a>
         </p>
     </div>
@@ -1751,17 +1813,43 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
+    <section class="hero-carousel">
+        <!-- Slide 1 -->
+        <div class="hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775508426/iStock-1346675526_kfjubl.jpg');"></div>
+        <!-- Slide 2 -->
+        <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1780966371/openart-image_1780965616285_c8c757cc_1780965616641_5add6f74_1_j7st5b.png');"></div>
+        <!-- Slide 3 -->
+        <div class="hero-slide" style="background: #000;">
+            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1779816349/iStock-1309776504_ynm8n8.jpg" style="position: absolute; left: 0; top: 0; width: 50%; height: 100%; object-fit: cover; object-position: center;">
+            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1780967100/1780955053106_x3vhns.jpg" style="position: absolute; left: 50%; top: 0; width: 50%; height: 100%; object-fit: cover; object-position: left center;">
+        </div>
+
+        <div class="hero-container" style="max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 2; min-height: 75vh;">
             <div class="hero-content">
-                <div class="hero-text-box">
+                <!-- Slide 1 copy -->
+                <div class="hero-text-box hero-copy active" id="hero-copy-0">
                     <h1>At the Intersection <br/>of Science and IT</h1>
                     <p>Digitizing scientific workflows in regulated manufacturing environments to support data integrity, efficiency, and compliance with Connected Plant™.</p>
                 </div>
+                <!-- Slide 2 copy -->
+                <div class="hero-text-box hero-copy" id="hero-copy-1" style="display:none;">
+                    <h1>Off the Network, <br/>Still Connected</h1>
+                    <p>Reliably capture instrument data without device vulnerability or the IT headache of direct instrument to network configuration with the Edge Puck™.</p>
+                </div>
+                <!-- Slide 3 copy -->
+                <div class="hero-text-box hero-copy" id="hero-copy-2" style="display:none;">
+                    <h1>We're at LabWare<br/>CEC Europe 2026</h1>
+                    <p>Come visit our booth and see a live demo of our hardware + software solution that will be featured by LabWare on the main stage on Wednesday.</p>
+                </div>
             </div>
-            <div class="hero-visual">
-                <!-- Hero image space - would contain the manufacturing facility image -->
-            </div>
+            <div class="hero-visual"></div>
+        </div>
+
+        <!-- Dot indicators -->
+        <div class="hero-dots">
+            <button class="hero-dot active" onclick="goToHeroSlide(0)"></button>
+            <button class="hero-dot" onclick="goToHeroSlide(1)"></button>
+            <button class="hero-dot" onclick="goToHeroSlide(2)"></button>
         </div>
     </section>
 
@@ -2256,6 +2344,26 @@
                 }, 650);
             }
         }, 8000);
+
+        // Hero image carousel
+        let heroIndex = 0;
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroDots = document.querySelectorAll('.hero-dot');
+        const heroCopies = document.querySelectorAll('.hero-copy');
+
+        function goToHeroSlide(index) {
+            heroSlides[heroIndex].classList.remove('active');
+            heroDots[heroIndex].classList.remove('active');
+            heroCopies[heroIndex].style.display = 'none';
+            heroIndex = index;
+            heroSlides[heroIndex].classList.add('active');
+            heroDots[heroIndex].classList.add('active');
+            heroCopies[heroIndex].style.display = 'block';
+        }
+
+        setInterval(() => {
+            goToHeroSlide((heroIndex + 1) % heroSlides.length);
+        }, 15000);
 
         // Scroll reveal
         const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
