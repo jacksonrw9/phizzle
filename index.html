@@ -1566,6 +1566,33 @@
             background: #ffffff;
         }
 
+        /* Hero carousel arrows */
+        .hero-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.6);
+            color: #ffffff;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .hero-arrow:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .hero-arrow-left { left: 1.5rem; }
+        .hero-arrow-right { right: 1.5rem; }
+
         .grecaptcha-badge {
             visibility: hidden;
         }
@@ -1657,7 +1684,7 @@
     <!-- Announcement Bar -->
     <div style="background: linear-gradient(to left, #c8efe6, #AEE6D9, #8dd4c7); padding: 1rem 2rem; text-align: center;">
         <p style="color: #333333; font-size: 0.9rem; margin: 0; font-weight: 600;">
-            LabWare and Phizzle Partner to Eliminate Manual Instrument Data Transfer in Pharmaceutical Cleanroom Labs.&nbsp;&nbsp;
+            <strong>Live from Europe CEC 26:</strong> LabWare and Phizzle Partner to Eliminate Manual Instrument Data Transfer in Pharmaceutical Cleanroom Labs.&nbsp;&nbsp;
             <a href="news-labware-phizzle.html" style="color: #333333; font-weight: 800; text-decoration: underline; white-space: nowrap;">Learn More</a>
         </p>
     </div>
@@ -1844,6 +1871,10 @@
             </div>
             <div class="hero-visual"></div>
         </div>
+
+        <!-- Arrows -->
+        <button class="hero-arrow hero-arrow-left" onclick="goToHeroSlide((heroIndex - 1 + heroSlides.length) % heroSlides.length)">&#8249;</button>
+        <button class="hero-arrow hero-arrow-right" onclick="goToHeroSlide((heroIndex + 1) % heroSlides.length)">&#8250;</button>
 
         <!-- Dot indicators -->
         <div class="hero-dots">
@@ -2363,7 +2394,7 @@
 
         setInterval(() => {
             goToHeroSlide((heroIndex + 1) % heroSlides.length);
-        }, 15000);
+        }, 10000);
 
         // Scroll reveal
         const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
