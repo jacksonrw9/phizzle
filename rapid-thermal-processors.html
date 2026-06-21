@@ -1369,7 +1369,7 @@
     <main class="main-content">
         <div class="container">
             <div class="instruments-grid" id="instrumentsGrid">
-                <div class="instrument-card" onclick="window.location.href='ECM-JetFirst-Series.html'" style="cursor: pointer;">
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/ecm-jetfirst-series'" style="cursor: pointer;" data-manufacturer="ecm">
                     <div class="instrument-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541924/ECM_JetFirst_Series_ytmgmc.png" alt="ECM JetFirst Series">
                     </div>
@@ -1377,7 +1377,7 @@
                     <div class="connector-type">Data Connector</div>
                 </div>
 
-                <div class="instrument-card" onclick="window.location.href='Annealsys-AS-One-Series.html'" style="cursor: pointer;">
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/annealsys-as-one-series'" style="cursor: pointer;" data-manufacturer="annealsys">
                     <div class="instrument-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541925/Annealsys_AS-One_Series_vvrxym.png" alt="Annealsys AS-One Series">
                     </div>
@@ -1385,7 +1385,7 @@
                     <div class="connector-type">Data Connector</div>
                 </div>
 
-                <div class="instrument-card" onclick="window.location.href='Annealsys-AS-Master.html'" style="cursor: pointer;">
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/annealsys-as-master'" style="cursor: pointer;" data-manufacturer="annealsys">
                     <div class="instrument-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541924/Annealsys_AS-Master_pn4wyx.png" alt="Annealsys AS-Master">
                     </div>
@@ -1638,9 +1638,7 @@
                             // Check manufacturer match (OR within manufacturers)
                             let matchManufacturer = selectedManufacturers.length === 0 || 
                                 selectedManufacturers.some(mfr => {
-                                    if (mfr === 'ecm') return instrumentName.includes('ecm');
-                                    if (mfr === 'annealsys') return instrumentName.includes('annealsys');
-                                    return false;
+                                    return card.getAttribute('data-manufacturer') === mfr;
                                 });
                             
                             // Check connector type match (OR within connector types)
@@ -1723,6 +1721,7 @@
                     });
                 });
             });
+        });
         });
     </script>
 </body>

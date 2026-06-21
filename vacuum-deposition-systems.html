@@ -1368,7 +1368,7 @@
     <main class="main-content">
         <div class="container">
             <div class="instruments-grid" id="instrumentsGrid">
-                <div class="instrument-card" onclick="window.location.href='Denton-Vacuum-Explorer.html'" style="cursor: pointer;">
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/denton-vacuum-explorer'" style="cursor: pointer;" data-manufacturer="denton">
                     <div class="instrument-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541925/Denton_Vacuum_Explorer_w5lezj.png" alt="Denton Vacuum Explorer">
                     </div>
@@ -1621,8 +1621,7 @@
                             // Check manufacturer match (OR within manufacturers)
                             let matchManufacturer = selectedManufacturers.length === 0 || 
                                 selectedManufacturers.some(mfr => {
-                                    if (mfr === 'denton') return instrumentName.includes('denton');
-                                    return false;
+                                    return card.getAttribute('data-manufacturer') === mfr;
                                 });
                             
                             // Check connector type match (OR within connector types)
@@ -1705,6 +1704,7 @@
                     });
                 });
             });
+        });
         });
     </script>
 </body>

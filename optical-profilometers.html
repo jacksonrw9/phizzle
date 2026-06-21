@@ -1368,7 +1368,7 @@
     <main class="main-content">
         <div class="container">
             <div class="instruments-grid" id="instrumentsGrid">
-                <div class="instrument-card" onclick="window.location.href='Zygo-NewView-7300.html'" style="cursor: pointer;">
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/zygo-newview-7300'" style="cursor: pointer;" data-manufacturer="zygo">
                     <div class="instrument-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541929/Zygo_NewView_7300_xso31y.png" alt="Zygo NewView 7300">
                     </div>
@@ -1621,8 +1621,7 @@
                             // Check manufacturer match (OR within manufacturers)
                             let matchManufacturer = selectedManufacturers.length === 0 || 
                                 selectedManufacturers.some(mfr => {
-                                    if (mfr === 'zygo') return instrumentName.includes('zygo');
-                                    return false;
+                                    return card.getAttribute('data-manufacturer') === mfr;
                                 });
                             
                             // Check connector type match (OR within connector types)
@@ -1705,6 +1704,7 @@
                     });
                 });
             });
+        });
         });
     </script>
 </body>

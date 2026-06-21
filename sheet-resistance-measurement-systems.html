@@ -1368,7 +1368,7 @@
     <main class="main-content">
         <div class="container">
             <div class="instruments-grid" id="instrumentsGrid">
-                <div class="instrument-card" onclick="window.location.href='AIT-CMT-SR-Series.html'" style="cursor: pointer;">
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/ait-cmt-sr-series'" style="cursor: pointer;" data-manufacturer="ait">
                     <div class="instrument-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541924/AIT_CMT_SR_Series_frzh1u.png" alt="AIT CMT SR Series">
                     </div>
@@ -1621,8 +1621,7 @@
                             // Check manufacturer match (OR within manufacturers)
                             let matchManufacturer = selectedManufacturers.length === 0 || 
                                 selectedManufacturers.some(mfr => {
-                                    if (mfr === 'ait') return instrumentName.includes('ait');
-                                    return false;
+                                    return card.getAttribute('data-manufacturer') === mfr;
                                 });
                             
                             // Check connector type match (OR within connector types)
@@ -1705,6 +1704,7 @@
                     });
                 });
             });
+        });
         });
     </script>
 </body>

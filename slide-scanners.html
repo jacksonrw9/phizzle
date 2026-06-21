@@ -1368,7 +1368,7 @@
     <main class="main-content">
         <div class="container">
             <div class="instruments-grid" id="instrumentsGrid">
-                <div class="instrument-card" onclick="window.location.href='Zeiss-Axioscan-7.html'" style="cursor: pointer;">
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/zeiss-axioscan-7'" style="cursor: pointer;" data-manufacturer="zeiss">
                     <div class="instrument-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541928/Zeiss_Axioscan_7_rorsz5.png" alt="Zeiss Axioscan 7">
                     </div>
@@ -1621,8 +1621,7 @@
                             // Check manufacturer match (OR within manufacturers)
                             let matchManufacturer = selectedManufacturers.length === 0 || 
                                 selectedManufacturers.some(mfr => {
-                                    if (mfr === 'zeiss') return instrumentName.includes('zeiss');
-                                    return false;
+                                    return card.getAttribute('data-manufacturer') === mfr;
                                 });
                             
                             // Check connector type match (OR within connector types)
@@ -1705,6 +1704,7 @@
                     });
                 });
             });
+        });
         });
     </script>
 </body>

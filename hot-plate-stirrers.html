@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAXS/WAXS System Connectors</title>
+    <title>Hot Plate Stirrer Connectors</title>
 
     <!-- Favicon links -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
@@ -1327,8 +1327,8 @@
                     </svg>
                     Back to the Complete Instrument Connector Library
                 </a>
-                <h1>SAXS/WAXS System Connectors</h1>
-                <p class="subtitle">Explore our Growing Library of SAXS/WAXS System Connectors</p>
+                <h1>Hot Plate Stirrer Connectors</h1>
+                <p class="subtitle">Explore our Growing Library of Hot Plate Stirrer Connectors</p>
                 
                 <div class="search-section">
                     <div class="search-bar">
@@ -1354,7 +1354,7 @@
                                 <span class="arrow">▼</span>
                             </button>
                             <div class="dropdown-content" id="manufacturerDropdown">
-                                <div class="filter-option" data-filter="xenocs">Xenocs</div>
+                                <div class="filter-option" data-filter="gates-scientific">Gates Scientific</div>
                             </div>
                         </div>
                         
@@ -1368,34 +1368,18 @@
     <main class="main-content">
         <div class="container">
             <div class="instruments-grid" id="instrumentsGrid">
-                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/xenocs-xeuss-series'" style="cursor: pointer;" data-manufacturer="xenocs">
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/gate-scientific-hps'" style="cursor: pointer;" data-manufacturer="gates-scientific">
                     <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541929/Xenocs_Xeuss_Series_jrh1uf.png" alt="Xenocs Xeuss Series">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976032/rs_w_600_h_600_1_smdsmk.png" alt="Gates Scientific Hot Plate Stirrer">
                     </div>
-                    <div class="instrument-name">Xenocs Xeuss Series</div>
-                    <div class="connector-type">Data Connector</div>
-                </div>
-
-                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/xenocs-inxider'" style="cursor: pointer;" data-manufacturer="xenocs">
-                    <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541927/Xenocs_inXider_u1zgs9.png" alt="Xenocs inXider">
-                    </div>
-                    <div class="instrument-name">Xenocs inXider</div>
-                    <div class="connector-type">Data Connector</div>
-                </div>
-
-                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/xenocs-bioxolver'" style="cursor: pointer;" data-manufacturer="xenocs">
-                    <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541930/Xenocs_BioXolver_bc32o9.png" alt="Xenocs BioXolver">
-                    </div>
-                    <div class="instrument-name">Xenocs BioXolver</div>
-                    <div class="connector-type">Data Connector</div>
+                    <div class="instrument-name">Gates Scientific Hot Plate Stirrer</div>
+                    <div class="connector-type">Connector Plus</div>
                 </div>
             </div>
             <div class="cta-section">
                 <div class="cta-content">
-                    <h3 class="cta-title">Not Seeing One of Your SAXS/WAXS Systems?</h3>
-                    <p class="cta-text">Have a specific saxs/waxs system you'd like to see supported? Please let us know, we'll investigate the feasibility and provide a timeline.</p>
+                    <h3 class="cta-title">Not Seeing One of Your Hot Plate Stirrers?</h3>
+                    <p class="cta-text">Have a specific hot plate stirrer you'd like to see supported? Please let us know, we'll investigate the feasibility and provide a timeline.</p>
                     <a href="instrument-request.html" class="cta-button">Instrument Request</a>
                 </div>
             </div>
@@ -1622,7 +1606,7 @@
                         
                         selectedFilters.forEach(filter => {
                             const filterValue = filter.getAttribute('data-filter');
-                            if (filterValue === 'xenocs') {
+                            if (filterValue === 'gates-scientific') {
                                 selectedManufacturers.push(filterValue);
                             } else if (filterValue === 'data-connector' || filterValue === 'connector-plus') {
                                 selectedConnectorTypes.push(filterValue);

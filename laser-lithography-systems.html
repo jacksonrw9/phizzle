@@ -1368,7 +1368,7 @@
     <main class="main-content">
         <div class="container">
             <div class="instruments-grid" id="instrumentsGrid">
-                <div class="instrument-card" onclick="window.location.href='Heidelberg-DWL-66.html'" style="cursor: pointer;">
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/heidelberg-dwl-66'" style="cursor: pointer;" data-manufacturer="heidelberg">
                     <div class="instrument-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541925/Heidelberg_DWL_66_inespm.png" alt="Heidelberg DWL 66+">
                     </div>
@@ -1621,8 +1621,7 @@
                             // Check manufacturer match (OR within manufacturers)
                             let matchManufacturer = selectedManufacturers.length === 0 || 
                                 selectedManufacturers.some(mfr => {
-                                    if (mfr === 'heidelberg') return instrumentName.includes('heidelberg');
-                                    return false;
+                                    return card.getAttribute('data-manufacturer') === mfr;
                                 });
                             
                             // Check connector type match (OR within connector types)
@@ -1705,6 +1704,7 @@
                     });
                 });
             });
+        });
         });
     </script>
 </body>

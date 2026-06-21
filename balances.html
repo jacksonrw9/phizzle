@@ -481,7 +481,7 @@
             background: white;
             border: 2px solid var(--medium-gray);
             border-radius: 8px;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: 0.9rem;
             cursor: pointer;
             transition: var(--transition);
@@ -707,7 +707,6 @@
 
         .cta-content {
             position: relative;
-            z-index: 2;
         }
 
         .cta-title {
@@ -1370,15 +1369,7 @@
     <main class="main-content">
         <div class="container">
             <div class="instruments-grid" id="instrumentsGrid">
-                <div class="instrument-card" data-manufacturer="mettler-toledo" data-connector="data-connector" onclick="window.location.href='Mettler-Toledo-4002.html'" style="cursor: pointer;">
-                    <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976029/mettler-toledo-mr4002a-precision-balance-4200-g-x-0.01-g-internal-calibration-ntep__75427_2_n9rwut.png" alt="Mettler Toledo MX4002">
-                    </div>
-                    <div class="instrument-name">Mettler Toledo MX4002</div>
-                    <div class="connector-type">Data Connector</div>
-                </div>
-
-                <div class="instrument-card" data-manufacturer="mettler-toledo" data-connector="data-connector" onclick="window.location.href='Mettler-Toledo-205.html'" style="cursor: pointer;">
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/mettler-toledo-205'" style="cursor: pointer;" data-manufacturer="mettler-toledo">
                     <div class="instrument-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/30355411_2_urbuti.png" alt="Mettler Toledo MX205DU">
                     </div>
@@ -1386,23 +1377,15 @@
                     <div class="connector-type">Data Connector</div>
                 </div>
 
-                <div class="instrument-card" data-manufacturer="sartorius" data-connector="data-connector" onclick="window.location.href='Sartorius-Secura.html'" style="cursor: pointer;">
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/mettler-toledo-4002'" style="cursor: pointer;" data-manufacturer="mettler-toledo">
                     <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976023/download_5_gunngw.png" alt="Sartorius Secura">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976029/mettler-toledo-mr4002a-precision-balance-4200-g-x-0.01-g-internal-calibration-ntep__75427_2_n9rwut.png" alt="Mettler Toledo MX4002">
                     </div>
-                    <div class="instrument-name">Sartorius Secura</div>
+                    <div class="instrument-name">Mettler Toledo MX4002</div>
                     <div class="connector-type">Data Connector</div>
                 </div>
 
-                <div class="instrument-card" data-manufacturer="sartorius" data-connector="data-connector" onclick="window.location.href='Sartorius-Entris-ii.html'" style="cursor: pointer;">
-                    <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/BCE223-1S-2T_2_rqheoi.png" alt="Sartorius Entris II">
-                    </div>
-                    <div class="instrument-name">Sartorius Entris II</div>
-                    <div class="connector-type">Data Connector</div>
-                </div>
-
-                <div class="instrument-card" data-manufacturer="sartorius" data-connector="data-connector" onclick="window.location.href='Sartorius-Cubis-ii.html'" style="cursor: pointer;">
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/sartorius-cubis-ii'" style="cursor: pointer;" data-manufacturer="sartorius">
                     <div class="instrument-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766534889/sartorius-mce2202s-2s00-0-cubis-ii-precision-balance-2200-g-x-10-mg-no-draft-shield-100-to-240-vac-50-60-hz-3974242_1_gw7xpm.png" alt="Sartorius Cubis II">
                     </div>
@@ -1410,19 +1393,34 @@
                     <div class="connector-type">Data Connector</div>
                 </div>
 
-                <div class="instrument-card" data-manufacturer="sartorius" data-connector="data-connector" onclick="window.location.href='Sartorius-Quintix.html'" style="cursor: pointer;">
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/sartorius-entris-ii'" style="cursor: pointer;" data-manufacturer="sartorius">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976019/BCE223-1S-2T_2_rqheoi.png" alt="Sartorius Entris II">
+                    </div>
+                    <div class="instrument-name">Sartorius Entris II</div>
+                    <div class="connector-type">Data Connector</div>
+                </div>
+
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/sartorius-quintix'" style="cursor: pointer;" data-manufacturer="sartorius">
                     <div class="instrument-image">
                         <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1766534882/download_2_1_hbdtuv.png" alt="Sartorius Quintix">
                     </div>
                     <div class="instrument-name">Sartorius Quintix</div>
                     <div class="connector-type">Data Connector</div>
                 </div>
-            </div>
 
+                <div class="instrument-card" onclick="window.location.href='https://phizzle.com/sartorius-secura'" style="cursor: pointer;" data-manufacturer="sartorius">
+                    <div class="instrument-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1765976023/download_5_gunngw.png" alt="Sartorius Secura">
+                    </div>
+                    <div class="instrument-name">Sartorius Secura</div>
+                    <div class="connector-type">Data Connector</div>
+                </div>
+            </div>
             <div class="cta-section">
                 <div class="cta-content">
                     <h3 class="cta-title">Not Seeing One of Your Balances?</h3>
-                    <p class="cta-text">Have a specific balance you'd like to see supported? Let us know, we'll investigate the feasibility and provide a timeline.</p>
+                    <p class="cta-text">Have a specific balance you'd like to see supported? Please let us know, we'll investigate the feasibility and provide a timeline.</p>
                     <a href="instrument-request.html" class="cta-button">Instrument Request</a>
                 </div>
             </div>
@@ -1574,7 +1572,7 @@
                 cards.forEach(card => {
                     const instrumentName = card.querySelector('.instrument-name').textContent.toLowerCase();
                     if (instrumentName.includes(searchTerm) || searchTerm === '') {
-                        card.style.display = 'flex';
+                        card.style.display = 'block';
                     } else {
                         card.style.display = 'none';
                     }
@@ -1587,7 +1585,7 @@
                     option.classList.remove('selected');
                 });
                 document.querySelectorAll('.instrument-card').forEach(card => {
-                    card.style.display = 'flex';
+                    card.style.display = 'block';
                 });
             }
             
@@ -1641,29 +1639,43 @@
                     const cards = document.querySelectorAll('.instrument-card');
                     
                     if (selectedFilters.length === 0) {
-                        cards.forEach(card => card.style.display = 'flex');
+                        cards.forEach(card => card.style.display = 'block');
                     } else {
+                        // Separate manufacturer and connector type filters
                         const selectedManufacturers = [];
-                        const selectedConnectors = [];
+                        const selectedConnectorTypes = [];
                         
                         selectedFilters.forEach(filter => {
                             const filterValue = filter.getAttribute('data-filter');
                             if (filterValue === 'mettler-toledo' || filterValue === 'sartorius') {
                                 selectedManufacturers.push(filterValue);
                             } else if (filterValue === 'data-connector' || filterValue === 'connector-plus') {
-                                selectedConnectors.push(filterValue);
+                                selectedConnectorTypes.push(filterValue);
                             }
                         });
                         
                         cards.forEach(card => {
-                            const cardManufacturer = card.getAttribute('data-manufacturer');
-                            const cardConnector = card.getAttribute('data-connector');
+                            const instrumentName = card.querySelector('.instrument-name').textContent.toLowerCase();
+                            const connectorType = card.querySelector('.connector-type') ? 
+                                card.querySelector('.connector-type').textContent.toLowerCase() : '';
                             
-                            let matchManufacturer = selectedManufacturers.length === 0 || selectedManufacturers.includes(cardManufacturer);
-                            let matchConnector = selectedConnectors.length === 0 || selectedConnectors.includes(cardConnector);
+                            // Check manufacturer match (OR within manufacturers)
+                            let matchManufacturer = selectedManufacturers.length === 0 || 
+                                selectedManufacturers.some(mfr => {
+                                    return card.getAttribute('data-manufacturer') === mfr;
+                                });
                             
-                            if (matchManufacturer && matchConnector) {
-                                card.style.display = 'flex';
+                            // Check connector type match (OR within connector types)
+                            let matchConnectorType = selectedConnectorTypes.length === 0 || 
+                                selectedConnectorTypes.some(type => {
+                                    if (type === 'data-connector') return connectorType.includes('data connector');
+                                    if (type === 'connector-plus') return connectorType.includes('connector plus');
+                                    return false;
+                                });
+                            
+                            // Show card only if BOTH conditions match (AND logic between filter groups)
+                            if (matchManufacturer && matchConnectorType) {
+                                card.style.display = 'block';
                             } else {
                                 card.style.display = 'none';
                             }
@@ -1733,6 +1745,7 @@
                     });
                 });
             });
+        });
         });
     </script>
 </body>
