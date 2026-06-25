@@ -494,16 +494,14 @@
             background: #30444d;
         }
 
-        .download-fallback {
+        .form-confirmation {
             display: none;
             margin-top: 0.75rem;
             font-size: 0.9rem;
+            line-height: 1.5;
+            color: #30444d;
+            font-weight: 500;
             text-align: center;
-        }
-
-        .download-fallback a {
-            color: #436c79;
-            font-weight: 600;
         }
 
         /* Footer Section */
@@ -1178,11 +1176,10 @@
                             <label for="marketing" class="checkbox-label">I agree to receive other communications from Phizzle.</label>
                         </div>
                         
-                        <button type="submit" class="submit-btn">Download the Brochure</button>
+                        <button type="submit" class="submit-btn">Get the Brochure</button>
 
-                        <p class="download-fallback" id="download-fallback">
-                            Your download didn't start automatically?
-                            <a href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1781544236/CEC-Brochure-4_Off-the-Network-compressed_ztiuty.pdf" target="_blank" rel="noopener">Click here to open the brochure.</a>
+                        <p class="form-confirmation" id="form-confirmation">
+                            Thanks! Check your inbox — we just emailed you the brochure. (Be sure to check spam if you don't see it within a few minutes.)
                         </p>
                     </form>
                 </div>
@@ -1276,9 +1273,6 @@
     </footer>
 
     <script>
-        // URL of the gated brochure PDF
-        const BROCHURE_URL = 'https://res.cloudinary.com/dqiggfeuq/image/upload/v1781544236/CEC-Brochure-4_Off-the-Network-compressed_ztiuty.pdf';
-
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             const overlay = document.getElementById('mobileMenuOverlay');
@@ -1338,7 +1332,7 @@
             const jobtitle = e.target.querySelector('input[name="jobtitle"]').value;
             const marketing = e.target.querySelector('input[name="marketing"]').checked;
             const submitBtn = e.target.querySelector('button[type="submit"]');
-            const fallback = document.getElementById('download-fallback');
+            const confirmation = document.getElementById('form-confirmation');
             
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
@@ -1354,7 +1348,7 @@
                         body: JSON.stringify({
                             recaptchaToken: token,
                             formData: {
-                                formId: '26112bd5-11ed-44b1-b3e7-952de8507e89',
+                                formId: '5784e16a-458f-4bd7-a06b-af63c2060c32',
                                 fields: [
                                     { name: "firstname", value: firstname },
                                     { name: "lastname", value: lastname },
@@ -1366,21 +1360,20 @@
                                 ],
                                 context: {
                                     pageUri: window.location.href,
-                                    pageName: "Off the Network, Still Connected"
+                                    pageName: "IT White Paper Request"
                                 }
                             }
                         })
                     })
                     .then(response => response.json())
                     .then(data => {
-                        // Open the brochure PDF for the lead
-                        window.open(BROCHURE_URL, '_blank');
-                        fallback.style.display = 'block';
+                        // Show inbox confirmation; brochure is delivered via HubSpot email automation
+                        confirmation.style.display = 'block';
 
-                        submitBtn.textContent = 'Thank You!';
+                        submitBtn.textContent = 'Sent!';
                         e.target.reset();
                         setTimeout(() => {
-                            submitBtn.textContent = 'Download the Brochure';
+                            submitBtn.textContent = 'Get the Brochure';
                             submitBtn.disabled = false;
                         }, 3000);
                     })
