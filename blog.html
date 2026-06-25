@@ -40,6 +40,7 @@
         }
 
         body {
+            background: #ffffff;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
@@ -331,7 +332,7 @@
         /* Main Content */
         .main-content {
             background: #ffffff;
-            padding: 4rem 0;
+            padding: 4rem 0 0;
         }
 
         .content-container {
@@ -766,6 +767,58 @@
         }
 
         .grecaptcha-badge { visibility: hidden; }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 2rem 0 4rem;
+            background: #ffffff;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+
+        .pagination-current {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #436c79;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 6px;
+        }
+
+        .pagination-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            height: 40px;
+            padding: 0 0.75rem;
+            background: #f8fafc;
+            color: #374151;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            text-decoration: none;
+            border: 1px solid #e2e8f0;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .pagination-btn:hover {
+            background: #436c79;
+            color: #ffffff;
+            border-color: #436c79;
+        }
+
+        .pagination-next {
+            padding: 0 1rem;
+        }
     </style>
 </head>
 <body>
@@ -924,13 +977,13 @@
             <!-- Featured Post — NEW latest post -->
             <section class="featured-post">
                 <div class="featured-image">
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1781558572/iStock-2167551918_1_tefoce.jpg" alt="A Validation Engineer's Practical Guide to Evaluating Automated Instrument Data Capture">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1782406877/Clinical-Trials-in-Action_jsbiwr.jpg" alt="The Audit Trail Problem in Hospital Research Labs: What GCP Actually Requires From Your Instrument Data">
                 </div>
                 <div class="featured-content">
                     <div class="post-label">Latest</div>
-                    <h2>A Validation Engineer's Practical Guide to Evaluating Automated Instrument Data Capture</h2>
-                    <p>The evaluation criteria that matter most for automated instrument data capture in regulated environments — from a validation perspective.</p>
-                    <a href="blog-21.html" class="read-post-btn">Read Post</a>
+                    <h2>The Audit Trail Problem in Hospital Research Labs: What GCP Actually Requires From Your Instrument Data</h2>
+                    <p>ALCOA applies to clinical trial instrument data. Most hospital research labs have workflows that cannot meet it.</p>
+                    <a href="blog-25.html" class="read-post-btn">Read Post</a>
                 </div>
             </section>
 
@@ -939,6 +992,46 @@
                 <h2>Explore All</h2>
                 
                 <div class="blog-grid">
+
+                    <!-- blog-24: Clinical Research Labs Data Integrity -->
+                    <div class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1782404999/iStock-506712124_svpj0c.jpg" alt="Why Clinical Research Labs Have the Same Data Integrity Problem as Pharma">
+                        </div>
+                        <div class="blog-card-content">
+                            <h3><a href="blog-24.html">Why Clinical Research Labs Have the Same Data Integrity Problem as Pharma — and Less Infrastructure to Fix It</a></h3>
+                        </div>
+                    </div>
+
+                    <!-- blog-23: Particle Counter Cleanroom Compliance -->
+                    <div class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1780961547/907985_7cfdae1819e649a99963fc5c96d012e4_mv2_gzn6fk.avif" alt="Particle Counter Data and the Cleanroom Compliance Gap Nobody Talks About">
+                        </div>
+                        <div class="blog-card-content">
+                            <h3><a href="blog-23.html">Particle Counter Data and the Cleanroom Compliance Gap Nobody Talks About</a></h3>
+                        </div>
+                    </div>
+
+                    <!-- blog-22: Batch Release Is Slow Because Data Is Slow -->
+                    <div class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1782404247/hand-touching-a-virtual-checklist_aql1p8.jpg" alt="Batch Release Is Slow Because Data Is Slow: The Upstream Problem Pharma Manufacturers Miss">
+                        </div>
+                        <div class="blog-card-content">
+                            <h3><a href="blog-22.html">Batch Release Is Slow Because Data Is Slow: The Upstream Problem Pharma Manufacturers Miss</a></h3>
+                        </div>
+                    </div>
+
+                    <!-- blog-21: Validation Engineer's Guide -->
+                    <div class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1781558572/iStock-2167551918_1_tefoce.jpg" alt="A Validation Engineer's Practical Guide to Evaluating Automated Instrument Data Capture">
+                        </div>
+                        <div class="blog-card-content">
+                            <h3><a href="blog-21.html">A Validation Engineer's Practical Guide to Evaluating Automated Instrument Data Capture</a></h3>
+                        </div>
+                    </div>
 
                     <!-- blog-20: What Quality Directors Wish IT Understood -->
                     <div class="blog-card">
@@ -980,171 +1073,16 @@
                         </div>
                     </div>
 
-                    <!-- blog-16: Beyond Labor Savings -->
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1779816351/iStock-2167552113_zpnrgr.jpg" alt="Beyond Labor Savings: The Real ROI of Instrument Connectivity in Pharma Manufacturing">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-16.html">Beyond Labor Savings: The Real ROI of Instrument Connectivity in Pharma Manufacturing</a></h3>
-                        </div>
-                    </div>
-
-                    <!-- blog-15: LIMS Validated but Data Capture Not -->
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1779816349/iStock-1309776504_ynm8n8.jpg" alt="When Your LIMS Is Validated but Your Data Capture Is Not">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-15.html">When Your LIMS Is Validated but Your Data Capture Is Not: The Compliance Gap Nobody Budgets For</a></h3>
-                        </div>
-                    </div>
-
-                    <!-- blog-14: True Cost of a 483 Observation -->
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1779816356/iStock-1219894397_nf45oc.jpg" alt="The True Cost of a 483 Observation: How Instrument Data Gaps Drive Audit Findings">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-14.html">The True Cost of a 483 Observation: How Instrument Data Gaps Drive Audit Findings</a></h3>
-                        </div>
-                    </div>
-
-                    <!-- blog-13: Validation by Design -->
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1776809376/iStock-2189603559_oajaaz.jpg" alt="Validation by Design: Why Data Integrity Cannot Be Audited In After the Fact">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-13.html">Validation by Design: Why Data Integrity Cannot Be Audited In After the Fact</a></h3>
-                        </div>
-                    </div>
-
-                    <!-- blog-12: Beyond LIMS Validation -->
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1776809372/iStock-1569226423_uciryl.jpg" alt="Beyond LIMS Validation: Why ALCOA+ Starts at Your Instrument">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-12.html">Beyond LIMS Validation: Why ALCOA+ Starts at Your Instrument</a></h3>
-                        </div>
-                    </div>
-
-                    <!-- blog-11: Cleanroom Environmental Monitoring -->
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/q_auto/f_auto/v1775502831/iStock-2216509183_nvgrbc.jpg" alt="How Cleanroom Environmental Monitoring Data Gets Lost Before It Reaches Your LIMS">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-11.html">How Cleanroom Environmental Monitoring Data Gets Lost Before It Reaches Your LIMS</a></h3>
-                        </div>
-                    </div>
-
-                    <!-- blog-10: QA Bottleneck -->
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1774968903/iStock-2036497686_1_lhribq.jpg" alt="The QA Bottleneck Nobody Talks About: How Batch Record Review Delays Cost Pharma Manufacturers">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-10.html">The QA Bottleneck Nobody Talks About: How Batch Record Review Delays Cost Pharma Manufacturers</a></h3>
-                        </div>
-                    </div>
-
-                    <!-- blog-9: FDA Audit Trails -->
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1774968475/iStock-1293773557_isvltl.jpg" alt="Why Paper Audit Trails Fail FDA Inspections">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-9.html">Why Paper Audit Trails Fail FDA Inspections (And What a Complete One Looks Like)</a></h3>
-                        </div>
-                    </div>
-
-                    <!-- blog-8: Hidden Cost of Disconnected Instruments -->
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1774380640/iStock-899692870_d7xczx.jpg" alt="The Hidden Cost of Disconnected Instruments in Pharma Manufacturing">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-8.html">The Hidden Cost of Disconnected Instruments in Pharma Manufacturing</a></h3>
-                        </div>
-                    </div>
-
-                    <!-- Previously featured post now moves into the grid -->
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1773854153/iStock-1283845706_lrpx9q.jpg" alt="Manual transcription data integrity risk in regulated pharmaceutical manufacturing">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-why-manual-transcription-is-your-biggest-data-integrity-risk-in-regulated-manufacturing.html">Why Manual Transcription Is Your Biggest Data Integrity Risk in Regulated Manufacturing</a></h3>
-                        </div>
-                    </div>
-
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081547/videos-feature_yjz496.png" alt="Edge Puck GMP Instrument Connectivity">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-7.html">How the Edge Puck™ Solves Multi-Vendor Instrument Connectivity in GMP Environments</a></h3>
-                        </div>
-                    </div>
-
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081558/blog-1_oq7j0z.png" alt="AI Brain Integration">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-6.html">Integrating LIMS into Your Operation? Here's what you need to know...</a></h3>
-                        </div>
-                    </div>
-                    
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081559/blog-2_wrdzuw.png" alt="Software Defined Infrastructure">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-5.html">What is Software-Defined Everything?</a></h3>
-                        </div>
-                    </div>
-                    
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081559/blog-3_hsj0b1.png" alt="Air Particle Counter in Cleanroom">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="apc-case-study.html">How a Top-3 Global Pharma Manufacturer Eliminated 80% of APC Related Failure Reports</a></h3>
-                        </div>
-                    </div>
-                    
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081557/blog-4_ppdgkr.png" alt="Remote Laboratory Operations">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-3.html">How Remotely Operating Air Particle Counters and Automating Data Collection Cuts Manufacturing Costs and Increases Lab Tech Productivity</a></h3>
-                        </div>
-                    </div>
-                    
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081558/blog-5_kdfpvt.png" alt="AI Potential Visualization">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-2.html">Unlocking AI Potential: Modernizing Air Particle Counter Workflows for the Future</a></h3>
-                        </div>
-                    </div>
-                    
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081556/blog-6_juub8b.png" alt="LIMS Integration Network">
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-1.html">Pros and Cons of Integrating LIMS</a></h3>
-                        </div>
-                    </div>
-
                 </div>
             </section>
+
+
+        <nav class="pagination">
+                <span class="pagination-current">1</span>
+                <a href="blog-page-2.html" class="pagination-btn">2</a>
+                <a href="blog-page-3.html" class="pagination-btn">3</a>
+                <a href="blog-page-2.html" class="pagination-btn pagination-next">Next →</a>
+            </nav>
         </div>
     </main>
 
