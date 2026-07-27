@@ -1140,6 +1140,21 @@
                             <input type="email" id="email" name="email" placeholder="Work email" required>
                         </div>
                         
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Phone number">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" placeholder="Company name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="jobtitle">Job Title</label>
+                            <input type="text" id="jobtitle" name="jobtitle" placeholder="Job title" required>
+                        </div>
+                        
                         <div class="checkbox-group">
                             <input type="checkbox" id="marketing" name="marketing" value="yes">
                             <label for="marketing" class="checkbox-label">I agree to receive email updates.</label>
@@ -1299,6 +1314,9 @@
             
             const name = e.target.querySelector('input[name="name"]').value;
             const email = e.target.querySelector('input[name="email"]').value;
+            const phone = e.target.querySelector('input[name="phone"]').value;
+            const company = e.target.querySelector('input[name="company"]').value;
+            const jobtitle = e.target.querySelector('input[name="jobtitle"]').value;
             const marketing = e.target.querySelector('input[name="marketing"]').checked;
             const submitBtn = e.target.querySelector('button[type="submit"]');
             
@@ -1321,6 +1339,9 @@
                                     { name: "firstname", value: name.split(' ')[0] },
                                     { name: "lastname", value: name.split(' ').slice(1).join(' ') || '' },
                                     { name: "email", value: email },
+                                    { name: "phone", value: phone },
+                                    { name: "company", value: company },
+                                    { name: "jobtitle", value: jobtitle },
                                     { name: "hs_lead_status", value: "NEW" },
                                     { name: "lifecyclestage", value: "lead" }
                                 ],
