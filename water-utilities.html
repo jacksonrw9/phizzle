@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optical Profilometer Connectors</title>
+    <meta name="description" content="Connected Plant™ for Water and Utilities automates audit-ready data capture from analyzers, meters, and sensors directly to LIMS or reporting systems. Defensible records supporting SDWA, CWA, and EPA reporting.">
+    <title>Water and Utilities - Phizzle</title>
 
     <!-- Favicon links -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
@@ -20,7 +21,7 @@
     </script>
 
     <!-- Start of HubSpot Embed Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/8070371.js"></script>
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/8070371.js"></script>
     <!-- End of HubSpot Embed Code -->
 
     <!-- Configure HubSpot to ignore our custom forms -->
@@ -31,20 +32,9 @@
     // Tell HubSpot to NOT track form submissions
     window._hsq.push(['disableFormAutoCollect']);
     </script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2d3748;
-            --accent-color: #da5e26;
-            --light-gray: #f7fafc;
-            --medium-gray: #e2e8f0;
-            --text-color: #2d3748;
-            --hover-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -53,10 +43,8 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            color: var(--text-color);
             line-height: 1.6;
-            min-height: 100vh;
+            color: #333;
         }
 
         /* Navigation */
@@ -342,425 +330,442 @@
             transform: rotate(180deg);
         }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #436c79;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 12px 0;
-            transition: color 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: #da5e26;
-        }
-
-        .back-link svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Section */
-        .header {
-            text-align: left;
-            padding: 40px 0 30px;
-            background: white;
-            color: var(--text-color);
-            border-bottom: 1px solid var(--medium-gray);
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .header h1 {
-            font-family: 'Inter', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: -0.02em;
-            color: #436c79;
-        }
-
-        .header .subtitle {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: var(--secondary-color);
-            max-width: 600px;
-            margin-bottom: 30px;
-        }
-
-        /* Search Section */
-        .search-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            justify-content: flex-start;
-        }
-
-        .search-bar {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        #searchInput {
-            width: 300px;
-            padding: 12px 16px;
-            border: 2px solid var(--medium-gray);
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-family: 'Inter', sans-serif;
-            transition: var(--transition);
-            height: 48px;
-            box-sizing: border-box;
-        }
-
-        #searchInput:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(237, 137, 54, 0.1);
-        }
-
-        .search-btn {
-            padding: 12px 16px;
-            background: var(--accent-color);
-            color: white;
-            border: 2px solid var(--accent-color);
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 0.9rem;
-            height: 48px;
-            box-sizing: border-box;
-        }
-
-        .search-btn:hover {
-            background: #b45309;
-            transform: translateY(-1px);
-        }
-
-        /* Filter Buttons */
-        .filter-buttons {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            flex-wrap: nowrap;
-        }
-
-        .filter-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .filter-dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .filter-dropdown:hover .filter-btn {
-            border-color: var(--accent-color);
-            background: rgba(237, 137, 54, 0.05);
-        }
-
-        .filter-btn {
-            padding: 12px 16px;
-            background: white;
-            border: 2px solid var(--medium-gray);
-            border-radius: 8px;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
-            height: 48px;
-            box-sizing: border-box;
-        }
-
-        .filter-btn:hover {
-            border-color: var(--accent-color);
-            background: rgba(237, 137, 54, 0.05);
-        }
-
-        .arrow {
-            font-size: 0.8rem;
-            transition: var(--transition);
-        }
-
-        .filter-dropdown:hover .arrow {
-            transform: rotate(180deg);
-        }
-
-        /* Dropdown Content */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border: 2px solid var(--medium-gray);
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            z-index: 1000;
-            max-height: 300px;
-            overflow-y: auto;
-            padding-top: 5px;
-        }
-
-        .dropdown-content::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 0;
-            right: 0;
-            height: 10px;
-            background: transparent;
-        }
-
-        .filter-option {
-            padding: 12px 16px;
-            cursor: pointer;
-            transition: var(--transition);
-            border-bottom: 1px solid #f1f1f1;
-            border-left: 3px solid transparent;
-        }
-
-        .filter-option:last-child {
-            border-bottom: none;
-        }
-
-        .filter-option:hover {
-            background: var(--light-gray);
-            border-left-color: #436c79;
-            color: #436c79;
-        }
-
-        .filter-option.selected {
-            background: rgba(237, 137, 54, 0.1);
-            color: var(--accent-color);
-            font-weight: 500;
-            border-left-color: var(--accent-color);
-        }
-
-        /* Clear Filters Button */
-        .clear-filters-btn {
-            padding: 12px 16px;
-            background: var(--secondary-color);
-            color: white;
-            border: 2px solid var(--secondary-color);
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: var(--transition);
-            white-space: nowrap;
-            height: 48px;
-            box-sizing: border-box;
-        }
-
-        .clear-filters-btn:hover {
-            background: #1a202c;
-            transform: translateY(-1px);
-        }
-
         /* Main Content */
         .main-content {
-            padding: 40px 0;
+            background: #ffffff;
+            padding: 4rem 0;
         }
 
-        .section-title {
-            font-family: 'Inter', sans-serif;
-            font-size: 2rem;
-            font-weight: 600;
-            color: #436c79;
-            margin-bottom: 40px;
-            text-align: left;
+        .content-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        /* Instruments Grid */
-        .instruments-grid {
+        /* Hero Section */
+        .hero-section {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-            margin-bottom: 60px;
-        }
-
-        .instrument-card {
-            background: white;
-            border-radius: 16px;
-            padding: 25px 15px;
-            text-align: center;
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            min-height: 160px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
+            margin-bottom: 5rem;
         }
 
-        .instrument-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .request-demo-btn {
+            display: inline-block;
+            background: #da5e26;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background 0.3s ease;
+            min-height: 44px;
+        }
+
+        .request-demo-btn:hover {
+            background: #b45309;
+        }
+
+        .hero-image {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(237, 137, 54, 0.1), transparent);
-            transition: var(--transition);
-        }
-
-        .instrument-card:hover::before {
-            left: 100%;
-        }
-
-        .instrument-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .instrument-image {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 15px;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
+            height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .instrument-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: var(--transition);
-        }
-
-        .instrument-card:hover .instrument-image img {
-            transform: scale(1.05);
-        }
-
-        .instrument-name {
-            font-weight: 600;
-            font-size: 1rem;
-            color: #436c79;
-            margin-bottom: 4px;
-            line-height: 1.3;
-        }
-
-        .connector-type {
-            font-size: 0.85rem;
-            color: #64748b;
-            font-weight: 400;
-        }
-
-        /* Call to Action Section */
-        .cta-section {
-            background: white;
-            padding: 50px 30px;
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             border-radius: 20px;
+        }
+
+        /* Connection Features Section */
+        .connection-section {
+            background: #e1ebee;
+            padding: 4rem 0;
+            margin: 5rem -2rem;
+            border-radius: 20px;
+        }
+
+        .connection-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .connection-header {
             text-align: center;
-            margin-top: 60px;
+            margin-bottom: 3rem;
+        }
+
+        .connection-header h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .connection-features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        /* Timeline Styles */
+        .timeline-step {
+            display: grid;
+            grid-template-columns: 1fr 40px 1.8fr;
+            gap: 0;
+            position: relative;
+            min-height: 70vh;
+            align-items: start;
+            padding: 3rem 0;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .timeline-label {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            padding-right: 3rem;
+            padding-top: 1rem;
+        }
+
+        .step-text {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #c8d3d7;
+            text-transform: none;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+            margin-bottom: 0;
+            transition: color 0.4s ease;
+            line-height: 1.2;
+        }
+
+        .step-text.active {
+            color: #1f2937;
+        }
+
+        .timeline-track {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            background: #c8d3d7;
+            border-radius: 50%;
+            border: none;
+            box-shadow: none;
+            z-index: 2;
+            flex-shrink: 0;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .timeline-dot.active {
+            background: #1f2937;
+            box-shadow: none;
+        }
+
+        .timeline-line {
+            width: 2px;
+            flex-grow: 1;
+            background: #c8d3d7;
+            margin-top: 0;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(237, 137, 54, 0.05) 0%, transparent 70%);
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
-        .cta-content {
-            position: relative;
-        }
-
-        .cta-title {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #436c79;
-            margin-bottom: 16px;
-        }
-
-        .cta-text {
-            color: var(--secondary-color);
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #da5e26;
-            color: white;
-            padding: 16px 32px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(218, 94, 38, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
+        .timeline-line::after {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: #1f2937;
+        }
+
+        .timeline-content {
+            padding-left: 3rem;
+        }
+
+        .connection-feature {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            border: 1px solid #e2e8f0;
+            border-left: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .feature-icon-top {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .feature-icon-top img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .feature-content p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .learn-more-link {
+            display: inline-block;
+            background: #436c79;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background 0.3s ease;
+            min-height: 44px;
+        }
+
+        .learn-more-link:hover {
+            background: #30444d;
+            color: white;
+        }
+
+        .feature-icon {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #436c79;
+            font-size: 2rem;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .feature-icon img {
+            width: 50%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            margin: 5rem 0;
+        }
+
+        .benefits-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .benefits-header h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-content {
+            border-left: 4px solid #436c79;
+            padding-left: 2rem;
+        }
+
+        .benefit-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-content p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .benefit-image {
+            width: 350px;
+            height: 230px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 1rem;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .benefit-image img {
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: var(--transition);
+            object-fit: cover;
+            border-radius: 20px;
+            border: none;
+            box-shadow: none;
         }
 
-        .cta-button:hover::before {
-            left: 100%;
+        .benefit-pair {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+            margin-bottom: 3.75rem;
+            align-items: center;
+            padding-bottom: 2.25rem;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(218, 94, 38, 0.4);
-            background: #b45309;
+        .benefit-pair:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .benefit-pair .benefit-image {
+            order: 1;
+        }
+
+        .benefit-pair .benefit-content {
+            order: 2;
+        }
+
+        /* Built for Teams Section */
+        .built-for-teams-section {
+            background: #e1ebee;
+            padding: 4rem 2rem;
+            margin: 0 -2rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .built-for-teams-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .built-for-teams-container h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+
+        .built-for-teams-container p {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        /* Case Study Section */
+        .case-study-section {
+            background: #ffffff;
+            padding: 3rem 0;
+            margin: 5rem -2rem 0;
+            text-align: center;
+        }
+
+        .case-study-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .case-study-bubble {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .case-study-bubble h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .case-study-bubble p {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .case-study-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #436c79;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            min-height: 44px;
+        }
+
+        .case-study-btn:hover {
+            background: #30444d;
         }
 
         /* Footer Section */
@@ -939,7 +944,7 @@
             border-color: #ffffff;
             color: #ffffff;
         }
-
+        
         .social-link.youtube:hover {
             background: #ff0000;
             color: #ffffff;
@@ -979,53 +984,132 @@
             color: #94a3b8;
         }
 
-        /* Nav Responsive */
+        /* Enhanced Navigation with Progressive Breakpoints */
+        
         @media (max-width: 1600px) {
             .nav-container {
                 padding: 0 1.5rem;
             }
         }
-        
+
         @media (max-width: 1500px) and (min-width: 1351px) {
-            .nav-links { gap: 2rem; }
-            .nav-links a { font-size: 0.9rem; }
+            .nav-links {
+                gap: 2rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 1350px) and (min-width: 1301px) {
-            .nav-links { gap: 1.8rem; }
-            .nav-links a { font-size: 0.9rem; letter-spacing: 0.4px; }
-            .request-demo { padding: 0.45rem 0.9rem !important; font-size: 0.75rem !important; }
+            .nav-links {
+                gap: 1.8rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+                letter-spacing: 0.4px;
+            }
+
+            .request-demo {
+                padding: 0.45rem 0.9rem !important;
+                font-size: 0.75rem !important;
+            }
         }
 
         @media (max-width: 1300px) and (min-width: 1201px) {
-            .nav-links { gap: 1.6rem; }
-            .nav-links a { font-size: 0.87rem; letter-spacing: 0.35px; }
-            .request-demo { padding: 0.42rem 0.85rem !important; font-size: 0.72rem !important; }
+            .nav-links {
+                gap: 1.6rem;
+            }
+
+            .nav-links a {
+                font-size: 0.87rem;
+                letter-spacing: 0.35px;
+            }
+
+            .request-demo {
+                padding: 0.42rem 0.85rem !important;
+                font-size: 0.72rem !important;
+            }
         }
 
         @media (max-width: 1200px) and (min-width: 1101px) {
-            .nav-links { gap: 1.4rem; }
-            .nav-links a { font-size: 0.84rem; letter-spacing: 0.3px; }
-            .request-demo { padding: 0.4rem 0.8rem !important; font-size: 0.7rem !important; }
-            .logo { font-size: 1.9rem; }
-            .logo img { height: 30px; }
+            .nav-links {
+                gap: 1.4rem;
+            }
+
+            .nav-links a {
+                font-size: 0.84rem;
+                letter-spacing: 0.3px;
+            }
+
+            .request-demo {
+                padding: 0.4rem 0.8rem !important;
+                font-size: 0.7rem !important;
+            }
+
+            .logo {
+                font-size: 1.9rem;
+            }
+
+            .logo img {
+                height: 30px;
+            }
         }
 
         @media (max-width: 1100px) and (min-width: 1026px) {
-            .nav-links { gap: 1.2rem; }
-            .nav-links a { font-size: 0.8rem; letter-spacing: 0.2px; padding: 0.4rem 0; }
-            .request-demo { padding: 0.35rem 0.7rem !important; font-size: 0.65rem !important; letter-spacing: 0.2px !important; }
-            .logo { font-size: 1.8rem; }
-            .logo img { height: 28px; }
-            .dropdown { min-width: 200px; padding: 0.7rem 0; }
-            .dropdown a { padding: 0.5rem 1rem; font-size: 0.8rem; }
+            .nav-links {
+                gap: 1.2rem;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+                letter-spacing: 0.2px;
+                padding: 0.4rem 0;
+            }
+
+            .request-demo {
+                padding: 0.35rem 0.7rem !important;
+                font-size: 0.65rem !important;
+                letter-spacing: 0.2px !important;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .logo img {
+                height: 28px;
+            }
+
+            .dropdown {
+                min-width: 200px;
+                padding: 0.7rem 0;
+            }
+
+            .dropdown a {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
         }
 
         @media (max-width: 1025px) {
-            .nav-links { display: none; }
-            .mobile-menu-toggle { display: block; }
-            .logo { font-size: 1.6rem; }
-            .logo img { height: 24px; }
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            .logo img {
+                height: 24px;
+            }
 
             .footer-content {
                 grid-template-columns: 1fr 1fr;
@@ -1040,89 +1124,46 @@
                 grid-column: 1 / -1;
                 margin-top: 2rem;
             }
+
+            .hero-section, .benefit-pair {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .connection-feature {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .timeline-step {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding: 1.5rem 0;
+            }
+
+            .timeline-label {
+                justify-content: flex-start;
+                padding-right: 0;
+                padding-top: 0;
+                margin-bottom: 1rem;
+            }
+
+            .timeline-track {
+                display: none;
+            }
+
+            .timeline-content {
+                padding-left: 0;
+            }
+
+            .step-text {
+                font-size: 1.8rem;
+            }
         }
 
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .search-section {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            
-            #searchInput {
-                width: 250px;
-            }
-            
-            .filter-btn {
-                font-size: 0.85rem;
-                padding: 10px 12px;
-            }
-            
-            .instruments-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
         @media (max-width: 768px) {
-            .header {
-                text-align: left;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .search-section {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 15px;
-            }
-            
-            .search-bar {
-                width: 100%;
-            }
-            
-            #searchInput {
-                width: 100%;
-                flex: 1;
-            }
-            
-            .filter-buttons {
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            
-            .filter-btn {
-                min-width: 180px;
-                justify-content: center;
-                font-size: 0.8rem;
-                padding: 10px 12px;
-            }
-            
-            .clear-filters-btn {
-                width: 200px;
-                font-size: 0.9rem;
-            }
-            
-            .instruments-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-            
-            .instrument-card {
-                padding: 20px 15px;
-                min-height: 140px;
-            }
-            
-            .instrument-image {
-                width: 80px;
-                height: 80px;
-            }
-
-            .mobile-menu {
-                width: 80vw;
-                right: -80vw;
+            .nav-container {
+                padding: 0 1rem;
             }
 
             .footer-content {
@@ -1136,8 +1177,21 @@
                 gap: 1rem;
             }
 
-            .footer-bottom-links {
-                gap: 1rem;
+            .hero-content h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .hero-content p {
+                text-align: center;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .connection-header h2, .benefits-header h2 {
+                font-size: 1.8rem;
             }
 
             .social-link {
@@ -1145,20 +1199,36 @@
                 height: 44px;
                 font-size: 1.2rem;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .instruments-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .instrument-card {
-                min-height: 120px;
+
+            .case-study-bubble {
+                padding: 2rem;
+                margin: 0 1rem;
             }
 
-            .mobile-menu {
-                width: 100vw;
-                right: -100vw;
+            .case-study-bubble p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-container {
+                padding: 0 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .connection-header h2, .benefits-header h2 {
+                font-size: 1.6rem;
+            }
+
+            .case-study-bubble {
+                padding: 1.5rem;
+            }
+
+            .case-study-bubble p {
+                font-size: 1rem;
             }
         }
 
@@ -1320,71 +1390,150 @@
         </div>
     </nav>
 
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="Instrument-Connector-Library.html" class="back-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                    Back to the Complete Instrument Connector Library
-                </a>
-                <h1>Optical Profilometer Connectors</h1>
-                <p class="subtitle">Explore our Growing Library of Optical Profilometer Connectors</p>
-                
-                <div class="search-section">
-                    <div class="search-bar">
-                        <input type="text" id="searchInput" placeholder="Search by Instrument or Manufacturer" autocomplete="off">
-                        <button type="button" class="search-btn">Search</button>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>Connected Plant™ <br>for Water and Utilities</h1>
+                    <p>Automate audit-ready data capture and transfer from analyzers, meters, and sensors directly to your LIMS or reporting system. No manual transcription, USB drives, or paper printouts.<br><br>Instruments stay completely off the network. No endpoints to manage.<br><br>One onboarding process for every instrument regardless of vendor or type. Zero requalification. Zero ongoing maintenance. Defensible records that support SDWA, CWA, and EPA reporting by default.</p>
+                    <a href="request-demo.html" class="request-demo-btn">Request a Demo</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1786640491/Soil-Water-Plant-Fertility-Consultation-Analysis-Lab-California-Horticulture_fqcirs.jpg" alt="Water and Utilities"/>
+                </div>
+            </section>
+
+            <!-- Connection Features Section -->
+            <section class="connection-section">
+                <div class="connection-container">
+                    <div class="connection-header">
+                        <h2>Turn Scientific Instruments into Compliant, Automated Data Sources.</h2>
                     </div>
                     
-                    <div class="filter-buttons">
-                        <div class="filter-dropdown">
-                            <button class="filter-btn" id="connectorTypeBtn">
-                                Filter by Connector Type
-                                <span class="arrow">▼</span>
-                            </button>
-                            <div class="dropdown-content" id="connectorTypeDropdown">
-                                <div class="filter-option" data-filter="data-connector">Data Connector</div>
-                                <div class="filter-option" data-filter="connector-plus">Connector Plus</div>
+                    <div class="connection-features">
+                        <div class="timeline-step">
+                            <div class="timeline-label">
+                                <span class="step-text">Connect</span>
+                            </div>
+                            <div class="timeline-track">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-line"></div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="connection-feature">
+                                    <div class="feature-icon-top">
+                                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1787017624/703599_media__53683686_productimage_1_uif0hk.png" alt="Water Quality Instruments">
+                                    </div>
+                                    <div class="feature-content">
+                                        <h3>Built for the Instruments Your Facility Runs Every Day:</h3>
+                                        <p>Connect to turbidimeters, chlorine analyzers, pH meters, dissolved oxygen meters, spectrophotometers, conductivity meters, and other water quality instruments throughout your treatment facility, whether legacy or modern. Our solution supports USB, Serial, and Ethernet connections. There is only one instrument onboarding process for every instrument your team connects and no maintenance unless your instrumentation or network changes.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="filter-dropdown">
-                            <button class="filter-btn" id="manufacturerBtn">
-                                Filter by Manufacturer
-                                <span class="arrow">▼</span>
-                            </button>
-                            <div class="dropdown-content" id="manufacturerDropdown">
-                                <div class="filter-option" data-filter="zygo">Zygo</div>
+                        <div class="timeline-step">
+                            <div class="timeline-label">
+                                <span class="step-text">Automate</span>
+                            </div>
+                            <div class="timeline-track">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-line"></div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="connection-feature">
+                                    <div class="feature-icon-top">
+                                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1787016856/Screenshot_2026-08-17_at_6.34.10_PM_cxxheu.png" alt="Data Capture">
+                                    </div>
+                                    <div class="feature-content">
+                                        <h3>Automate Data Capture:</h3>
+                                        <p>Eliminate manual data handling by automating capture directly from the instrument. No more operator re-keying from displays. No handwritten logbook entries. No end-of-shift data entry into spreadsheets or LIMS.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
-                        <button class="clear-filters-btn">Clear All Filters</button>
+                        <div class="timeline-step">
+                            <div class="timeline-label">
+                                <span class="step-text">Integrate</span>
+                            </div>
+                            <div class="timeline-track">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-line"></div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="connection-feature">
+                                    <div class="feature-icon-top">
+                                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1787014614/wpf_037blurred-1024x679_ufcfjp.jpg" alt="Systems Integration">
+                                    </div>
+                                    <div class="feature-content">
+                                        <h3>Integrate with Your Existing Systems:</h3>
+                                        <p>Data flows directly to your LIMS, reporting system, or local storage. Encrypted in transit, verified with checksums at each stage. Phizzle builds and maintains every connector so integration never becomes your team's project.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </header>
+            </section>
 
-    <main class="main-content">
-        <div class="container">
-            <div class="instruments-grid" id="instrumentsGrid">
-                <div class="instrument-card" onclick="window.location.href='Zygo-NewView-7300.html'" style="cursor: pointer;" data-manufacturer="zygo">
-                    <div class="instrument-image">
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1778541929/Zygo_NewView_7300_xso31y.png" alt="Zygo NewView 7300">
+            <!-- Benefits Section -->
+            <section class="benefits-section">
+                <div class="benefits-header">
+                    <h2>Benefits of Connected Plant in Water and Utilities:</h2>
+                </div>
+                
+                <div class="benefit-pair">
+                    <div class="benefit-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1786654818/ISME-I-SYSTEM-IUNI-21-Water-Analyzers-Field-Mounted_olsfjh.webp" alt="Every Reading Every Shift"/>
                     </div>
-                    <div class="instrument-name">Zygo NewView 7300</div>
-                    <div class="connector-type">Data Connector</div>
+                    <div class="benefit-content">
+                        <h3>Capture Every Data Point on Autopilot</h3>
+                        <p>Online analyzers captured continuously, around the clock. Nights, weekends, holidays, short-staffed shifts. Bench instruments captured the moment the operator runs the sample. Coverage stops depending on headcount.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="cta-section">
-                <div class="cta-content">
-                    <h3 class="cta-title">Not Seeing One of Your Optical Profilometers?</h3>
-                    <p class="cta-text">Have a specific optical profilometer you'd like to see supported? Please let us know, we'll investigate the feasibility and provide a timeline.</p>
-                    <a href="instrument-request.html" class="cta-button">Instrument Request</a>
+                
+                <div class="benefit-pair">
+                    <div class="benefit-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1786654999/epa-inspector-1024x683_doyfiu.png" alt="Defensible Records"/>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Maintain Defensible, Audit Ready Records</h3>
+                        <p>Every reading is captured with instrument identity, timestamp, and measurement conditions the moment the instrument produces it. When an auditor asks for proof, the record answers. Audit-ready for SDWA, CWA, and EPA reporting by default.</p>
+                    </div>
                 </div>
-            </div>
+                
+                <div class="benefit-pair">
+                    <div class="benefit-image">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1781031562/openart-image_puck-logo-update_wnhsoo.png" alt="Off the Network Still Connected" style="object-position: 95% center;"/>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Eliminate Cybersecurity Risk from Integrated Instruments</h3>
+                        <p>We eliminate the cybersecurity risk because connected instruments never touch your network. The Edge Puck communicates outbound only, so your team keeps full visibility and control while nothing on the outside can discover or reach the equipment behind it. The Edge Puck is read-only, so no malware can persist.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Built for Teams Section -->
+            <section class="built-for-teams-section">
+                <div class="built-for-teams-container">
+                    <h2>Built for Teams Without Automation Budgets:</h2>
+                    <p>We handle deployment. Your team gets a short onboarding and that's it. No custom development, no per-device configuration, no requalification. The same process works for every instrument in your facility, and nothing requires maintenance after go-live.</p>
+                </div>
+            </section>
+
+            <!-- Request a Demo Section -->
+            <section class="case-study-section">
+                <div class="case-study-container">
+                    <div class="case-study-bubble">
+                        <h3>Request a Demo</h3>
+                        <p>Want to learn more about how Phizzle securely streamlines data workflows? Request a demo and a member of our technical team will walk you through a live demo and answer any questions you may have.</p>
+                        <a href="request-demo.html" class="case-study-btn">Request a Demo</a>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
@@ -1474,7 +1623,66 @@
     </footer>
 
     <script>
-        // Mobile menu functions
+        // Timeline scroll animation
+        function animateTimeline() {
+            const steps = document.querySelectorAll('.timeline-step');
+            
+            steps.forEach((step) => {
+                const dot = step.querySelector('.timeline-dot');
+                const line = step.querySelector('.timeline-line');
+                const label = step.querySelector('.step-text');
+                const rect = step.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Activate dot and label when step enters viewport
+                const triggerPoint = windowHeight * 0.75;
+                
+                if (rect.top < triggerPoint) {
+                    dot.classList.add('active');
+                    label.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                    label.classList.remove('active');
+                }
+                
+                // Animate line fill based on scroll position through the step
+                if (line) {
+                    const lineRect = line.getBoundingClientRect();
+                    const lineTop = lineRect.top;
+                    const lineHeight = lineRect.height;
+                    const scrolledPast = triggerPoint - lineTop;
+                    const progress = Math.max(0, Math.min(1, scrolledPast / lineHeight));
+                    
+                    line.style.setProperty('--line-progress', (progress * 100) + '%');
+                    const afterEl = line.querySelector('::after') || line;
+                    line.style.cssText = '';
+                    requestAnimationFrame(() => {
+                        const pseudoStyle = document.querySelector('#timeline-line-style');
+                        if (!pseudoStyle) {
+                            const style = document.createElement('style');
+                            style.id = 'timeline-line-style';
+                            document.head.appendChild(style);
+                        }
+                        // Update all lines
+                        let css = '';
+                        steps.forEach((s, i) => {
+                            const l = s.querySelector('.timeline-line');
+                            if (l) {
+                                const lRect = l.getBoundingClientRect();
+                                const lScrolled = triggerPoint - lRect.top;
+                                const lProgress = Math.max(0, Math.min(1, lScrolled / lRect.height));
+                                css += `.timeline-step:nth-child(${i + 1}) .timeline-line::after { height: ${lProgress * 100}%; }\n`;
+                            }
+                        });
+                        document.querySelector('#timeline-line-style').textContent = css;
+                    });
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateTimeline, { passive: true });
+        window.addEventListener('load', animateTimeline);
+
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             const overlay = document.getElementById('mobileMenuOverlay');
@@ -1510,7 +1718,7 @@
             });
             
             dropdown.classList.toggle('active');
-            if (arrow) arrow.classList.toggle('rotated');
+            arrow.classList.toggle('rotated');
         }
 
         document.addEventListener('keydown', function(event) {
@@ -1519,143 +1727,7 @@
             }
         });
 
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Search functionality
-            const searchInput = document.getElementById('searchInput');
-            const searchBtn = document.querySelector('.search-btn');
-            const clearFiltersBtn = document.querySelector('.clear-filters-btn');
-            
-            function performSearch() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const cards = document.querySelectorAll('.instrument-card');
-                
-                cards.forEach(card => {
-                    const instrumentName = card.querySelector('.instrument-name').textContent.toLowerCase();
-                    if (instrumentName.includes(searchTerm) || searchTerm === '') {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
-
-            function clearAllFilters() {
-                searchInput.value = '';
-                document.querySelectorAll('.filter-option.selected').forEach(option => {
-                    option.classList.remove('selected');
-                });
-                document.querySelectorAll('.instrument-card').forEach(card => {
-                    card.style.display = 'block';
-                });
-            }
-            
-            searchBtn.addEventListener('click', performSearch);
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
-            });
-            clearFiltersBtn.addEventListener('click', clearAllFilters);
-            
-            // Filter dropdown functionality
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const dropdowns = document.querySelectorAll('.dropdown-content');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const dropdownId = this.id.replace('Btn', 'Dropdown');
-                    const dropdown = document.getElementById(dropdownId);
-                    
-                    dropdowns.forEach(dd => {
-                        if (dd.id !== dropdownId) {
-                            dd.classList.remove('show');
-                            const btnId = dd.id.replace('Dropdown', 'Btn');
-                            const btn = document.getElementById(btnId);
-                            if (btn) btn.classList.remove('active');
-                        }
-                    });
-                    
-                    dropdown.classList.toggle('show');
-                    this.classList.toggle('active');
-                });
-            });
-            
-            document.addEventListener('click', function() {
-                dropdowns.forEach(dropdown => {
-                    dropdown.classList.remove('show');
-                });
-                filterButtons.forEach(button => {
-                    button.classList.remove('active');
-                });
-            });
-            
-            const filterOptions = document.querySelectorAll('.filter-option');
-            filterOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    this.classList.toggle('selected');
-                    
-                    const selectedFilters = document.querySelectorAll('.filter-option.selected');
-                    const cards = document.querySelectorAll('.instrument-card');
-                    
-                    if (selectedFilters.length === 0) {
-                        cards.forEach(card => card.style.display = 'block');
-                    } else {
-                        // Separate manufacturer and connector type filters
-                        const selectedManufacturers = [];
-                        const selectedConnectorTypes = [];
-                        
-                        selectedFilters.forEach(filter => {
-                            const filterValue = filter.getAttribute('data-filter');
-                            if (filterValue === 'zygo') {
-                                selectedManufacturers.push(filterValue);
-                            } else if (filterValue === 'data-connector' || filterValue === 'connector-plus') {
-                                selectedConnectorTypes.push(filterValue);
-                            }
-                        });
-                        
-                        cards.forEach(card => {
-                            const instrumentName = card.querySelector('.instrument-name').textContent.toLowerCase();
-                            const connectorType = card.querySelector('.connector-type') ? 
-                                card.querySelector('.connector-type').textContent.toLowerCase() : '';
-                            
-                            // Check manufacturer match (OR within manufacturers)
-                            let matchManufacturer = selectedManufacturers.length === 0 || 
-                                selectedManufacturers.some(mfr => {
-                                    return card.getAttribute('data-manufacturer') === mfr;
-                                });
-                            
-                            // Check connector type match (OR within connector types)
-                            let matchConnectorType = selectedConnectorTypes.length === 0 || 
-                                selectedConnectorTypes.some(type => {
-                                    if (type === 'data-connector') return connectorType.includes('data connector');
-                                    if (type === 'connector-plus') return connectorType.includes('connector plus');
-                                    return false;
-                                });
-                            
-                            // Show card only if BOTH conditions match (AND logic between filter groups)
-                            if (matchManufacturer && matchConnectorType) {
-                                card.style.display = 'block';
-                            } else {
-                                card.style.display = 'none';
-                            }
-                        });
-                    }
-                });
-            });
-            
-            const cards = document.querySelectorAll('.instrument-card');
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.boxShadow = '0 15px 35px rgba(237, 137, 54, 0.15)';
-                });
-                card.addEventListener('mouseleave', function() {
-                    this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.08)';
-                });
-            });
-
-        // Load reCAPTCHA
+       // Load reCAPTCHA
         const script = document.createElement('script');
         script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf';
         document.head.appendChild(script);
@@ -1706,7 +1778,6 @@
                     });
                 });
             });
-        });
         });
     </script>
 </body>
