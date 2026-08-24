@@ -419,6 +419,39 @@
             resize: vertical;
         }
 
+        .required {
+            color: #ef4444;
+        }
+
+        .required-note {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        /* Highlight empty required fields after a failed submit attempt */
+        .contact-form.show-errors input:invalid,
+        .contact-form.show-errors textarea:invalid {
+            border-color: #ef4444;
+        }
+
+        .contact-form.show-errors input:invalid:focus,
+        .contact-form.show-errors textarea:invalid:focus {
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+        }
+
+        /* Error message */
+        .error-message {
+            background: #fee2e2;
+            border: 1px solid #ef4444;
+            color: #b91c1c;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0 auto 1.5rem;
+            max-width: 800px;
+            text-align: center;
+            display: none;
+        }
+
         /* Privacy Section */
         .privacy-section {
             margin: 1.5rem 0;
@@ -993,13 +1026,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="connected-plant-sandbox.html">Resources ▼</a>
+                    <a href="blog.html">Resources ▼</a>
                     <ul class="dropdown">
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="videos.html">Videos</a></li>
                         <li><a href="webinars.html">Webinars</a></li>
                         <li><a href="apc-case-study.html">Case Study</a></li>
-                        <li><a href="connected-plant-sandbox.html">Connected Plant™ Sandbox</a></li>
                     </ul>
                 </li>
                 <li>
@@ -1078,7 +1110,6 @@
                         <li><a href="videos.html">Videos</a></li>
                         <li><a href="webinars.html">Webinars</a></li>
                         <li><a href="apc-case-study.html">Case Study</a></li>
-                        <li><a href="connected-plant-sandbox.html">Connected Plant™ Sandbox</a></li>
                     </ul>
                 </li>
                 <li>
@@ -1115,7 +1146,11 @@
             <!-- Contact Header -->
             <div class="contact-header">
                 <h1>Contact Us</h1>
+                <p class="required-note">All fields marked <span class="required">*</span> are required.</p>
             </div>
+
+            <!-- Validation / submission error message (hidden by default) -->
+            <div id="errorMessage" class="error-message" role="alert"></div>
 
             <!-- Contact Form with HubSpot integration -->
             <form class="contact-form" id="contact-form" data-hsforms-ignore="true" data-hs-cf-bound="true">
@@ -1141,14 +1176,14 @@
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="phoneNumber">Phone number</label>
-                        <input type="tel" id="phoneNumber" name="phoneNumber">
+                        <label for="phoneNumber">Phone number*</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message"></textarea>
+                    <label for="message">Message*</label>
+                    <textarea id="message" name="message" required></textarea>
                 </div>
 
                 <!-- Privacy Information -->
@@ -1218,7 +1253,6 @@
                         <li><a href="videos.html">Videos</a></li>
                         <li><a href="webinars.html">Webinars</a></li>
                         <li><a href="apc-case-study.html">Case Study</a></li>
-                        <li><a href="connected-plant-sandbox.html">Connected Plant™ Sandbox</a></li>
                     </ul>
                 </div>
                 
@@ -1357,36 +1391,86 @@
             });
         });
 
+        // --- Contact form validation helpers ---------------------------
+        const contactForm = document.getElementById('contact-form');
+        const contactErrorBox = document.getElementById('errorMessage');
+
+        function showContactError(msg) {
+            contactErrorBox.textContent = msg;
+            contactErrorBox.style.display = 'block';
+            contactErrorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function hideContactError() {
+            contactErrorBox.style.display = 'none';
+            contactErrorBox.textContent = '';
+        }
+
+        // Highlight empty required fields as soon as the browser blocks a submit
+        contactForm.addEventListener('invalid', function() {
+            contactForm.classList.add('show-errors');
+        }, true);
+
+        // Clear the error banner once the visitor fixes a field
+        contactForm.addEventListener('input', function(e) {
+            if (e.target.checkValidity()) {
+                hideContactError();
+            }
+        });
+
         // Contact form submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
-            const firstName = e.target.querySelector('input[name="firstName"]').value;
-            const lastName = e.target.querySelector('input[name="lastName"]').value;
-            const companyName = e.target.querySelector('input[name="companyName"]').value;
-            const email = e.target.querySelector('input[name="email"]').value;
-            const phoneNumber = e.target.querySelector('input[name="phoneNumber"]').value;
-            const message = e.target.querySelector('textarea[name="message"]').value;
+
+            const firstName = e.target.querySelector('input[name="firstName"]').value.trim();
+            const lastName = e.target.querySelector('input[name="lastName"]').value.trim();
+            const companyName = e.target.querySelector('input[name="companyName"]').value.trim();
+            const email = e.target.querySelector('input[name="email"]').value.trim();
+            const phoneNumber = e.target.querySelector('input[name="phoneNumber"]').value.trim();
+            const message = e.target.querySelector('textarea[name="message"]').value.trim();
             const communications = e.target.querySelector('input[name="communications"]').checked;
             const submitBtn = e.target.querySelector('button[type="submit"]');
-            
+
+            // Validate ALL fields — every field on this form is required
+            // (the marketing communications checkbox is intentionally optional)
+            if (!firstName || !lastName || !companyName || !email || !phoneNumber || !message) {
+                contactForm.classList.add('show-errors');
+                showContactError('Please complete all required fields before submitting.');
+                const firstEmpty = Array.from(
+                    e.target.querySelectorAll('input[required], textarea[required]')
+                ).find(field => !field.value.trim());
+                if (firstEmpty) firstEmpty.focus();
+                return;
+            }
+
+            // Belt-and-braces: catch format problems (e.g. malformed email)
+            if (!e.target.checkValidity()) {
+                contactForm.classList.add('show-errors');
+                showContactError('Please check the highlighted fields and try again.');
+                e.target.reportValidity();
+                return;
+            }
+
+            hideContactError();
+
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
-            
+
             const fields = [
                 { name: "firstname", value: firstName },
                 { name: "lastname", value: lastName },
                 { name: "email", value: email },
                 { name: "company", value: companyName },
+                { name: "phone", value: phoneNumber },
+                { name: "message", value: message },
                 { name: "hs_lead_status", value: "NEW" },
                 { name: "lifecyclestage", value: "lead" }
             ];
 
-            if (phoneNumber) fields.push({ name: "phone", value: phoneNumber });
-            if (message) fields.push({ name: "message", value: message });
+            // Optional field
             if (communications) fields.push({ name: "marketing_opt_in", value: "true" });
-            
+
             // Get reCAPTCHA token
             grecaptcha.enterprise.ready(function() {
                 grecaptcha.enterprise.execute('6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf', {action: 'submit'}).then(function(token) {
@@ -1411,6 +1495,7 @@
                     .then(data => {
                         submitBtn.textContent = 'Thank You!';
                         e.target.reset();
+                        contactForm.classList.remove('show-errors');
                         setTimeout(() => {
                             submitBtn.textContent = 'Submit';
                             submitBtn.disabled = false;
@@ -1418,7 +1503,7 @@
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        alert('There was an error submitting your message. Please try again.');
+                        showContactError('There was an error submitting your message. Please try again.');
                         submitBtn.textContent = 'Error - Try Again';
                         submitBtn.disabled = false;
                     });
