@@ -38,12 +38,9 @@
         .lock-icon-wrap { width: 60px; height: 60px; background: #e1ebee; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.6rem; }
         .lock-card h2 { font-size: 1.15rem; font-weight: 600; color: #1f2937; margin-bottom: 0.35rem; }
         .lock-card .sub { font-size: 0.85rem; color: #94a3b8; margin-bottom: 1.75rem; line-height: 1.5; }
-        .lock-card input[type="password"], .lock-card input[type="text"]#pw-input { width: 100%; padding: 11px 14px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 0.95rem; font-family: inherit; color: #1f2937; background: #fafafa; outline: none; transition: border-color 0.2s; }
-        .lock-card input[type="password"]:focus, .lock-card input[type="text"]#pw-input:focus { border-color: #436c79; background: #fff; }
-        .pw-wrap { position: relative; display: block; margin-bottom: 0.85rem; }
-        .pw-wrap input { display: block; padding-right: 44px !important; }
-        .pw-toggle { position: absolute; top: 0; bottom: 0; right: 8px; margin: auto 0; height: 32px; width: 32px; background: none; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 6px; }
-        .pw-toggle:hover { background: #f1f5f9; }
+        .lock-card input[type="password"], .lock-card input[type="text"] { width: 100%; height: 46px; padding: 0 8px 0 14px; border: none; border-radius: 0; font-size: 0.95rem; font-family: inherit; color: #1f2937; background: transparent; outline: none; box-shadow: none; box-sizing: border-box; vertical-align: middle; }
+        .lock-card input[type="password"]:focus, .lock-card input[type="text"]:focus { border: none; outline: none; box-shadow: none; background: transparent; }
+        .lock-card input[type="password"]:focus { border-color: #436c79; background: #fff; }
         .lock-card input[type="password"].shake { animation: shake 0.4s ease; border-color: #dc2626; }
         @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
         .lock-btn { width: 100%; padding: 11px; background: #30444D; color: #fff; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.2s; }
@@ -126,7 +123,7 @@
 
 <nav>
     <div class="nav-container">
-        <a class='logo' href='/'>
+        <a href="index.html" class="logo">
             <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757701267/__Phizzle-Logo-WHITE-01_5_hpfhss.svg" alt="Phizzle">
         </a>
     </div>
@@ -145,14 +142,11 @@
         </div>
         <h2>Restricted Access</h2>
         <p class="sub">This page is for Phizzle POC participants only. Enter the password from the email that brought you here.</p>
-        <div class="pw-wrap">
-            <input type="password" id="pw-input" placeholder="Enter password" onkeydown="if(event.key==='Enter') tryUnlock()" autocomplete="off" />
-            <button type="button" class="pw-toggle" id="pw-toggle" onclick="togglePw()" aria-label="Show password">
-                <svg class="pw-eye" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                    <circle cx="12" cy="12" r="3"></circle>
-                </svg>
-            </button>
+        <div style="display:table; width:100%; border:1px solid #d1d5db; border-radius:8px; background:#fafafa; margin-bottom:0.85rem; overflow:hidden; height:46px;">
+            <input type="password" id="pw-input" placeholder="Enter password" onkeydown="if(event.key==='Enter') tryUnlock()" autocomplete="off" style="display:table-cell; width:100%; padding:0 8px 0 14px; height:46px; line-height:46px; border:none; outline:none; background:transparent; font-size:0.95rem; font-family:inherit; color:#1f2937; vertical-align:middle;" />
+            <span style="display:table-cell; width:40px; vertical-align:middle; text-align:center; cursor:pointer;" onclick="togglePwVisibility()">
+                <svg id="pw-eye-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
         </div>
         <button class="lock-btn" onclick="tryUnlock()">Unlock Page</button>
         <div class="lock-error" id="lock-error"></div>
@@ -162,7 +156,7 @@
 <div id="page-content">
     <div class="page-header">
         <div class="page-header-inner">
-        <h1>Demo in Box POC Input Form</h1>
+        <h1>POC in a Box Input Form</h1>
         <p class="subtext">
             The Phizzle team is super excited to be preparing your demo in a box. We will provide <strong>2 Edge Puck Data Connectors</strong> and a <strong>Phizzle-configured laptop</strong> with all necessary software and backend services pre-installed.<br><br>
             Each Edge Puck can be paired with only one laboratory instrument. To ensure the devices are properly configured and the demo experience is optimized, we would like to gather a few details in advance.<br><br>
@@ -269,18 +263,19 @@
                         <option value="">&#8212; Select a category &#8212;</option>
                     </select>
                 </div>
-                <div class="field-group" id="inst1-wrap">
+                <div class="field-group">
                     <label>Select Instrument <span class="required">*</span></label>
-                    <input type="text" id="search1" class="inst-search" placeholder="Search instruments..." oninput="searchInstruments(1)" style="margin-bottom:0.5rem;display:none;" />
-                    <select id="inst1" disabled>
+                    <select id="inst1" onchange="handleInstChange(1)" disabled>
                         <option value="">&#8212; Select a category first &#8212;</option>
                     </select>
                 </div>
-                <div class="field-group" id="other1-wrap" style="display:none;">
-                    <label>Instrument Manufacturer <span class="required">*</span></label>
-                    <input type="text" name="other_manufacturer_1" placeholder="e.g., Mettler Toledo" />
-                    <label style="margin-top:1rem;">Instrument Model <span class="required">*</span></label>
-                    <input type="text" name="other_model_1" placeholder="e.g., XPR226" />
+                <div class="field-group">
+                    <label>Serial Number <span class="required">*</span></label>
+                    <input type="text" name="serial_number_1" placeholder="" required />
+                </div>
+                <div class="field-group" id="other_instrument_wrap_1" style="display:none;">
+                    <label>Instrument Name <span class="required">*</span></label>
+                    <input type="text" name="other_instrument_1" placeholder="Enter instrument name" id="other_instrument_1" />
                 </div>
                 <div class="field-group">
                     <label>Site Name <span class="required">*</span></label>
@@ -324,18 +319,19 @@
                         <option value="">&#8212; Select a category &#8212;</option>
                     </select>
                 </div>
-                <div class="field-group" id="inst2-wrap">
+                <div class="field-group">
                     <label>Select Instrument <span class="required">*</span></label>
-                    <input type="text" id="search2" class="inst-search" placeholder="Search instruments..." oninput="searchInstruments(2)" style="margin-bottom:0.5rem;display:none;" />
-                    <select id="inst2" disabled>
+                    <select id="inst2" onchange="handleInstChange(2)" disabled>
                         <option value="">&#8212; Select a category first &#8212;</option>
                     </select>
                 </div>
-                <div class="field-group" id="other2-wrap" style="display:none;">
-                    <label>Instrument Manufacturer <span class="required">*</span></label>
-                    <input type="text" name="other_manufacturer_2" placeholder="e.g., Mettler Toledo" />
-                    <label style="margin-top:1rem;">Instrument Model <span class="required">*</span></label>
-                    <input type="text" name="other_model_2" placeholder="e.g., XPR226" />
+                <div class="field-group">
+                    <label>Serial Number <span class="required">*</span></label>
+                    <input type="text" name="serial_number_2" placeholder="" required />
+                </div>
+                <div class="field-group" id="other_instrument_wrap_2" style="display:none;">
+                    <label>Instrument Name <span class="required">*</span></label>
+                    <input type="text" name="other_instrument_2" placeholder="Enter instrument name" id="other_instrument_2" />
                 </div>
                 <div class="field-group">
                     <label>Site Name <span class="required">*</span></label>
@@ -387,18 +383,16 @@ if (sessionStorage.getItem("poc_unlocked") === "true") {
     document.getElementById("lock-screen").classList.add("gone");
     document.getElementById("page-content").classList.add("visible");
 }
-function togglePw() {
-    const input = document.getElementById("pw-input");
-    const toggle = document.getElementById("pw-toggle");
-    if (input.type === "password") {
-        input.type = "text";
-        toggle.setAttribute("aria-label", "Hide password");
-    } else {
-        input.type = "password";
-        toggle.setAttribute("aria-label", "Show password");
-    }
-    input.focus();
+function togglePwVisibility() {
+    const input = document.getElementById('pw-input');
+    const showing = input.type === 'password';
+    input.type = showing ? 'text' : 'password';
+    const icon = document.getElementById('pw-eye-icon');
+    icon.innerHTML = showing
+        ? '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>'
+        : '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
 }
+
 function tryUnlock() {
     const input = document.getElementById("pw-input");
     const error = document.getElementById("lock-error");
@@ -465,50 +459,39 @@ const instruments = {
 const categories = Object.keys(instruments).sort();
 [1,2].forEach(n => {
     const el = document.getElementById('cat'+n);
-    const other = document.createElement('option');
-    other.value = '__OTHER__'; other.textContent = 'Other \u2014 Instrument Not in List';
-    el.appendChild(other);
     categories.forEach(cat => {
         const o = document.createElement('option');
         o.value = cat; o.textContent = cat;
         el.appendChild(o);
     });
+    const otherOpt = document.createElement('option');
+    otherOpt.value = 'Other'; otherOpt.textContent = 'Other (not in list)';
+    el.appendChild(otherOpt);
 });
 
-const currentList = {};
 function filterInstruments(n) {
     const cat = document.getElementById('cat'+n).value;
     const instEl = document.getElementById('inst'+n);
-    const instWrap = document.getElementById('inst'+n+'-wrap');
-    const otherWrap = document.getElementById('other'+n+'-wrap');
-    const searchEl = document.getElementById('search'+n);
-    if (cat === '__OTHER__') {
-        otherWrap.style.display = 'block';
-        instWrap.style.display = 'none';
-        instEl.disabled = true;
-        return;
-    }
-    otherWrap.style.display = 'none';
-    instWrap.style.display = 'block';
+    const otherWrap = document.getElementById('other_instrument_wrap_'+n);
+    const otherInput = document.getElementById('other_instrument_'+n);
     if (!cat) {
         instEl.innerHTML = '<option value="">&#8212; Select a category first &#8212;</option>';
         instEl.disabled = true;
-        searchEl.style.display = 'none';
-        searchEl.value = '';
+        otherWrap.style.display = 'none';
+        if (otherInput) otherInput.removeAttribute('required');
         return;
     }
-    currentList[n] = instruments[cat];
-    searchEl.style.display = 'block';
-    searchEl.value = '';
-    populateSelect(n, currentList[n]);
+    if (cat === 'Other') {
+        instEl.innerHTML = '<option value="other">Other instrument (see below)</option>';
+        instEl.disabled = true;
+        otherWrap.style.display = 'block';
+        if (otherInput) otherInput.setAttribute('required', 'required');
+        return;
+    }
+    otherWrap.style.display = 'none';
+    if (otherInput) otherInput.removeAttribute('required');
+    populateSelect(n, instruments[cat]);
     instEl.disabled = false;
-}
-
-function searchInstruments(n) {
-    const q = document.getElementById('search'+n).value.trim().toLowerCase();
-    const list = currentList[n] || [];
-    const filtered = q ? list.filter(item => item.name.toLowerCase().includes(q)) : list;
-    populateSelect(n, filtered);
 }
 
 function populateSelect(n, list) {
@@ -521,26 +504,19 @@ function populateSelect(n, list) {
         o.textContent = item.name;
         el.appendChild(o);
     });
+    const otherOpt = document.createElement('option');
+    otherOpt.value = 'other';
+    otherOpt.textContent = 'Other (not in list)';
+    el.appendChild(otherOpt);
 }
 
 
 
-
-function getInstrument(n) {
-    const cat = document.getElementById('cat'+n).value;
-    if (cat === '__OTHER__') {
-        const man = document.querySelector('[name=other_manufacturer_'+n+']').value.trim();
-        const mod = document.querySelector('[name=other_model_'+n+']').value.trim();
-        if (!man || !mod) return '';
-        return man + ' ' + mod;
-    }
-    return document.getElementById('inst'+n).value;
-}
 
 function handleSubmit() {
-    const i1 = getInstrument(1);
-    const i2 = getInstrument(2);
-    if (!i1 || !i2) { alert('Please select an instrument for both Edge Pucks before submitting. If you chose "Other", enter both the manufacturer and model.'); return; }
+    const i1 = document.getElementById('inst1').value;
+    const i2 = document.getElementById('inst2').value;
+    if (!i1 || !i2) { alert('Please select an instrument for both Edge Pucks before submitting.'); return; }
 
     const btn = document.querySelector('.submit-btn');
     btn.textContent = 'Submitting...';
@@ -561,10 +537,14 @@ function handleSubmit() {
         { name: 'country',            value: document.querySelector('[name=country]').value },
         { name: 'delivery_notes',     value: document.querySelector('[name=delivery_notes]').value },
         { name: 'poc_instrument_1',   value: i1 },
+        { name: 'poc_instrument_1_other', value: document.querySelector('[name=other_instrument_1]') ? document.querySelector('[name=other_instrument_1]').value : '' },
+        { name: 'poc_serial_number_1', value: document.querySelector('[name=serial_number_1]').value },
         { name: 'poc_site_name_1',    value: document.querySelector('[name=site_name_1]').value },
         { name: 'poc_site_details_1', value: document.querySelector('[name=site_details_1]').value },
         { name: 'poc_timezone_1',     value: document.querySelector('[name=timezone_1]').value },
         { name: 'poc_instrument_2',   value: i2 },
+        { name: 'poc_instrument_2_other', value: document.querySelector('[name=other_instrument_2]') ? document.querySelector('[name=other_instrument_2]').value : '' },
+        { name: 'poc_serial_number_2', value: document.querySelector('[name=serial_number_2]').value },
         { name: 'poc_site_name_2',    value: document.querySelector('[name=site_name_2]').value },
         { name: 'poc_site_details_2', value: document.querySelector('[name=site_details_2]').value },
         { name: 'poc_timezone_2',     value: document.querySelector('[name=timezone_2]').value }
@@ -578,7 +558,7 @@ function handleSubmit() {
                 body: JSON.stringify({
                     recaptchaToken: token,
                     formData: {
-                        formId: '157c3019-c97e-41fc-9b8c-f441065b6302',
+                        formId: '2a2d2a22-8bac-44f1-9bb5-7e05e4cd0e92',
                         fields: fields,
                         context: {
                             pageUri: window.location.href,
@@ -603,6 +583,19 @@ function handleSubmit() {
     });
 }
 
+
+function handleInstChange(n) {
+    const val = document.getElementById('inst'+n).value;
+    const otherWrap = document.getElementById('other_instrument_wrap_'+n);
+    const otherInput = document.getElementById('other_instrument_'+n);
+    if (val === 'other') {
+        otherWrap.style.display = 'block';
+        if (otherInput) otherInput.setAttribute('required', 'required');
+    } else {
+        otherWrap.style.display = 'none';
+        if (otherInput) otherInput.removeAttribute('required');
+    }
+}
 
 function toggleSection(n) {
     if (n === 2 && document.getElementById('section2-wrap').classList.contains('section-locked')) return;
