@@ -269,21 +269,21 @@
                         <option value="">&#8212; Select a category first &#8212;</option>
                     </select>
                 </div>
-                <div class="field-group" id="other_instrument_wrap_1" style="display:none;">
-                    <label>Instrument Name <span class="required">*</span></label>
-                    <input type="text" name="other_instrument_1" placeholder="Enter instrument name" id="other_instrument_1" />
-                </div>
                 <div class="field-group">
                     <label>Serial Number <span class="required">*</span></label>
                     <input type="text" name="serial_number_1" placeholder="" required />
+                </div>
+                <div class="field-group" id="other_instrument_wrap_1" style="display:none;">
+                    <label>Instrument Name <span class="required">*</span></label>
+                    <input type="text" name="other_instrument_1" placeholder="Enter instrument name" id="other_instrument_1" />
                 </div>
                 <div class="field-group">
                     <label>Site Name <span class="required">*</span></label>
                     <input type="text" name="site_name_1" placeholder="" required />
                 </div>
                 <div class="field-group">
-                    <label>Additional Details (Building, Lab, etc.) <span style="font-weight:400;color:#94a3b8;">(optional)</span></label>
-                    <input type="text" name="site_details_1" placeholder="" />
+                    <label>Additional Details (Building, Lab, etc.) <span class="required">*</span></label>
+                    <input type="text" name="site_details_1" placeholder="" required />
                 </div>
                 <div class="field-group" style="margin-bottom:0">
                     <label>Timezone <span class="required">*</span></label>
@@ -325,21 +325,21 @@
                         <option value="">&#8212; Select a category first &#8212;</option>
                     </select>
                 </div>
-                <div class="field-group" id="other_instrument_wrap_2" style="display:none;">
-                    <label>Instrument Name <span class="required">*</span></label>
-                    <input type="text" name="other_instrument_2" placeholder="Enter instrument name" id="other_instrument_2" />
-                </div>
                 <div class="field-group">
                     <label>Serial Number <span class="required">*</span></label>
                     <input type="text" name="serial_number_2" placeholder="" required />
+                </div>
+                <div class="field-group" id="other_instrument_wrap_2" style="display:none;">
+                    <label>Instrument Name <span class="required">*</span></label>
+                    <input type="text" name="other_instrument_2" placeholder="Enter instrument name" id="other_instrument_2" />
                 </div>
                 <div class="field-group">
                     <label>Site Name <span class="required">*</span></label>
                     <input type="text" name="site_name_2" placeholder="" required />
                 </div>
                 <div class="field-group">
-                    <label>Additional Details (Building, Lab, etc.) <span style="font-weight:400;color:#94a3b8;">(optional)</span></label>
-                    <input type="text" name="site_details_2" placeholder="" />
+                    <label>Additional Details (Building, Lab, etc.) <span class="required">*</span></label>
+                    <input type="text" name="site_details_2" placeholder="" required />
                 </div>
                 <div class="field-group" style="margin-bottom:0">
                     <label>Timezone <span class="required">*</span></label>
@@ -518,25 +518,6 @@ function handleSubmit() {
     const i2 = document.getElementById('inst2').value;
     if (!i1 || !i2) { alert('Please select an instrument for both Edge Pucks before submitting.'); return; }
 
-    // Validate section 2 required fields
-    const s2required = [
-        { name: 'site_name_1', label: 'Site Name (Edge Puck 1)' },
-        { name: 'serial_number_1', label: 'Serial Number (Edge Puck 1)' },
-        { name: 'timezone_1', label: 'Timezone (Edge Puck 1)' },
-        { name: 'site_name_2', label: 'Site Name (Edge Puck 2)' },
-        { name: 'serial_number_2', label: 'Serial Number (Edge Puck 2)' },
-        { name: 'timezone_2', label: 'Timezone (Edge Puck 2)' },
-    ];
-    for (const field of s2required) {
-        const els = document.getElementsByName(field.name);
-        const el = els.length ? els[0] : null;
-        if (!el || !el.value.trim()) {
-            alert(field.label + ' is required.');
-            if (el) el.focus();
-            return;
-        }
-    }
-
     const btn = document.querySelector('.submit-btn');
     btn.textContent = 'Submitting...';
     btn.disabled = true;
@@ -626,30 +607,6 @@ function toggleSection(n) {
 }
 
 function completeSection1() {
-    // Validate section 1 required fields
-    const s1required = [
-        { name: 'first_name', label: 'First Name' },
-        { name: 'last_name', label: 'Last Name' },
-        { name: 'title', label: 'Job Title' },
-        { name: 'company', label: 'Company' },
-        { name: 'email', label: 'Email Address' },
-        { name: 'phone', label: 'Phone Number' },
-        { name: 'address_line1', label: 'Street Address' },
-        { name: 'city', label: 'City' },
-        { name: 'state', label: 'State / Province' },
-        { name: 'zip', label: 'ZIP / Postal Code' },
-        { name: 'country', label: 'Country' },
-    ];
-    for (const field of s1required) {
-        const els = document.getElementsByName(field.name);
-        const el = els.length ? els[0] : null;
-        if (!el || !el.value.trim()) {
-            alert(field.label + ' is required.');
-            if (el) el.focus();
-            return;
-        }
-    }
-
     // Build summary
     const fn = document.querySelector('input[name="first_name"]').value.trim();
     const ln = document.querySelector('input[name="last_name"]').value.trim();
