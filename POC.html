@@ -269,21 +269,21 @@
                         <option value="">&#8212; Select a category first &#8212;</option>
                     </select>
                 </div>
-                <div class="field-group">
-                    <label>Serial Number <span class="required">*</span></label>
-                    <input type="text" name="serial_number_1" placeholder="" required />
-                </div>
                 <div class="field-group" id="other_instrument_wrap_1" style="display:none;">
                     <label>Instrument Name <span class="required">*</span></label>
                     <input type="text" name="other_instrument_1" placeholder="Enter instrument name" id="other_instrument_1" />
+                </div>
+                <div class="field-group">
+                    <label>Serial Number <span class="required">*</span></label>
+                    <input type="text" name="serial_number_1" placeholder="" required />
                 </div>
                 <div class="field-group">
                     <label>Site Name <span class="required">*</span></label>
                     <input type="text" name="site_name_1" placeholder="" required />
                 </div>
                 <div class="field-group">
-                    <label>Additional Details (Building, Lab, etc.) <span class="required">*</span></label>
-                    <input type="text" name="site_details_1" placeholder="" required />
+                    <label>Additional Details (Building, Lab, etc.) <span style="font-weight:400;color:#94a3b8;">(optional)</span></label>
+                    <input type="text" name="site_details_1" placeholder="" />
                 </div>
                 <div class="field-group" style="margin-bottom:0">
                     <label>Timezone <span class="required">*</span></label>
@@ -325,21 +325,21 @@
                         <option value="">&#8212; Select a category first &#8212;</option>
                     </select>
                 </div>
-                <div class="field-group">
-                    <label>Serial Number <span class="required">*</span></label>
-                    <input type="text" name="serial_number_2" placeholder="" required />
-                </div>
                 <div class="field-group" id="other_instrument_wrap_2" style="display:none;">
                     <label>Instrument Name <span class="required">*</span></label>
                     <input type="text" name="other_instrument_2" placeholder="Enter instrument name" id="other_instrument_2" />
+                </div>
+                <div class="field-group">
+                    <label>Serial Number <span class="required">*</span></label>
+                    <input type="text" name="serial_number_2" placeholder="" required />
                 </div>
                 <div class="field-group">
                     <label>Site Name <span class="required">*</span></label>
                     <input type="text" name="site_name_2" placeholder="" required />
                 </div>
                 <div class="field-group">
-                    <label>Additional Details (Building, Lab, etc.) <span class="required">*</span></label>
-                    <input type="text" name="site_details_2" placeholder="" required />
+                    <label>Additional Details (Building, Lab, etc.) <span style="font-weight:400;color:#94a3b8;">(optional)</span></label>
+                    <input type="text" name="site_details_2" placeholder="" />
                 </div>
                 <div class="field-group" style="margin-bottom:0">
                     <label>Timezone <span class="required">*</span></label>
@@ -518,36 +518,54 @@ function handleSubmit() {
     const i2 = document.getElementById('inst2').value;
     if (!i1 || !i2) { alert('Please select an instrument for both Edge Pucks before submitting.'); return; }
 
+    // Validate section 2 required fields
+    const s2required = [
+        { name: 'site_name_1', label: 'Site Name (Edge Puck 1)' },
+        { name: 'serial_number_1', label: 'Serial Number (Edge Puck 1)' },
+        { name: 'timezone_1', label: 'Timezone (Edge Puck 1)' },
+        { name: 'site_name_2', label: 'Site Name (Edge Puck 2)' },
+        { name: 'serial_number_2', label: 'Serial Number (Edge Puck 2)' },
+        { name: 'timezone_2', label: 'Timezone (Edge Puck 2)' },
+    ];
+    for (const field of s2required) {
+        const el = document.querySelector('input[name="' + field.name + '"], select[name="' + field.name + '"], textarea[name="' + field.name + '"]');
+        if (!el || !el.value.trim()) {
+            alert(field.label + ' is required.');
+            if (el) el.focus();
+            return;
+        }
+    }
+
     const btn = document.querySelector('.submit-btn');
     btn.textContent = 'Submitting...';
     btn.disabled = true;
 
     const fields = [
-        { name: 'firstname',          value: document.querySelector('[name=first_name]').value },
-        { name: 'lastname',           value: document.querySelector('[name=last_name]').value },
-        { name: 'jobtitle',           value: document.querySelector('[name=title]').value },
-        { name: 'company',            value: document.querySelector('[name=company]').value },
-        { name: 'email',              value: document.querySelector('[name=email]').value },
-        { name: 'phone',              value: document.querySelector('[name=phone]').value },
-        { name: 'address',            value: document.querySelector('[name=address_line1]').value },
-        { name: 'address_line2',      value: document.querySelector('[name=address_line2]').value },
-        { name: 'city',               value: document.querySelector('[name=city]').value },
-        { name: 'state',              value: document.querySelector('[name=state]').value },
-        { name: 'zip',                value: document.querySelector('[name=zip]').value },
-        { name: 'country',            value: document.querySelector('[name=country]').value },
-        { name: 'delivery_notes',     value: document.querySelector('[name=delivery_notes]').value },
+        { name: 'firstname',          value: document.querySelector('input[name="first_name"]').value },
+        { name: 'lastname',           value: document.querySelector('input[name="last_name"]').value },
+        { name: 'jobtitle',           value: document.querySelector('input[name="title"]').value },
+        { name: 'company',            value: document.querySelector('input[name="company"]').value },
+        { name: 'email',              value: document.querySelector('input[name="email"]').value },
+        { name: 'phone',              value: document.querySelector('input[name="phone"]').value },
+        { name: 'address',            value: document.querySelector('input[name="address_line1"]').value },
+        { name: 'address_line2',      value: document.querySelector('input[name="address_line2"]').value },
+        { name: 'city',               value: document.querySelector('input[name="city"]').value },
+        { name: 'state',              value: document.querySelector('input[name="state"]').value },
+        { name: 'zip',                value: document.querySelector('input[name="zip"]').value },
+        { name: 'country',            value: document.querySelector('input[name="country"]').value },
+        { name: 'delivery_notes',     value: document.querySelector('textarea[name="delivery_notes"]').value },
         { name: 'poc_instrument_1',   value: i1 },
-        { name: 'poc_instrument_1_other', value: document.querySelector('[name=other_instrument_1]') ? document.querySelector('[name=other_instrument_1]').value : '' },
-        { name: 'poc_serial_number_1', value: document.querySelector('[name=serial_number_1]').value },
-        { name: 'poc_site_name_1',    value: document.querySelector('[name=site_name_1]').value },
-        { name: 'poc_site_details_1', value: document.querySelector('[name=site_details_1]').value },
-        { name: 'poc_timezone_1',     value: document.querySelector('[name=timezone_1]').value },
+        { name: 'poc_instrument_1_other', value: document.querySelector('input[name="other_instrument_1"]') ? document.querySelector('input[name="other_instrument_1"]').value : '' },
+        { name: 'poc_instrument_1_serial_number', value: document.querySelector('input[name="serial_number_1"]').value },
+        { name: 'poc_site_name_1',    value: document.querySelector('input[name="site_name_1"]').value },
+        { name: 'poc_site_details_1', value: document.querySelector('input[name="site_details_1"]').value },
+        { name: 'poc_timezone_1',     value: document.querySelector('select[name="timezone_1"]').value },
         { name: 'poc_instrument_2',   value: i2 },
-        { name: 'poc_instrument_2_other', value: document.querySelector('[name=other_instrument_2]') ? document.querySelector('[name=other_instrument_2]').value : '' },
-        { name: 'poc_serial_number_2', value: document.querySelector('[name=serial_number_2]').value },
-        { name: 'poc_site_name_2',    value: document.querySelector('[name=site_name_2]').value },
-        { name: 'poc_site_details_2', value: document.querySelector('[name=site_details_2]').value },
-        { name: 'poc_timezone_2',     value: document.querySelector('[name=timezone_2]').value }
+        { name: 'poc_instrument_2_other', value: document.querySelector('input[name="other_instrument_2"]') ? document.querySelector('input[name="other_instrument_2"]').value : '' },
+        { name: 'poc_instrument_2_serial_number', value: document.querySelector('input[name="serial_number_2"]').value },
+        { name: 'poc_site_name_2',    value: document.querySelector('input[name="site_name_2"]').value },
+        { name: 'poc_site_details_2', value: document.querySelector('input[name="site_details_2"]').value },
+        { name: 'poc_timezone_2',     value: document.querySelector('select[name="timezone_2"]').value }
     ];
 
     grecaptcha.enterprise.ready(function() {
@@ -607,6 +625,29 @@ function toggleSection(n) {
 }
 
 function completeSection1() {
+    // Validate section 1 required fields
+    const s1required = [
+        { name: 'first_name', label: 'First Name' },
+        { name: 'last_name', label: 'Last Name' },
+        { name: 'title', label: 'Job Title' },
+        { name: 'company', label: 'Company' },
+        { name: 'email', label: 'Email Address' },
+        { name: 'phone', label: 'Phone Number' },
+        { name: 'address_line1', label: 'Street Address' },
+        { name: 'city', label: 'City' },
+        { name: 'state', label: 'State / Province' },
+        { name: 'zip', label: 'ZIP / Postal Code' },
+        { name: 'country', label: 'Country' },
+    ];
+    for (const field of s1required) {
+        const el = document.querySelector('input[name="' + field.name + '"], select[name="' + field.name + '"], textarea[name="' + field.name + '"]');
+        if (!el || !el.value.trim()) {
+            alert(field.label + ' is required.');
+            if (el) el.focus();
+            return;
+        }
+    }
+
     // Build summary
     const fn = document.querySelector('input[name="first_name"]').value.trim();
     const ln = document.querySelector('input[name="last_name"]').value.trim();
