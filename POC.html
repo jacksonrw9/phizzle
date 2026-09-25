@@ -528,7 +528,8 @@ function handleSubmit() {
         { name: 'timezone_2', label: 'Timezone (Edge Puck 2)' },
     ];
     for (const field of s2required) {
-        const el = document.querySelector('input[name="' + field.name + '"], select[name="' + field.name + '"], textarea[name="' + field.name + '"]');
+        const els = document.getElementsByName(field.name);
+        const el = els.length ? els[0] : null;
         if (!el || !el.value.trim()) {
             alert(field.label + ' is required.');
             if (el) el.focus();
@@ -541,31 +542,31 @@ function handleSubmit() {
     btn.disabled = true;
 
     const fields = [
-        { name: 'firstname',          value: document.querySelector('input[name="first_name"]').value },
-        { name: 'lastname',           value: document.querySelector('input[name="last_name"]').value },
-        { name: 'jobtitle',           value: document.querySelector('input[name="title"]').value },
-        { name: 'company',            value: document.querySelector('input[name="company"]').value },
-        { name: 'email',              value: document.querySelector('input[name="email"]').value },
-        { name: 'phone',              value: document.querySelector('input[name="phone"]').value },
-        { name: 'address',            value: document.querySelector('input[name="address_line1"]').value },
-        { name: 'address_line2',      value: document.querySelector('input[name="address_line2"]').value },
-        { name: 'city',               value: document.querySelector('input[name="city"]').value },
-        { name: 'state',              value: document.querySelector('input[name="state"]').value },
-        { name: 'zip',                value: document.querySelector('input[name="zip"]').value },
-        { name: 'country',            value: document.querySelector('input[name="country"]').value },
-        { name: 'delivery_notes',     value: document.querySelector('textarea[name="delivery_notes"]').value },
+        { name: 'firstname',          value: document.querySelector('[name=first_name]').value },
+        { name: 'lastname',           value: document.querySelector('[name=last_name]').value },
+        { name: 'jobtitle',           value: document.querySelector('[name=title]').value },
+        { name: 'company',            value: document.querySelector('[name=company]').value },
+        { name: 'email',              value: document.querySelector('[name=email]').value },
+        { name: 'phone',              value: document.querySelector('[name=phone]').value },
+        { name: 'address',            value: document.querySelector('[name=address_line1]').value },
+        { name: 'address_line2',      value: document.querySelector('[name=address_line2]').value },
+        { name: 'city',               value: document.querySelector('[name=city]').value },
+        { name: 'state',              value: document.querySelector('[name=state]').value },
+        { name: 'zip',                value: document.querySelector('[name=zip]').value },
+        { name: 'country',            value: document.querySelector('[name=country]').value },
+        { name: 'delivery_notes',     value: document.querySelector('[name=delivery_notes]').value },
         { name: 'poc_instrument_1',   value: i1 },
-        { name: 'poc_instrument_1_other', value: document.querySelector('input[name="other_instrument_1"]') ? document.querySelector('input[name="other_instrument_1"]').value : '' },
-        { name: 'poc_instrument_1_serial_number', value: document.querySelector('input[name="serial_number_1"]').value },
-        { name: 'poc_site_name_1',    value: document.querySelector('input[name="site_name_1"]').value },
-        { name: 'poc_site_details_1', value: document.querySelector('input[name="site_details_1"]').value },
-        { name: 'poc_timezone_1',     value: document.querySelector('select[name="timezone_1"]').value },
+        { name: 'poc_instrument_1_other', value: document.querySelector('[name=other_instrument_1]') ? document.querySelector('[name=other_instrument_1]').value : '' },
+        { name: 'poc_instrument_1_serial_number', value: document.querySelector('[name=serial_number_1]').value },
+        { name: 'poc_site_name_1',    value: document.querySelector('[name=site_name_1]').value },
+        { name: 'poc_site_details_1', value: document.querySelector('[name=site_details_1]').value },
+        { name: 'poc_timezone_1',     value: document.querySelector('[name=timezone_1]').value },
         { name: 'poc_instrument_2',   value: i2 },
-        { name: 'poc_instrument_2_other', value: document.querySelector('input[name="other_instrument_2"]') ? document.querySelector('input[name="other_instrument_2"]').value : '' },
-        { name: 'poc_instrument_2_serial_number', value: document.querySelector('input[name="serial_number_2"]').value },
-        { name: 'poc_site_name_2',    value: document.querySelector('input[name="site_name_2"]').value },
-        { name: 'poc_site_details_2', value: document.querySelector('input[name="site_details_2"]').value },
-        { name: 'poc_timezone_2',     value: document.querySelector('select[name="timezone_2"]').value }
+        { name: 'poc_instrument_2_other', value: document.querySelector('[name=other_instrument_2]') ? document.querySelector('[name=other_instrument_2]').value : '' },
+        { name: 'poc_instrument_2_serial_number', value: document.querySelector('[name=serial_number_2]').value },
+        { name: 'poc_site_name_2',    value: document.querySelector('[name=site_name_2]').value },
+        { name: 'poc_site_details_2', value: document.querySelector('[name=site_details_2]').value },
+        { name: 'poc_timezone_2',     value: document.querySelector('[name=timezone_2]').value }
     ];
 
     grecaptcha.enterprise.ready(function() {
@@ -640,7 +641,8 @@ function completeSection1() {
         { name: 'country', label: 'Country' },
     ];
     for (const field of s1required) {
-        const el = document.querySelector('input[name="' + field.name + '"], select[name="' + field.name + '"], textarea[name="' + field.name + '"]');
+        const els = document.getElementsByName(field.name);
+        const el = els.length ? els[0] : null;
         if (!el || !el.value.trim()) {
             alert(field.label + ' is required.');
             if (el) el.focus();
@@ -649,11 +651,11 @@ function completeSection1() {
     }
 
     // Build summary
-    const fn = document.querySelector('input[name="first_name"]').value.trim();
-    const ln = document.querySelector('input[name="last_name"]').value.trim();
-    const company = document.querySelector('input[name="company"]').value.trim();
-    const city = document.querySelector('input[name="city"]').value.trim();
-    const state = document.querySelector('input[name="state"]').value.trim();
+    const fn = document.querySelector('[name=first_name]').value.trim();
+    const ln = document.querySelector('[name=last_name]').value.trim();
+    const company = document.querySelector('[name=company]').value.trim();
+    const city = document.querySelector('[name=city]').value.trim();
+    const state = document.querySelector('[name=state]').value.trim();
     if (!fn || !ln) { alert('Please enter your first and last name before continuing.'); return; }
 
     // Show summary in header
