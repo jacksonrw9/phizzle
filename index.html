@@ -400,9 +400,24 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
+            box-sizing: border-box;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
 
         .platform-bubble {
@@ -413,6 +428,8 @@
             border: 1px solid #e2e8f0;
             max-width: 1200px;
             width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
         }
 
         .platform-title {
@@ -609,8 +626,20 @@
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
+        }
+
+        @media (max-width: 1100px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .benefit-item {
@@ -786,8 +815,8 @@
 
         .product-image-wrap img {
             width: 100%;
-            height: 420px;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
             border-radius: 12px;
         }
 
@@ -1117,7 +1146,7 @@
             .product-showcase-item, .product-showcase-item.reverse { grid-template-columns: 1fr; gap: 2rem; }
             .product-showcase-item.reverse .product-image-wrap,
             .product-showcase-item.reverse .product-text-wrap { order: unset; }
-            .product-image-wrap img { height: 220px; }
+            .product-image-wrap img { height: auto; }
         }
 
         @media (max-width: 768px) {
@@ -1127,11 +1156,11 @@
             .hero-content p { font-size: 1rem; }
             .hero-text-box { max-width: 100%; padding: 2rem; }
             .platform-bubble { padding: 1.5rem; margin: 0 1rem; text-align: center; }
-            .platform-title { font-size: 1.6rem; margin-bottom: 2rem; }
-            .platform-left { align-items: center; }
-            .platform-step { flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; }
-            .step-text { font-size: 1.1rem; }
-            .platform-description { font-size: 0.9rem; text-align: center; }
+            .platform-title { font-size: 1.4rem; margin-bottom: 1.5rem; }
+            .platform-left { align-items: flex-start; }
+            .platform-step { flex-direction: row; align-items: center; text-align: left; gap: 0.75rem; }
+            .step-text { font-size: 1rem; white-space: normal; word-break: break-word; }
+            .platform-description { font-size: 0.9rem; text-align: left; }
             .benefits-header h2 { font-size: 1.8rem; text-align: center; }
             .benefits-header p { text-align: center; }
             .benefit-content { text-align: left; }
@@ -1151,7 +1180,7 @@
             .product-showcase-container { gap: 3rem; }
             .product-text-wrap h2 { font-size: 1.6rem; text-align: center; }
             .product-bullet-list li .bullet-text { font-size: 0.9rem; }
-            .product-image-wrap img { height: 200px; }
+            .product-image-wrap img { height: auto; }
         }
 
         @media (max-width: 480px) {
@@ -1892,7 +1921,7 @@
                 <h2>Explore the Benefits by Application</h2>
             </div>
             
-            <div class="benefits-grid" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="benefits-grid">
                 <div class="benefit-item">
                     <div class="benefit-image" style="background-image: url('https://res.cloudinary.com/dqiggfeuq/image/upload/v1757081563/biopharma-application-benefit3_qvnr3f.jpg'); background-size: cover; background-position: center; color: transparent;">Pharma Manufacturing Image</div>
                     <div class="benefit-content">
@@ -1994,8 +2023,8 @@
     <!-- Request a Demo Section -->
     <section style="background: #e0eaed; padding: 4rem 0; display: flex; align-items: center; justify-content: center; min-height: 400px;">
         <div style="width: 100%; max-width: 1400px; padding: 0 2rem; display: flex; justify-content: center; align-items: center;">
-            <div style="background: #ffffff; padding: 3rem; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); border: 1px solid #e2e8f0; max-width: 1200px; width: 100%;">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+            <div style="background: #ffffff; padding: 3rem; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); border: 1px solid #e2e8f0; max-width: 1200px; width: 100%; box-sizing: border-box;">
+                <div class="demo-grid">
                     <div>
                         <h2 style="font-size: 2.2rem; font-weight: 600; color: #436c79; line-height: 1.2; margin-bottom: 1.25rem;">
                             Ready to Digitize Your Scientific Data Workflows?
@@ -2008,7 +2037,7 @@
                         </a>
                     </div>
                     <div>
-                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757288728/iStock-1219894389_1_gsxyor.png" alt="Scientific workflows" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px;">
+                        <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757288728/iStock-1219894389_1_gsxyor.png" alt="Scientific workflows" style="width: 100%; height: auto; object-fit: contain; border-radius: 12px; display: block;">
                     </div>
                 </div>
             </div>
