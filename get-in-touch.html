@@ -669,6 +669,25 @@
             cursor: pointer;
         }
 
+        /* Privacy note, shown once "I agree" is checked */
+        .consent-reveal {
+            display: none;
+        }
+
+        .consent-reveal.open {
+            display: block;
+            animation: consentIn 0.3s ease-out;
+        }
+
+        @keyframes consentIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .consent-reveal.open { animation: none; }
+        }
+
         /* Submit Button */
         .submit-btn {
             background: #1e293b;
@@ -1076,6 +1095,11 @@
                 gap: 1rem;
             }
 
+            /* Keep the contact fields in pairs on phones */
+            .form-row.name-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
             .main-content {
                 padding-top: 2.5rem;
                 padding-bottom: 4rem;
@@ -1134,8 +1158,30 @@
             }
         }
 
-        .grecaptcha-badge {
-            visibility: hidden;
+        /* Spam trap: hidden from people, bots fill it in */
+        .hp-field {
+            position: absolute;
+            left: -10000px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .form-error {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.875rem 1rem;
+            border-radius: 8px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .form-error a {
+            color: #991b1b;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -1301,11 +1347,17 @@
 
             <!-- Lead Capture Form -->
             <form class="lead-form" id="lead-form" data-hsforms-ignore="true" data-hs-cf-bound="true">
-                
+
+                <!-- Spam trap (replaces reCAPTCHA): real visitors never see or fill this -->
+                <div class="hp-field" aria-hidden="true">
+                    <label for="website">Leave this field empty</label>
+                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
                 <!-- Contact Information Section -->
                 <h2 class="form-section-title">Contact Information</h2>
 
-                <div class="form-row">
+                <div class="form-row name-row">
                     <div class="form-group">
                         <label for="firstName">First name*</label>
                         <input type="text" id="firstName" name="firstName" required>
@@ -1316,7 +1368,7 @@
                     </div>
                 </div>
 
-                <div class="form-row">
+                <div class="form-row name-row">
                     <div class="form-group">
                         <label for="companyName">Company*</label>
                         <input type="text" id="companyName" name="companyName" required>
@@ -1327,7 +1379,7 @@
                     </div>
                 </div>
 
-                <div class="form-row">
+                <div class="form-row name-row">
                     <div class="form-group">
                         <label for="email">Email address*</label>
                         <input type="email" id="email" name="email" required>
@@ -1340,19 +1392,6 @@
 
                 <!-- Project Inquiry Section -->
                 <h2 class="form-section-title">Project Inquiry</h2>
-
-                <div class="form-group">
-                    <label for="primaryInterest">What is your primary interest in our products/services?*</label>
-                    <select id="primaryInterest" name="primaryInterest" required>
-                        <option value="" disabled selected>Select an option</option>
-                        <option value="Learning about new features/products">Learning about new features/products</option>
-                        <option value="Seeking a specific solution for a current business challenge">Seeking a specific solution for a current business challenge</option>
-                        <option value="Market research">Market research</option>
-                        <option value="Requesting a live demo/personalized walkthrough">Requesting a live demo/personalized walkthrough</option>
-                        <option value="Exploring partnership opportunities">Exploring partnership opportunities</option>
-                        <option value="General information">General information</option>
-                    </select>
-                </div>
 
                 <div class="form-group">
                     <label>Where are you in your process?*</label>
@@ -1381,7 +1420,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Which of our key solutions are you most interested in? (Select all that apply)*</label>
+                    <label>Which of our key solutions are you most interested in? (Select all that apply)</label>
                     <div class="solutions-group">
                         <div class="solution-option">
                             <input type="checkbox" id="sol-connected-plant" name="solutions" value="Connected Plant">
@@ -1410,44 +1449,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label>What is the best time for our team to contact you for a follow-up?*</label>
-                    <div class="solutions-group">
-                        <div class="solution-option">
-                            <input type="radio" id="time-morning" name="contactTime" value="Morning (9am–12pm)" required>
-                            <label for="time-morning">Morning (9am–12pm)</label>
-                        </div>
-                        <div class="solution-option">
-                            <input type="radio" id="time-afternoon" name="contactTime" value="Afternoon (1pm–5pm)">
-                            <label for="time-afternoon">Afternoon (1pm–5pm)</label>
-                        </div>
-                        <div class="solution-option">
-                            <input type="radio" id="time-anytime" name="contactTime" value="Anytime during business hours">
-                            <label for="time-anytime">Anytime during business hours</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>What is the best way for our team to contact you?*</label>
-                    <div class="solutions-group">
-                        <div class="solution-option">
-                            <input type="radio" id="method-phone" name="contactMethod" value="Phone call" required>
-                            <label for="method-phone">Phone call</label>
-                        </div>
-                        <div class="solution-option">
-                            <input type="radio" id="method-email" name="contactMethod" value="Email">
-                            <label for="method-email">Email</label>
-                        </div>
-                        <div class="solution-option">
-                            <input type="radio" id="method-video" name="contactMethod" value="Video conference">
-                            <label for="method-video">Video conference</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Anything else you'd like to share?</label>
-                    <textarea id="message" name="message" placeholder="Optional — share any specific questions, use cases, or details about your project."></textarea>
+                    <label for="message">Any other context you'd like to share?</label>
+                    <textarea id="message" name="message" placeholder="Optional: share any specific questions, use cases, or details about your project."></textarea>
                 </div>
 
                 <!-- Privacy Information -->
@@ -1462,13 +1465,21 @@
                     </div>
                 </div>
 
+                <!-- Unsubscribe note appears once "I agree" is checked -->
+                <div class="consent-reveal" id="consentReveal">
+                    <div class="privacy-section">
+                        <p>You can unsubscribe from these communications at any time. For more information on how to unsubscribe, our privacy practices, and how we are committed to protecting and respecting your privacy, please review our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+                    </div>
+                </div>
+
+                <!-- Consent to process the request (always shown) -->
                 <div class="privacy-section">
-                    <p>You can unsubscribe from these communications at any time. For more information on how to unsubscribe, our privacy practices, and how we are committed to protecting and respecting your privacy, please review our <a href="privacy-policy.html">Privacy Policy</a>.</p>
-                    
                     <p>By clicking submit below, you consent to allow Phizzle to store and process the personal information submitted above to provide you the content requested.</p>
                 </div>
 
                 <button type="submit" class="submit-btn">Submit</button>
+
+                <p class="form-error" id="formError" role="alert"></p>
             </form>
 
             <!-- Success Message (shown after successful submission) -->
@@ -1549,11 +1560,6 @@
                             <input type="email" class="email-input" name="email" placeholder="Enter your email" required>
                             <button type="submit" class="email-submit">Subscribe</button>
                         </form>
-                        <p style="font-size: 0.75rem; color: #64748b; margin-top: 0.5rem; line-height: 1.4;">
-                            This site is protected by reCAPTCHA and the Google 
-                            <a href="https://policies.google.com/privacy" style="color: #94a3b8; text-decoration: underline;">Privacy Policy</a> and 
-                            <a href="https://policies.google.com/terms" style="color: #94a3b8; text-decoration: underline;">Terms of Service</a> apply.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -1613,72 +1619,196 @@
             }
         });
 
-        // Load reCAPTCHA
-        const script = document.createElement('script');
-        script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf';
-        document.head.appendChild(script);
-        
-        // HubSpot Form Integration for Newsletter Form  
+        // ================= Form settings =================
+        // HubSpot account and forms the website submits to
+        const HUBSPOT_PORTAL_ID = '8070371';
+        const LEAD_FORM_ID = '24515c9a-c453-4d31-af1a-7c28742d5b44';
+        // Paste the HubSpot form ID for newsletter sign-ups here. Until it is set,
+        // newsletter sign-ups are still saved to the Google Form backup.
+        const NEWSLETTER_FORM_ID = '';
+        // Google Form "Phizzle Website Form Backup". Its responses feed the
+        // "Phizzle Website Form Submissions (Backup)" Google Sheet.
+        const BACKUP_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfLG4keTbK34yn_DIKp8uD4hLb34dcjYQXczEptqzNLSg0GDw/formResponse';
+        const BACKUP_FORM_FIELDS = {
+            form: 'entry.516863202',
+            hubspot: 'entry.1581862950',
+            firstname: 'entry.1323290399',
+            lastname: 'entry.953833378',
+            email: 'entry.2060112685',
+            company: 'entry.102944365',
+            jobtitle: 'entry.1516065853',
+            phone: 'entry.580761313',
+            project_stage: 'entry.1342341611',
+            solutions_of_interest: 'entry.1650683835',
+            message: 'entry.1502109527',
+            marketing_opt_in: 'entry.2012500422',
+            page: 'entry.1260589540',
+            id: 'entry.392642089'
+        };
+        const SALES_EMAIL = 'sales@phizzle.com';
+        // ==================================================
+
+        function newSubmissionId() {
+            return Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+        }
+
+        // HubSpot tracking cookie, so a submission links to the visitor's earlier page views
+        function getHubspotCookie() {
+            const match = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
+            return match ? decodeURIComponent(match[1]) : undefined;
+        }
+
+        async function fetchWithTimeout(url, options, ms) {
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), ms || 15000);
+            try {
+                return await fetch(url, Object.assign({}, options, { signal: controller.signal }));
+            } finally {
+                clearTimeout(timer);
+            }
+        }
+
+        // Sends a copy of the submission to the backup Google Form (which feeds the Google Sheet).
+        // Google doesn't let the page read the reply, so this returns true when the
+        // request was sent without a network error.
+        async function saveToBackup(payload) {
+            const fields = payload.fields || {};
+            const values = Object.assign({}, fields, {
+                form: payload.form,
+                hubspot: payload.hubspot || '',
+                page: payload.page,
+                id: payload.id
+            });
+            const body = new URLSearchParams();
+            Object.keys(BACKUP_FORM_FIELDS).forEach(key => {
+                if (values[key] !== undefined && values[key] !== '') {
+                    body.append(BACKUP_FORM_FIELDS[key], String(values[key]).slice(0, 5000));
+                }
+            });
+            try {
+                await fetchWithTimeout(BACKUP_FORM_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    keepalive: true,
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: body.toString()
+                }, 15000);
+                return true;
+            } catch (error) {
+                console.error('Backup save failed:', error);
+                return false;
+            }
+        }
+
+        // Sends the submission straight to HubSpot. Returns { ok, detail } with HubSpot's actual answer.
+        async function sendToHubSpot(formId, fields, pageName) {
+            if (!formId) return { ok: false, detail: 'not sent: no HubSpot form ID set' };
+            const context = { pageUri: window.location.href, pageName: pageName };
+            const hutk = getHubspotCookie();
+            if (hutk) context.hutk = hutk;
+            try {
+                const response = await fetchWithTimeout(
+                    'https://api.hsforms.com/submissions/v3/integration/submit/' + HUBSPOT_PORTAL_ID + '/' + formId,
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ fields: fields, context: context })
+                    },
+                    15000
+                );
+                const data = await response.json().catch(() => ({}));
+                if (response.ok) return { ok: true, detail: 'accepted' };
+                const reasons = (data.errors || []).map(err => err.message).join(' | ');
+                return { ok: false, detail: 'rejected (' + response.status + '): ' + (reasons || data.message || 'no details') };
+            } catch (error) {
+                return { ok: false, detail: 'could not reach HubSpot: ' + error };
+            }
+        }
+
+        // Sends to HubSpot, then saves a backup copy (with HubSpot's answer) to the Google Form.
+        async function submitEverywhere(formName, formId, fields, pageName) {
+            const id = newSubmissionId();
+            const fieldMap = {};
+            fields.forEach(f => { fieldMap[f.name] = f.value; });
+
+            const hubspot = await sendToHubSpot(formId, fields, pageName);
+            if (!hubspot.ok) console.error('HubSpot did not accept the submission:', hubspot.detail);
+
+            const backupSaved = await saveToBackup({
+                id: id,
+                form: formName,
+                hubspot: hubspot.ok ? 'accepted' : hubspot.detail,
+                fields: fieldMap,
+                page: window.location.href
+            });
+
+            // Only HubSpot can confirm a submission (Google doesn't let the page read the
+            // backup form's reply), so only a confirmed HubSpot submission counts as received.
+            // Exception: a form with no HubSpot form ID yet relies on the backup alone.
+            const received = formId ? hubspot.ok : backupSaved;
+            if (received && typeof gtag === 'function') {
+                gtag('event', 'form_received', {
+                    form_name: formName,
+                    hubspot_accepted: hubspot.ok,
+                    backup_saved: backupSaved
+                });
+            }
+            return { received: received, hubspot: hubspot, backupSaved: backupSaved };
+        }
+
+        // HubSpot Form Integration for Newsletter Form
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
-            const email = e.target.querySelector('input[name="email"]').value;
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            
+
+            const newsletterForm = e.target;
+            const email = newsletterForm.querySelector('input[name="email"]').value;
+            const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+
             submitBtn.textContent = 'Subscribing...';
             submitBtn.disabled = true;
-            
-            grecaptcha.enterprise.ready(function() {
-                grecaptcha.enterprise.execute('6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf', {action: 'submit'}).then(function(token) {
-                    fetch('/.netlify/functions/submit-form', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            recaptchaToken: token,
-                            formData: {
-                                fields: [{ name: "email", value: email }],
-                                context: {
-                                    pageUri: window.location.href,
-                                    pageName: document.title
-                                }
-                            }
-                        })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
+
+            submitEverywhere('Newsletter', NEWSLETTER_FORM_ID, [{ name: 'email', value: email }], document.title)
+                .then(outcome => {
+                    if (outcome.received) {
                         submitBtn.textContent = 'Subscribed!';
-                        e.target.reset();
+                        newsletterForm.reset();
                         setTimeout(() => {
                             submitBtn.textContent = 'Subscribe';
                             submitBtn.disabled = false;
                         }, 2000);
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
+                    } else {
                         submitBtn.textContent = 'Error - Try Again';
                         submitBtn.disabled = false;
-                    });
+                    }
                 });
-            });
         });
+
+        // Show the privacy note once "I agree" is checked
+        (function() {
+            const agree = document.getElementById('communications');
+            const reveal = document.getElementById('consentReveal');
+            function sync() { reveal.classList.toggle('open', agree.checked); }
+            agree.addEventListener('change', sync);
+            sync(); // in case the browser restored the checkbox state
+        })();
 
         // Lead capture form submission
         document.getElementById('lead-form').addEventListener('submit', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
+
             const form = e.target;
+            const errorBox = document.getElementById('formError');
+            errorBox.style.display = 'none';
+
             const firstName = form.querySelector('input[name="firstName"]').value;
             const lastName = form.querySelector('input[name="lastName"]').value;
             const companyName = form.querySelector('input[name="companyName"]').value;
             const jobTitle = form.querySelector('input[name="jobTitle"]').value;
             const email = form.querySelector('input[name="email"]').value;
             const phoneNumber = form.querySelector('input[name="phoneNumber"]').value;
-            const primaryInterest = form.querySelector('select[name="primaryInterest"]').value;
             const projectStage = form.querySelector('input[name="projectStage"]:checked') ? form.querySelector('input[name="projectStage"]:checked').value : '';
-            const contactTime = form.querySelector('input[name="contactTime"]:checked') ? form.querySelector('input[name="contactTime"]:checked').value : '';
-            const contactMethod = form.querySelector('input[name="contactMethod"]:checked') ? form.querySelector('input[name="contactMethod"]:checked').value : '';
             const message = form.querySelector('textarea[name="message"]').value;
             const communications = form.querySelector('input[name="communications"]').checked;
 
@@ -1695,16 +1825,10 @@
             }
             const solutionsString = solutionsList.join('; ');
 
-            // Validate at least one solution is selected
-            if (solutions.length === 0) {
-                alert('Please select at least one solution you are interested in.');
-                return;
-            }
-
             const submitBtn = form.querySelector('button[type="submit"]');
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
-            
+
             const fields = [
                 { name: "firstname", value: firstName },
                 { name: "lastname", value: lastName },
@@ -1712,10 +1836,7 @@
                 { name: "company", value: companyName },
                 { name: "jobtitle", value: jobTitle },
                 { name: "phone", value: phoneNumber },
-                { name: "primary_interest", value: primaryInterest },
                 { name: "project_stage", value: projectStage },
-                { name: "preferred_contact_time", value: contactTime },
-                { name: "preferred_contact_method", value: contactMethod },
                 { name: "solutions_of_interest", value: solutionsString },
                 { name: "hs_lead_status", value: "NEW" },
                 { name: "lifecyclestage", value: "lead" }
@@ -1723,43 +1844,48 @@
 
             if (message) fields.push({ name: "message", value: message });
             if (communications) fields.push({ name: "marketing_opt_in", value: "true" });
-            
-            grecaptcha.enterprise.ready(function() {
-                grecaptcha.enterprise.execute('6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf', {action: 'submit'}).then(function(token) {
-                    fetch('/.netlify/functions/submit-form', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            recaptchaToken: token,
-                            formData: {
-                                formId: '24515c9a-c453-4d31-af1a-7c28742d5b44',
-                                fields: fields,
-                                context: {
-                                    pageUri: window.location.href,
-                                    pageName: "Lead Capture"
-                                }
-                            }
-                        })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        // Hide form, hide page header subtext, show success message, scroll to top of content
-                        form.style.display = 'none';
-                        document.querySelector('.page-header').style.display = 'none';
-                        const successMessage = document.getElementById('successMessage');
-                        successMessage.classList.add('active');
-                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        form.reset();
-                        document.getElementById('otherSolutionWrapper').style.display = 'none';
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('There was an error submitting your message. Please try again.');
-                        submitBtn.textContent = 'Error - Try Again';
-                        submitBtn.disabled = false;
-                    });
+
+            function showSuccess() {
+                // Hide form, hide page header subtext, show success message, scroll to top of content
+                form.style.display = 'none';
+                document.querySelector('.page-header').style.display = 'none';
+                const successMessage = document.getElementById('successMessage');
+                successMessage.classList.add('active');
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                form.reset();
+                document.getElementById('otherSolutionWrapper').style.display = 'none';
+            }
+
+            // Spam trap: the hidden field was filled in, which people never do but bots do.
+            // Keep a copy in the backup sheet marked as spam, skip HubSpot.
+            // (HubSpot's own spam filtering handles the rest.)
+            const trap = form.querySelector('input[name="website"]');
+            const spamReason = (trap && trap.value) ? 'hidden field filled in' : '';
+            if (spamReason) {
+                saveToBackup({
+                    id: newSubmissionId(),
+                    form: 'Get in Touch (SPAM - not sent to HubSpot)',
+                    hubspot: 'not sent: ' + spamReason,
+                    fields: fields.reduce((all, f) => { all[f.name] = f.value; return all; }, {}),
+                    page: window.location.href
+                }).finally(showSuccess);
+                return;
+            }
+
+            submitEverywhere('Get in Touch', LEAD_FORM_ID, fields, 'Lead Capture')
+                .then(outcome => {
+                    if (outcome.received) {
+                        showSuccess();
+                        return;
+                    }
+                    // HubSpot didn't confirm it: say so honestly, and keep what they typed.
+                    // (A backup copy was still sent, and the team gets an alert email.)
+                    errorBox.innerHTML = 'Sorry, we couldn\'t confirm your request went through. Please try again, or email us at ' +
+                        '<a href="mailto:' + SALES_EMAIL + '">' + SALES_EMAIL + '</a>.';
+                    errorBox.style.display = 'block';
+                    submitBtn.textContent = 'Submit';
+                    submitBtn.disabled = false;
                 });
-            });
         });
     </script>
 </body>
