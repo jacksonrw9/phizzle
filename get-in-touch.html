@@ -103,7 +103,7 @@
 
         /* Main Content */
         .main-content {
-            background: #ffffff;
+            background: #e8edf1;
             padding-top: 2rem;
             padding-bottom: 3rem;
         }
@@ -120,7 +120,7 @@
         /* Lead Form */
         .lead-form {
             background: #ffffff;
-            padding: 2rem 3rem;
+            padding: 1.75rem 2.25rem;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             max-width: 800px;
@@ -223,7 +223,8 @@
         }
 
         .form-group textarea {
-            height: 96px;
+            height: 64px;
+            padding: 0.6rem 0.8rem;
             resize: vertical;
         }
 
@@ -538,11 +539,11 @@
                 height: 24px !important;
             }
 
-            /* No card on phones: fields use the full width */
+            /* Slim white card on phones so it stands out from the background */
             .lead-form {
-                padding: 0;
-                box-shadow: none;
-                border-radius: 0;
+                padding: 1rem 0.875rem;
+                border-radius: 12px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
             }
 
             .form-row {
@@ -566,7 +567,8 @@
             }
 
             .form-group textarea {
-                height: 56px;
+                height: 48px;
+                padding: 0.5rem 0.75rem;
             }
 
             .checkbox-group {
@@ -583,7 +585,7 @@
             }
 
             .content-container {
-                padding: 0 1rem;
+                padding: 0 0.625rem;
             }
         }
 
@@ -691,7 +693,7 @@
 
                 <div class="form-group">
                     <label for="message">Any other context you'd like to share?</label>
-                    <textarea id="message" name="message" rows="2" placeholder="Optional: questions, use cases or project details"></textarea>
+                    <textarea id="message" name="message" rows="2" placeholder="Optional: questions or project details"></textarea>
                 </div>
 
                 <div class="checkbox-group">
