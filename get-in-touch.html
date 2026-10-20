@@ -726,6 +726,16 @@
     <main class="main-content">
         <div class="content-container">
             <!-- Lead Capture Form -->
+            <!-- Third copy of every lead, on phizzle.com's own hosting (Netlify Forms). Never shown;
+                 Netlify reads it when the site deploys. -->
+            <form name="lead-fallback" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true">
+                <input type="hidden" name="form-name" value="lead-fallback">
+                <input name="bot-field">
+                <input name="firstname"><input name="lastname"><input name="email"><input name="phone">
+                <input name="project_stage"><textarea name="message"></textarea><input name="marketing_opt_in">
+                <input name="page"><input name="submission_id">
+            </form>
+
             <form class="lead-form" id="lead-form" data-hsforms-ignore="true" data-hs-cf-bound="true">
                 <h1 class="form-title">Get in Touch</h1>
 
@@ -879,7 +889,7 @@
         // Sends a copy of the submission to the backup Google Form (which feeds the Google Sheet).
         // Google doesn't let the page read the reply, so this returns true when the
         // request was sent without a network error.
-        async function saveToBackup(payload) {
+        async function saveToBackup(payload, timeoutMs) {
             const fields = payload.fields || {};
             const values = Object.assign({}, fields, {
                 form: payload.form,
@@ -900,7 +910,7 @@
                     keepalive: true,
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: body.toString()
-                }, 15000);
+                }, timeoutMs || 15000);
                 return true;
             } catch (error) {
                 console.error('Backup save failed:', error);
@@ -934,26 +944,124 @@
         }
 
         // Sends to HubSpot, then saves a backup copy (with HubSpot's answer) to the Google Form.
+        // Last resort: hand the lead to phizzle.com's own server (Netlify function), which sends it
+        // on to HubSpot and/or the backup. Used only when the visitor's network blocks HubSpot or
+        // Google. Returns the relay's answer, or null if the relay isn't available (e.g. on a preview).
+        const RELAY_URL = '/.netlify/functions/lead-relay';
+        async function sendToRelay(payload) {
+            try {
+                const response = await fetchWithTimeout(RELAY_URL, {
+                    method: 'POST',
+                    keepalive: true,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }, 20000);
+                if (!response.ok) return null;
+                return await response.json();
+            } catch (error) {
+                console.error('Relay failed:', error);
+                return null;
+            }
+        }
+
+        // Stores every lead with Netlify Forms on phizzle.com (third copy, independent of Google and
+        // HubSpot). Netlify's reply can be read, so the page knows for sure whether this saved.
+        async function saveToNetlifyForms(id, fieldMap) {
+            const body = new URLSearchParams({
+                'form-name': 'lead-fallback',
+                firstname: fieldMap.firstname || '',
+                lastname: fieldMap.lastname || '',
+                email: fieldMap.email || '',
+                phone: fieldMap.phone || '',
+                project_stage: fieldMap.project_stage || '',
+                message: (fieldMap.message || '').slice(0, 5000),
+                marketing_opt_in: fieldMap.marketing_opt_in || 'false',
+                page: window.location.href,
+                submission_id: id
+            });
+            try {
+                const response = await fetchWithTimeout('/', {
+                    method: 'POST',
+                    keepalive: true,
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: body.toString()
+                }, 15000);
+                return response.ok;
+            } catch (error) {
+                console.error('Netlify Forms save failed:', error);
+                return false;
+            }
+        }
+
         async function submitEverywhere(formName, formId, fields, pageName) {
             const id = newSubmissionId();
             const fieldMap = {};
             fields.forEach(f => { fieldMap[f.name] = f.value; });
 
-            const hubspot = await sendToHubSpot(formId, fields, pageName);
+            // 1. Save two copies first, at the same time, so the lead's details are kept even if
+            //    the visitor closes the page or loses signal while HubSpot is answering:
+            //    - the backup Google Sheet, marked "pending" until HubSpot's answer is known
+            //    - Netlify Forms on phizzle.com (doesn't depend on Google or HubSpot)
+            const saves = await Promise.all([
+                saveToBackup({
+                    id: id,
+                    form: formName,
+                    hubspot: 'pending',
+                    fields: fieldMap,
+                    page: window.location.href
+                }, 6000),
+                formId ? saveToNetlifyForms(id, fieldMap) : Promise.resolve(false)
+            ]);
+            const backupSaved = saves[0];
+            const netlifySaved = saves[1];
+
+            // 2. Send to HubSpot.
+            let hubspot = await sendToHubSpot(formId, fields, pageName);
             if (!hubspot.ok) console.error('HubSpot did not accept the submission:', hubspot.detail);
 
-            const backupSaved = await saveToBackup({
+            // 2b. If HubSpot or Google couldn't be reached from this network, send the lead
+            //     through phizzle.com instead, which forwards it from Netlify's servers.
+            const hubspotUnreachable = !hubspot.ok && /could not reach HubSpot/.test(hubspot.detail);
+            let backupViaRelay = false;
+            if (formId && (!backupSaved || hubspotUnreachable)) {
+                const relay = await sendToRelay({
+                    id: id,
+                    form: formName,
+                    fields: fields,
+                    page: window.location.href,
+                    pageName: pageName,
+                    hutk: getHubspotCookie(),
+                    hubspotAlreadyAccepted: hubspot.ok,
+                    needBackup: !backupSaved
+                });
+                if (relay) {
+                    if (hubspotUnreachable && relay.hubspot) hubspot = relay.hubspot;
+                    backupViaRelay = !backupSaved && !!relay.backup;
+                }
+            }
+
+            // 3. Record HubSpot's answer against the same submission ID. The alert script
+            //    copies it onto the backup row and sends the alert email. If this never
+            //    arrives, the script emails a "not confirmed" alert after 5 minutes.
+            saveToBackup({
                 id: id,
-                form: formName,
+                form: formName + ' (result)',
                 hubspot: hubspot.ok ? 'accepted' : hubspot.detail,
-                fields: fieldMap,
+                fields: {},
                 page: window.location.href
             });
 
             // Only HubSpot can confirm a submission (Google doesn't let the page read the
             // backup form's reply), so only a confirmed HubSpot submission counts as received.
             // Exception: a form with no HubSpot form ID yet relies on the backup alone.
-            const received = formId ? hubspot.ok : backupSaved;
+            // If HubSpot didn't confirm it but Netlify Forms saved it, the lead is safely captured,
+            // so show "Thanks" - unless HubSpot was refusing the details themselves (a 4xx rejection,
+            // e.g. a blocked email domain), in which case the visitor needs to fix them.
+            const hubspotRefused = !hubspot.ok && /rejected \(4\d\d\)/.test(hubspot.detail);
+
+            const received = formId
+                ? (hubspot.ok || (netlifySaved && !hubspotRefused))
+                : (backupSaved || backupViaRelay);
             // Google Analytics: one form_submit event per lead HubSpot confirmed.
             // Mark form_submit as a key event in GA (Admin > Events) to count leads.
             if (received && typeof gtag === 'function') {
@@ -966,7 +1074,7 @@
                     backup_saved: backupSaved
                 });
             }
-            return { received: received, hubspot: hubspot, backupSaved: backupSaved };
+            return { received: received, hubspot: hubspot, backupSaved: backupSaved || backupViaRelay, netlifySaved: netlifySaved };
         }
 
         // Show the privacy note once "I agree" is checked
