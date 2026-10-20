@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Conference-only page: keep it out of search results -->
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Open connections early to the servers the page needs (faster on slow Wi-Fi) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="preload" as="image" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757701267/__Phizzle-Logo-WHITE-01_5_hpfhss.svg" fetchpriority="high">
     <meta name="description" content="Connect with Phizzle to learn how our Connected Plant™ platform and Instrument Connectors can transform your manufacturing operations.">
     <title>Get in Touch - Phizzle</title>
 
     <!-- Favicon links -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
-    <link rel="shortcut icon" href="https://res.cloudinary.com/dqiggfeuq/image/upload/v1758738434/Favicon_Phizzle-P_2_mmbtf4.png">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-41FB3KKW2T"></script>
@@ -31,7 +36,9 @@
     window._hsq.push(['disableFormAutoCollect']);
     </script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font loads without holding up the page; system font shows until Inter arrives -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
     <style>
         * {
             margin: 0;
@@ -44,6 +51,19 @@
             line-height: 1.6;
             color: #333;
             background-color: #f9fafb;
+            /* Footer stays at the bottom of the window, even on the short Thanks screen */
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body > main {
+            flex: 1 0 auto;
+        }
+
+        body > footer {
+            flex-shrink: 0;
         }
 
         textarea {
@@ -77,267 +97,15 @@
             gap: 0.5rem;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .nav-links > li {
-            position: relative;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: block;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links > li > a:hover {
-            color: #94a3b8;
-        }
-
         /* Dropdown Styles */
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            min-width: 250px;
-            padding: 1rem 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-            border: 1px solid #e2e8f0;
-        }
-
-        .nav-links > li:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .dropdown li {
-            list-style: none;
-        }
-
-        .dropdown a {
-            color: #374151;
-            padding: 0.75rem 1.5rem;
-            text-transform: none;
-            font-weight: 400;
-            font-size: 0.9rem;
-            letter-spacing: 0;
-            transition: background-color 0.2s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .dropdown a:hover {
-            background-color: #f8fafc;
-            color: #436c79;
-            border-left-color: #436c79;
-        }
-
-        .request-demo {
-            background: #da5e26 !important;
-            color: white !important;
-            padding: 0.5rem 1rem !important;
-            border-radius: 6px !important;
-            transition: background 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600 !important;
-            font-size: 0.8rem !important;
-        }
-
-        .request-demo:hover {
-            background: #b45309 !important;
-            color: white !important;
-        }
 
         /* Mobile Menu */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #ffffff;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -50vw;
-            width: 50vw;
-            height: 100vh;
-            background: #f3f4f6;
-            padding: 0;
-            transition: right 0.3s ease;
-            z-index: 1000;
-            overflow-y: auto;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mobile-menu-header {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid #d1d5db;
-            background: #ffffff;
-        }
-
-        .mobile-menu-close {
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            color: #374151;
-            cursor: pointer;
-            padding: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            min-width: 44px;
-            min-height: 44px;
-            line-height: 1;
-        }
-
-        .mobile-menu-close:hover {
-            background: #f3f4f6;
-            color: #1f2937;
-        }
-
-        .mobile-nav-links {
-            list-style: none;
-            padding: 1rem 0 0 0;
-            margin: 0;
-        }
-
-        .mobile-nav-links > li {
-            border-bottom: 1px solid #d1d5db;
-        }
-
-        .mobile-nav-links > li:last-child {
-            border-bottom: none;
-        }
-
-        .mobile-nav-links > li > a {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #374151;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .mobile-nav-links > li > a:hover {
-            background-color: #e5e7eb;
-        }
-
-        .mobile-menu .mobile-dropdown {
-            background: #f3f4f6 !important;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .mobile-menu .mobile-dropdown.active {
-            max-height: 500px;
-        }
-
-        .mobile-menu .mobile-dropdown li {
-            list-style: none;
-        }
-
-        .mobile-menu .mobile-dropdown a {
-            display: block;
-            color: #374151 !important;
-            text-decoration: none;
-            padding: 0.75rem 3rem;
-            font-weight: 400;
-            text-transform: none;
-            letter-spacing: 0;
-            font-size: 0.9rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .mobile-menu .mobile-dropdown a:hover {
-            background-color: #e5e7eb !important;
-        }
-
-        .mobile-request-demo {
-            display: block;
-            background: #da5e26 !important;
-            color: white !important;
-            padding: 0.75rem 1rem !important;
-            border-radius: 6px !important;
-            text-align: center !important;
-            text-transform: uppercase !important;
-            letter-spacing: 0.5px !important;
-            font-weight: 600 !important;
-            font-size: 0.9rem !important;
-            transition: background 0.3s ease !important;
-            text-decoration: none !important;
-        }
-
-        .mobile-request-demo:hover {
-            background: #b45309 !important;
-        }
-
-        .dropdown-arrow {
-            transition: transform 0.3s ease;
-        }
-
-        .dropdown-arrow.rotated {
-            transform: rotate(180deg);
-        }
 
         /* Main Content */
         .main-content {
             background: #ffffff;
-            padding-top: 4rem;
-            padding-bottom: 4rem;
+            padding-top: 2rem;
+            padding-bottom: 3rem;
         }
 
         .content-container {
@@ -346,31 +114,13 @@
             padding: 0 2rem;
         }
 
-        /* Page Header */
-        .page-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
 
-        .page-header h1 {
-            font-size: 2.25rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 1rem;
-        }
 
-        .page-header p {
-            font-size: 1.1rem;
-            color: #6b7280;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
 
         /* Lead Form */
         .lead-form {
             background: #ffffff;
-            padding: 3rem 4rem;
+            padding: 2rem 3rem;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             max-width: 800px;
@@ -416,9 +166,26 @@
             }
         }
 
+        /* Better: line the pair up row by row, so a wrapped label only takes extra space when it actually wraps */
+        @supports (grid-template-rows: subgrid) {
+            .form-row.label-pair {
+                grid-template-rows: auto auto auto;
+                row-gap: 0;
+            }
+            .form-row.label-pair .form-group {
+                display: grid;
+                grid-row: span 3;
+                grid-template-rows: subgrid;
+            }
+            .form-row.label-pair .form-group label {
+                min-height: 0;
+                align-self: end;
+            }
+        }
+
         .form-group input,
-        .form-group select,
-        .form-group textarea {
+.form-group select,
+.form-group textarea {
             width: 100%;
             padding: 0.875rem 1rem;
             border: 1.5px solid #e5e7eb;
@@ -431,14 +198,14 @@
         }
 
         .form-group input:hover,
-        .form-group select:hover,
-        .form-group textarea:hover {
+.form-group select:hover,
+.form-group textarea:hover {
             border-color: #d1d5db;
         }
 
         .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+.form-group select:focus,
+.form-group textarea:focus {
             outline: none;
             border-color: #9ca3af;
             box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.12);
@@ -456,210 +223,37 @@
         }
 
         .form-group textarea {
-            height: 120px;
+            height: 96px;
             resize: vertical;
         }
 
-        /* Section divider style for multi-section form */
-        .form-section-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin: 2.5rem 0 1.25rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .form-section-title:first-child {
-            margin-top: 0;
-        }
-
-        /* Timeline / Range Slider */
-        .timeline-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .timeline-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            color: #6b7280;
-            margin-top: 0.75rem;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .timeline-labels span:first-child {
-            text-align: left;
-        }
-
-        .timeline-labels span:last-child {
-            text-align: right;
-        }
-
-        .slider-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.25rem 1.25rem 1rem;
-            background: #f9fafb;
-            border: 1.5px solid #e5e7eb;
-            border-radius: 8px;
-        }
-
-        .slider-wrapper input[type="range"] {
-            flex: 1;
-            -webkit-appearance: none;
-            appearance: none;
-            height: 6px;
-            background: #e5e7eb;
-            border-radius: 3px;
-            outline: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .slider-wrapper input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 22px;
-            height: 22px;
-            background: #da5e26;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 3px solid #ffffff;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-            transition: transform 0.15s ease;
-        }
-
-        .slider-wrapper input[type="range"]::-webkit-slider-thumb:hover {
-            transform: scale(1.1);
-        }
-
-        .slider-wrapper input[type="range"]::-moz-range-thumb {
-            width: 22px;
-            height: 22px;
-            background: #da5e26;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 3px solid #ffffff;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .slider-value {
-            min-width: 36px;
-            height: 36px;
-            background: #1e293b;
-            color: #ffffff;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        /* Solutions checkbox group (visually distinct from privacy checkboxes) */
-        .solutions-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .solution-option {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.875rem 1rem;
-            border: 1.5px solid #e5e7eb;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            background: #ffffff;
-        }
-
-        .solution-option:hover {
-            border-color: #d1d5db;
-            background: #f9fafb;
-        }
-
-        .solution-option input[type="checkbox"],
-        .solution-option input[type="radio"] {
-            width: 18px;
-            height: 18px;
-            accent-color: #da5e26;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-
-        .solution-option label {
-            margin: 0;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: #374151;
-            cursor: pointer;
-            flex: 1;
-        }
-
-        .solution-option input[type="checkbox"]:checked + label,
-        .solution-option input[type="radio"]:checked + label {
-            color: #1f2937;
-        }
-
-        .solution-option:has(input:checked) {
-            border-color: #da5e26;
-            background: #fff7f0;
-        }
-
-        .other-input-wrapper {
-            margin-top: 0.5rem;
-            padding-left: 0;
-        }
-
-        .other-input-wrapper input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1.5px solid #e5e7eb;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            color: #1f2937;
-            background: #ffffff;
-            transition: all 0.2s ease;
-            font-family: inherit;
-        }
-
-        .other-input-wrapper input:focus {
-            outline: none;
-            border-color: #9ca3af;
-            box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.12);
-        }
-
-        /* Privacy Section */
-        .privacy-section {
-            margin: 1.5rem 0;
-            padding: 1.25rem;
-            background: #f3f4f6;
-            border-radius: 8px;
-        }
-
-        .privacy-section p {
-            font-size: 0.875rem;
-            color: #6b7280;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .privacy-section p:last-child {
+        /* Fields in a pair already get their spacing from the row */
+        .form-row .form-group {
             margin-bottom: 0;
         }
 
-        .privacy-section a {
-            color: #436c79;
-            text-decoration: none;
-            font-weight: 500;
+        /* Timeline / Range Slider */
+
+        /* Solutions checkbox group (visually distinct from privacy checkboxes) */
+
+        /* Consent text */
+        .consent-line,
+        .consent-note {
+            font-size: 0.8rem;
+            color: #6b7280;
+            line-height: 1.5;
         }
 
-        .privacy-section a:hover {
+        .consent-line {
+            margin-top: 0.75rem;
+        }
+
+        .consent-note {
+            margin: -0.5rem 0 0.25rem 1.3rem;
+        }
+
+        .consent-line a {
+            color: #436c79;
             text-decoration: underline;
         }
 
@@ -807,7 +401,7 @@
         .footer {
             background: #1e293b;
             color: #e2e8f0;
-            padding: 4rem 0 2rem;
+            padding: 1.25rem 0;
         }
 
         .footer-container {
@@ -816,178 +410,9 @@
             padding: 0 2rem;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-brand p {
-            color: #94a3b8;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            max-width: 300px;
-        }
-
-        .footer-section h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section ul li a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
-            min-height: 44px;
-            display: inline-block;
-            padding: 0.25rem 0;
-        }
-
-        .footer-section ul li a:hover {
-            color: #ffffff;
-        }
-
-        .email-signup {
-            margin-top: 0;
-        }
-
-        .email-signup h5 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .email-form {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
-            flex-direction: column;
-        }
-
-        .email-input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #475569;
-            border-radius: 6px;
-            background: #334155;
-            color: #ffffff;
-            font-size: 0.9rem;
-            transition: border-color 0.3s ease;
-            margin-bottom: 0.5rem;
-            min-height: 44px;
-        }
-
-        .email-input::placeholder {
-            color: #94a3b8;
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: #436c79;
-        }
-
-        .email-submit {
-            width: 100%;
-            padding: 0.75rem 1.25rem;
-            background: #436c79;
-            color: #ffffff;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            font-size: 0.9rem;
-            min-height: 44px;
-        }
-
-        .email-submit:hover {
-            background: #30444d;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            background: transparent;
-            border: 2px solid #64748b;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #94a3b8;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.4rem;
-        }
-
-        .social-link:hover {
-            transform: translateY(-2px);
-        }
-
-        .social-link.linkedin {
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        .social-link.linkedin:hover {
-            background: #0077b5;
-            color: #ffffff;
-        }
-
-        .social-link.facebook {
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        .social-link.facebook:hover {
-            background: #1877f2;
-            color: #ffffff;
-        }
-
-        .social-link.youtube {
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        .social-link.youtube:hover {
-            background: #ff0000;
-            color: #ffffff;
-        }
-
         .footer-bottom {
-            border-top: 1px solid #334155;
-            padding-top: 2rem;
+            border-top: none;
+            padding-top: 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1010,9 +435,8 @@
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.3s ease;
-            min-height: 44px;
             display: inline-block;
-            padding: 0.25rem 0;
+            padding: 0.6rem 0;
         }
 
         .footer-bottom-links a:hover {
@@ -1026,49 +450,20 @@
             }
         }
 
-        @media (max-width: 1500px) and (min-width: 1351px) {
-            .nav-links { gap: 2rem; }
-            .nav-links a { font-size: 0.9rem; }
-        }
-
-        @media (max-width: 1350px) and (min-width: 1301px) {
-            .nav-links { gap: 1.8rem; }
-            .nav-links a { font-size: 0.9rem; letter-spacing: 0.4px; }
-            .request-demo { padding: 0.45rem 0.9rem !important; font-size: 0.75rem !important; }
-        }
-
-        @media (max-width: 1300px) and (min-width: 1201px) {
-            .nav-links { gap: 1.6rem; }
-            .nav-links a { font-size: 0.87rem; letter-spacing: 0.35px; }
-            .request-demo { padding: 0.42rem 0.85rem !important; font-size: 0.72rem !important; }
-        }
-
         @media (max-width: 1200px) and (min-width: 1101px) {
-            .nav-links { gap: 1.4rem; }
-            .nav-links a { font-size: 0.84rem; letter-spacing: 0.3px; }
-            .request-demo { padding: 0.4rem 0.8rem !important; font-size: 0.7rem !important; }
+
             .logo { font-size: 1.9rem; }
             .logo img { height: 30px; }
         }
 
         @media (max-width: 1100px) and (min-width: 1026px) {
-            .nav-links { gap: 1.2rem; }
-            .nav-links a { font-size: 0.8rem; letter-spacing: 0.2px; padding: 0.4rem 0; }
-            .request-demo { padding: 0.35rem 0.7rem !important; font-size: 0.65rem !important; letter-spacing: 0.2px !important; }
+
             .logo { font-size: 1.8rem; }
             .logo img { height: 28px; }
-            .dropdown { min-width: 200px; padding: 0.7rem 0; }
-            .dropdown a { padding: 0.5rem 1rem; font-size: 0.8rem; }
+
         }
 
         @media (max-width: 1025px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
 
             .logo {
                 font-size: 1.6rem;
@@ -1078,19 +473,6 @@
                 height: 24px;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-            }
-
-            .footer-brand {
-                grid-column: 1 / -1;
-            }
-
-            .email-signup {
-                grid-column: 1 / -1;
-                margin-top: 2rem;
-            }
         }
 
         @media (max-width: 768px) {
@@ -1102,13 +484,7 @@
                 padding: 0 1rem;
             }
 
-            .page-header h1 {
-                font-size: 1.85rem;
-            }
 
-            .page-header p {
-                font-size: 1rem;
-            }
 
             .form-row {
                 grid-template-columns: 1fr;
@@ -1133,11 +509,6 @@
                 padding: 0 1rem;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
@@ -1148,29 +519,67 @@
                 gap: 1rem;
             }
 
-            .social-link {
-                width: 44px;
-                height: 44px;
-                font-size: 1.2rem;
-            }
-
-            .slider-wrapper {
-                padding: 1rem;
-            }
         }
 
         @media (max-width: 480px) {
             .main-content {
-                padding-top: 2rem;
-                padding-bottom: 3rem;
+                padding-top: 1.25rem;
+                padding-bottom: 2rem;
             }
 
-            .page-header h1 {
-                font-size: 1.65rem;
+
+
+            /* Compact form so Submit shows on the first screen */
+            nav {
+                padding: 0.6rem 0;
             }
 
+            .logo img {
+                height: 24px !important;
+            }
+
+            /* No card on phones: fields use the full width */
             .lead-form {
-                padding: 1rem;
+                padding: 0;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .form-row {
+                gap: 0.75rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .form-group {
+                margin-bottom: 0.8rem;
+            }
+
+            .form-group label {
+                margin-bottom: 0.35rem;
+                font-size: 0.875rem;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.7rem 0.8rem;
+            }
+
+            .form-group textarea {
+                height: 56px;
+            }
+
+            .checkbox-group {
+                margin: 0.75rem 0 0.5rem;
+            }
+
+            .checkbox-item {
+                margin-bottom: 0.5rem;
+            }
+
+            .submit-btn {
+                margin-top: 1rem;
+                width: 100%;
             }
 
             .content-container {
@@ -1197,7 +606,7 @@
         }
         .field-error.show { display: block; }
         .form-group input.input-error,
-        .form-group input.input-error:focus {
+.form-group input.input-error:focus {
             border-color: #dc2626;
             box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
         }
@@ -1224,7 +633,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <span class="logo"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757701267/__Phizzle-Logo-WHITE-01_5_hpfhss.svg" alt="Phizzle Logo" style="height: 32px; width: auto; display: block;"></span>
+            <span class="logo"><img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1757701267/__Phizzle-Logo-WHITE-01_5_hpfhss.svg" alt="Phizzle Logo" fetchpriority="high" decoding="async" style="height: 32px; width: auto; display: block;"></span>
 
         </div>
     </nav>
@@ -1232,12 +641,6 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="content-container">
-            <!-- Page Header -->
-            <div class="page-header">
-                <h1>Get in Touch</h1>
-                <p>Tell us a bit about yourself and what you're looking for. We'll connect you with the right resources to help move your project forward.</p>
-            </div>
-
             <!-- Lead Capture Form -->
             <form class="lead-form" id="lead-form" data-hsforms-ignore="true" data-hs-cf-bound="true">
 
@@ -1248,7 +651,6 @@
                 </div>
 
                 <!-- Contact Information Section -->
-                <h2 class="form-section-title">Contact Information</h2>
 
                 <div class="form-row name-row">
                     <div class="form-group">
@@ -1274,7 +676,6 @@
                 </div>
 
                 <!-- Project Inquiry Section -->
-                <h2 class="form-section-title">Project Inquiry</h2>
 
                 <div class="form-group">
                     <label for="projectStage">Where are you in the buying process? <span class="optional-tag">(optional)</span></label>
@@ -1290,12 +691,7 @@
 
                 <div class="form-group">
                     <label for="message">Any other context you'd like to share?</label>
-                    <textarea id="message" name="message" placeholder="Optional: share any specific questions, use cases, or details about your project."></textarea>
-                </div>
-
-                <!-- Privacy Information -->
-                <div class="privacy-section">
-                    <p>We'll use your information to respond to your request, as described in our <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>. Tick below if you'd also like to hear from us about our products and events.</p>
+                    <textarea id="message" name="message" rows="2" placeholder="Optional: questions, use cases or project details"></textarea>
                 </div>
 
                 <div class="checkbox-group">
@@ -1307,15 +703,11 @@
 
                 <!-- Unsubscribe note appears once "I agree" is checked -->
                 <div class="consent-reveal" id="consentReveal">
-                    <div class="privacy-section">
-                        <p>You can unsubscribe at any time.</p>
-                    </div>
+                    <p class="consent-note">You can unsubscribe at any time.</p>
                 </div>
 
-                <!-- Consent to process the request (always shown) -->
-                <div class="privacy-section">
-                    <p>By clicking submit below, you consent to allow Phizzle to store and process the personal information submitted above to provide you the content requested.</p>
-                </div>
+                <!-- Purpose of collecting the information + privacy policy (always shown) -->
+                <p class="consent-line">We store and use your information to respond to your request. See our <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
 
                 <button type="submit" class="submit-btn">Submit</button>
 
@@ -1476,9 +868,14 @@
             // backup form's reply), so only a confirmed HubSpot submission counts as received.
             // Exception: a form with no HubSpot form ID yet relies on the backup alone.
             const received = formId ? hubspot.ok : backupSaved;
+            // Google Analytics: one form_submit event per lead HubSpot confirmed.
+            // Mark form_submit as a key event in GA (Admin > Events) to count leads.
             if (received && typeof gtag === 'function') {
-                gtag('event', 'form_received', {
+                gtag('event', 'form_submit', {
+                    form_id: 'lead-form',
                     form_name: formName,
+                    page_path: window.location.pathname,
+                    event_tag: new URLSearchParams(window.location.search).get('event') || '(none)',
                     hubspot_accepted: hubspot.ok,
                     backup_saved: backupSaved
                 });
@@ -1651,7 +1048,6 @@
             function showSuccess() {
                 // Hide form, hide page header subtext, show success message, scroll to top of content
                 form.style.display = 'none';
-                document.querySelector('.page-header').style.display = 'none';
                 const successMessage = document.getElementById('successMessage');
                 successMessage.classList.add('active');
                 successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
