@@ -727,7 +727,9 @@
                 <input name="page"><input name="submission_id">
             </form>
 
-            <form class="lead-form" id="lead-form" data-hsforms-ignore="true" data-hs-cf-bound="true">
+            <!-- method/action only matter if the page's code isn't running yet (or at all): the browser then
+                 sends the form to phizzle.com's relay, which forwards it to HubSpot, the Sheet and Netlify. -->
+            <form class="lead-form" id="lead-form" method="post" action="/.netlify/functions/lead-relay" data-hsforms-ignore="true" data-hs-cf-bound="true">
                 <h1 class="form-title">Get in Touch</h1>
 
                 <!-- Contact Information Section -->
