@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // iPhone/iPad zoom in when a box with text under 16px is tapped. This stops that
+        // auto-zoom on iOS only (iOS still lets people pinch to zoom).
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+            document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0');
+        }
+    </script>
     <!-- Conference-only page: keep it out of search results -->
     <meta name="robots" content="noindex, nofollow">
     <!-- Open connections early to the servers the page needs (faster on slow Wi-Fi) -->
@@ -155,16 +162,6 @@
         .form-row.label-pair .form-group label {
             min-height: 1.4em;
         }
-        @media (max-width: 480px) {
-            .form-row.label-pair .form-group label {
-                min-height: 2.8em;
-                line-height: 1.4;
-                display: flex;
-                flex-wrap: wrap;
-                align-content: flex-end;
-                column-gap: 0.3em;
-            }
-        }
 
         /* Better: line the pair up row by row, so a wrapped label only takes extra space when it actually wraps */
         @supports (grid-template-rows: subgrid) {
@@ -211,6 +208,19 @@
             box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.12);
         }
 
+        /* Dropdown text matches the hint text; "Select one" shows in grey like a hint */
+        .form-group select {
+            font-size: 0.9rem;
+        }
+
+        .form-group select.is-empty {
+            color: #9ca3af;
+        }
+
+        .form-group select option {
+            color: #1f2937;
+        }
+
         .form-group select {
             appearance: none;
             -webkit-appearance: none;
@@ -222,10 +232,22 @@
             cursor: pointer;
         }
 
+        /* Hint text inside boxes matches the size of the labels. (What people type stays
+           16px, which stops iPhones zooming in when a box is tapped.) */
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        /* Message box: always tall enough for two full lines, so text and the hint never get cut off */
         .form-group textarea {
-            height: 64px;
+            height: auto;
+            min-height: calc(2.8em + 1.2rem + 3px);
+            line-height: 1.4;
             padding: 0.6rem 0.8rem;
             resize: vertical;
+            overflow-y: auto;
         }
 
         /* Fields in a pair already get their spacing from the row */
@@ -236,6 +258,23 @@
         /* Timeline / Range Slider */
 
         /* Solutions checkbox group (visually distinct from privacy checkboxes) */
+
+        /* Heading at the top of the form card */
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            line-height: 1.25;
+            text-align: center;
+            margin: 0 0 1.25rem;
+        }
+
+        @media (max-width: 480px) {
+            .form-title {
+                font-size: 1.3rem;
+                margin-bottom: 0.9rem;
+            }
+        }
 
         /* Consent text */
         .consent-line,
@@ -312,8 +351,7 @@
             border-radius: 6px;
             font-size: 1rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
+            letter-spacing: 0.3px;
             cursor: pointer;
             transition: all 0.3s ease;
             margin: 1.25rem auto 0;
@@ -492,9 +530,22 @@
                 gap: 1rem;
             }
 
-            /* Keep the contact fields in pairs on phones */
-            .form-row.name-row {
-                grid-template-columns: 1fr 1fr;
+            /* Phones and small tablets: one field per line */
+            .form-row.name-row,
+            .form-row.label-pair {
+                grid-template-columns: 1fr;
+                grid-template-rows: none;
+                row-gap: 0.7rem;
+            }
+
+            .form-row.label-pair .form-group {
+                display: block;
+                grid-row: auto;
+            }
+
+            .form-row.label-pair .form-group label {
+                min-height: 0;
+                display: block;
             }
 
             .main-content {
@@ -567,8 +618,7 @@
             }
 
             .form-group textarea {
-                height: 48px;
-                padding: 0.5rem 0.75rem;
+                padding: 0.6rem 0.8rem;
             }
 
             .checkbox-group {
@@ -645,6 +695,8 @@
         <div class="content-container">
             <!-- Lead Capture Form -->
             <form class="lead-form" id="lead-form" data-hsforms-ignore="true" data-hs-cf-bound="true">
+                <h1 class="form-title">Get in Touch</h1>
+
 
                 <!-- Spam trap (replaces reCAPTCHA): real visitors never see or fill this -->
                 <div class="hp-field" aria-hidden="true">
@@ -667,7 +719,7 @@
 
                 <div class="form-row name-row label-pair">
                     <div class="form-group">
-                        <label for="email">Work Email*</label>
+                        <label for="email">Work email*</label>
                         <input type="email" id="email" name="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" required>
                         <p class="field-error" id="emailError" role="alert">Personal email addresses aren't accepted. Please use your work email.</p>
                     </div>
@@ -709,7 +761,7 @@
                 </div>
 
                 <!-- Purpose of collecting the information + privacy policy (always shown) -->
-                <p class="consent-line">We store and use your information to respond to your request. See our <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+                <p class="consent-line">We store and use your information to respond to your request. See our <a href="privacy-policy.html" target="_blank" rel="noopener">privacy policy</a>.</p>
 
                 <button type="submit" class="submit-btn">Submit</button>
 
@@ -735,8 +787,8 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 Phizzle. All rights reserved.</p>
                 <div class="footer-bottom-links">
-                    <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>
-                    <a href="terms-of-use.html" target="_blank" rel="noopener">Terms of Use</a>
+                    <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy policy</a>
+                    <a href="terms-of-use.html" target="_blank" rel="noopener">Terms of use</a>
                 </div>
             </div>
         </div>
@@ -914,6 +966,24 @@
             return PERSONAL_EMAIL_PATTERN.test(String(value || '').trim());
         }
 
+        // ================= Phones: open scrolled to the form =================
+        // On phones the page starts with the form card at the top of the screen
+        // (the logo bar sits just above, a small scroll up).
+        (function () {
+            if (!window.matchMedia('(max-width: 768px)').matches || location.hash) return;
+            if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+            function toForm() {
+                const card = document.getElementById('lead-form');
+                if (!card || window.scrollY > 0 && window.__userScrolled) return;
+                const top = card.getBoundingClientRect().top + window.scrollY - 8;
+                window.scrollTo(0, Math.max(0, top));
+            }
+            window.addEventListener('touchstart', function () { window.__userScrolled = true; }, { once: true, passive: true });
+            window.addEventListener('wheel', function () { window.__userScrolled = true; }, { once: true, passive: true });
+            requestAnimationFrame(toForm);
+            window.addEventListener('load', toForm);
+        })();
+
         // ================= Field alerts =================
         // Shows a message under each field that stops the form from submitting:
         // a missing entry, an invalid email, or a personal email.
@@ -959,6 +1029,14 @@
             function messageFor(input) {
                 if (input === workEmail) return emailMessage();
                 return input.validity.valid ? '' : (MESSAGES[input.name] || 'Please fill in this field.');
+            }
+
+            // Grey "Select one" until an answer is picked
+            const stage = form.querySelector('select[name="projectStage"]');
+            if (stage) {
+                const syncStage = () => stage.classList.toggle('is-empty', !stage.value);
+                stage.addEventListener('change', syncStage);
+                syncStage();
             }
 
             // Personal email check while typing
