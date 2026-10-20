@@ -396,6 +396,26 @@
             margin-bottom: 0.75rem;
         }
 
+        .optional-tag {
+            font-weight: 400;
+            color: #6b7280;
+        }
+
+        /* When one label in a pair wraps to two lines on a phone, keep both inputs level */
+        .form-row.label-pair .form-group label {
+            min-height: 1.4em;
+        }
+        @media (max-width: 480px) {
+            .form-row.label-pair .form-group label {
+                min-height: 2.8em;
+                line-height: 1.4;
+                display: flex;
+                flex-wrap: wrap;
+                align-content: flex-end;
+                column-gap: 0.3em;
+            }
+        }
+
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -1167,6 +1187,21 @@
             overflow: hidden;
         }
 
+        /* Inline message under Work Email when a personal address is entered */
+        .field-error {
+            display: none;
+            margin-top: 0.4rem;
+            color: #b91c1c;
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+        .field-error.show { display: block; }
+        .form-group input.input-error,
+        .form-group input.input-error:focus {
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+        }
+
         .form-error {
             display: none;
             margin-top: 1rem;
@@ -1360,33 +1395,23 @@
                 <div class="form-row name-row">
                     <div class="form-group">
                         <label for="firstName">First name*</label>
-                        <input type="text" id="firstName" name="firstName" required>
+                        <input type="text" id="firstName" name="firstName" autocomplete="given-name" autocapitalize="words" required>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last name*</label>
-                        <input type="text" id="lastName" name="lastName" required>
+                        <input type="text" id="lastName" name="lastName" autocomplete="family-name" autocapitalize="words" required>
                     </div>
                 </div>
 
-                <div class="form-row name-row">
+                <div class="form-row name-row label-pair">
                     <div class="form-group">
-                        <label for="companyName">Company*</label>
-                        <input type="text" id="companyName" name="companyName" required>
+                        <label for="email">Work Email*</label>
+                        <input type="email" id="email" name="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" required>
+                        <p class="field-error" id="emailError" role="alert">Personal email addresses aren't accepted. Please use your work email.</p>
                     </div>
                     <div class="form-group">
-                        <label for="jobTitle">Job title / Role*</label>
-                        <input type="text" id="jobTitle" name="jobTitle" required>
-                    </div>
-                </div>
-
-                <div class="form-row name-row">
-                    <div class="form-group">
-                        <label for="email">Email address*</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phoneNumber">Phone number*</label>
-                        <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                        <label for="phoneNumber">Mobile number <span class="optional-tag">(optional)</span></label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" inputmode="tel" autocomplete="tel">
                     </div>
                 </div>
 
@@ -1394,58 +1419,15 @@
                 <h2 class="form-section-title">Project Inquiry</h2>
 
                 <div class="form-group">
-                    <label>Where are you in your process?*</label>
-                    <div class="solutions-group">
-                        <div class="solution-option">
-                            <input type="radio" id="stage-researching" name="projectStage" value="Researching options" required>
-                            <label for="stage-researching">Researching options</label>
-                        </div>
-                        <div class="solution-option">
-                            <input type="radio" id="stage-comparing" name="projectStage" value="Comparing vendors">
-                            <label for="stage-comparing">Comparing vendors</label>
-                        </div>
-                        <div class="solution-option">
-                            <input type="radio" id="stage-business-case" name="projectStage" value="Building a business case / getting budget">
-                            <label for="stage-business-case">Building a business case / getting budget</label>
-                        </div>
-                        <div class="solution-option">
-                            <input type="radio" id="stage-evaluating" name="projectStage" value="Ready to evaluate / pilot">
-                            <label for="stage-evaluating">Ready to evaluate / pilot</label>
-                        </div>
-                        <div class="solution-option">
-                            <input type="radio" id="stage-buying" name="projectStage" value="Ready to buy">
-                            <label for="stage-buying">Ready to buy</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Which of our key solutions are you most interested in? (Select all that apply)</label>
-                    <div class="solutions-group">
-                        <div class="solution-option">
-                            <input type="checkbox" id="sol-connected-plant" name="solutions" value="Connected Plant">
-                            <label for="sol-connected-plant">Connected Plant™</label>
-                        </div>
-                        <div class="solution-option">
-                            <input type="checkbox" id="sol-connector-plus" name="solutions" value="Connector Plus">
-                            <label for="sol-connector-plus">Connector Plus</label>
-                        </div>
-                        <div class="solution-option">
-                            <input type="checkbox" id="sol-data-connector" name="solutions" value="Data Connector">
-                            <label for="sol-data-connector">Data Connector</label>
-                        </div>
-                        <div class="solution-option">
-                            <input type="checkbox" id="sol-labware-loop" name="solutions" value="LabWare Loop">
-                            <label for="sol-labware-loop">LabWare Loop</label>
-                        </div>
-                        <div class="solution-option">
-                            <input type="checkbox" id="sol-other" name="solutions" value="Other" onchange="document.getElementById('otherSolutionWrapper').style.display = this.checked ? 'block' : 'none';">
-                            <label for="sol-other">Other</label>
-                        </div>
-                    </div>
-                    <div class="other-input-wrapper" id="otherSolutionWrapper" style="display: none; margin-top: 0.75rem;">
-                        <input type="text" id="otherSolution" name="otherSolution" placeholder="Please specify...">
-                    </div>
+                    <label for="projectStage">Where are you in the buying process? <span class="optional-tag">(optional)</span></label>
+                    <select id="projectStage" name="projectStage">
+                        <option value="">Select one</option>
+                        <option value="Researching options">Researching options</option>
+                        <option value="Comparing vendors">Comparing vendors</option>
+                        <option value="Building a business case / getting budget">Building a business case / getting budget</option>
+                        <option value="Ready to evaluate / pilot">Ready to evaluate / pilot</option>
+                        <option value="Ready to buy">Ready to buy</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -1455,7 +1437,7 @@
 
                 <!-- Privacy Information -->
                 <div class="privacy-section">
-                    <p>Phizzle is committed to protecting and respecting your privacy, and we'll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick below to say how you would like us to contact you:</p>
+                    <p>We'll use your information to respond to your request, as described in our <a href="privacy-policy.html">Privacy Policy</a>. Tick below if you'd also like to hear from us about our products and events.</p>
                 </div>
 
                 <div class="checkbox-group">
@@ -1468,7 +1450,7 @@
                 <!-- Unsubscribe note appears once "I agree" is checked -->
                 <div class="consent-reveal" id="consentReveal">
                     <div class="privacy-section">
-                        <p>You can unsubscribe from these communications at any time. For more information on how to unsubscribe, our privacy practices, and how we are committed to protecting and respecting your privacy, please review our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+                        <p>You can unsubscribe at any time.</p>
                     </div>
                 </div>
 
@@ -1794,6 +1776,117 @@
         })();
 
         // Lead capture form submission
+        // ================= Work email only =================
+        // Blocks personal email providers (Gmail, Yahoo, Hotmail, AOL and similar).
+        // Matches the provider name followed only by a country ending, so
+        // gmail.com, yahoo.com.br and hotmail.co.uk are all blocked.
+        const PERSONAL_EMAIL_PROVIDERS = [
+            'gmail', 'googlemail', 'yahoo', 'ymail', 'rocketmail', 'hotmail', 'outlook',
+            'live', 'msn', 'aol', 'aim', 'icloud', 'me', 'mac', 'protonmail', 'proton',
+            'gmx', 'mail', 'yandex', 'zohomail', 'tutanota', 'fastmail', 'hey',
+            'uol', 'bol', 'terra', 'ig', 'qq', '163', '126', 'naver', 'comcast', 'verizon',
+            'att', 'sbcglobal', 'bellsouth', 'cox', 'charter', 'earthlink', 'juno'
+        ];
+        const PERSONAL_EMAIL_PATTERN = new RegExp(
+            '@(' + PERSONAL_EMAIL_PROVIDERS.join('|') + ')\\.[a-z]{2,3}(\\.[a-z]{2})?$', 'i');
+        const PERSONAL_EMAIL_MESSAGE = 'Please use your work email address. Personal email addresses (like Gmail, Yahoo, Hotmail or AOL) aren\'t accepted.';
+
+        function isPersonalEmail(value) {
+            return PERSONAL_EMAIL_PATTERN.test(String(value || '').trim());
+        }
+
+        // ================= Field alerts =================
+        // Shows a message under each field that stops the form from submitting:
+        // a missing entry, an invalid email, or a personal email.
+        (function () {
+            const form = document.getElementById('lead-form');
+            if (!form) return;
+            const workEmail = form.querySelector('input[name="email"]');
+            const summary = document.getElementById('formError');
+
+            const MESSAGES = {
+                firstName: 'Please enter your first name.',
+                lastName: 'Please enter your last name.'
+            };
+
+            function emailMessage() {
+                if (workEmail.validity.valueMissing) return 'Please enter your work email.';
+                if (isPersonalEmail(workEmail.value)) return 'Personal email addresses aren\'t accepted. Please use your work email.';
+                if (workEmail.validity.typeMismatch) return 'Please enter a valid email address, like name@company.com.';
+                return '';
+            }
+
+            // Finds (or creates) the message line for a field
+            function errorFor(input) {
+                if (input === workEmail) return document.getElementById('emailError');
+                const group = input.type === 'radio' ? input.closest('.form-group') : input.parentElement;
+                let el = group.querySelector(':scope > .field-error');
+                if (!el) {
+                    el = document.createElement('p');
+                    el.className = 'field-error';
+                    el.setAttribute('role', 'alert');
+                    group.appendChild(el);
+                }
+                return el;
+            }
+
+            function show(input, text) {
+                const el = errorFor(input);
+                el.textContent = text;
+                el.classList.toggle('show', !!text);
+                if (input.type !== 'radio') input.classList.toggle('input-error', !!text);
+            }
+
+            function messageFor(input) {
+                if (input === workEmail) return emailMessage();
+                return input.validity.valid ? '' : (MESSAGES[input.name] || 'Please fill in this field.');
+            }
+
+            // Personal email check while typing
+            function checkEmail() {
+                const personal = isPersonalEmail(workEmail.value);
+                workEmail.setCustomValidity(personal ? PERSONAL_EMAIL_MESSAGE : '');
+                const shown = errorFor(workEmail).classList.contains('show');
+                if (personal || shown) show(workEmail, emailMessage());
+            }
+            workEmail.addEventListener('input', checkEmail);
+            workEmail.addEventListener('change', checkEmail);
+            checkEmail();
+
+            // When Submit is blocked, the browser flags each problem field: show our message instead of its bubble
+            let focusQueued = false;
+            form.addEventListener('invalid', function (e) {
+                e.preventDefault();
+                show(e.target, messageFor(e.target));
+                if (!focusQueued) {
+                    focusQueued = true;
+                    setTimeout(function () {
+                        focusQueued = false;
+                        const first = form.querySelector(':invalid');
+                        if (first) {
+                            first.focus({ preventScroll: true });
+                            first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                        if (summary) {
+                            summary.textContent = 'Please fix the highlighted fields above.';
+                            summary.style.display = 'block';
+                        }
+                    }, 0);
+                }
+            }, true);
+
+            // Clear a field's message once it's fixed, and the summary once everything is
+            form.addEventListener('input', clearFixed);
+            form.addEventListener('change', clearFixed);
+            function clearFixed(e) {
+                const input = e.target;
+                if (!input.name) return;
+                if (input !== workEmail && errorFor(input).classList.contains('show') && input.validity.valid) show(input, '');
+                if (summary && !form.querySelector(':invalid')) summary.style.display = 'none';
+            }
+        })();
+        // ====================================================
+
         document.getElementById('lead-form').addEventListener('submit', function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -1802,28 +1895,21 @@
             const errorBox = document.getElementById('formError');
             errorBox.style.display = 'none';
 
+            // Work email only: stop here if a personal email got past the browser check
+            const workEmailInput = form.querySelector('input[name="email"]');
+            if (isPersonalEmail(workEmailInput.value)) {
+                workEmailInput.setCustomValidity(PERSONAL_EMAIL_MESSAGE);
+                workEmailInput.reportValidity();
+                return;
+            }
+
             const firstName = form.querySelector('input[name="firstName"]').value;
             const lastName = form.querySelector('input[name="lastName"]').value;
-            const companyName = form.querySelector('input[name="companyName"]').value;
-            const jobTitle = form.querySelector('input[name="jobTitle"]').value;
             const email = form.querySelector('input[name="email"]').value;
             const phoneNumber = form.querySelector('input[name="phoneNumber"]').value;
-            const projectStage = form.querySelector('input[name="projectStage"]:checked') ? form.querySelector('input[name="projectStage"]:checked').value : '';
+            const projectStage = form.querySelector('select[name="projectStage"]').value;
             const message = form.querySelector('textarea[name="message"]').value;
             const communications = form.querySelector('input[name="communications"]').checked;
-
-            // Collect checked solutions
-            const solutionCheckboxes = form.querySelectorAll('input[name="solutions"]:checked');
-            const solutions = Array.from(solutionCheckboxes).map(cb => cb.value);
-            const otherSolution = form.querySelector('input[name="otherSolution"]').value;
-
-            // If "Other" is checked and there's a value, replace "Other" with the specified value
-            let solutionsList = solutions.slice();
-            if (solutionsList.includes('Other') && otherSolution.trim()) {
-                solutionsList = solutionsList.filter(s => s !== 'Other');
-                solutionsList.push('Other: ' + otherSolution.trim());
-            }
-            const solutionsString = solutionsList.join('; ');
 
             const submitBtn = form.querySelector('button[type="submit"]');
             submitBtn.textContent = 'Submitting...';
@@ -1833,15 +1919,12 @@
                 { name: "firstname", value: firstName },
                 { name: "lastname", value: lastName },
                 { name: "email", value: email },
-                { name: "company", value: companyName },
-                { name: "jobtitle", value: jobTitle },
-                { name: "phone", value: phoneNumber },
-                { name: "project_stage", value: projectStage },
-                { name: "solutions_of_interest", value: solutionsString },
                 { name: "hs_lead_status", value: "NEW" },
                 { name: "lifecyclestage", value: "lead" }
             ];
 
+            if (phoneNumber.trim()) fields.push({ name: "phone", value: phoneNumber.trim() });
+            if (projectStage) fields.push({ name: "project_stage", value: projectStage });
             if (message) fields.push({ name: "message", value: message });
             if (communications) fields.push({ name: "marketing_opt_in", value: "true" });
 
@@ -1853,7 +1936,6 @@
                 successMessage.classList.add('active');
                 successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 form.reset();
-                document.getElementById('otherSolutionWrapper').style.display = 'none';
             }
 
             // Spam trap: the hidden field was filled in, which people never do but bots do.
