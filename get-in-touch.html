@@ -1073,17 +1073,25 @@
         // Lead capture form submission
         // ================= Work email only =================
         // Blocks personal email providers (Gmail, Yahoo, Hotmail, AOL and similar).
-        // Matches the provider name followed only by a country ending, so
-        // gmail.com, yahoo.com.br and hotmail.co.uk are all blocked.
+        // Consumer email services: blocked with any country ending (gmail.com, yahoo.com.br, hotmail.co.uk...).
+        // Only names that no real company uses for its own work email belong here.
         const PERSONAL_EMAIL_PROVIDERS = [
             'gmail', 'googlemail', 'yahoo', 'ymail', 'rocketmail', 'hotmail', 'outlook',
-            'live', 'msn', 'aol', 'aim', 'icloud', 'me', 'mac', 'protonmail', 'proton',
-            'gmx', 'mail', 'yandex', 'zohomail', 'tutanota', 'fastmail', 'hey',
-            'uol', 'bol', 'terra', 'ig', 'qq', '163', '126', 'naver', 'comcast', 'verizon',
-            'att', 'sbcglobal', 'bellsouth', 'cox', 'charter', 'earthlink', 'juno'
+            'live', 'msn', 'aol', 'icloud', 'protonmail', 'gmx', 'yandex', 'zohomail',
+            'tutanota', 'qq', '163', '126'
+        ];
+        // Exact personal domains. Internet providers are listed by their consumer domain only,
+        // so employees of AT&T (att.com), Verizon (verizon.com), Comcast, Cox, Charter, IG Group
+        // (ig.com), bol.com and others can still use their work email.
+        const PERSONAL_EMAIL_DOMAINS = [
+            'me.com', 'mac.com', 'aim.com', 'mail.com', 'mail.ru', 'proton.me', 'pm.me', 'hey.com',
+            'fastmail.com', 'att.net', 'sbcglobal.net', 'bellsouth.net', 'verizon.net', 'comcast.net',
+            'cox.net', 'charter.net', 'earthlink.net', 'juno.com', 'naver.com',
+            'uol.com.br', 'bol.com.br', 'terra.com.br', 'ig.com.br'
         ];
         const PERSONAL_EMAIL_PATTERN = new RegExp(
-            '@(' + PERSONAL_EMAIL_PROVIDERS.join('|') + ')\\.[a-z]{2,3}(\\.[a-z]{2})?$', 'i');
+            '@(?:(?:' + PERSONAL_EMAIL_PROVIDERS.join('|') + ')\\.[a-z]{2,3}(?:\\.[a-z]{2})?|' +
+            PERSONAL_EMAIL_DOMAINS.map(d => d.replace(/\./g, '\\.')).join('|') + ')$', 'i');
         const PERSONAL_EMAIL_MESSAGE = 'Please use your work email address. Personal email addresses (like Gmail, Yahoo, Hotmail or AOL) aren\'t accepted.';
 
         function isPersonalEmail(value) {
