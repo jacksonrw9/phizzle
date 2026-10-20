@@ -95,6 +95,79 @@ async function saveToBackup(values) {
   }
 }
 
+// Third copy in Netlify Forms (same "lead-fallback" form the page uses)
+async function saveToNetlifyForms(siteUrl, values) {
+  if (!siteUrl) return false;
+  const body = new URLSearchParams({ 'form-name': 'lead-fallback' });
+  ['firstname', 'lastname', 'email', 'phone', 'project_stage', 'message', 'marketing_opt_in', 'page', 'submission_id']
+    .forEach(k => { if (values[k]) body.append(k, String(values[k]).slice(0, 5000)); });
+  try {
+    const response = await withTimeout(fetch(siteUrl.replace(/\/$/, '') + '/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString()
+    }), 12000);
+    return response.ok;
+  } catch (error) {
+    return false;
+  }
+}
+
+// Plain page shown when the form was sent without the page's JavaScript running
+function htmlPage(ok) {
+  const title = ok ? 'Thanks for reaching out!' : 'Sorry, something went wrong';
+  const text = ok
+    ? 'A member of the Phizzle team will reach out in the next 24 hours.'
+    : 'We couldn\'t confirm your request went through. Please email us at <a href="mailto:sales@phizzle.com">sales@phizzle.com</a>.';
+  return {
+    statusCode: ok ? 200 : 502,
+    headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex' },
+    body: '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<meta name="robots" content="noindex"><title>Get in Touch - Phizzle</title></head>' +
+      '<body style="margin:0;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif;background:#e8edf1;color:#1f2937">' +
+      '<div style="background:#30444D;height:48px"></div>' +
+      '<div style="max-width:560px;margin:40px auto;padding:32px 24px;background:#fff;border-radius:12px;text-align:center">' +
+      '<h1 style="font-size:1.4rem;margin:0 0 12px">' + title + '</h1><p style="color:#6b7280;line-height:1.6;margin:0">' + text + '</p></div></body></html>'
+  };
+}
+
+// The page's form, sent by the browser itself (the page's code didn't run): plain form fields
+async function handlePlainFormPost(event, origin) {
+  const raw = event.isBase64Encoded ? Buffer.from(event.body || '', 'base64').toString('utf8') : (event.body || '');
+  const form = new URLSearchParams(raw);
+  const get = k => String(form.get(k) || '').trim().slice(0, 5000);
+
+  const fieldMap = {
+    firstname: get('firstName'),
+    lastname: get('lastName'),
+    email: get('email'),
+    phone: get('phoneNumber'),
+    project_stage: get('projectStage'),
+    message: get('message'),
+    hs_lead_status: 'NEW',
+    lifecyclestage: 'lead'
+  };
+  if (form.get('communications')) fieldMap.marketing_opt_in = 'true';
+  Object.keys(fieldMap).forEach(k => { if (!fieldMap[k]) delete fieldMap[k]; });
+  if (!fieldMap.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fieldMap.email)) return htmlPage(false);
+
+  const id = 'nojs-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8);
+  const page = String(event.headers.referer || event.headers.Referer || origin || '').slice(0, 500);
+  const context = { pageUri: page, pageName: 'Lead Capture (no JavaScript)' };
+  const ip = event.headers['x-nf-client-connection-ip'] || '';
+  if (ip) context.ipAddress = ip;
+
+  // All three are tried, each regardless of the others
+  const hubspot = await sendToHubSpot(Object.keys(fieldMap).map(name => ({ name, value: fieldMap[name] })), context);
+  const [backup, netlify] = await Promise.all([
+    saveToBackup(Object.assign({}, fieldMap, { form: 'Get in Touch', hubspot: hubspot.ok ? 'accepted' : hubspot.detail, page: page, id: id })),
+    saveToNetlifyForms(process.env.URL || origin, Object.assign({}, fieldMap, { page: page, submission_id: id }))
+  ]);
+
+  console.log(`lead-relay ${id} (no JS): hubspot=${hubspot.ok ? 'ok' : hubspot.detail} backup=${backup} netlify=${netlify}`);
+  return htmlPage(hubspot.ok || backup || netlify);
+}
+
 exports.handler = async (event) => {
   const origin = event.headers.origin || event.headers.Origin || '';
   const allowed = ALLOWED_ORIGINS.some(re => re.test(origin));
@@ -107,6 +180,9 @@ exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return reply(405, { error: 'POST only' });
   if (origin && !allowed) return reply(403, { error: 'origin not allowed' });
   if ((event.body || '').length > 20000) return reply(413, { error: 'too large' });
+
+  const contentType = String(event.headers['content-type'] || event.headers['Content-Type'] || '');
+  if (/application\/x-www-form-urlencoded/i.test(contentType)) return handlePlainFormPost(event, origin);
 
   let payload;
   try {
