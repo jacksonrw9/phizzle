@@ -671,15 +671,6 @@
             }
         }
 
-        /* Spam trap: hidden from people, bots fill it in */
-        .hp-field {
-            position: absolute;
-            left: -10000px;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-        }
-
         /* Inline message under Work Email when a personal address is entered */
         .field-error {
             display: none;
@@ -738,13 +729,6 @@
 
             <form class="lead-form" id="lead-form" data-hsforms-ignore="true" data-hs-cf-bound="true">
                 <h1 class="form-title">Get in Touch</h1>
-
-
-                <!-- Spam trap (replaces reCAPTCHA): real visitors never see or fill this -->
-                <div class="hp-field" aria-hidden="true">
-                    <label for="website">Leave this field empty</label>
-                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-                </div>
 
                 <!-- Contact Information Section -->
 
@@ -1272,22 +1256,6 @@
                 successMessage.classList.add('active');
                 successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 form.reset();
-            }
-
-            // Spam trap: the hidden field was filled in, which people never do but bots do.
-            // Keep a copy in the backup sheet marked as spam, skip HubSpot.
-            // (HubSpot's own spam filtering handles the rest.)
-            const trap = form.querySelector('input[name="website"]');
-            const spamReason = (trap && trap.value) ? 'hidden field filled in' : '';
-            if (spamReason) {
-                saveToBackup({
-                    id: newSubmissionId(),
-                    form: 'Get in Touch (SPAM - not sent to HubSpot)',
-                    hubspot: 'not sent: ' + spamReason,
-                    fields: fields.reduce((all, f) => { all[f.name] = f.value; return all; }, {}),
-                    page: window.location.href
-                }).finally(showSuccess);
-                return;
             }
 
             submitEverywhere('Get in Touch', LEAD_FORM_ID, fields, 'Lead Capture')
