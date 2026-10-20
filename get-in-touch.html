@@ -116,7 +116,7 @@
         }
 
         .content-container {
-            max-width: 800px;
+            max-width: 680px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -130,7 +130,7 @@
             padding: 1.75rem 2.25rem;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            max-width: 800px;
+            max-width: 680px;
             margin: 0 auto;
         }
 
@@ -381,7 +381,7 @@
             padding: 4rem 4rem;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            max-width: 800px;
+            max-width: 680px;
             margin: 0 auto;
             text-align: center;
         }
@@ -530,22 +530,9 @@
                 gap: 1rem;
             }
 
-            /* Phones and small tablets: one field per line */
-            .form-row.name-row,
-            .form-row.label-pair {
-                grid-template-columns: 1fr;
-                grid-template-rows: none;
-                row-gap: 0.7rem;
-            }
-
-            .form-row.label-pair .form-group {
-                display: block;
-                grid-row: auto;
-            }
-
-            .form-row.label-pair .form-group label {
-                min-height: 0;
-                display: block;
+            /* Tablets: keep the contact fields in pairs */
+            .form-row.name-row {
+                grid-template-columns: 1fr 1fr;
             }
 
             .main-content {
@@ -636,6 +623,26 @@
 
             .content-container {
                 padding: 0 0.625rem;
+            }
+        }
+
+        /* Phones: one field per line */
+        @media (max-width: 560px) {
+            .form-row.name-row,
+            .form-row.label-pair {
+                grid-template-columns: 1fr;
+                grid-template-rows: none;
+                row-gap: 0.7rem;
+            }
+
+            .form-row.label-pair .form-group {
+                display: block;
+                grid-row: auto;
+            }
+
+            .form-row.label-pair .form-group label {
+                min-height: 0;
+                display: block;
             }
         }
 
