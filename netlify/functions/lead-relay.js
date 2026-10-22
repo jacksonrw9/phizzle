@@ -143,7 +143,9 @@ async function handlePlainFormPost(event, origin) {
     email: get('email'),
     phone: get('phoneNumber'),
     project_stage: get('projectStage'),
-    message: get('message'),
+    message: (get('projectStage') === 'Other' && get('projectStageOther'))
+      ? 'Buying process (other): ' + get('projectStageOther') + (get('message') ? '\n\n' + get('message') : '')
+      : get('message'),
     hs_lead_status: 'NEW',
     lifecyclestage: 'lead'
   };
