@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Off the Network, Still Connected. Download the brochure to see how Phizzle's Connected Plant™ Platform eliminates the IT burden of scientific instruments without sacrificing a single data point.">
+    <meta name="description" content="Off the Network, Still Connected. Integrate instruments without adding them to the network as endpoints. Download the one-pager from Phizzle.">
     <title>Off the Network, Still Connected - Phizzle</title>
 
     <!-- Favicon links -->
@@ -342,14 +342,19 @@
         }
 
         /* Hero Images */
+        /* Same size as the form box in the right column, square corners */
         .hero-image {
+            grid-area: image;
+            align-self: stretch;
             width: 100%;
-            max-width: 420px;
-            height: auto;
-            margin: 0 auto 3rem;
+            height: 100%;
+            min-height: 0;
+            object-fit: contain;          /* never crops the one-pager; any extra height shows as white page below it */
+            object-position: top center;
+            background: #ffffff;
+            margin: 0;
             display: block;
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
-            border-radius: 8px;
         }
 
         .main-content {
@@ -364,18 +369,42 @@
         }
 
         /* Hero Section */
+        /* Two rows: titles on top, then the image and the form box side by side at the same size */
         .hero-section {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            grid-template-areas:
+                "title title"
+                "image form";
+            column-gap: 4rem;
+            row-gap: 1.25rem;
+            align-items: end;
+        }
+
+        .hero-content,
+        .hero-right {
+            display: contents;
+        }
+
+        /* Title block spans both columns, so the subheader stays on one line on desktop */
+        .hero-titles {
+            grid-area: title;
+        }
+
+        .hero-titles .hero-tagline {
+            white-space: nowrap;
+        }
+
+        .hero-sidebar {
+            grid-area: form;
+            align-self: stretch;
         }
 
         .hero-content h1 {
             font-size: 2.5rem;
             font-weight: 600;
             color: #1f2937;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0;
             line-height: 1.2;
         }
 
@@ -402,6 +431,14 @@
             line-height: 1.5;
         }
 
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #436c79;
+            margin: 0.75rem 0 0;
+            line-height: 1.3;
+        }
+
         .hero-sidebar h3 {
             font-size: 1.1rem;
             font-weight: 600;
@@ -422,7 +459,7 @@
 
         .form-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
             gap: 1rem;
         }
 
@@ -434,6 +471,8 @@
         }
 
         input {
+            width: 100%;
+            min-width: 0;
             padding: 0.75rem;
             border: 2px solid #d1d5db;
             border-radius: 6px;
@@ -492,6 +531,58 @@
 
         .submit-btn:hover {
             background: #30444d;
+        }
+
+        /* Work email check: message under the email field */
+        .field-error {
+            display: none;
+            margin-top: 0.4rem;
+            color: #b91c1c;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .field-error.show {
+            display: block;
+        }
+
+        /* Keep the sidebar's paragraph style off the form messages */
+        .hero-sidebar .field-error {
+            font-size: 0.85rem;
+            color: #b91c1c;
+            font-weight: 400;
+            margin: 0.4rem 0 0;
+        }
+
+        .hero-sidebar .form-error {
+            font-size: 0.9rem;
+            color: #b91c1c;
+            font-weight: 400;
+            margin: 0.75rem 0 0;
+        }
+
+        .hero-sidebar .form-confirmation {
+            font-size: 0.9rem;
+            margin: 0.75rem 0 0;
+        }
+
+        input.input-error,
+        input.input-error:focus {
+            border-color: #ef4444;
+        }
+
+        .form-error {
+            display: none;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #b91c1c;
+            text-align: center;
+        }
+
+        .form-error a {
+            color: #b91c1c;
         }
 
         .form-confirmation {
@@ -853,7 +944,15 @@
             /* Hero section adjustments on tablet */
             .hero-section {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                grid-template-areas:
+                    "title"
+                    "image"
+                    "form";
+                row-gap: 1.5rem;
+            }
+
+            .hero-image {
+                height: auto;
             }
 
             /* Footer adjustments */
@@ -907,6 +1006,16 @@
                 text-align: left;
                 margin: 1.5rem auto;
                 max-width: 400px;
+            }
+
+            .hero-tagline {
+                font-size: 1.3rem;
+                text-align: center;
+            }
+
+            /* Too narrow for one line on phones: let it wrap there */
+            .hero-titles .hero-tagline {
+                white-space: normal;
             }
 
             .hero-sidebar h3 {
@@ -1135,15 +1244,29 @@
             <!-- Hero Section -->
             <section class="hero-section">
                 <div class="hero-content">
-                    <h1>Off the Network, Still Connected</h1>
-                    <h2>How Phizzle's Connected Plant™ Platform eliminates the IT burden of scientific instruments without sacrificing a single data point.</h2>
-                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1781545484/Screenshot_2026-06-15_at_10.44.38_AM_pcennv.png" alt="Off the Network, Still Connected Brochure" class="hero-image">
+                    <div class="hero-titles">
+                        <h1>Off the Network, Still Connected</h1>
+                        <h2 class="hero-tagline">Integrate instruments without adding them to the network as endpoints.</h2>
+                    </div>
+                    <img src="https://res.cloudinary.com/dqiggfeuq/image/upload/v1792704411/Off-the-Network_Still_Connected_top_1_ga9omg.png" alt="Off the Network, Still Connected one-pager" class="hero-image" width="1275" height="834">
                 </div>
+                <div class="hero-right">
                 <div class="hero-sidebar">
-                    <h3>Enter your information below to download the brochure:</h3>
+                    <h3>Enter your information below to get the one-pager:</h3>
                     
-                    <!-- Lead capture form with HubSpot integration -->
-                    <form class="sandbox-form" id="sandbox-form" data-hsforms-ignore="true" data-hs-cf-bound="true">
+                    <!-- Copy of every brochure request on phizzle.com's own hosting (Netlify Forms). Never shown;
+                         Netlify reads it when the site deploys. -->
+                    <form name="brochure-fallback" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true">
+                        <input type="hidden" name="form-name" value="brochure-fallback">
+                        <input name="bot-field">
+                        <input name="firstname"><input name="lastname"><input name="email">
+                        <input name="marketing_opt_in"><input name="page"><input name="submission_id">
+                    </form>
+
+                    <!-- method/action only matter if the page's code isn't running yet (or at all): the browser then
+                         sends the form to phizzle.com's relay, which forwards it to HubSpot, the Sheet and Netlify. -->
+                    <form class="sandbox-form" id="sandbox-form" method="post" action="/.netlify/functions/lead-relay" data-hsforms-ignore="true" data-hs-cf-bound="true">
+                        <input type="hidden" name="formType" value="brochure">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstname">First Name</label>
@@ -1157,31 +1280,26 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Work email" required>
+                            <label for="email">Work Email</label>
+                            <input type="email" id="email" name="email" placeholder="Work email" autocomplete="email" inputmode="email" required>
+                            <p class="field-error" id="emailError" role="alert">Please use your work email.</p>
                         </div>
 
-                        <div class="form-group">
-                            <label for="company">Company</label>
-                            <input type="text" id="company" name="company" placeholder="Company name" required>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="jobtitle">Title</label>
-                            <input type="text" id="jobtitle" name="jobtitle" placeholder="Job title" required>
-                        </div>
                         
                         <div class="checkbox-group">
                             <input type="checkbox" id="marketing" name="marketing" value="yes">
                             <label for="marketing" class="checkbox-label">I agree to receive other communications from Phizzle.</label>
                         </div>
                         
-                        <button type="submit" class="submit-btn">Get the Brochure</button>
+                        <button type="submit" class="submit-btn">Get the One-Pager</button>
 
                         <p class="form-confirmation" id="form-confirmation">
-                            Thanks! Check your inbox — we just emailed you the brochure. (Be sure to check spam if you don't see it within a few minutes.)
+                            Thanks! We've got your request, and the one-pager will be emailed to you shortly.
                         </p>
+                        <p class="form-error" id="form-error" role="alert"></p>
                     </form>
+                </div>
                 </div>
             </section>
         </div>
@@ -1319,70 +1437,302 @@
             }
         });
 
-        // HubSpot Form Integration for Brochure Lead Capture Form
+        // ================= Work email only =================
+        // Same list as the get-in-touch and demo pages. Consumer email services are blocked with any
+        // country ending (gmail.com, yahoo.com.br, hotmail.co.uk...).
+        const PERSONAL_EMAIL_PROVIDERS = [
+            'gmail', 'googlemail', 'yahoo', 'ymail', 'rocketmail', 'hotmail', 'outlook',
+            'live', 'msn', 'aol', 'icloud', 'protonmail', 'gmx', 'yandex', 'zohomail',
+            'tutanota', 'qq', '163', '126'
+        ];
+        // Exact personal domains. Internet providers are listed by their consumer domain only,
+        // so employees of AT&T (att.com), Verizon (verizon.com), Comcast and others can still use their work email.
+        const PERSONAL_EMAIL_DOMAINS = [
+            'me.com', 'mac.com', 'aim.com', 'mail.com', 'mail.ru', 'proton.me', 'pm.me', 'hey.com',
+            'fastmail.com', 'att.net', 'sbcglobal.net', 'bellsouth.net', 'verizon.net', 'comcast.net',
+            'cox.net', 'charter.net', 'earthlink.net', 'juno.com', 'naver.com',
+            'uol.com.br', 'bol.com.br', 'terra.com.br', 'ig.com.br'
+        ];
+        const PERSONAL_EMAIL_PATTERN = new RegExp(
+            '@(?:(?:' + PERSONAL_EMAIL_PROVIDERS.join('|') + ')\\.[a-z]{2,3}(?:\\.[a-z]{2})?|' +
+            PERSONAL_EMAIL_DOMAINS.map(d => d.replace(/\./g, '\\.')).join('|') + ')$', 'i');
+        const PERSONAL_EMAIL_MESSAGE = 'Please use your work email.';
+
+        function isPersonalEmail(value) {
+            return PERSONAL_EMAIL_PATTERN.test(String(value || '').trim());
+        }
+
+        const workEmailInput = document.getElementById('email');
+        const workEmailError = document.getElementById('emailError');
+        // Checks while typing: blocks the form and shows the message under the field
+        function checkWorkEmail() {
+            const personal = isPersonalEmail(workEmailInput.value);
+            workEmailInput.setCustomValidity(personal ? PERSONAL_EMAIL_MESSAGE : '');
+            workEmailError.classList.toggle('show', personal);
+            workEmailInput.classList.toggle('input-error', personal);
+            return !personal;
+        }
+        workEmailInput.addEventListener('input', checkWorkEmail);
+        workEmailInput.addEventListener('change', checkWorkEmail);
+        // The message under the field replaces the browser's pop-up bubble
+        workEmailInput.addEventListener('invalid', function (e) {
+            if (isPersonalEmail(workEmailInput.value)) {
+                e.preventDefault();
+                setTimeout(() => {
+                    workEmailInput.focus();
+                    workEmailInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 0);
+            }
+        });
+        checkWorkEmail(); // in case the browser restored a value
+
+        // ================= Brochure form: lead capture =================
+        // Same safety net as the get-in-touch and demo pages. Every request is saved to the backup
+        // Google Sheet and to Netlify Forms first, then sent straight to HubSpot (which emails the
+        // brochure). If the visitor's network blocks HubSpot or Google, phizzle.com's relay sends it
+        // on instead. "Thanks" shows once the request is safely captured.
+        const HUBSPOT_PORTAL_ID = '8070371';
+        const BROCHURE_FORM_ID = '45e5f695-e658-4c2e-a872-9900d4bf4427';
+        const BROCHURE_FORM_NAME = 'Brochure Download';
+        const SALES_EMAIL = 'sales@phizzle.com';
+        const BACKUP_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfLG4keTbK34yn_DIKp8uD4hLb34dcjYQXczEptqzNLSg0GDw/formResponse';
+        const BACKUP_FORM_FIELDS = {
+            form: 'entry.516863202',
+            hubspot: 'entry.1581862950',
+            firstname: 'entry.1323290399',
+            lastname: 'entry.953833378',
+            email: 'entry.2060112685',
+            marketing_opt_in: 'entry.2012500422',
+            page: 'entry.1260589540',
+            id: 'entry.392642089'
+        };
+        const RELAY_URL = '/.netlify/functions/lead-relay';
+
+        function newSubmissionId() {
+            return Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+        }
+
+        // HubSpot tracking cookie, so a submission links to the visitor's earlier page views
+        function getHubspotCookie() {
+            const match = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
+            return match ? decodeURIComponent(match[1]) : undefined;
+        }
+
+        async function fetchWithTimeout(url, options, ms) {
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), ms || 15000);
+            try {
+                return await fetch(url, Object.assign({}, options, { signal: controller.signal }));
+            } finally {
+                clearTimeout(timer);
+            }
+        }
+
+        // Copy to the backup Google Form (feeds the backup Sheet). Google doesn't let the page read
+        // the reply, so this returns true when the request was sent without a network error.
+        async function saveToBackup(values, timeoutMs) {
+            const body = new URLSearchParams();
+            Object.keys(BACKUP_FORM_FIELDS).forEach(key => {
+                if (values[key] !== undefined && values[key] !== '') {
+                    body.append(BACKUP_FORM_FIELDS[key], String(values[key]).slice(0, 5000));
+                }
+            });
+            try {
+                await fetchWithTimeout(BACKUP_FORM_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    keepalive: true,
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: body.toString()
+                }, timeoutMs || 15000);
+                return true;
+            } catch (error) {
+                console.error('Backup save failed:', error);
+                return false;
+            }
+        }
+
+        // Copy in Netlify Forms on phizzle.com (doesn't depend on Google or HubSpot)
+        async function saveToNetlifyForms(id, fieldMap) {
+            const body = new URLSearchParams({ 'form-name': 'brochure-fallback' });
+            ['firstname', 'lastname', 'email']
+                .forEach(k => body.append(k, String(fieldMap[k] || '').slice(0, 5000)));
+            body.append('marketing_opt_in', fieldMap.marketing_opt_in || 'false');
+            body.append('page', window.location.href);
+            body.append('submission_id', id);
+            try {
+                const response = await fetchWithTimeout('/', {
+                    method: 'POST',
+                    keepalive: true,
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: body.toString()
+                }, 15000);
+                return response.ok;
+            } catch (error) {
+                console.error('Netlify Forms save failed:', error);
+                return false;
+            }
+        }
+
+        // Straight to HubSpot. Returns { ok, detail } with HubSpot's actual answer.
+        async function sendToHubSpot(fields) {
+            const context = { pageUri: window.location.href, pageName: 'IT White Paper Request' };
+            const hutk = getHubspotCookie();
+            if (hutk) context.hutk = hutk;
+            try {
+                const response = await fetchWithTimeout(
+                    'https://api.hsforms.com/submissions/v3/integration/submit/' + HUBSPOT_PORTAL_ID + '/' + BROCHURE_FORM_ID,
+                    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ fields: fields, context: context }) },
+                    15000
+                );
+                const data = await response.json().catch(() => ({}));
+                if (response.ok) return { ok: true, detail: 'accepted' };
+                const reasons = (data.errors || []).map(err => err.message).join(' | ');
+                return { ok: false, detail: 'rejected (' + response.status + '): ' + (reasons || data.message || 'no details') };
+            } catch (error) {
+                return { ok: false, detail: 'could not reach HubSpot: ' + error };
+            }
+        }
+
+        // Last resort when this network blocks HubSpot or Google: phizzle.com forwards it
+        async function sendToRelay(payload) {
+            try {
+                const response = await fetchWithTimeout(RELAY_URL, {
+                    method: 'POST',
+                    keepalive: true,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }, 20000);
+                if (!response.ok) return null;
+                return await response.json();
+            } catch (error) {
+                console.error('Relay failed:', error);
+                return null;
+            }
+        }
+
+        async function submitBrochureRequest(fields) {
+            const id = newSubmissionId();
+            const fieldMap = {};
+            fields.forEach(f => { fieldMap[f.name] = f.value; });
+            const backupValues = Object.assign({}, fieldMap, { form: BROCHURE_FORM_NAME, page: window.location.href, id: id });
+
+            // 1. Two copies first, at the same time: the backup Sheet (marked "pending" until
+            //    HubSpot answers) and Netlify Forms
+            const saves = await Promise.all([
+                saveToBackup(Object.assign({}, backupValues, { hubspot: 'pending' }), 6000),
+                saveToNetlifyForms(id, fieldMap)
+            ]);
+            const backupSaved = saves[0];
+            const netlifySaved = saves[1];
+
+            // 2. HubSpot (its workflow emails the brochure)
+            let hubspot = await sendToHubSpot(fields);
+            if (!hubspot.ok) console.error('HubSpot did not accept the brochure request:', hubspot.detail);
+
+            // 2b. HubSpot or Google blocked on this network: send through phizzle.com instead
+            const hubspotUnreachable = !hubspot.ok && /could not reach HubSpot/.test(hubspot.detail);
+            if (!backupSaved || hubspotUnreachable) {
+                const relay = await sendToRelay({
+                    id: id,
+                    formId: BROCHURE_FORM_ID,
+                    form: BROCHURE_FORM_NAME,
+                    fields: fields,
+                    page: window.location.href,
+                    pageName: 'IT White Paper Request',
+                    hutk: getHubspotCookie(),
+                    hubspotAlreadyAccepted: hubspot.ok,
+                    needBackup: !backupSaved
+                });
+                if (relay && hubspotUnreachable && relay.hubspot) hubspot = relay.hubspot;
+            }
+
+            // 3. HubSpot's answer, matched to the pending backup row by submission ID. The alert
+            //    script then emails the team (or resends to HubSpot after 5 minutes if this never arrives).
+            saveToBackup({ id: id, form: BROCHURE_FORM_NAME + ' (result)', hubspot: hubspot.ok ? 'accepted' : hubspot.detail, page: window.location.href });
+
+            // Received = HubSpot confirmed it, or Netlify saved it and HubSpot wasn't refusing the
+            // details themselves (a 4xx rejection means the visitor needs to fix something).
+            const hubspotRefused = !hubspot.ok && /rejected \(4\d\d\)/.test(hubspot.detail);
+            const received = hubspot.ok || (netlifySaved && !hubspotRefused);
+            if (received && typeof gtag === 'function') {
+                gtag('event', 'form_submit', {
+                    form_id: 'sandbox-form',
+                    form_name: BROCHURE_FORM_NAME,
+                    page_path: window.location.pathname,
+                    hubspot_accepted: hubspot.ok,
+                    backup_saved: backupSaved
+                });
+            }
+            return { received: received, hubspot: hubspot };
+        }
+        // ============================================================
+
         document.getElementById('sandbox-form').addEventListener('submit', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
-            const firstname = e.target.querySelector('input[name="firstname"]').value;
-            const lastname = e.target.querySelector('input[name="lastname"]').value;
-            const email = e.target.querySelector('input[name="email"]').value;
-            const company = e.target.querySelector('input[name="company"]').value;
-            const jobtitle = e.target.querySelector('input[name="jobtitle"]').value;
+
+            const firstname = e.target.querySelector('input[name="firstname"]').value.trim();
+            const lastname = e.target.querySelector('input[name="lastname"]').value.trim();
+            const email = e.target.querySelector('input[name="email"]').value.trim();
             const marketing = e.target.querySelector('input[name="marketing"]').checked;
             const submitBtn = e.target.querySelector('button[type="submit"]');
             const confirmation = document.getElementById('form-confirmation');
-            
+            const errorBox = document.getElementById('form-error');
+
+            // Work email only (the message shows under the field)
+            if (!checkWorkEmail()) {
+                workEmailInput.focus();
+                workEmailInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            confirmation.style.display = 'none';
+            errorBox.style.display = 'none';
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
-            
-            // Get reCAPTCHA token
-            grecaptcha.enterprise.ready(function() {
-                grecaptcha.enterprise.execute('6Le6W1osAAAAAEySdjeFfrJffcwvyfL2ph1Dsxyf', {action: 'submit'}).then(function(token) {
-                    
-                    // Submit to Netlify function
-                    fetch('/.netlify/functions/submit-form', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            recaptchaToken: token,
-                            formData: {
-                                formId: '45e5f695-e658-4c2e-a872-9900d4bf4427',
-                                fields: [
-                                    { name: "firstname", value: firstname },
-                                    { name: "lastname", value: lastname },
-                                    { name: "email", value: email },
-                                    { name: "company", value: company },
-                                    { name: "jobtitle", value: jobtitle },
-                                    { name: "hs_lead_status", value: "NEW" },
-                                    { name: "lifecyclestage", value: "lead" }
-                                ],
-                                context: {
-                                    pageUri: window.location.href,
-                                    pageName: "IT White Paper Request"
-                                }
-                            }
-                        })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        // Show inbox confirmation; brochure is delivered via HubSpot email automation
-                        confirmation.style.display = 'block';
 
+            const fields = [
+                { name: "firstname", value: firstname },
+                { name: "lastname", value: lastname },
+                { name: "email", value: email },
+                { name: "hs_lead_status", value: "NEW" },
+                { name: "lifecyclestage", value: "lead" }
+            ];
+            if (marketing) fields.push({ name: "marketing_opt_in", value: "true" });
+
+            // Sent without reCAPTCHA: if Google's reCAPTCHA is blocked or slow, the request still goes through
+            submitBrochureRequest(fields)
+                .then(outcome => {
+                    if (outcome.received) {
+                        // HubSpot accepted it, so its workflow is emailing the brochure now. If only the
+                        // backup copies saved, the team gets an alert and sends it, so don't promise "just emailed".
+                        confirmation.textContent = 'Thanks! We\'ve got your request, and the one-pager will be emailed to you shortly.';
+                        confirmation.style.display = 'block';
                         submitBtn.textContent = 'Sent!';
                         e.target.reset();
                         setTimeout(() => {
-                            submitBtn.textContent = 'Get the Brochure';
+                            submitBtn.textContent = 'Get the One-Pager';
                             submitBtn.disabled = false;
                         }, 3000);
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        submitBtn.textContent = 'Error - Try Again';
-                        submitBtn.disabled = false;
-                    });
+                        return;
+                    }
+                    // Not confirmed: say so honestly and keep what they typed
+                    // (a backup copy was still sent, and the team gets an alert email)
+                    errorBox.innerHTML = 'Sorry, we couldn\'t confirm your request went through. Please try again, or email us at ' +
+                        '<a href="mailto:' + SALES_EMAIL + '">' + SALES_EMAIL + '</a>.';
+                    errorBox.style.display = 'block';
+                    submitBtn.textContent = 'Get the One-Pager';
+                    submitBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    errorBox.innerHTML = 'Sorry, we couldn\'t confirm your request went through. Please try again, or email us at ' +
+                        '<a href="mailto:' + SALES_EMAIL + '">' + SALES_EMAIL + '</a>.';
+                    errorBox.style.display = 'block';
+                    submitBtn.textContent = 'Get the One-Pager';
+                    submitBtn.disabled = false;
                 });
-            });
         });
 
         // Load reCAPTCHA
