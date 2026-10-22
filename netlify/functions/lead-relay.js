@@ -14,6 +14,16 @@
 
 const HUBSPOT_PORTAL_ID = '8070371';
 const LEAD_FORM_ID = '24515c9a-c453-4d31-af1a-7c28742d5b44';
+const DEMO_FORM_ID = '48fc0c12-f623-426c-8359-9c023bbb0832';
+const BROCHURE_FORM_ID = '45e5f695-e658-4c2e-a872-9900d4bf4427';
+const CONTACT_FORM_ID = '075fc548-0b96-43c5-ac97-76ac0695175e';
+// HubSpot forms this relay will send to, and the Netlify Forms copy each one uses
+const FORMS = {
+  [LEAD_FORM_ID]: { name: 'Get in Touch', netlifyForm: 'lead-fallback', pageName: 'Lead Capture' },
+  [DEMO_FORM_ID]: { name: 'Request a Demo', netlifyForm: 'demo-fallback', pageName: 'Request a Demo - Phizzle' },
+  [BROCHURE_FORM_ID]: { name: 'Brochure Download', netlifyForm: 'brochure-fallback', pageName: 'IT White Paper Request' },
+  [CONTACT_FORM_ID]: { name: 'Contact Us', netlifyForm: 'contact-fallback', pageName: 'Contact Us' }
+};
 const BACKUP_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfLG4keTbK34yn_DIKp8uD4hLb34dcjYQXczEptqzNLSg0GDw/formResponse';
 const BACKUP_FORM_FIELDS = {
   form: 'entry.516863202',
@@ -36,7 +46,13 @@ const BACKUP_FORM_FIELDS = {
 const ALLOWED_ORIGINS = [/^https:\/\/(www\.)?phizzle\.com$/i, /^https:\/\/[a-z0-9-]+--[a-z0-9-]+\.netlify\.app$/i, /^https:\/\/[a-z0-9-]+\.netlify\.app$/i];
 
 // HubSpot properties the page sends; anything else is ignored
-const HUBSPOT_FIELDS = ['firstname', 'lastname', 'email', 'phone', 'project_stage', 'message', 'marketing_opt_in', 'hs_lead_status', 'lifecyclestage'];
+const HUBSPOT_FIELDS = ['firstname', 'lastname', 'email', 'company', 'jobtitle', 'phone', 'project_stage', 'demo_request_date', 'message', 'marketing_opt_in', 'hs_lead_status', 'lifecyclestage'];
+
+// The backup Sheet has no demo date column, so the date goes at the top of the message
+function backupMessage(values) {
+  const date = values.demo_request_date ? 'Requested demo date: ' + values.demo_request_date : '';
+  return [date, values.message || ''].filter(Boolean).join('\n\n');
+}
 
 function reply(statusCode, body, origin) {
   return {
@@ -59,10 +75,10 @@ async function withTimeout(promise, ms) {
   }
 }
 
-async function sendToHubSpot(fields, context) {
+async function sendToHubSpot(fields, context, formId) {
   try {
     const response = await withTimeout(fetch(
-      `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${LEAD_FORM_ID}`,
+      `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${formId || LEAD_FORM_ID}`,
       { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ fields, context }) }
     ), 12000);
     if (response.ok) return { ok: true, detail: 'accepted (via phizzle.com relay)' };
@@ -75,6 +91,7 @@ async function sendToHubSpot(fields, context) {
 }
 
 async function saveToBackup(values) {
+  values = Object.assign({}, values, { message: backupMessage(values) });
   const body = new URLSearchParams();
   Object.keys(BACKUP_FORM_FIELDS).forEach(key => {
     if (values[key] !== undefined && values[key] !== '') {
@@ -95,11 +112,18 @@ async function saveToBackup(values) {
   }
 }
 
-// Third copy in Netlify Forms (same "lead-fallback" form the page uses)
-async function saveToNetlifyForms(siteUrl, values) {
+// Third copy in Netlify Forms (same "lead-fallback" / "demo-fallback" form the page uses)
+async function saveToNetlifyForms(siteUrl, values, netlifyForm) {
   if (!siteUrl) return false;
-  const body = new URLSearchParams({ 'form-name': 'lead-fallback' });
-  ['firstname', 'lastname', 'email', 'phone', 'project_stage', 'message', 'marketing_opt_in', 'page', 'submission_id']
+  const body = new URLSearchParams({ 'form-name': netlifyForm || 'lead-fallback' });
+  const keys = netlifyForm === 'demo-fallback'
+    ? ['firstname', 'lastname', 'company', 'email', 'phone', 'demo_request_date', 'message', 'marketing_opt_in', 'page', 'submission_id']
+    : netlifyForm === 'brochure-fallback'
+      ? ['firstname', 'lastname', 'email', 'company', 'jobtitle', 'marketing_opt_in', 'page', 'submission_id']
+    : netlifyForm === 'contact-fallback'
+      ? ['firstname', 'lastname', 'company', 'email', 'phone', 'message', 'marketing_opt_in', 'page', 'submission_id']
+      : ['firstname', 'lastname', 'email', 'phone', 'project_stage', 'message', 'marketing_opt_in', 'page', 'submission_id'];
+  keys
     .forEach(k => { if (values[k]) body.append(k, String(values[k]).slice(0, 5000)); });
   try {
     const response = await withTimeout(fetch(siteUrl.replace(/\/$/, '') + '/', {
@@ -114,10 +138,10 @@ async function saveToNetlifyForms(siteUrl, values) {
 }
 
 // Plain page shown when the form was sent without the page's JavaScript running
-function htmlPage(ok) {
+function htmlPage(ok, okText) {
   const title = ok ? 'Thanks for reaching out!' : 'Sorry, something went wrong';
   const text = ok
-    ? 'A member of the Phizzle team will reach out in the next 24 hours.'
+    ? (okText || 'A member of the Phizzle team will reach out in the next 24 hours.')
     : 'We couldn\'t confirm your request went through. Please email us at <a href="mailto:sales@phizzle.com">sales@phizzle.com</a>.';
   return {
     statusCode: ok ? 200 : 502,
@@ -136,8 +160,42 @@ async function handlePlainFormPost(event, origin) {
   const raw = event.isBase64Encoded ? Buffer.from(event.body || '', 'base64').toString('utf8') : (event.body || '');
   const form = new URLSearchParams(raw);
   const get = k => String(form.get(k) || '').trim().slice(0, 5000);
+  const formType = get('formType');
+  const isDemo = formType === 'demo';
+  const isBrochure = formType === 'brochure';
+  const isContact = formType === 'contact';
+  const formId = isDemo ? DEMO_FORM_ID : isBrochure ? BROCHURE_FORM_ID : isContact ? CONTACT_FORM_ID : LEAD_FORM_ID;
 
-  const fieldMap = {
+  const fieldMap = isContact ? {
+    firstname: get('firstName'),
+    lastname: get('lastName'),
+    company: get('companyName'),
+    email: get('email'),
+    phone: get('phoneNumber'),
+    message: get('message'),
+    hs_lead_status: 'NEW',
+    lifecyclestage: 'lead'
+  } : isBrochure ? {
+    firstname: get('firstname'),
+    lastname: get('lastname'),
+    email: get('email'),
+    company: get('company'),
+    jobtitle: get('jobtitle'),
+    hs_lead_status: 'NEW',
+    lifecyclestage: 'lead'
+  } : isDemo ? {
+    firstname: get('firstName'),
+    lastname: get('lastName'),
+    company: get('companyName'),
+    email: get('email'),
+    phone: get('phone'),
+    // The page fills seminarDate in; without the page's code, build it from the month/day/year boxes
+    demo_request_date: get('seminarDate') || ((get('seminarYear') && get('seminarMonth') && get('seminarDay'))
+      ? get('seminarYear') + '-' + get('seminarMonth') + '-' + get('seminarDay') : ''),
+    message: get('message'),
+    hs_lead_status: 'NEW',
+    lifecyclestage: 'lead'
+  } : {
     firstname: get('firstName'),
     lastname: get('lastName'),
     email: get('email'),
@@ -149,25 +207,26 @@ async function handlePlainFormPost(event, origin) {
     hs_lead_status: 'NEW',
     lifecyclestage: 'lead'
   };
-  if (form.get('communications')) fieldMap.marketing_opt_in = 'true';
+  if (form.get('communications') || form.get('marketingEmails') || form.get('marketing')) fieldMap.marketing_opt_in = 'true';
   Object.keys(fieldMap).forEach(k => { if (!fieldMap[k]) delete fieldMap[k]; });
   if (!fieldMap.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fieldMap.email)) return htmlPage(false);
 
   const id = 'nojs-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8);
   const page = String(event.headers.referer || event.headers.Referer || origin || '').slice(0, 500);
-  const context = { pageUri: page, pageName: 'Lead Capture (no JavaScript)' };
+  const context = { pageUri: page, pageName: FORMS[formId].pageName + ' (no JavaScript)' };
   const ip = event.headers['x-nf-client-connection-ip'] || '';
   if (ip) context.ipAddress = ip;
 
   // All three are tried, each regardless of the others
-  const hubspot = await sendToHubSpot(Object.keys(fieldMap).map(name => ({ name, value: fieldMap[name] })), context);
+  const hubspot = await sendToHubSpot(Object.keys(fieldMap).map(name => ({ name, value: fieldMap[name] })), context, formId);
   const [backup, netlify] = await Promise.all([
-    saveToBackup(Object.assign({}, fieldMap, { form: 'Get in Touch', hubspot: hubspot.ok ? 'accepted' : hubspot.detail, page: page, id: id })),
-    saveToNetlifyForms(process.env.URL || origin, Object.assign({}, fieldMap, { page: page, submission_id: id }))
+    saveToBackup(Object.assign({}, fieldMap, { form: FORMS[formId].name, hubspot: hubspot.ok ? 'accepted' : hubspot.detail, page: page, id: id })),
+    saveToNetlifyForms(process.env.URL || origin, Object.assign({}, fieldMap, { page: page, submission_id: id }), FORMS[formId].netlifyForm)
   ]);
 
   console.log(`lead-relay ${id} (no JS): hubspot=${hubspot.ok ? 'ok' : hubspot.detail} backup=${backup} netlify=${netlify}`);
-  return htmlPage(hubspot.ok || backup || netlify);
+  return htmlPage(hubspot.ok || backup || netlify,
+    isBrochure ? 'We\'ve got your request, and the one-pager will be emailed to you shortly.' : '');
 }
 
 exports.handler = async (event) => {
@@ -206,18 +265,21 @@ exports.handler = async (event) => {
     return reply(400, { error: 'email missing or invalid' }, allowed ? origin : '');
   }
 
+  const formId = payload.formId ? String(payload.formId) : LEAD_FORM_ID;
+  if (!FORMS[formId]) return reply(400, { error: 'unknown form' }, allowed ? origin : '');
+
   const id = String(payload.id || '').slice(0, 64) || 'relay-' + Date.now().toString(36);
   const page = String(payload.page || '').slice(0, 500);
-  const formName = String(payload.form || 'Get in Touch').slice(0, 100);
+  const formName = String(payload.form || FORMS[formId].name).slice(0, 100);
 
   // 1. HubSpot, unless the page already got it there
   let hubspot = { ok: !!payload.hubspotAlreadyAccepted, detail: payload.hubspotAlreadyAccepted ? 'accepted' : '' };
   if (!payload.hubspotAlreadyAccepted) {
-    const context = { pageUri: page, pageName: String(payload.pageName || 'Lead Capture') };
+    const context = { pageUri: page, pageName: String(payload.pageName || FORMS[formId].pageName) };
     if (payload.hutk) context.hutk = String(payload.hutk).slice(0, 100);
     const ip = event.headers['x-nf-client-connection-ip'] || '';
     if (ip) context.ipAddress = ip;
-    hubspot = await sendToHubSpot(Object.keys(fieldMap).map(name => ({ name, value: fieldMap[name] })), context);
+    hubspot = await sendToHubSpot(Object.keys(fieldMap).map(name => ({ name, value: fieldMap[name] })), context, formId);
   }
 
   // 2. Backup row with the final HubSpot result, unless the page already saved one
